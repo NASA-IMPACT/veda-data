@@ -1,0 +1,85 @@
+name: New Dataset
+about: Ingest and publish data to the VEDA data store & STAC API
+title: "New Dataset: <dataset title>"
+labels: ['dataset']
+
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Use this form to make sure that you are providing enough information about the data.
+        For detailed guidance on how to set up a dataset for ingestion take a look at the
+        [VEDA docs on Data Ingestion](https://nasa-impact.github.io/veda-docs/contributing/dataset-ingestion/).
+  - type: input
+    id: contact
+    attributes:
+      label: Contact Details
+      description: Who should we be giving updates to and asking for any additional information from?
+      placeholder: ex. email@nasa.gov
+    validations:
+      required: true
+  - type: input
+    id: data location
+    attributes:
+      label: Data Location
+      description: Where is the data currently stored?
+      placeholder: ex. s3://veda-data-store-staging/no2-monthly-diff
+    validations:
+      required: true
+  - type: input
+    id: number of items
+    attributes:
+      label: Number of items
+      description: How many items are in this directory/bucket?
+    validations:
+      required: false
+  - type: input
+    id: collection
+    attributes:
+      label: New Collection notebook
+      description: |
+        Link to the notebook where you are creating a valid STAC collection following the example in
+        [veda-docs](https://nasa-impact.github.io/veda-docs/contributing/dataset-ingestion/notebooks/new-collection.html).
+        Any type of link is fine: a github gist, a link to a shared version of the notebook on one of the jupyter hubs, ...
+    validations:
+      required: false
+  - type: input
+    id: item
+    attributes:
+      label: New Item notebook
+      description: |
+        Link to the notebook where you are creating a valid STAC item following the example in
+        [veda-docs](https://nasa-impact.github.io/veda-docs/contributing/dataset-ingestion/notebooks/new-item.html).
+        Any type of link is fine: a github gist, a link to a shared version of the notebook on one of the jupyter hubs, ...
+    validations:
+      required: false
+  - type: checkboxes
+    id: checklist
+    attributes:
+      label: Checklist
+      description: Use the following checklist to ensure your data is valid.
+      options:
+        - label: "Files are valid COGs"
+          description: "Use [`rio cogeo validate`](https://cogeotiff.github.io/rio-cogeo/Is_it_a_COG/#3-cog-validation))"
+          required: false
+        - label: "COGs appear to be correct"
+          description: "Look at the COG in a notebook or in a COG viewer to spot any odd patterns."
+          required: false
+  - type: textarea
+    id: extra
+    attributes:
+      label: Anything else?
+    validations:
+      required: false
+  - type: checkboxes
+    id: tasks
+    attributes:
+      label: To Do
+      description: This section is for the VEDA team to track progress. You can leave it blank.
+      options:
+        - label: "Open PR for publishing those datasets to the Staging API"
+          required: false
+        - label: "Notify QA / move ticket to QA state"
+          required: false
+        - label: "Once approved, merge and close"
+          required: false
