@@ -29,28 +29,30 @@ body:
   - type: input
     id: n-items
     attributes:
-      label: Number of items
+      label: Number of Items
       description: How many items are in this directory/bucket?
     validations:
       required: false
   - type: input
     id: collection
     attributes:
-      label: New Collection notebook
+      label: Collection Creation Notebook
       description: |
         Link to the notebook where you are creating a valid STAC collection following the example in
-        [veda-docs](https://nasa-impact.github.io/veda-docs/contributing/dataset-ingestion/notebooks/new-collection.html).
-        Any type of link is fine: a github gist, a link to a shared version of the notebook on one of the jupyter hubs, ...
+        [VEDA docs on Item Creation](https://nasa-impact.github.io/veda-docs/notebooks/veda-operations/stac-collection-creation.html).
+        Any type of link is fine: a github gist, a notebooksharing.space link,
+        a link to a shared version of the notebook on one of the jupyter hubs, ...
     validations:
       required: false
   - type: input
     id: item
     attributes:
-      label: New Item notebook
+      label: Item Creation Notebook
       description: |
-        Link to the notebook where you are creating a valid STAC item following the example in
-        [veda-docs](https://nasa-impact.github.io/veda-docs/contributing/dataset-ingestion/notebooks/new-item.html).
-        Any type of link is fine: a github gist, a link to a shared version of the notebook on one of the jupyter hubs, ...
+        Link to the notebook where you are creating a valid STAC item following the
+        [VEDA docs on Item Creation](https://nasa-impact.github.io/veda-docs/notebooks/veda-operations/stac-item-creation.html).
+        Any type of link is fine: a github gist, a notebooksharing.space link,
+        a link to a shared version of the notebook on one of the jupyter hubs, ...
     validations:
       required: false
   - type: checkboxes
@@ -59,7 +61,7 @@ body:
       label: Checklist
       description: Use the following checklist to ensure your data is valid.
       options:
-        - label: "Files are valid COGs. Use [`rio cogeo validate`](https://cogeotiff.github.io/rio-cogeo/Is_it_a_COG/#3-cog-validation))"
+        - label: "Files are valid COGs. Use [`rio cogeo validate`](https://cogeotiff.github.io/rio-cogeo/Is_it_a_COG/#3-cog-validation)"
           required: false
         - label: "COGs appear to be correct"
           required: false
