@@ -1,5 +1,5 @@
 name: New Dataset
-about: Ingest and publish data to the VEDA data store & STAC API
+description: Ingest and publish data to the VEDA data store & STAC API
 title: "New Dataset: <dataset title>"
 labels: ['dataset']
 
@@ -19,7 +19,7 @@ body:
     validations:
       required: true
   - type: input
-    id: data location
+    id: data-location
     attributes:
       label: Data Location
       description: Where is the data currently stored?
@@ -27,7 +27,7 @@ body:
     validations:
       required: true
   - type: input
-    id: number of items
+    id: n-items
     attributes:
       label: Number of items
       description: How many items are in this directory/bucket?
@@ -59,11 +59,9 @@ body:
       label: Checklist
       description: Use the following checklist to ensure your data is valid.
       options:
-        - label: "Files are valid COGs"
-          description: "Use [`rio cogeo validate`](https://cogeotiff.github.io/rio-cogeo/Is_it_a_COG/#3-cog-validation))"
+        - label: "Files are valid COGs. Use [`rio cogeo validate`](https://cogeotiff.github.io/rio-cogeo/Is_it_a_COG/#3-cog-validation))"
           required: false
         - label: "COGs appear to be correct"
-          description: "Look at the COG in a notebook or in a COG viewer to spot any odd patterns."
           required: false
   - type: textarea
     id: extra
