@@ -19,6 +19,21 @@ body:
     validations:
       required: true
   - type: input
+    id: url
+    attributes:
+      label: URL/DOI
+      description: If applicable, what is the DOI or URL associated with this dataset?
+    validations:
+      required: false
+  - type: input
+    id: license
+    attributes:
+      label: Data License
+      description: What license is the data available under?
+      placeholder: CC-0
+    validations:
+      required: false
+  - type: input
     id: data-location
     attributes:
       label: Data Location
@@ -27,12 +42,26 @@ body:
     validations:
       required: true
   - type: input
+    id: size-estimate
+    attributes:
+      label: Size Estimate
+      description: Roughly how much data is in the dataset (in terms of GB/TB/PB)?
+    validations:
+      required: false
+  - type: input
     id: n-items
     attributes:
       label: Number of Items
       description: How many items are in this directory/bucket?
     validations:
       required: false
+  - type: input
+    id: description
+    attributes:
+      label: Description
+      description: Please provide a short description of the data.
+    validations:
+      required: true
   - type: input
     id: collection
     attributes:
@@ -68,7 +97,7 @@ body:
   - type: textarea
     id: extra
     attributes:
-      label: Anything else?
+      label: Any additional info you think is relevant, possibly including spatial or temporal subset if applicable?
     validations:
       required: false
   - type: checkboxes
