@@ -1,18 +1,26 @@
 # veda-data
 
-This repo houses data used to define a VEDA dataset. These datasets are available on the VEDA dashboard (https://www.earthdata.nasa.gov/dashboard/).
+This repository houses data used to define a VEDA dataset to load into the [VEDA catalog](https://nasa-impact.github.io/veda-docs/services/apis.html). Inclusion in the VEDA catalog is a prerequisite for displaying the dataset in the [VEDA Dashboard](https://www.earthdata.nasa.gov/dashboard/).
 
-For information on how this data gets consumed by the VEDA data ingestion system, see [veda-data-airflow](https://github.com/NASA-IMPACT/veda-data-airflow). This project is also included as a submodule for that repository.
+The data provided here gets processed in the ingestion system [veda-data-airflow](https://github.com/NASA-IMPACT/veda-data-airflow), to which this repository is directly linked (as a Git submodule).
 
-The VEDA user docs explain the [dataset ingestion process](https://nasa-impact.github.io/veda-docs/contributing/dataset-ingestion/).
 
 ## Dataset Submission Process
 
-To submit a dataset to the VEDA catalog, please start by opening an issue with the `new-dataset` template. This template will require, at minimum, a description of the dataset, the location of the data (in S3, CMR, etc.), and a point of contact for the VEDA team to collaborate with. One or more notebooks showing how the data should be processed would be appreciated.
+The VEDA user docs explain the full [dataset submission process](https://nasa-impact.github.io/veda-docs/contributing/dataset-ingestion/).
 
-If desired, a pull request can be made with the data structured as described below. 
+Ultimately, submission to the VEDA catalog requires that you [open an issue with the "new dataset" template](https://github.com/NASA-IMPACT/veda-data/issues/new?assignees=&labels=dataset&projects=&template=new-dataset.yaml&title=New+Dataset%3A+%3Cdataset+title%3E). This template will require, at minimum:
+
+1. a description of the dataset
+2. the location of the data (in S3, CMR, etc.), and 
+3. a point of contact for the VEDA team to collaborate with. 
+
+One or more notebooks showing how the data should be processed would be appreciated.
+
 
 ## JSON Data Structure
+
+When submitting STAC records to ingest, a pull request can be made with the data structured as described below. 
 
 ### `collections/`
 
