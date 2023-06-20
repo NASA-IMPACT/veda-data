@@ -68,7 +68,7 @@ body:
       label: Collection Creation Notebook
       description: |
         Link to the notebook where you are creating a valid STAC collection following the example in
-        [VEDA docs on Item Creation](https://nasa-impact.github.io/veda-docs/notebooks/veda-operations/stac-collection-creation.html).
+        [VEDA docs on Collection Creation](https://nasa-impact.github.io/veda-docs/notebooks/veda-operations/stac-collection-creation.html).
         Any type of link is fine: a github gist, a notebooksharing.space link,
         a link to a shared version of the notebook on one of the jupyter hubs, ...
     validations:
