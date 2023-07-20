@@ -1,15 +1,15 @@
 {
-   "id": "eis_fire_fireline",
+   "id": "eis_fire_perimeter",
    "type": "Collection",
    "links":[
       {
          "rel": "child",
          "type": "application/json",
-         "href": "https://firenrt.delta-backend.com/collections/public.eis_fire_fireline"
+         "href": "https://firenrt.delta-backend.com/collections/public.eis_fire_snapshot_perimeter_nrt"
       }
    ],
-   "title":"Active Fire Line",
-   "description": "Active fire line as estimated by new VIIRS detections.",
+   "title":"Fire Perimeters",
+   "description": "Perimeter of cumulative fire-area estimated from VIIRs detections",
    "extent":{
       "spatial": {
          "bbox": [

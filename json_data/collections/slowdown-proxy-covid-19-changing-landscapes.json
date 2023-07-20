@@ -1,0 +1,43 @@
+{
+    "id": "slowdown-proxy-covid-19-changing-landscapes",
+    "type": "Collection",
+    "links":[
+    ],
+    "title":"Slowdown Proxy Maps",
+    "extent":{
+        "spatial":{
+            "bbox":[
+                [
+                    "-180",
+                    "90",
+                    "-90",
+                    "180"
+                ]
+            ]
+        },
+        "temporal":{
+            "interval":[
+                [
+                    "2020-01-01T00:00:00Z",
+                    "2020-12-31T23:59:59Z"
+                ]
+            ]
+        }
+    },
+    "license":"CC0-1.0",
+    "description": "Slowdown Proxy Maps show areas with the greatest reduction in car activity shaded in blue. Darker blues indicate areas of greater change.",
+    "stac_version": "1.0.0",
+    "dashboard:is_periodic": false,
+    "dashboard:time_density": null,
+    "item_assets": {
+        "cog_default": {
+            "type": "image/tiff; application=geotiff; profile=cloud-optimized",
+            "roles": [
+                "data",
+                "layer"
+            ],
+            "title": "Default COG Layer",
+            "description": "Cloud optimized default layer to display on map"
+        }
+    }
+}
