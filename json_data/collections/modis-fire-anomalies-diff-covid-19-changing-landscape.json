@@ -1,0 +1,43 @@
+{
+    "id": "modis-fire-anomalies-diff-covid-19-changing-landscape",
+    "type": "Collection",
+    "links":[
+    ],
+    "title":"MODIS change in active fires compared to the baseline of 2012-2019",
+    "extent":{
+        "spatial":{
+            "bbox":[
+                [ 
+                    "-125.0",
+                    "24.0",
+                    "-75.0",
+                    "43.0"
+                ]
+            ]
+        },
+        "temporal":{
+            "interval":[
+                [
+                    "2020-03-01T00:00:00Z",
+                    "2020-10-30T23:59:59Z"
+                ]
+            ]
+        }
+    },
+    "license":"CC0-1.0",
+    "description": "Change in active fires compared to the baseline of 2012-2019 from -10% to 10%.",
+    "stac_version": "1.0.0",
+    "dashboard:is_periodic": true,
+    "dashboard:time_density": "month",
+    "item_assets": {
+        "cog_default": {
+            "type": "image/tiff; application=geotiff; profile=cloud-optimized",
+            "roles": [
+                "data",
+                "layer"
+            ],
+            "title": "Default COG Layer",
+            "description": "Cloud optimized default layer to display on map"
+        }
+    }
+}
