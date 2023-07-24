@@ -1,0 +1,101 @@
+{
+  "id": "landsat-c2l2-sr-lakes-tonle-sap",
+  "type": "Collection",
+  "title": "Selected Landsat 7 through 9 Surface Reflectance Scenes for Tonl\u00e9 Sap",
+  "extent": {
+    "spatial": {
+      "bbox": [
+        101.93844223,
+        11.94560442,
+        106.37030883,
+        14.06740558
+      ]
+    },
+    "temporal": {
+      "interval": [
+        [
+          "1987-12-04T02:48:00Z",
+          "2023-05-05T01:16:34Z"
+        ]
+      ]
+    }
+  },
+  "license": "https://d9-wret.s3.us-west-2.amazonaws.com/assets/palladium/production/s3fs-public/atoms/files/Landsat_Data_Policy.pdf",
+  "summaries": {
+    "datetime": [],
+    "cog_default": {
+      "max": null,
+      "min": null
+    }
+  },
+  "description": "Selected low-cloud-cover Landsat Collection-2 Level-2 Surface Reflectance scenes covering Tonl\u00e9 Sap. Products from multiple missions and instruments are combined in this single collection for the purpose of visualizing RGB images. Note that the full item records are not interchangeable across instruments for purposes other than visualization and that the assets available are not the same for each instrument.",
+  "item_assets": {
+    "red": {
+      "type": "image/vnd.stac.geotiff; cloud-optimized=true",
+      "roles": [
+        "data"
+      ],
+      "title": "Red Band (B4)",
+      "eo:bands": [
+        {
+          "gsd": 30,
+          "name": "B4",
+          "common_name": "red",
+          "center_wavelength": 0.65
+        }
+      ],
+      "description": "Collection 2 Level-2 Red Band (B4) Surface Reflectance"
+    },
+    "blue": {
+      "type": "image/vnd.stac.geotiff; cloud-optimized=true",
+      "roles": [
+        "data"
+      ],
+      "title": "Blue Band (B2)",
+      "eo:bands": [
+        {
+          "gsd": 30,
+          "name": "B2",
+          "common_name": "blue",
+          "center_wavelength": 0.48
+        }
+      ],
+      "description": "Collection 2 Level-2 Blue Band (B2) Surface Reflectance"
+    },
+    "green": {
+      "type": "image/vnd.stac.geotiff; cloud-optimized=true",
+      "roles": [
+        "data"
+      ],
+      "title": "Green Band (B3)",
+      "eo:bands": [
+        {
+          "gsd": 30,
+          "name": "B3",
+          "common_name": "green",
+          "center_wavelength": 0.56
+        }
+      ],
+      "description": "Collection 2 Level-2 Green Band (B3) Surface Reflectance"
+    },
+    "thumbnail": {
+      "type": "image/jpeg",
+      "roles": [
+        "thumbnail"
+      ],
+      "title": "Thumbnail image"
+    },
+    "cog_default": {
+      "type": "image/tiff; application=geotiff; profile=cloud-optimized",
+      "roles": [
+        "data",
+        "layer"
+      ],
+      "title": "Default COG Layer",
+      "description": "Cloud optimized default layer to display on map"
+    }
+  },
+  "stac_version": "1.0.0",
+  "dashboard:is_periodic": "false",
+  "dashboard:time_density": "day"
+}
