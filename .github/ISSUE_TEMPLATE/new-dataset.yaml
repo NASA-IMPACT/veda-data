@@ -28,8 +28,8 @@ body:
   - type: input
     id: license
     attributes:
-      label: Data License
-      description: What license is the data available under?
+      label: Data License Identifier
+      description: What license is the data available under? Valid values are available in [this link](https://spdx.org/licenses/).
       placeholder: CC-0
     validations:
       required: false
