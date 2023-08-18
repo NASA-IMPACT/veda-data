@@ -18,13 +18,13 @@ Ultimately, submission to the VEDA catalog requires that you [open an issue with
 One or more notebooks showing how the data should be processed would be appreciated.
 
 
-## JSON Data Structure
+## Ingestion Data Structure
 
 When submitting STAC records to ingest, a pull request can be made with the data structured as described below. 
 
 ### `collections/`
 
-The `json_data/collections/` directory holds json files representing the data for VEDA collection metadata (STAC).
+The `ingestion-data/collections/` directory holds json files representing the data for VEDA collection metadata (STAC).
 
 Should follow the following format:
 
@@ -77,7 +77,7 @@ Should follow the following format:
 
 ### `step_function_inputs/`
 
-The `json_data/step_function_inputs/` directory holds json files representing the step function inputs for initiating the discovery, ingest and publication workflows.
+The `ingestion-data/step_function_inputs/` directory holds json files representing the step function inputs for initiating the discovery, ingest and publication workflows.
 Can either be a single input event or a list of input events.
 
 Should follow the following format:
