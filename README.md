@@ -75,9 +75,9 @@ Should follow the following format:
 
 ```
 
-### `step_function_inputs/`
+### `step-function-inputs/`
 
-The `ingestion-data/step_function_inputs/` directory holds json files representing the step function inputs for initiating the discovery, ingest and publication workflows.
+The `ingestion-data/step-function-inputs/` directory holds json files representing the step function inputs for initiating the discovery, ingest and publication workflows.
 Can either be a single input event or a list of input events.
 
 Should follow the following format:
