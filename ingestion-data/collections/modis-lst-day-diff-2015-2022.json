@@ -1,5 +1,5 @@
 {
-    "collection": "modis_diff",
+    "collection": "modis-lst-day-diff-2015-2022",
     "title": "Camp Fire Domain: MODIS LST Day Difference",
     "spatial_extent": {
         "xmin": -122.21,
@@ -17,12 +17,12 @@
     "is_periodic": true,
     "time_density": "year",
     "sample_files": [
-        "s3://veda-data-store-staging/modis_diff/campfire_lst_day_difference_2015_2022.tif"
+        "s3://veda-data-store-staging/modis-lst-day-diff-2015-2022/campfire_lst_day_difference_2015_2022.tif"
     ],
     "discovery_items": [
         {
             "discovery": "s3",
-            "prefix": "modis_diff/",
+            "prefix": "modis-lst-day-diff-2015-2022/",
             "bucket": "veda-data-store-staging",
             "filename_regex": "(.*)campfire_lst_day_difference_2015_2022.tif$"
         }
