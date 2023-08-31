@@ -1,5 +1,5 @@
 {
-    "collection": "modis_diff",
+    "collection": "modis-albedo-wsa-diff-2015-2022",
     "title": "Camp Fire Domain: MODIS WSA Albedo Difference",
     "spatial_extent": {
         "xmin": -122.21,
@@ -17,12 +17,12 @@
     "is_periodic": true,
     "time_density": "year",
     "sample_files": [
-        "s3://veda-data-store-staging/modis_diff/campfire_albedo_wsa_difference_2015_2022.tif"
+        "s3://veda-data-store-staging/modis-albedo-wsa-diff-2015-2022/campfire_albedo_wsa_difference_2015_2022.tif"
     ],
     "discovery_items": [
         {
             "discovery": "s3",
-            "prefix": "modis_diff/",
+            "prefix": "modis-albedo-wsa-diff-2015-2022/",
             "bucket": "veda-data-store-staging",
             "filename_regex": "(.*)campfire_albedo_wsa_difference_2015_2022.tif$"
         }
