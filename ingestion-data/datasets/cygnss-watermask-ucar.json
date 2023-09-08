@@ -1,0 +1,31 @@
+{
+    "collection": "cygnss-watermask-ucar",
+    "title": "CYGNSS Surface Water Inundation Fractiion, UCAR/CU",
+    "spatial_extent": {
+      "xmin": -180,
+      "ymin": -40.01145939,
+      "xmax": 180,
+      "ymax": 40.01145939
+    },
+    "temporal_extent": {
+      "startdate": "2017-03-20T00:00:00Z",
+      "enddate": "2022-06-30T23:59:59Z"
+    },
+    "data_type": "cog",
+    "license": "CC-BY-NC-SA-1.0",
+    "description": "The UCAR/CU team led by investigator Clara Chew (clara@muonspace.com) has developed a surface water inundation fraction product using CYGNSS observations. Reference: Clara Chew, Eric Small, Hannah Huelsing, Flooding and inundation maps using interpolated CYGNSS reflectivity observations, Remote Sensing of Environment, Volume 293, 2023, 113598, ISSN 0034-4257, https://doi.org/10.1016/j.rse.2023.113598.",
+    "is_periodic": true,
+    "time_density": "day",
+    "sample_files": [
+      "s3://veda-data-store-staging/cygnss-watermask-ucar/cygnss_watermask_ucar_20170320_day.tif"
+    ],
+    "discovery_items": [
+      {
+        "discovery": "s3",
+        "prefix": "cygnss-watermask-ucar/",
+        "bucket": "veda-data-store-staging",
+        "filename_regex": "(.*)cygnss_watermask_ucar(.*).tif$",
+      }
+    ]
+  }
+  
