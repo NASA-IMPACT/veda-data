@@ -1,0 +1,31 @@
+{
+  "collection": "cygnss-watermask-ucberkeley",
+  "title": "CYGNSS Surface Watermask (with lakes), UC Berkeley",
+  "spatial_extent": {
+    "xmin": -180,
+    "ymin": -37.405,
+    "xmax": 180,
+    "ymax": 37.405
+  },
+  "temporal_extent": {
+    "startdate": "2018-08-01T00:00:00Z",
+    "enddate": "2023-04-01T23:59:59Z"
+  },
+  "data_type": "cog",
+  "license": "CC-BY-NC-SA-1.0",
+  "description": "The UC Berkeley team led by investigator Cynthia Gerlein-Safdi has developed a novel surface watermask product using CYGNSS observations. Information at the pixel-level is combined with topographic and othe information in a computer vision based algorithm to segment land and surface water classes.",
+  "is_periodic": true,
+  "time_density": "month",
+  "sample_files": [
+    "s3://veda-data-store-staging/cygnss-watermask-ucberkeley/cygnss_watermask_ucberkeley_201808.tif"
+  ],
+  "discovery_items": [
+    {
+      "discovery": "s3",
+      "prefix": "cygnss-watermask-ucberkeley/",
+      "bucket": "veda-data-store-staging",
+      "filename_regex": "(.*)cygnss_watermask_ucberkeley(.*).tif$",
+      "datetime_range": "month"
+    }
+  ]
+}
