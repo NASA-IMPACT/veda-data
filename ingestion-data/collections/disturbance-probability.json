@@ -1,16 +1,26 @@
 {
-    "collection": "disturbance-probability-percentile",
+    "type": "Collection",
+    "stac_version": "1.0.0",
+    "id": "disturbance-probability-percentile",
     "title": "Near Real-time Disturbance probability map (%)",
     "data_type": "cog",
-    "spatial_extent": {
-        "xmin": -84.132,
-        "ymin": 25.224,
-        "xmax": -79.853,
-        "ymax": 30.728
-    },
-    "temporal_extent": {
-        "startdate": "2022-10-03T00:00:00Z",
-        "enddate": "2022-10-03T23:59:59Z"
+    "extent": {
+        "spatial": {
+            "bbox": [
+                -84.132,
+                25.224,
+                -79.853,
+                30.728
+            ]
+        },
+        "temporal": {
+            "interval": [
+                [
+                    "2022-10-03T00:00:00Z",
+                    "2022-10-03T23:59:59Z"
+                ]
+            ]
+        }
     },
     "license": "CC-BY-NC-SA-1.0",
     "providers": [
@@ -52,5 +62,6 @@
             "bucket": "veda-data-store-staging",
             "filename_regex": "(.*)spec_prob_mosaic_2022-10-03_day.tif$"
         }
-    ]
+    ],
+    "links": []
 }

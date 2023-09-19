@@ -105,3 +105,35 @@ Should follow the following format:
     "dry_run": "<true/false>",
 }
 ```
+
+## Validation
+
+This repository provides a script for validating all collections.
+First, install the requirements (preferably in a virtual environment):
+
+```shell
+pip install -r requirements.txt
+```
+
+Then:
+
+```shell
+python scripts/validate_collections.py
+```
+
+## Development
+
+If you need to add new dependencies, first install the requirements:
+
+```shell
+pip install -r requirements.txt
+```
+
+Add your dependency to `requirements.in` *without a version specifier* (unless you really need one).
+Then run:
+
+```shell
+pip-compile
+```
+
+This will update `requirements.txt` with a complete, realized set of Python dependencies.
