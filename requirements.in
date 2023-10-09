@@ -2,4 +2,5 @@ black[jupyter]
 pip-tools
 pre-commit
 pystac[validation]
+pytest
 ruff

@@ -7,7 +7,7 @@ on:
   pull_request:
 
 jobs:
-  validate:
+  test:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
@@ -19,8 +19,8 @@ jobs:
           cache: "pip"
       - name: Install dependencies
         run: pip install -r requirements.txt
-      - name: Validate collections
-        run: python scripts/validate_collections.py
+      - name: Test collections
+        run: pytest
   lint:
     runs-on: ubuntu-latest
     steps:
