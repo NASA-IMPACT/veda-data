@@ -1,9 +1,10 @@
 # veda-data
 
+[![GitHub Workflow Status (with event)](https://img.shields.io/github/actions/workflow/status/nasa-impact/veda-data/ci.yaml?style=for-the-badge&label=CI)](https://github.com/NASA-IMPACT/veda-data/actions/workflows/ci.yaml)
+
 This repository houses data used to define a VEDA dataset to load into the [VEDA catalog](https://nasa-impact.github.io/veda-docs/services/apis.html). Inclusion in the VEDA catalog is a prerequisite for displaying the dataset in the [VEDA Dashboard](https://www.earthdata.nasa.gov/dashboard/).
 
 The data provided here gets processed in the ingestion system [veda-data-airflow](https://github.com/NASA-IMPACT/veda-data-airflow), to which this repository is directly linked (as a Git submodule).
-
 
 ## Dataset Submission Process
 
@@ -12,15 +13,14 @@ The VEDA user docs explain the full [dataset submission process](https://nasa-im
 Ultimately, submission to the VEDA catalog requires that you [open an issue with the "new dataset" template](https://github.com/NASA-IMPACT/veda-data/issues/new?assignees=&labels=dataset&projects=&template=new-dataset.yaml&title=New+Dataset%3A+%3Cdataset+title%3E). This template will require, at minimum:
 
 1. a description of the dataset
-2. the location of the data (in S3, CMR, etc.), and 
-3. a point of contact for the VEDA team to collaborate with. 
+2. the location of the data (in S3, CMR, etc.), and
+3. a point of contact for the VEDA team to collaborate with.
 
 One or more notebooks showing how the data should be processed would be appreciated.
 
-
 ## Ingestion Data Structure
 
-When submitting STAC records to ingest, a pull request can be made with the data structured as described below. 
+When submitting STAC records to ingest, a pull request can be made with the data structured as described below.
 
 ### `collections/`
 
@@ -92,13 +92,13 @@ Should follow the following format:
     "bucket": "<s3-bucket>",
     "filename_regex": "<filename-regex>",
     "datetime_range": "<month/day/year>",
-    
+
     ## for cmr discovery
     "version": "<collection-version>",
     "temporal": ["<start-date>", "<end-date>"],
     "bounding_box": ["<bounding-box-as-comma-separated-LBRT>"],
     "include": "<filename-pattern>",
-    
+
     ### misc
     "cogify": "<true/false>",
     "upload": "<true/false>",
@@ -123,13 +123,22 @@ python scripts/validate_collections.py
 
 ## Development
 
-If you need to add new dependencies, first install the requirements:
+We use [pre-commit](https://pre-commit.com/) hooks to keep our notebooks and Python scripts consistently formatted.
+To contribute, first install the requirements, then install the **pre-commit** hooks:
 
 ```shell
-pip install -r requirements.txt
+pip install -r requirements.txt  # recommend a virtual environment
+pre-commit install
 ```
 
-Add your dependency to `requirements.in` *without a version specifier* (unless you really need one).
+The hooks will run automatically on any changed files when you commit.
+To run the hooks on the entire repository (which is what happens in CI):
+
+```shell
+pre-commit run --all-files
+```
+
+If you need to add a Python dependency, add your dependency to `requirements.in`:
 Then run:
 
 ```shell
