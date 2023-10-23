@@ -1,0 +1,176 @@
+{
+    "collection": "lis-tws-anomaly",
+    "title": "Terrestrial Water Storage (TWS) Anomalies",
+    "description": "Anomalies in Terrestrial Water Storage (TWS) modeled using LIS framework by assimilating GRACE TWS, soil moisture, and leaf area index over 2001-2021.",
+    "type": "cog",
+    "spatial_extent": {
+        "xmin": -180,
+        "ymin": -90,
+        "xmax": 180,
+        "ymax": 90
+    },
+    "temporal_extent": {
+        "startdate": "2002-09-01T00:00:00Z",
+        "enddate": "2021-12-01T00:00:00Z"
+    },
+    "license": "MIT",
+    "is_periodic": true,
+    "time_density": "day",
+    "stac_version": "1.0.0",
+    "discovery_items": [
+        {
+            "prefix": "EIS/COG/LIS_TWS_ANOMALY/",
+            "bucket": "veda-data-store-staging",
+            "filename_regex": "^(.*)2001(.*).tif$",
+            "discovery": "s3",
+            "upload": false
+        },
+        {
+            "prefix": "EIS/COG/LIS_TWS_ANOMALY/",
+            "bucket": "veda-data-store-staging",
+            "filename_regex": "^(.*)2002(.*).tif$",
+            "discovery": "s3",
+            "upload": false
+        },
+        {
+            "prefix": "EIS/COG/LIS_TWS_ANOMALY/",
+            "bucket": "veda-data-store-staging",
+            "filename_regex": "^(.*)2003(.*).tif$",
+            "discovery": "s3",
+            "upload": false
+        },
+        {
+            "prefix": "EIS/COG/LIS_TWS_ANOMALY/",
+            "bucket": "veda-data-store-staging",
+            "filename_regex": "^(.*)2004(.*).tif$",
+            "discovery": "s3",
+            "upload": false
+        },
+        {
+            "prefix": "EIS/COG/LIS_TWS_ANOMALY/",
+            "bucket": "veda-data-store-staging",
+            "filename_regex": "^(.*)2005(.*).tif$",
+            "discovery": "s3",
+            "upload": false
+        },
+        {
+            "prefix": "EIS/COG/LIS_TWS_ANOMALY/",
+            "bucket": "veda-data-store-staging",
+            "filename_regex": "^(.*)2006(.*).tif$",
+            "discovery": "s3",
+            "upload": false
+        },
+        {
+            "prefix": "EIS/COG/LIS_TWS_ANOMALY/",
+            "bucket": "veda-data-store-staging",
+            "filename_regex": "^(.*)2007(.*).tif$",
+            "discovery": "s3",
+            "upload": false
+        },
+        {
+            "prefix": "EIS/COG/LIS_TWS_ANOMALY/",
+            "bucket": "veda-data-store-staging",
+            "filename_regex": "^(.*)2008(.*).tif$",
+            "discovery": "s3",
+            "upload": false
+        },
+        {
+            "prefix": "EIS/COG/LIS_TWS_ANOMALY/",
+            "bucket": "veda-data-store-staging",
+            "filename_regex": "^(.*)2009(.*).tif$",
+            "discovery": "s3",
+            "upload": false
+        },
+        {
+            "prefix": "EIS/COG/LIS_TWS_ANOMALY/",
+            "bucket": "veda-data-store-staging",
+            "filename_regex": "^(.*)2010(.*).tif$",
+            "discovery": "s3",
+            "upload": false
+        },
+        {
+            "prefix": "EIS/COG/LIS_TWS_ANOMALY/",
+            "bucket": "veda-data-store-staging",
+            "filename_regex": "^(.*)2011(.*).tif$",
+            "discovery": "s3",
+            "upload": false
+        },
+        {
+            "prefix": "EIS/COG/LIS_TWS_ANOMALY/",
+            "bucket": "veda-data-store-staging",
+            "filename_regex": "^(.*)2012(.*).tif$",
+            "discovery": "s3",
+            "upload": false
+        },
+        {
+            "prefix": "EIS/COG/LIS_TWS_ANOMALY/",
+            "bucket": "veda-data-store-staging",
+            "filename_regex": "^(.*)2013(.*).tif$",
+            "discovery": "s3",
+            "upload": false
+        },
+        {
+            "prefix": "EIS/COG/LIS_TWS_ANOMALY/",
+            "bucket": "veda-data-store-staging",
+            "filename_regex": "^(.*)2014(.*).tif$",
+            "discovery": "s3",
+            "upload": false
+        },
+        {
+            "prefix": "EIS/COG/LIS_TWS_ANOMALY/",
+            "bucket": "veda-data-store-staging",
+            "filename_regex": "^(.*)2015(.*).tif$",
+            "discovery": "s3",
+            "upload": false
+        },
+        {
+            "prefix": "EIS/COG/LIS_TWS_ANOMALY/",
+            "bucket": "veda-data-store-staging",
+            "filename_regex": "^(.*)2016(.*).tif$",
+            "discovery": "s3",
+            "upload": false
+        },
+        {
+            "prefix": "EIS/COG/LIS_TWS_ANOMALY/",
+            "bucket": "veda-data-store-staging",
+            "filename_regex": "^(.*)2017(.*).tif$",
+            "discovery": "s3",
+            "upload": false
+        },
+        {
+            "prefix": "EIS/COG/LIS_TWS_ANOMALY/",
+            "bucket": "veda-data-store-staging",
+            "filename_regex": "^(.*)2018(.*).tif$",
+            "discovery": "s3",
+            "upload": false
+        },
+        {
+            "prefix": "EIS/COG/LIS_TWS_ANOMALY/",
+            "bucket": "veda-data-store-staging",
+            "filename_regex": "^(.*)2019(.*).tif$",
+            "discovery": "s3",
+            "upload": false
+        },
+        {
+            "prefix": "EIS/COG/LIS_TWS_ANOMALY/",
+            "bucket": "veda-data-store-staging",
+            "filename_regex": "^(.*)2020(.*).tif$",
+            "discovery": "s3",
+            "upload": false
+        },
+        {
+            "prefix": "EIS/COG/LIS_TWS_ANOMALY/",
+            "bucket": "veda-data-store-staging",
+            "filename_regex": "^(.*)2021(.*).tif$",
+            "discovery": "s3",
+            "upload": false
+        },
+        {
+            "prefix": "EIS/COG/LIS_TWS_ANOMALY/",
+            "bucket": "veda-data-store-staging",
+            "filename_regex": "^(.*)2022(.*).tif$",
+            "discovery": "s3",
+            "upload": false
+        }
+    ]
+}

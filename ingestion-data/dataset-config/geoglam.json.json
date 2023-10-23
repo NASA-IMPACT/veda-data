@@ -1,0 +1,28 @@
+{
+    "collection": "geoglam",
+    "title": "GEOGLAM Crop Monitor",
+    "description": "The Crop Monitors were designed to provide a public good of open, timely, science-driven information on crop conditions in support of market transparency for the G20 Agricultural Market Information System (AMIS). Reflecting an international, multi-source, consensus assessment of crop growing conditions, status, and agro-climatic factors likely to impact global production, focusing on the major producing and trading countries for the four primary crops monitored by AMIS (wheat, maize, rice, and soybeans). The Crop Monitor for AMIS brings together over 40 partners from national, regional (i.e. sub-continental), and global monitoring systems, space agencies, agriculture organizations and universities. Read more: https://cropmonitor.org/index.php/about/aboutus/",
+    "type": "cog",
+    "spatial_extent": {
+        "xmin": -180,
+        "ymin": -90,
+        "xmax": 180,
+        "ymax": 90
+    },
+    "temporal_extent": {
+        "startdate": "2020-01-01T00:00:00Z",
+        "enddate": "2022-04-30T23:59:59Z"
+    },
+    "license": "MIT",
+    "is_periodic": false,
+    "time_density": "month",
+    "stac_version": "1.0.0",
+    "discovery_items": {
+        "prefix": "geoglam/",
+        "bucket": "veda-data-store-staging",
+        "filename_regex": "^(.*).tif$",
+        "discovery": "s3",
+        "datetime_range": "month",
+        "upload": false
+    }
+}

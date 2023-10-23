@@ -1,0 +1,27 @@
+{
+    "collection": "no2-monthly-diff",
+    "title": "NO₂ (Diff)",
+    "description": "This layer shows changes in nitrogen dioxide (NO₂) levels. Redder colors indicate increases in NO₂. Bluer colors indicate lower levels of NO₂. Missing pixels indicate areas of no data most likely associated with cloud cover or snow.",
+    "type": "cog",
+    "spatial_extent": {
+        "xmin": -180,
+        "ymin": -90,
+        "xmax": 180,
+        "ymax": 90
+    },
+    "temporal_extent": {
+        "startdate": "2015-01-01T00:00:00Z",
+        "enddate": "2022-01-01T00:00:00Z"
+    },
+    "license": "MIT",
+    "is_periodic": true,
+    "time_density": "month",
+    "stac_version": "1.0.0",
+    "discovery_items": {
+        "prefix": "no2-monthly-diff/",
+        "bucket": "veda-data-store-staging",
+        "filename_regex": "^(.*).tif$",
+        "discovery": "s3",
+        "datetime_range": "month"
+    }
+}

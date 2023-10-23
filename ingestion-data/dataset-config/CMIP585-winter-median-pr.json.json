@@ -1,0 +1,58 @@
+{
+    "collection": "CMIP585-winter-median-pr",
+    "title": "Projected changes to winter (January, February, and March) cumulative daily precipitation",
+    "description": "Differences in winter (January, February, and March) cumulative daily precipitation between a historical period (1995 - 2014) and multiple 20-year periods from an ensemble of CMIP6 climate projections (SSP5-8.5) downscaled by NASA Earth Exchange (NEX-GDDP-CMIP6)",
+    "type": "cog",
+    "spatial_extent": {
+        "xmin": -127,
+        "ymin": 29,
+        "xmax": -103,
+        "ymax": 52
+    },
+    "temporal_extent": {
+        "startdate": "1995-01-01T00:00:00Z",
+        "enddate": "2095-03-31T00:00:00Z"
+    },
+    "license": "MIT",
+    "is_periodic": false,
+    "time_density": "year",
+    "stac_version": "1.0.0",
+    "discovery_items": [
+        {
+            "prefix": "EIS/NEX-GDDP-CMIP6/",
+            "bucket": "veda-data-store-staging",
+            "filename_regex": "^(.*)_pr(.*)ssp585_2025(.*).cog.tif$",
+            "discovery": "s3",
+            "upload": false,
+            "start_datetime": "2025-01-01T00:00:00Z",
+            "end_datetime": "2025-03-31T12:00:00Z"
+        },
+        {
+            "prefix": "EIS/NEX-GDDP-CMIP6/",
+            "bucket": "veda-data-store-staging",
+            "filename_regex": "^(.*)_pr(.*)ssp585_2045(.*).cog.tif$",
+            "discovery": "s3",
+            "upload": false,
+            "start_datetime": "2045-01-01T00:00:00Z",
+            "end_datetime": "2045-03-31T12:00:00Z"
+        },
+        {
+            "prefix": "EIS/NEX-GDDP-CMIP6/",
+            "bucket": "veda-data-store-staging",
+            "filename_regex": "^(.*)_pr(.*)ssp585_2065(.*).cog.tif$",
+            "discovery": "s3",
+            "upload": false,
+            "start_datetime": "2065-01-01T00:00:00Z",
+            "end_datetime": "2065-03-31T12:00:00Z"
+        },
+        {
+            "prefix": "EIS/NEX-GDDP-CMIP6/",
+            "bucket": "veda-data-store-staging",
+            "filename_regex": "^(.*)_pr(.*)ssp585_2085(.*).cog.tif$",
+            "discovery": "s3",
+            "upload": false,
+            "start_datetime": "2085-01-01T00:00:00Z",
+            "end_datetime": "2085-03-31T12:00:00Z"
+        }
+    ]
+}

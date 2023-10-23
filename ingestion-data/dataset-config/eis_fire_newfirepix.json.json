@@ -1,0 +1,27 @@
+{
+    "collection": "eis_fire_newfirepix",
+    "title": "VIIRs Fire Detections",
+    "description": "Most Recent VIIRs detections that inform the most recent time-step’s fire perimeter and active fire line calculation",
+    "type": "cog",
+    "spatial_extent": {
+        "xmin": -123.99217987060547,
+        "ymin": 31.054306030273438,
+        "xmax": -101.49222564697266,
+        "ymax": 49.461177825927734
+    },
+    "temporal_extent": {
+        "startdate": "2019-05-01T00:00:00+00:00",
+        "enddate": null
+    },
+    "license": "public-domain",
+    "is_periodic": true,
+    "time_density": "day",
+    "stac_version": "1.0.0",
+    "links": [
+        {
+            "rel": "child",
+            "type": "application/json",
+            "href": "https://firenrt.delta-backend.com/collections/public.eis_fire_newfirepix"
+        }
+    ]
+}

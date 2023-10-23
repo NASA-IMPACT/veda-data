@@ -1,0 +1,29 @@
+{
+    "collection": "lis-tws-trend",
+    "title": "Trend in Terrestrial Water Storage (TWS) Anomalies",
+    "description": "Trends in anomalies of Terrestrial Water Storage (TWS) modeled using LIS framework by assimilating GRACE TWS, soil moisture, and leaf area index over 2001-2021",
+    "type": "cog",
+    "spatial_extent": {
+        "xmin": -180,
+        "ymin": -90,
+        "xmax": 180,
+        "ymax": 90
+    },
+    "temporal_extent": {
+        "startdate": "2001-01-01T00:00:00Z",
+        "enddate": "2021-12-31T23:59:59Z"
+    },
+    "license": "MIT",
+    "is_periodic": false,
+    "time_density": null,
+    "stac_version": "1.0.0",
+    "discovery_items": {
+        "prefix": "EIS/COG/LIS_TWS_TREND/",
+        "bucket": "veda-data-store-staging",
+        "filename_regex": "^(.*).tif$",
+        "discovery": "s3",
+        "start_datetime": "2001-01-01T00:00:00Z",
+        "end_datetime": "2021-12-31T23:59:59Z",
+        "upload": false
+    }
+}

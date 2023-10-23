@@ -1,0 +1,35 @@
+{
+    "collection": "facebook_population_density",
+    "title": "Population Density Maps using satellite imagery built by Meta",
+    "description": "Facebook high-resolution population density: Darker areas indicate higher population density areas and lighter areas indicate lower population density areas, with a 30m² resolution.",
+    "type": "cog",
+    "spatial_extent": {
+        "xmin": -180.00041666666667,
+        "ymin": -55.985972222324634,
+        "xmax": 179.82041666695605,
+        "ymax": 71.33069444444445
+    },
+    "temporal_extent": {
+        "startdate": "2015-01-01T00:00:00Z",
+        "enddate": "2022-06-08T00:00:00Z"
+    },
+    "license": "MIT",
+    "is_periodic": false,
+    "time_density": null,
+    "stac_version": "1.0.0",
+    "links": [
+        {
+            "rel": "external",
+            "href": "https://arxiv.org/pdf/1712.05839.pdf",
+            "type": "application/pdf",
+            "title": "Mapping the world population one building at a time"
+        }
+    ],
+    "discovery_items": {
+        "prefix": "facebook_population_density/",
+        "bucket": "veda-data-store-staging",
+        "filename_regex": "^(.*).tif$",
+        "discovery": "s3",
+        "upload": false
+    }
+}

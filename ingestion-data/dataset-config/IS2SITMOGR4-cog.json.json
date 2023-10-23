@@ -1,0 +1,27 @@
+{
+    "collection": "IS2SITMOGR4-cog",
+    "title": "ICESat-2 L4 Monthly Gridded Sea Ice Thickness (COGs)",
+    "description": "ICESat-2 L4 Monthly Gridded Sea Ice Thickness (COGs)",
+    "type": "cog",
+    "spatial_extent": {
+        "xmin": -180,
+        "ymin": 30,
+        "xmax": 180,
+        "ymax": 89
+    },
+    "temporal_extent": {
+        "startdate": "2018-11-01T00:00:00Z",
+        "enddate": "2021-04-30T23:59:59Z"
+    },
+    "license": "MIT",
+    "is_periodic": false,
+    "time_density": "month",
+    "stac_version": "1.0.0",
+    "discovery_items": {
+        "prefix": "IS2SITMOGR4-cog/",
+        "bucket": "veda-data-store-staging",
+        "filename_regex": "^(.*).tif$",
+        "discovery": "s3",
+        "datetime_range": "month"
+    }
+}

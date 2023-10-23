@@ -1,0 +1,71 @@
+{
+    "collection": "nightlights-500m-daily",
+    "title": "Black Marble 500m Nightlights Daily Dataset",
+    "description": "Darker colors indicate fewer night lights and less activity. Lighter colors indicate more night lights and more activity. Check out the HD dataset to see a light-corrected version of this dataset.",
+    "type": "cog",
+    "spatial_extent": {
+        "xmin": -180,
+        "ymin": -90,
+        "xmax": 180,
+        "ymax": 90
+    },
+    "temporal_extent": {
+        "startdate": "2020-01-01T00:00:00Z",
+        "enddate": "2021-03-01T23:59:59Z"
+    },
+    "license": "MIT",
+    "is_periodic": true,
+    "time_density": "day",
+    "stac_version": "1.0.0",
+    "discovery_items": [
+        {
+            "prefix": "nightlights-500m-daily/",
+            "bucket": "veda-data-store-staging",
+            "filename_regex": "^(.*)V011_be_\\d{4}-\\d{2}-\\d{2}(.*).tif$",
+            "discovery": "s3",
+            "upload": true
+        },
+        {
+            "prefix": "nightlights-500m-daily/",
+            "bucket": "veda-data-store-staging",
+            "filename_regex": "^(.*)V011_ca_\\d{4}-\\d{2}-\\d{2}(.*).tif$",
+            "discovery": "s3",
+            "upload": true
+        },
+        {
+            "prefix": "nightlights-500m-daily/",
+            "bucket": "veda-data-store-staging",
+            "filename_regex": "^(.*)V011_la_\\d{4}-\\d{2}-\\d{2}(.*).tif$",
+            "discovery": "s3",
+            "upload": true
+        },
+        {
+            "prefix": "nightlights-500m-daily/",
+            "bucket": "veda-data-store-staging",
+            "filename_regex": "^(.*)V011_ny_\\d{4}-\\d{2}-\\d{2}(.*).tif$",
+            "discovery": "s3",
+            "upload": true
+        },
+        {
+            "prefix": "nightlights-500m-daily/",
+            "bucket": "veda-data-store-staging",
+            "filename_regex": "^(.*)V011_sf_\\d{4}-\\d{2}-\\d{2}(.*).tif$",
+            "discovery": "s3",
+            "upload": true
+        },
+        {
+            "prefix": "nightlights-500m-daily/",
+            "bucket": "veda-data-store-staging",
+            "filename_regex": "^(.*)EUPorts_\\d{4}-\\d{2}-\\d{2}(.*).tif$",
+            "discovery": "s3",
+            "upload": true
+        },
+        {
+            "prefix": "nightlights-500m-daily/",
+            "bucket": "veda-data-store-staging",
+            "filename_regex": "^(.*)V011_tk_\\d{4}-\\d{2}-\\d{2}(.*).tif$",
+            "discovery": "s3",
+            "upload": true
+        }
+    ]
+}

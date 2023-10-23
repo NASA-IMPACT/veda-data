@@ -1,0 +1,70 @@
+{
+    "collection": "co2-diff",
+    "title": "CO₂ (Diff)",
+    "description": "The changes in carbon dioxide (CO₂) levels in our atmosphere versus previous years.",
+    "type": "cog",
+    "spatial_extent": {
+        "xmin": -180,
+        "ymin": -90,
+        "xmax": 180,
+        "ymax": 90
+    },
+    "temporal_extent": {
+        "startdate": "2015-01-01T00:00:00Z",
+        "enddate": "2022-02-13T00:00:00Z"
+    },
+    "license": "MIT",
+    "is_periodic": true,
+    "time_density": "day",
+    "stac_version": "1.0.0",
+    "discovery_items": [
+        {
+            "prefix": "co2-diff/",
+            "bucket": "veda-data-store-staging",
+            "filename_regex": "^(.*)2015.*.tif$",
+            "discovery": "s3"
+        },
+        {
+            "prefix": "co2-diff/",
+            "bucket": "veda-data-store-staging",
+            "filename_regex": "^(.*)2016.*.tif$",
+            "discovery": "s3"
+        },
+        {
+            "prefix": "co2-diff/",
+            "bucket": "veda-data-store-staging",
+            "filename_regex": "^(.*)2017.*.tif$",
+            "discovery": "s3"
+        },
+        {
+            "prefix": "co2-diff/",
+            "bucket": "veda-data-store-staging",
+            "filename_regex": "^(.*)2018.*.tif$",
+            "discovery": "s3"
+        },
+        {
+            "prefix": "co2-diff/",
+            "bucket": "veda-data-store-staging",
+            "filename_regex": "^(.*)2019.*.tif$",
+            "discovery": "s3"
+        },
+        {
+            "prefix": "co2-diff/",
+            "bucket": "veda-data-store-staging",
+            "filename_regex": "^(.*)2020.*.tif$",
+            "discovery": "s3"
+        },
+        {
+            "prefix": "co2-diff/",
+            "bucket": "veda-data-store-staging",
+            "filename_regex": "^(.*)2021.*.tif$",
+            "discovery": "s3"
+        },
+        {
+            "prefix": "co2-diff/",
+            "bucket": "veda-data-store-staging",
+            "filename_regex": "^(.*)2022.*.tif$",
+            "discovery": "s3"
+        }
+    ]
+}

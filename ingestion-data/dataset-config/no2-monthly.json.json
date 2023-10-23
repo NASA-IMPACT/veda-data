@@ -1,0 +1,20 @@
+{
+    "collection": "no2-monthly",
+    "title": "NO₂",
+    "description": "Darker colors indicate higher nitrogen dioxide (NO₂) levels and more activity. Lighter colors indicate lower levels of NO₂ and less activity. Missing pixels indicate areas of no data most likely associated with cloud cover or snow.",
+    "type": "cog",
+    "spatial_extent": {
+        "xmin": -180,
+        "ymin": -90,
+        "xmax": 180,
+        "ymax": 90
+    },
+    "temporal_extent": {
+        "startdate": "2016-01-01T00:00:00Z",
+        "enddate": "2022-01-01T00:00:00Z"
+    },
+    "license": "MIT",
+    "is_periodic": true,
+    "time_density": "month",
+    "stac_version": "1.0.0"
+}

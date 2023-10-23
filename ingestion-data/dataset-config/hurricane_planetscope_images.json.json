@@ -1,0 +1,20 @@
+{
+    "collection": "blue-tarp-planetscope",
+    "title": "Hurricane Ida - Blue Tarps PlanetScope Image",
+    "description": "Blue tarps were detected in the aftermath of Hurricane Ida using Planet Imagery. The detection algorithm involved segmenting out blue pixels from the buildings in the affected region. This collection contains PlanetScope images used for detection.",
+    "type": "cog",
+    "spatial_extent": {
+        "xmin": -90.300691019583,
+        "ymin": 29.791754950316868,
+        "xmax": -89.86300184384689,
+        "ymax": 30.099979027371006
+    },
+    "temporal_extent": {
+        "startdate": "2021-08-23T00:00:00Z",
+        "enddate": "2022-02-12T00:00:00Z"
+    },
+    "license": "MIT",
+    "is_periodic": false,
+    "time_density": "day",
+    "stac_version": "1.0.0"
+}
