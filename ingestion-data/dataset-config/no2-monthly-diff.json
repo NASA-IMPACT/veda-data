@@ -17,11 +17,13 @@
     "is_periodic": true,
     "time_density": "month",
     "stac_version": "1.0.0",
-    "discovery_items": {
-        "prefix": "no2-monthly-diff/",
-        "bucket": "veda-data-store-staging",
-        "filename_regex": "^(.*).tif$",
-        "discovery": "s3",
-        "datetime_range": "month"
-    }
+    "discovery_items": [
+        {
+            "prefix": "no2-monthly-diff/",
+            "bucket": "veda-data-store-staging",
+            "filename_regex": "^(.*).tif$",
+            "discovery": "s3",
+            "datetime_range": "month"
+        }
+    ]
 }

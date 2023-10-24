@@ -25,11 +25,13 @@
             "title": "Mapping the world population one building at a time"
         }
     ],
-    "discovery_items": {
-        "prefix": "facebook_population_density/",
-        "bucket": "veda-data-store-staging",
-        "filename_regex": "^(.*).tif$",
-        "discovery": "s3",
-        "upload": false
-    }
+    "discovery_items": [
+        {
+            "prefix": "facebook_population_density/",
+            "bucket": "veda-data-store-staging",
+            "filename_regex": "^(.*).tif$",
+            "discovery": "s3",
+            "upload": false
+        }
+    ]
 }

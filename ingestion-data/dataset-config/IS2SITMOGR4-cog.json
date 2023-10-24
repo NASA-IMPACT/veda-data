@@ -17,11 +17,13 @@
     "is_periodic": false,
     "time_density": "month",
     "stac_version": "1.0.0",
-    "discovery_items": {
-        "prefix": "IS2SITMOGR4-cog/",
-        "bucket": "veda-data-store-staging",
-        "filename_regex": "^(.*).tif$",
-        "discovery": "s3",
-        "datetime_range": "month"
-    }
+    "discovery_items": [
+        {
+            "prefix": "IS2SITMOGR4-cog/",
+            "bucket": "veda-data-store-staging",
+            "filename_regex": "^(.*).tif$",
+            "discovery": "s3",
+            "datetime_range": "month"
+        }
+    ]
 }

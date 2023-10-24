@@ -25,12 +25,14 @@
             "title": "NCEO Africa Aboveground Woody Biomass 2017 (CEOS Website)"
         }
     ],
-    "discovery_items": {
-        "prefix": "file-staging/nasa-map/nceo-africa-2017/",
-        "bucket": "nasa-maap-data-store",
-        "filename_regex": "^(.*)AGB_map_2017v0m_COG.tif$",
-        "discovery": "s3",
-        "datetime_range": "year",
-        "upload": false
-    }
+    "discovery_items": [
+        {
+            "prefix": "file-staging/nasa-map/nceo-africa-2017/",
+            "bucket": "nasa-maap-data-store",
+            "filename_regex": "^(.*)AGB_map_2017v0m_COG.tif$",
+            "discovery": "s3",
+            "datetime_range": "year",
+            "upload": false
+        }
+    ]
 }
