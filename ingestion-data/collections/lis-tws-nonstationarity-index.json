@@ -24,7 +24,7 @@
             ]
         }
     },
-    "license": "Creative Commons Zero (CC0-1.0)",
+    "license": "CC0-1.0",
     "stac_extensions": [],
     "item_assets": {
         "cog_default": {

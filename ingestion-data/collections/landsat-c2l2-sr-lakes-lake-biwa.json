@@ -24,7 +24,7 @@
             ]
         }
     },
-    "license": "https://d9-wret.s3.us-west-2.amazonaws.com/assets/palladium/production/s3fs-public/atoms/files/Landsat_Data_Policy.pdf",
+    "license": "proprietary",
     "stac_extensions": [],
     "item_assets": {
         "red": {
