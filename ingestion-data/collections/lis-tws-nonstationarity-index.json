@@ -1,13 +1,17 @@
 {
     "id": "lis-tws-nonstationarity-index",
     "type": "Collection",
-    "links": [],
     "title": "Global TWS Non-Stationarity Index",
+    "links": [],
+    "description": "The global Terrestrial Water Storage (TWS) non-stationarity index integrates the trend, seasonal shifts, and variability change of TWS for the period of 2003 - 2020. TWS is derived by jointly assimilating the MODIS Leaf Area Index, the ESA CCI surface soil moisture, and the GSFC GRACE mascon-based TWS anomalies into the Noah-MP land surface model within the NASA Land Information System (LIS) at 10 km spatial resolution forced by the combination of MERRA2 and IMERG meteorological fields. The smaller the non-stationarity index is, the more the water cycle is under a non-stationary process. Glaciers and Greenland are excluded from the analysis.",
     "extent": {
         "spatial": {
             "bbox": [
                 [
-                    -180, -90, 180, 90
+                    -179.95,
+                    -59.95,
+                    179.95,
+                    89.95
                 ]
             ]
         },
@@ -20,8 +24,8 @@
             ]
         }
     },
-    "license": "CC0-1.0",
-    "description": "The global Terrestrial Water Storage (TWS) non-stationarity index integrates the trend, seasonal shifts, and variability change of TWS for the period of 2003 - 2020. TWS is derived by jointly assimilating the MODIS Leaf Area Index, the ESA CCI surface soil moisture, and the GSFC GRACE mascon-based TWS anomalies into the Noah-MP land surface model within the NASA Land Information System (LIS) at 10 km spatial resolution forced by the combination of MERRA2 and IMERG meteorological fields. The smaller the non-stationarity index is, the more the water cycle is under a non-stationary process. Glaciers and Greenland are excluded from the analysis.",
+    "license": "Creative Commons Zero (CC0-1.0)",
+    "stac_extensions": [],
     "item_assets": {
         "cog_default": {
             "type": "image/tiff; application=geotiff; profile=cloud-optimized",
@@ -33,7 +37,7 @@
             "description": "Cloud optimized default layer to display on map"
         }
     },
-    "stac_version": "1.0.0",
     "dashboard:is_periodic": false,
-    "dashboard:time_density": null
+    "dashboard:time_density": null,
+    "stac_version": "1.0.0"
 }

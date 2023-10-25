@@ -1,0 +1,43 @@
+{
+    "id": "lis-global-da-gpp-trend",
+    "type": "Collection",
+    "title": "Gross Primary Productivity Trend - LIS 10km Global DA",
+    "links": [],
+    "description": "Gridded trend in gross primary productivity (theil-sen slope estimation in gC m-2 yr-1) from 10km global LIS with assimilation",
+    "extent": {
+        "spatial": {
+            "bbox": [
+                [
+                    -179.9500000157243,
+                    -59.98224871364589,
+                    179.9973980503783,
+                    89.9999999874719
+                ]
+            ]
+        },
+        "temporal": {
+            "interval": [
+                [
+                    "2003-01-01T00:00:00Z",
+                    "2021-12-31T23:59:59Z"
+                ]
+            ]
+        }
+    },
+    "license": "CC0-1.0",
+    "stac_extensions": [],
+    "item_assets": {
+        "cog_default": {
+            "type": "image/tiff; application=geotiff; profile=cloud-optimized",
+            "roles": [
+                "data",
+                "layer"
+            ],
+            "title": "Default COG Layer",
+            "description": "Cloud optimized default layer to display on map"
+        }
+    },
+    "dashboard:is_periodic": false,
+    "dashboard:time_density": null,
+    "stac_version": "1.0.0"
+}

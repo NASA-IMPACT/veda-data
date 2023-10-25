@@ -1,0 +1,43 @@
+{
+    "id": "grdi-cdr-raster",
+    "type": "Collection",
+    "title": "GRDI CDR Constituent Raster",
+    "links": [],
+    "description": "Global Gridded Relative Deprivation Index (GRDI) Child Dependency Ratio (CDR) Constituent raster",
+    "extent": {
+        "spatial": {
+            "bbox": [
+                [
+                    -179.99999999990004,
+                    -55.983333333466476,
+                    179.81666666676645,
+                    82.18333333320012
+                ]
+            ]
+        },
+        "temporal": {
+            "interval": [
+                [
+                    "2010-01-01T00:00:00Z",
+                    "2010-12-31T00:00:00Z"
+                ]
+            ]
+        }
+    },
+    "license": "MIT",
+    "stac_extensions": [],
+    "item_assets": {
+        "cog_default": {
+            "type": "image/tiff; application=geotiff; profile=cloud-optimized",
+            "roles": [
+                "data",
+                "layer"
+            ],
+            "title": "Default COG Layer",
+            "description": "Cloud optimized default layer to display on map"
+        }
+    },
+    "dashboard:is_periodic": false,
+    "dashboard:time_density": "year",
+    "stac_version": "1.0.0"
+}

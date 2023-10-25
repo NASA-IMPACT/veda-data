@@ -1,0 +1,43 @@
+{
+    "id": "campfire-nlcd",
+    "type": "Collection",
+    "title": "Camp Fire Domain: Land Cover",
+    "links": [],
+    "description": "NLCD-derived land use-land cover for 2016 over the Camp Fire burn scar domain. Displays colors 0-255 from a lookup table for land cover type (ex: reds = urbanized).",
+    "extent": {
+        "spatial": {
+            "bbox": [
+                [
+                    -123.01078638251661,
+                    38.70177659870423,
+                    -120.1714851176425,
+                    40.83029239162325
+                ]
+            ]
+        },
+        "temporal": {
+            "interval": [
+                [
+                    "2016-01-01T00:00:00Z",
+                    "2019-12-31T00:00:00Z"
+                ]
+            ]
+        }
+    },
+    "license": "CC0",
+    "stac_extensions": [],
+    "item_assets": {
+        "cog_default": {
+            "type": "image/tiff; application=geotiff; profile=cloud-optimized",
+            "roles": [
+                "data",
+                "layer"
+            ],
+            "title": "Default COG Layer",
+            "description": "Cloud optimized default layer to display on map"
+        }
+    },
+    "dashboard:is_periodic": false,
+    "dashboard:time_density": "year",
+    "stac_version": "1.0.0"
+}

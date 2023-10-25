@@ -1,0 +1,43 @@
+{
+    "id": "EPA-annual-emissions_1B1a_Coal_Mining_Surface",
+    "type": "Collection",
+    "title": "Gridded 2012 EPA Methane Emissions - Surface Coal Mines",
+    "links": [],
+    "description": "Emissions from sector 1B1a from surface coal mining.",
+    "extent": {
+        "spatial": {
+            "bbox": [
+                [
+                    -129.99999694660497,
+                    19.999999240339655,
+                    -59.999999238697754,
+                    54.99999694496308
+                ]
+            ]
+        },
+        "temporal": {
+            "interval": [
+                [
+                    "2012-01-01T00:00:00Z",
+                    "2012-12-31T23:59:59Z"
+                ]
+            ]
+        }
+    },
+    "license": "CC0",
+    "stac_extensions": [],
+    "item_assets": {
+        "cog_default": {
+            "type": "image/tiff; application=geotiff; profile=cloud-optimized",
+            "roles": [
+                "data",
+                "layer"
+            ],
+            "title": "Default COG Layer",
+            "description": "Cloud optimized default layer to display on map"
+        }
+    },
+    "dashboard:is_periodic": true,
+    "dashboard:time_density": "year",
+    "stac_version": "1.0.0"
+}

@@ -1,0 +1,47 @@
+{
+    "id": "hls-l30-002-ej-reprocessed",
+    "type": "Collection",
+    "title": "HLSL30.002 Environmental Justice Events",
+    "links": [
+        {
+            "rel": "external",
+            "href": "https://cmr.earthdata.nasa.gov/search/concepts/C2021957657-LPCLOUD.html",
+            "type": "text/html",
+            "title": "NASA Common Metadata Repository Record for this Dataset"
+        }
+    ],
+    "description": "A subset of HLS L30 data to support visualization of specific events. Read more about the source data on the NASA CMR Landing page: https://cmr.earthdata.nasa.gov/search/concepts/C2021957295-LPCLOUD.html",
+    "extent": {
+        "spatial": {
+            "bbox": [
+                [
+                    -90.932637,
+                    17.961538,
+                    -65.110098,
+                    30.71627
+                ]
+            ]
+        },
+        "temporal": {
+            "interval": [
+                [
+                    "2017-06-06T14:43:41.335694Z",
+                    "2021-10-21T16:32:32.165563Z"
+                ]
+            ]
+        }
+    },
+    "license": "MIT",
+    "stac_extensions": [],
+    "provider": {
+        "url": "https://lpdaac.usgs.gov/products/hlsl30v002/",
+        "name": "Land Processes Distributed Active Archive Center (LP DAAC)",
+        "roles": [
+            "processor"
+        ]
+    },
+    "item_assets": {},
+    "dashboard:is_periodic": false,
+    "dashboard:time_density": "day",
+    "stac_version": "1.0.0"
+}

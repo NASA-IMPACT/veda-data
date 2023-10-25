@@ -1,27 +1,43 @@
 {
     "id": "co2-diff",
     "type": "Collection",
-    "links": [],
     "title": "CO₂ (Diff)",
+    "links": [],
+    "description": "The changes in carbon dioxide (CO₂) levels in our atmosphere versus previous years.",
     "extent": {
         "spatial": {
-            "bbox": [[-180, -90, 180, 90]]
+            "bbox": [
+                [
+                    -180.3125,
+                    -90.25,
+                    179.6875,
+                    90.25
+                ]
+            ]
         },
         "temporal": {
-            "interval": [["2015-01-01T00:00:00Z", "2022-02-13T00:00:00Z"]]
+            "interval": [
+                [
+                    "2015-01-01T00:00:00Z",
+                    "2022-02-13T00:00:00Z"
+                ]
+            ]
         }
     },
     "license": "MIT",
-    "description": "The changes in carbon dioxide (CO₂) levels in our atmosphere versus previous years.",
-    "stac_version": "1.0.0",
-    "dashboard:is_periodic": true,
-    "dashboard:time_density": "day",
+    "stac_extensions": [],
     "item_assets": {
         "cog_default": {
             "type": "image/tiff; application=geotiff; profile=cloud-optimized",
-            "roles": ["data", "layer"],
+            "roles": [
+                "data",
+                "layer"
+            ],
             "title": "Default COG Layer",
             "description": "Cloud optimized default layer to display on map"
         }
-    }
+    },
+    "dashboard:is_periodic": true,
+    "dashboard:time_density": "day",
+    "stac_version": "1.0.0"
 }
