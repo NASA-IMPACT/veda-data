@@ -1,0 +1,38 @@
+{
+    "collection": "nceo_africa_2017",
+    "title": "NCEO Africa Aboveground Woody Biomass 2017",
+    "description": "The NCEO Africa Aboveground Woody Biomass (AGB) map for the year 2017 at 100 m spatial resolution was developed using a combination of LiDAR, Synthetic Aperture Radar (SAR) and optical based data. This product was developed by the UK’s National Centre for Earth Observation (NCEO) through the Carbon Cycle and Official Development Assistance (ODA) programmes.",
+    "type": "cog",
+    "spatial_extent": {
+        "xmin": -18.2735295,
+        "ymin": -35.054059,
+        "xmax": 51.8642329,
+        "ymax": 37.7310386
+    },
+    "temporal_extent": {
+        "startdate": "2017-01-01T00:00:00Z",
+        "enddate": "2018-01-01T00:00:00Z"
+    },
+    "license": "MIT",
+    "is_periodic": false,
+    "time_density": null,
+    "stac_version": "1.0.0",
+    "links": [
+        {
+            "rel": "external",
+            "href": "https://ceos.org/gst/africa-biomass.html",
+            "type": "text/html",
+            "title": "NCEO Africa Aboveground Woody Biomass 2017 (CEOS Website)"
+        }
+    ],
+    "discovery_items": [
+        {
+            "prefix": "file-staging/nasa-map/nceo-africa-2017/",
+            "bucket": "nasa-maap-data-store",
+            "filename_regex": "^(.*)AGB_map_2017v0m_COG.tif$",
+            "discovery": "s3",
+            "datetime_range": "year",
+            "upload": false
+        }
+    ]
+}

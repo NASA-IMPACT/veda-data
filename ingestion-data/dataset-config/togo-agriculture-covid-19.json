@@ -1,0 +1,31 @@
+{
+    "collection": "togo-agriculture-covid-19",
+    "title": "Togo Agriculture",
+    "description": "NASA Harvest developed a national-level, satellite-derived cropland map for Togo at 10-meter resolution within a 10-day timeframe using data from the European Space Agency’s Copernicus Sentinel 2 satellite, the NASA-USGS Landsat satellites, and with data from commercial partner Planet Inc. Dark purple colors indicate lower probability of cropland while lighter yellow colors indicate higher probability of cropland within each pixel.",
+    "type": "cog",
+    "spatial_extent": {
+        "xmin": -0.14,
+        "ymin": 6.1,
+        "xmax": 1.8,
+        "ymax": 11.13
+    },
+    "temporal_extent": {
+        "startdate": "2020-01-01T00:00:00Z",
+        "enddate": "2020-12-31T23:59:59Z"
+    },
+    "license": "CC0-1.0",
+    "is_periodic": false,
+    "time_density": null,
+    "stac_version": "1.0.0",
+    "discovery_items": [
+        {
+            "discovery": "s3",
+            "prefix": "togo-agriculture-covid-19/",
+            "bucket": "veda-data-store-staging",
+            "filename_regex": "^(.*)togo_cropland_2020(.*).tif$",
+            "start_datetime": "2020-01-01T00:00:00Z",
+            "end_datetime": "2020-12-31T23:59:59Z",
+            "cogify": false
+        }
+    ]
+}

@@ -1,0 +1,29 @@
+{
+    "collection": "OMSO2PCA-COG",
+    "title": "OMI/Aura Sulfur Dioxide (SO2) Total Column L3 1 day Best Pixel in 0.25 degree x 0.25 degree V3 as Cloud-Optimized GeoTIFFs (COGs)",
+    "description": "OMI/Aura Sulfur Dioxide (SO2) Total Column L3 1 day Best Pixel in 0.25 degree x 0.25 degree V3 as Cloud-Optimized GeoTIFFs (COGs)",
+    "type": "cog",
+    "spatial_extent": {
+        "xmin": -180,
+        "ymin": -90,
+        "xmax": 180,
+        "ymax": 90
+    },
+    "temporal_extent": {
+        "startdate": "2005-01-01T00:00:00Z",
+        "enddate": "2021-01-01T00:00:00Z"
+    },
+    "license": "MIT",
+    "is_periodic": true,
+    "time_density": "year",
+    "stac_version": "1.0.0",
+    "discovery_items": [
+        {
+            "prefix": "OMSO2PCA-COG/",
+            "bucket": "veda-data-store-staging",
+            "filename_regex": "^(.*).tif$",
+            "discovery": "s3",
+            "datetime_range": "year"
+        }
+    ]
+}

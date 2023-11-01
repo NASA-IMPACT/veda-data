@@ -1,0 +1,36 @@
+{
+    "collection": "nightlights-hd-1band",
+    "title": "Black Marble High Definition Nightlights 1 band Dataset",
+    "description": "The High Definition Nightlights dataset is processed to eliminate light sources, including moonlight reflectance and other interferences. Darker colors indicate fewer night lights and less activity. Lighter colors indicate more night lights and more activity.",
+    "type": "cog",
+    "spatial_extent": {
+        "xmin": -180,
+        "ymin": -90,
+        "xmax": 180,
+        "ymax": 90
+    },
+    "temporal_extent": {
+        "startdate": "2017-07-21T00:00:00Z",
+        "enddate": "2021-09-30T23:59:59Z"
+    },
+    "license": "MIT",
+    "is_periodic": false,
+    "time_density": null,
+    "stac_version": "1.0.0",
+    "discovery_items": [
+        {
+            "prefix": "nightlights-hd-1band/",
+            "bucket": "veda-data-store-staging",
+            "filename_regex": "^(.*)BMHD_Ida(.*)1band.tif$",
+            "discovery": "s3",
+            "upload": false
+        },
+        {
+            "prefix": "nightlights-hd-1band/",
+            "bucket": "veda-data-store-staging",
+            "filename_regex": "^(.*)Maria(.*)1band.tif$",
+            "discovery": "s3",
+            "upload": false
+        }
+    ]
+}

@@ -1,0 +1,43 @@
+{
+    "id": "MO_NPP_npp_vgpm",
+    "type": "Collection",
+    "title": "",
+    "links": [],
+    "description": "Ocean Net Primary Production (NPP): https://oceancolor.gsfc.nasa.gov/atbd/npp/",
+    "extent": {
+        "spatial": {
+            "bbox": [
+                [
+                    -180.0000050868518,
+                    -90.00000508655744,
+                    180.0000050868518,
+                    89.9999974571629
+                ]
+            ]
+        },
+        "temporal": {
+            "interval": [
+                [
+                    "2020-01-01T00:00:00Z",
+                    "2020-12-31T00:00:00Z"
+                ]
+            ]
+        }
+    },
+    "license": "MIT",
+    "stac_extensions": [],
+    "item_assets": {
+        "cog_default": {
+            "type": "image/tiff; application=geotiff; profile=cloud-optimized",
+            "roles": [
+                "data",
+                "layer"
+            ],
+            "title": "Default COG Layer",
+            "description": "Cloud optimized default layer to display on map"
+        }
+    },
+    "dashboard:is_periodic": true,
+    "dashboard:time_density": "month",
+    "stac_version": "1.0.0"
+}

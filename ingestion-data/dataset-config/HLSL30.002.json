@@ -1,0 +1,28 @@
+{
+    "collection": "HLSL30.002",
+    "title": "HLSL30.002",
+    "description": "Read more on the NASA CMR Landing page: https://cmr.earthdata.nasa.gov/search/concepts/C2021957657-LPCLOUD.html",
+    "type": "cog",
+    "spatial_extent": {
+        "xmin": -180,
+        "ymin": -90,
+        "xmax": 180,
+        "ymax": 90
+    },
+    "temporal_extent": {
+        "startdate": "2013-04-11T00:00:00Z",
+        "enddate": null
+    },
+    "license": "MIT",
+    "is_periodic": true,
+    "time_density": "day",
+    "stac_version": "1.0.0",
+    "links": [
+        {
+            "rel": "external",
+            "title": "NASA Common Metadata Repository Record for this Dataset",
+            "href": "https://cmr.earthdata.nasa.gov/search/concepts/C2021957657-LPCLOUD.html",
+            "type": "text/html"
+        }
+    ]
+}

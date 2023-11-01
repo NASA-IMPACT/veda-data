@@ -1,0 +1,31 @@
+{
+    "collection": "caldor-fire-burn-severity",
+    "title": "Caldor Fire Burn Severity",
+    "description": "`.geojson` and `tif` files describing the progression and active fire behavior of the 2021 Caldor Fire in California via the algorithm detailed in https://www.nature.com/articles/s41597-022-01343-0. This includes an extra `.tif` file detailing the soil burn severity (SBS) conditions provided by the [Burned Area Emergency Response](https://burnseverity.cr.usgs.gov/baer/) team.",
+    "type": "cog",
+    "spatial_extent": {
+        "xmin": -180,
+        "ymin": 90,
+        "xmax": -90,
+        "ymax": 180
+    },
+    "temporal_extent": {
+        "startdate": "2021-08-14T00:00:00Z",
+        "enddate": "2021-10-21T23:59:59Z"
+    },
+    "license": "CC0",
+    "is_periodic": false,
+    "time_density": null,
+    "stac_version": "1.0.0",
+    "discovery_items": [
+        {
+            "prefix": "EIS/COG/Fire-Hydro/",
+            "bucket": "veda-data-store-staging",
+            "filename_regex": "^(.*)bs_to_save.tif$",
+            "discovery": "s3",
+            "upload": false,
+            "start_datetime": "2021-08-15T00:00:00Z",
+            "end_datetime": "2021-10-21T12:00:00Z"
+        }
+    ]
+}

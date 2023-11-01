@@ -1,0 +1,43 @@
+{
+    "id": "lis-global-da-totalprecip",
+    "type": "Collection",
+    "title": "Total Precipitation - LIS 10km Global DA",
+    "links": [],
+    "description": "Gridded total precipitation (in kg m-2 s-1) from 10km global LIS with assimilation",
+    "extent": {
+        "spatial": {
+            "bbox": [
+                [
+                    -179.9500000157243,
+                    -59.98224871364589,
+                    179.9973980503783,
+                    89.9999999874719
+                ]
+            ]
+        },
+        "temporal": {
+            "interval": [
+                [
+                    "2002-01-02T00:00:00Z",
+                    "2022-03-01T00:00:00Z"
+                ]
+            ]
+        }
+    },
+    "license": "CC0-1.0",
+    "stac_extensions": [],
+    "item_assets": {
+        "cog_default": {
+            "type": "image/tiff; application=geotiff; profile=cloud-optimized",
+            "roles": [
+                "data",
+                "layer"
+            ],
+            "title": "Default COG Layer",
+            "description": "Cloud optimized default layer to display on map"
+        }
+    },
+    "dashboard:is_periodic": true,
+    "dashboard:time_density": "day",
+    "stac_version": "1.0.0"
+}

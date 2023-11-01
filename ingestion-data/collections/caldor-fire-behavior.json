@@ -1,34 +1,31 @@
 {
     "id": "caldor-fire-behavior",
     "type": "Collection",
-    "links":[
-    ],
-    "title":"Caldor Fire Behavior",
-    "extent":{
-        "spatial":{
-            "bbox":[
+    "title": "Caldor Fire Behavior",
+    "links": [],
+    "description": "`.geojson` and `tif` files describing the progression and active fire behavior of the 2021 Caldor Fire in California via the algorithm detailed in https://www.nature.com/articles/s41597-022-01343-0. This includes an extra `.tif` file detailing the soil burn severity (SBS) conditions provided by the [Burned Area Emergency Response](https://burnseverity.cr.usgs.gov/baer/) team.",
+    "extent": {
+        "spatial": {
+            "bbox": [
                 [
-                    -180,
-                    90,
-                    -90,
-                    180
+                    -120.61338752166166,
+                    38.54940283865057,
+                    -119.91905658168675,
+                    38.90577651328637
                 ]
             ]
         },
-        "temporal":{
-            "interval":[
+        "temporal": {
+            "interval": [
                 [
-                    "2021-08-14T00:00:00Z",
-                    "2021-10-21T23:59:59Z"
+                    "2021-08-15T00:00:00Z",
+                    "2021-10-21T12:00:00Z"
                 ]
             ]
         }
     },
-    "license":"CC0",
-    "description": "`.geojson` and `tif` files describing the progression and active fire behavior of the 2021 Caldor Fire in California via the algorithm detailed in https://www.nature.com/articles/s41597-022-01343-0. This includes an extra `.tif` file detailing the soil burn severity (SBS) conditions provided by the [Burned Area Emergency Response](https://burnseverity.cr.usgs.gov/baer/) team.",
-    "stac_version": "1.0.0",
-    "dashboard:is_periodic": false,
-    "dashboard:time_density": null,
+    "license": "CC0",
+    "stac_extensions": [],
     "item_assets": {
         "cog_default": {
             "type": "image/tiff; application=geotiff; profile=cloud-optimized",
@@ -39,5 +36,8 @@
             "title": "Default COG Layer",
             "description": "Cloud optimized default layer to display on map"
         }
-    }
+    },
+    "dashboard:is_periodic": false,
+    "dashboard:time_density": null,
+    "stac_version": "1.0.0"
 }

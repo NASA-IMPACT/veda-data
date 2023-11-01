@@ -1,0 +1,98 @@
+{
+    "id": "landsat-c2l2-sr-lakes-lake-biwa",
+    "type": "Collection",
+    "title": "Selected Landsat 7 through 9 Surface Reflectance Scenes for Lake Biwa",
+    "links": [],
+    "description": "Selected low-cloud-cover Landsat Collection-2 Level-2 Surface Reflectance scenes covering Lake Biwa. Products from multiple missions and instruments are combined in this single collection for the purpose of visualizing RGB images. Note that the full item records are not interchangeable across instruments for purposes other than visualization and that the assets available are not the same for each instrument.",
+    "extent": {
+        "spatial": {
+            "bbox": [
+                [
+                    135.2055231,
+                    33.5515966,
+                    138.0953959,
+                    35.7354584
+                ]
+            ]
+        },
+        "temporal": {
+            "interval": [
+                [
+                    "1984-06-11T00:56:49.159075Z",
+                    "2023-03-19T01:28:30.265546Z"
+                ]
+            ]
+        }
+    },
+    "license": "proprietary",
+    "stac_extensions": [],
+    "item_assets": {
+        "red": {
+            "type": "image/vnd.stac.geotiff; cloud-optimized=true",
+            "roles": [
+                "data"
+            ],
+            "title": "Red Band (B4)",
+            "eo:bands": [
+                {
+                    "gsd": 30,
+                    "name": "B4",
+                    "common_name": "red",
+                    "center_wavelength": 0.65
+                }
+            ],
+            "description": "Collection 2 Level-2 Red Band (B4) Surface Reflectance"
+        },
+        "blue": {
+            "type": "image/vnd.stac.geotiff; cloud-optimized=true",
+            "roles": [
+                "data"
+            ],
+            "title": "Blue Band (B2)",
+            "eo:bands": [
+                {
+                    "gsd": 30,
+                    "name": "B2",
+                    "common_name": "blue",
+                    "center_wavelength": 0.48
+                }
+            ],
+            "description": "Collection 2 Level-2 Blue Band (B2) Surface Reflectance"
+        },
+        "green": {
+            "type": "image/vnd.stac.geotiff; cloud-optimized=true",
+            "roles": [
+                "data"
+            ],
+            "title": "Green Band (B3)",
+            "eo:bands": [
+                {
+                    "gsd": 30,
+                    "name": "B3",
+                    "common_name": "green",
+                    "center_wavelength": 0.56
+                }
+            ],
+            "description": "Collection 2 Level-2 Green Band (B3) Surface Reflectance"
+        },
+        "thumbnail": {
+            "type": "image/jpeg",
+            "roles": [
+                "thumbnail"
+            ],
+            "title": "Thumbnail image"
+        },
+        "cog_default": {
+            "type": "image/tiff; application=geotiff; profile=cloud-optimized",
+            "roles": [
+                "data",
+                "layer"
+            ],
+            "title": "Default COG Layer",
+            "description": "Cloud optimized default layer to display on map"
+        }
+    },
+    "dashboard:is_periodic": "false",
+    "dashboard:time_density": "day",
+    "stac_version": "1.0.0"
+}

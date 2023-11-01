@@ -1,0 +1,62 @@
+{
+    "collection": "mtbs-burn-severity",
+    "title": "MTBS Burn Severity",
+    "description": "Burn severities and extents of fires from Monitoring Trends in Burn Severity (MTBS) program during the years 2016-2020 over Western US",
+    "type": "cog",
+    "spatial_extent": {
+        "xmin": -126.494596,
+        "ymin": 24.047867,
+        "xmax": -71.507525,
+        "ymax": 50.559167
+    },
+    "temporal_extent": {
+        "startdate": "2016-01-01T00:00:00Z",
+        "enddate": "2020-12-31T23:59:59Z"
+    },
+    "license": "MIT",
+    "is_periodic": "true",
+    "time_density": "year",
+    "stac_version": "1.0.0",
+    "discovery_items": [
+        {
+            "discovery": "s3",
+            "prefix": "EIS/COG/Fire-Hydro/",
+            "bucket": "veda-data-store-staging",
+            "filename_regex": "mtbs_CONUS_2016.cog.tif",
+            "start_datetime": "2016-01-01T00:00:00Z",
+            "end_datetime": "2016-12-31T23:59:59Z"
+        },
+        {
+            "discovery": "s3",
+            "prefix": "EIS/COG/Fire-Hydro/",
+            "bucket": "veda-data-store-staging",
+            "filename_regex": "mtbs_CONUS_2017.cog.tif",
+            "start_datetime": "2017-01-01T00:00:00Z",
+            "end_datetime": "2017-12-31T23:59:59Z"
+        },
+        {
+            "discovery": "s3",
+            "prefix": "EIS/COG/Fire-Hydro/",
+            "bucket": "veda-data-store-staging",
+            "filename_regex": "mtbs_CONUS_2018.cog.tif",
+            "start_datetime": "2018-01-01T00:00:00Z",
+            "end_datetime": "2018-12-31T23:59:59Z"
+        },
+        {
+            "discovery": "s3",
+            "prefix": "EIS/COG/Fire-Hydro/",
+            "bucket": "veda-data-store-staging",
+            "filename_regex": "mtbs_CONUS_2019.cog.tif",
+            "start_datetime": "2019-01-01T00:00:00Z",
+            "end_datetime": "2019-12-31T23:59:59Z"
+        },
+        {
+            "discovery": "s3",
+            "prefix": "EIS/COG/Fire-Hydro/",
+            "bucket": "veda-data-store-staging",
+            "filename_regex": "mtbs_CONUS_2020.cog.tif",
+            "start_datetime": "2020-01-01T00:00:00Z",
+            "end_datetime": "2020-12-31T23:59:59Z"
+        }
+    ]
+}

@@ -1,50 +1,43 @@
 {
-   "id": "eis_fire_fireline",
-   "type": "Collection",
-   "links":[
-      {
-         "rel": "child",
-         "type": "application/json",
-         "href": "https://firenrt.delta-backend.com/collections/public.eis_fire_fireline"
-      }
-   ],
-   "title":"Active Fire Line",
-   "description": "Active fire line as estimated by new VIIRS detections.",
-   "extent":{
-      "spatial": {
-         "bbox": [
-               [
-                  -123.99217987060547,
-                  31.054306030273438,
-                  -101.49222564697266,
-                  49.461177825927734
-               ]
-      ],
-         "crs": "http://www.opengis.net/def/crs/EPSG/0/4326"
-      },
-      "temporal": {
-         "interval": [
-                  [
-                     "2019-05-01T00:00:00+00:00",
-                     null
-                  ]
-      ],
-         "trs": "http://www.opengis.net/def/uom/ISO-8601/0/Gregorian"
-      }
-   },
-   "item_assets": {
-      "cog_default": {
-          "type": "image/tiff; application=geotiff; profile=cloud-optimized",
-          "roles": [
-              "data",
-              "layer"
-          ],
-          "title": "Default COG Layer",
-          "description": "Cloud optimized default layer to display on map"
-      }
-  },
-   "license":"public-domain",
-   "stac_version": "1.0.0",
-   "dashboard:is_periodic": true,
-   "dashboard:time_density": "day"
+    "id": "eis_fire_fireline",
+    "type": "Collection",
+    "title": "Active Fire Line",
+    "links": [
+        {
+            "rel": "external",
+            "href": "https://firenrt.delta-backend.com/collections/public.eis_fire_snapshot_fireline_nrt",
+            "type": "application/json",
+            "label:assets": null
+        }
+    ],
+    "description": "Active fire line as estimated by new VIIRS detections.",
+    "extent": {
+        "spatial": {
+            "bbox": [[-171.791110603, 18.91619, -66.96466, 71.3577635769]]
+        },
+        "temporal": {
+            "interval": [
+                [
+                    null,
+                    null
+                ]
+            ]
+        }
+    },
+    "license": "public-domain",
+    "stac_extensions": [],
+    "item_assets": {
+        "cog_default": {
+            "type": "image/tiff; application=geotiff; profile=cloud-optimized",
+            "roles": [
+                "data",
+                "layer"
+            ],
+            "title": "Default COG Layer",
+            "description": "Cloud optimized default layer to display on map"
+        }
+    },
+    "dashboard:is_periodic": true,
+    "dashboard:time_density": "day",
+    "stac_version": "1.0.0"
 }

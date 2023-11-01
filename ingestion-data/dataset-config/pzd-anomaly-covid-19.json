@@ -1,0 +1,31 @@
+{
+    "collection": "pzd-anomaly-covid-19",
+    "title": "Photic Zone Depth Anomaly",
+    "description": "Photic zone depth (PZD) is the depth at which only 1% of the surface irradiation remains, and is an indicator of water clarity. PZD is impacted by concentrations of chlorophyll-a, suspended solids, and CDOM. Redder colors indicate increased water clarity. Bluer colors indicate decreased water clarity. White areas indicate no change.",
+    "type": "cog",
+    "spatial_extent": {
+        "xmin": -92.2,
+        "ymin": 40.9975,
+        "xmax": -76.0,
+        "ymax": 49.09
+    },
+    "temporal_extent": {
+        "startdate": "2020-01-01T00:00:00Z",
+        "enddate": "2021-12-31T23:59:59Z"
+    },
+    "license": "CC0-1.0",
+    "is_periodic": false,
+    "time_density": "day",
+    "stac_version": "1.0.0",
+    "discovery_items": [
+        {
+            "discovery": "s3",
+            "prefix": "pzd-anomaly-covid-19/",
+            "bucket": "veda-data-store-staging",
+            "filename_regex": "^(.*)anomaly-pzd-gl(.*).tif$",
+            "start_datetime": "2020-01-01T00:00:00Z",
+            "end_datetime": "2021-12-31T23:59:59Z",
+            "cogify": false
+        }
+    ]
+}

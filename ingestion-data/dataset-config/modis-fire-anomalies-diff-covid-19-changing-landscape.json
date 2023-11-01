@@ -1,0 +1,31 @@
+{
+    "collection": "modis-fire-anomalies-diff-covid-19-changing-landscape",
+    "title": "MODIS change in active fires compared to the baseline of 2012-2019",
+    "description": "Change in active fires compared to the baseline of 2012-2019 from -10% to 10%.",
+    "type": "cog",
+    "spatial_extent": {
+        "xmin": -125.0,
+        "ymin": 24.0,
+        "xmax": -75.0,
+        "ymax": 43.0
+    },
+    "temporal_extent": {
+        "startdate": "2020-03-01T00:00:00Z",
+        "enddate": "2020-10-30T23:59:59Z"
+    },
+    "license": "CC0-1.0",
+    "is_periodic": true,
+    "time_density": "month",
+    "stac_version": "1.0.0",
+    "discovery_items": [
+        {
+            "discovery": "s3",
+            "prefix": "modis-fire-anomalies-diff-covid-19-changing-landscape/",
+            "bucket": "veda-data-store-staging",
+            "filename_regex": "^(.*)MODIS-AF_anomalies_USA(.*).tif$",
+            "start_datetime": "2020-01-01T00:00:00Z",
+            "end_datetime": "2020-12-31T23:59:59Z",
+            "cogify": false
+        }
+    ]
+}

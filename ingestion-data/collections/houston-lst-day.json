@@ -1,0 +1,43 @@
+{
+    "id": "houston-lst-day",
+    "type": "Collection",
+    "title": "Houston land surface temperature during daytime - decadal average",
+    "links": [],
+    "description": "MODIS-calculated Land Surface Temperature (LST) Daytime over the Houston metro area, decadally averaged.",
+    "extent": {
+        "spatial": {
+            "bbox": [
+                [
+                    -97.00008437922591,
+                    27.992675617599986,
+                    -93.99971133026672,
+                    31.009709499642028
+                ]
+            ]
+        },
+        "temporal": {
+            "interval": [
+                [
+                    "2000-01-01T00:00:00Z",
+                    "2019-01-01T00:00:00Z"
+                ]
+            ]
+        }
+    },
+    "license": "CC0-1.0",
+    "stac_extensions": [],
+    "item_assets": {
+        "cog_default": {
+            "type": "image/tiff; application=geotiff; profile=cloud-optimized",
+            "roles": [
+                "data",
+                "layer"
+            ],
+            "title": "Default COG Layer",
+            "description": "Cloud optimized default layer to display on map"
+        }
+    },
+    "dashboard:is_periodic": false,
+    "dashboard:time_density": null,
+    "stac_version": "1.0.0"
+}

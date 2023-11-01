@@ -1,22 +1,22 @@
 {
     "id": "recovery-proxy-maps-covid-19",
     "type": "Collection",
-    "links":[
-    ],
-    "title":"Recovery Proxy Maps",
-    "extent":{
-        "spatial":{
-            "bbox":[
+    "title": "Recovery Proxy Maps",
+    "links": [],
+    "description": "Recovery Proxy Maps show areas with the greatest increase in car activity shaded in orange. Darker orange indicates areas of greater change.",
+    "extent": {
+        "spatial": {
+            "bbox": [
                 [
-                    -180,
-                    90,
-                    -90,
-                    180
+                    -122.95334866499998,
+                    -7.335621996172708,
+                    140.8197117750449,
+                    51.424290027
                 ]
             ]
         },
-        "temporal":{
-            "interval":[
+        "temporal": {
+            "interval": [
                 [
                     "2020-01-01T00:00:00Z",
                     "2020-12-31T23:59:59Z"
@@ -24,11 +24,8 @@
             ]
         }
     },
-    "license":"CC0-1.0",
-    "description": "Recovery Proxy Maps show areas with the greatest increase in car activity shaded in orange. Darker orange indicates areas of greater change.",
-    "stac_version": "1.0.0",
-    "dashboard:is_periodic": false,
-    "dashboard:time_density": null,
+    "license": "CC0-1.0",
+    "stac_extensions": [],
     "item_assets": {
         "cog_default": {
             "type": "image/tiff; application=geotiff; profile=cloud-optimized",
@@ -39,5 +36,8 @@
             "title": "Default COG Layer",
             "description": "Cloud optimized default layer to display on map"
         }
-    }
+    },
+    "dashboard:is_periodic": false,
+    "dashboard:time_density": null,
+    "stac_version": "1.0.0"
 }

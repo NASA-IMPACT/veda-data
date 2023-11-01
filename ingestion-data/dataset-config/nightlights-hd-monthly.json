@@ -1,0 +1,204 @@
+{
+    "collection": "nightlights-hd-monthly",
+    "title": "Black Marble High Definition Nightlights Monthly Dataset",
+    "description": "The High Definition Nightlights dataset is processed to eliminate light sources, including moonlight reflectance and other interferences. Darker colors indicate fewer night lights and less activity. Lighter colors indicate more night lights and more activity.",
+    "type": "cog",
+    "spatial_extent": {
+        "xmin": -180,
+        "ymin": -90,
+        "xmax": 180,
+        "ymax": 90
+    },
+    "temporal_extent": {
+        "startdate": "2017-07-21T00:00:00Z",
+        "enddate": "2021-09-30T23:59:59Z"
+    },
+    "license": "MIT",
+    "is_periodic": true,
+    "time_density": "month",
+    "stac_version": "1.0.0",
+    "discovery_items": [
+        {
+            "prefix": "nightlights-hd-monthly/",
+            "bucket": "veda-data-store-staging",
+            "filename_regex": "^(.*)Barcelona(.*).tif$",
+            "discovery": "s3",
+            "datetime_range": "month"
+        },
+        {
+            "prefix": "nightlights-hd-monthly/",
+            "bucket": "veda-data-store-staging",
+            "filename_regex": "^(.*)Lima(.*).tif$",
+            "discovery": "s3",
+            "datetime_range": "month"
+        },
+        {
+            "prefix": "nightlights-hd-monthly/",
+            "bucket": "veda-data-store-staging",
+            "filename_regex": "^(.*)Paris(.*).tif$",
+            "discovery": "s3",
+            "datetime_range": "month"
+        },
+        {
+            "prefix": "nightlights-hd-monthly/",
+            "bucket": "veda-data-store-staging",
+            "filename_regex": "^(.*)Milan(.*).tif$",
+            "discovery": "s3",
+            "datetime_range": "month"
+        },
+        {
+            "prefix": "nightlights-hd-monthly/",
+            "bucket": "veda-data-store-staging",
+            "filename_regex": "^(.*)Marseille(.*).tif$",
+            "discovery": "s3",
+            "datetime_range": "month"
+        },
+        {
+            "prefix": "nightlights-hd-monthly/",
+            "bucket": "veda-data-store-staging",
+            "filename_regex": "^(.*)Beijing(.*).tif$",
+            "discovery": "s3",
+            "datetime_range": "month"
+        },
+        {
+            "prefix": "nightlights-hd-monthly/",
+            "bucket": "veda-data-store-staging",
+            "filename_regex": "^(.*)Dhaka_Dhaka-city(.*).tif$",
+            "discovery": "s3",
+            "datetime_range": "month"
+        },
+        {
+            "prefix": "nightlights-hd-monthly/",
+            "bucket": "veda-data-store-staging",
+            "filename_regex": "^(.*)Ghent(.*).tif$",
+            "discovery": "s3",
+            "datetime_range": "month"
+        },
+        {
+            "prefix": "nightlights-hd-monthly/",
+            "bucket": "veda-data-store-staging",
+            "filename_regex": "^(.*)Fukuoka_Fukuoka-city(.*).tif$",
+            "discovery": "s3",
+            "datetime_range": "month"
+        },
+        {
+            "prefix": "nightlights-hd-monthly/",
+            "bucket": "veda-data-store-staging",
+            "filename_regex": "^(.*)Tokyo-23Wards(.*).tif$",
+            "discovery": "s3",
+            "datetime_range": "month"
+        },
+        {
+            "prefix": "nightlights-hd-monthly/",
+            "bucket": "veda-data-store-staging",
+            "filename_regex": "^(.*)Aichi_Nagoya-city(.*).tif$",
+            "discovery": "s3",
+            "datetime_range": "month"
+        },
+        {
+            "prefix": "nightlights-hd-monthly/",
+            "bucket": "veda-data-store-staging",
+            "filename_regex": "^(.*)Dunkirk(.*).tif$",
+            "discovery": "s3",
+            "datetime_range": "month"
+        },
+        {
+            "prefix": "nightlights-hd-monthly/",
+            "bucket": "veda-data-store-staging",
+            "filename_regex": "^(.*)Madrid(.*).tif$",
+            "discovery": "s3",
+            "datetime_range": "month"
+        },
+        {
+            "prefix": "nightlights-hd-monthly/",
+            "bucket": "veda-data-store-staging",
+            "filename_regex": "^(.*)Colombo(.*).tif$",
+            "discovery": "s3",
+            "datetime_range": "month"
+        },
+        {
+            "prefix": "nightlights-hd-monthly/",
+            "bucket": "veda-data-store-staging",
+            "filename_regex": "^(.*)Gdynia(.*).tif$",
+            "discovery": "s3",
+            "datetime_range": "month"
+        },
+        {
+            "prefix": "nightlights-hd-monthly/",
+            "bucket": "veda-data-store-staging",
+            "filename_regex": "^(.*)Hamburg(.*).tif$",
+            "discovery": "s3",
+            "datetime_range": "month"
+        },
+        {
+            "prefix": "nightlights-hd-monthly/",
+            "bucket": "veda-data-store-staging",
+            "filename_regex": "^(.*)Osaka_Osaka-city(.*).tif$",
+            "discovery": "s3",
+            "datetime_range": "month"
+        },
+        {
+            "prefix": "nightlights-hd-monthly/",
+            "bucket": "veda-data-store-staging",
+            "filename_regex": "^(.*)Singapore(.*).tif$",
+            "discovery": "s3",
+            "datetime_range": "month"
+        },
+        {
+            "prefix": "nightlights-hd-monthly/",
+            "bucket": "veda-data-store-staging",
+            "filename_regex": "^(.*)Venice(.*).tif$",
+            "discovery": "s3",
+            "datetime_range": "month"
+        },
+        {
+            "prefix": "nightlights-hd-monthly/",
+            "bucket": "veda-data-store-staging",
+            "filename_regex": "^(.*)Auckland(.*).tif$",
+            "discovery": "s3",
+            "datetime_range": "month"
+        },
+        {
+            "prefix": "nightlights-hd-monthly/",
+            "bucket": "veda-data-store-staging",
+            "filename_regex": "^(.*)Genoa(.*).tif$",
+            "discovery": "s3",
+            "datetime_range": "month"
+        },
+        {
+            "prefix": "nightlights-hd-monthly/",
+            "bucket": "veda-data-store-staging",
+            "filename_regex": "^(.*)Kyoto_Kyoto-city(.*).tif$",
+            "discovery": "s3",
+            "datetime_range": "month"
+        },
+        {
+            "prefix": "nightlights-hd-monthly/",
+            "bucket": "veda-data-store-staging",
+            "filename_regex": "^(.*)London(.*).tif$",
+            "discovery": "s3",
+            "datetime_range": "month"
+        },
+        {
+            "prefix": "nightlights-hd-monthly/",
+            "bucket": "veda-data-store-staging",
+            "filename_regex": "^(.*)Rome(.*).tif$",
+            "discovery": "s3",
+            "datetime_range": "month"
+        },
+        {
+            "prefix": "nightlights-hd-monthly/",
+            "bucket": "veda-data-store-staging",
+            "filename_regex": "^(.*)Amsterdam(.*).tif$",
+            "discovery": "s3",
+            "datetime_range": "month"
+        },
+        {
+            "prefix": "nightlights-hd-monthly/",
+            "bucket": "veda-data-store-staging",
+            "filename_regex": "^(.*)Hokkaido_Sapporo(.*).tif$",
+            "discovery": "s3",
+            "datetime_range": "month"
+        }
+    ]
+}
