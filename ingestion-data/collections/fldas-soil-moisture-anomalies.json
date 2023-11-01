@@ -39,5 +39,6 @@
     },
     "dashboard:is_periodic": false,
     "dashboard:time_density": "month",
-    "stac_version": "1.0.0"
+    "stac_version": "1.0.0",
+    "providers": []
 }

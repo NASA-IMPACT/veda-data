@@ -94,5 +94,6 @@
     },
     "dashboard:is_periodic": "false",
     "dashboard:time_density": "day",
-    "stac_version": "1.0.0"
+    "stac_version": "1.0.0",
+    "providers": []
 }

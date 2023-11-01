@@ -46,5 +46,23 @@
     },
     "dashboard:is_periodic": false,
     "dashboard:time_density": null,
-    "stac_version": "1.0.0"
+    "stac_version": "1.0.0",
+    "providers": [
+        {
+            "name": "Meta Data for Good",
+            "url": "https://dataforgood.facebook.com/dfg/tools/high-resolution-population-density-maps",
+            "roles": [
+                "producer",
+                "processor",
+                "licensor"
+            ]
+        },
+        {
+            "name": "NASA VEDA",
+            "url": "https://www.earthdata.nasa.gov/dashboard/",
+            "roles": [
+                "host"
+            ]
+        }
+    ]
 }

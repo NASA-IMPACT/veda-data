@@ -39,5 +39,24 @@
     },
     "dashboard:is_periodic": "true",
     "dashboard:time_density": "year",
-    "stac_version": "1.0.0"
+    "stac_version": "1.0.0",
+    "providers": [
+        {
+            "name": "Monitoring Trends in Burn Severity",
+            "url": "https://www.mtbs.gov/",
+            "roles": [
+                "producer",
+                "processor",
+                "licensor",
+                "host"
+            ]
+        },
+        {
+            "name": "NASA VEDA",
+            "url": "https://www.earthdata.nasa.gov/dashboard/",
+            "roles": [
+                "host"
+            ]
+        }
+    ]
 }

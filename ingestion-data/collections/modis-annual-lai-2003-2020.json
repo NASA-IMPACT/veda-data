@@ -39,5 +39,28 @@
     },
     "dashboard:is_periodic": false,
     "dashboard:time_density": null,
-    "stac_version": "1.0.0"
+    "stac_version": "1.0.0",
+    "providers": [
+        {
+            "name": "USGS",
+            "url": "https://lpdaac.usgs.gov/product_search/",
+            "roles": [
+                "producer"
+            ]
+        },
+        {
+            "name": "NASA VEDA",
+            "url": "https://www.earthdata.nasa.gov/dashboard/",
+            "roles": [
+                "host"
+            ]
+        },
+        {
+            "name": "NASA VEDA",
+            "url": "https://www.earthdata.nasa.gov/dashboard/",
+            "roles": [
+                "processor"
+            ]
+        }
+    ]
 }

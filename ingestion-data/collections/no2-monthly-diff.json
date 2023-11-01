@@ -41,5 +41,22 @@
     },
     "dashboard:is_periodic": true,
     "dashboard:time_density": "month",
-    "stac_version": "1.0.0"
+    "stac_version": "1.0.0",
+    "providers": [
+        {
+            "name": "NASA Goddard Earth Sciences Data and Information Services Center",
+            "url": "https://disc.gsfc.nasa.gov/",
+            "roles": [
+                "producer",
+                "processor"
+            ]
+        },
+        {
+            "name": "NASA VEDA",
+            "url": "https://www.earthdata.nasa.gov/dashboard/",
+            "roles": [
+                "host"
+            ]
+        }
+    ]
 }
