@@ -39,5 +39,17 @@
     },
     "dashboard:is_periodic": false,
     "dashboard:time_density": null,
-    "stac_version": "1.0.0"
+    "stac_version": "1.0.0",
+    "renders": {
+        "dashboard": {
+            "asset_bidx": "cog_default|1",
+            "colormap_name": "inferno_r",
+            "rescale": [
+                1.0,
+                1080
+            ],
+            "nodata": "nan",
+            "title": "VEDA Dashboard Render Parameters"
+        }
+    }
 }

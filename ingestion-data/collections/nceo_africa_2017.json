@@ -46,5 +46,15 @@
     },
     "dashboard:is_periodic": false,
     "dashboard:time_density": null,
-    "stac_version": "1.0.0"
+    "stac_version": "1.0.0",
+    "renders": {
+        "dashboard": {
+            "colormap_name": "gist_earth_r",
+            "rescale": [
+                0,
+                400
+            ],
+            "title": "VEDA Dashboard Render Parameters"
+        }
+    }
 }

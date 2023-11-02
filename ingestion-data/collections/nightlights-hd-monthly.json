@@ -39,5 +39,16 @@
     },
     "dashboard:is_periodic": true,
     "dashboard:time_density": "month",
-    "stac_version": "1.0.0"
+    "stac_version": "1.0.0",
+    "renders": {
+        "dashboard": {
+            "bidx": 1,
+            "colormap_name": "inferno",
+            "rescale": [
+                0,
+                255
+            ],
+            "title": "VEDA Dashboard Render Parameters"
+        }
+    }
 }

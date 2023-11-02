@@ -39,5 +39,15 @@
     },
     "dashboard:is_periodic": false,
     "dashboard:time_density": "month",
-    "stac_version": "1.0.0"
+    "stac_version": "1.0.0",
+    "renders": {
+        "dashboard": {
+            "colormap_name": "rdbu",
+            "rescale": "-0.3, 0.3",
+            "resampling": "bilinear",
+            "bidx": 1,
+            "nodata": -9999,
+            "title": "VEDA Dashboard Render Parameters"
+        }
+    }
 }

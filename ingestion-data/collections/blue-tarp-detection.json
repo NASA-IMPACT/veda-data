@@ -39,5 +39,17 @@
     },
     "dashboard:is_periodic": false,
     "dashboard:time_density": "day",
-    "stac_version": "1.0.0"
+    "stac_version": "1.0.0",
+    "renders": {
+        "dashboard": {
+            "resampling": "cubic_spline",
+            "bidx": 1,
+            "colormap_name": "reds",
+            "rescale": [
+                0,
+                400
+            ],
+            "title": "VEDA Dashboard Render Parameters"
+        }
+    }
 }

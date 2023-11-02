@@ -39,5 +39,52 @@
     },
     "dashboard:is_periodic": false,
     "dashboard:time_density": "month",
-    "stac_version": "1.0.0"
+    "stac_version": "1.0.0",
+    "renders": {
+        "dashboard": {
+            "colormap": {
+                "1": [
+                    120,
+                    120,
+                    120
+                ],
+                "2": [
+                    130,
+                    65,
+                    0
+                ],
+                "3": [
+                    66,
+                    207,
+                    56
+                ],
+                "4": [
+                    245,
+                    239,
+                    0
+                ],
+                "5": [
+                    241,
+                    89,
+                    32
+                ],
+                "6": [
+                    168,
+                    0,
+                    0
+                ],
+                "7": [
+                    0,
+                    143,
+                    201
+                ]
+            },
+            "bidx": 1,
+            "unscale": false,
+            "resampling": "nearest",
+            "max_size": 1024,
+            "return_mask": true,
+            "title": "VEDA Dashboard Render Parameters"
+        }
+    }
 }

@@ -43,5 +43,16 @@
     "item_assets": {},
     "dashboard:is_periodic": false,
     "dashboard:time_density": "day",
-    "stac_version": "1.0.0"
+    "stac_version": "1.0.0",
+    "renders": {
+        "dashboard": {
+            "post_process": "swir",
+            "assets": [
+                "B12",
+                "B8A",
+                "B04"
+            ],
+            "title": "VEDA Dashboard Render Parameters"
+        }
+    }
 }

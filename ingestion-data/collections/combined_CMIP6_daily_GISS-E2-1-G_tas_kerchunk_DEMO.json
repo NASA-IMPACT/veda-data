@@ -90,5 +90,16 @@
     },
     "dashboard:is_periodic": true,
     "dashboard:time_density": "day",
-    "stac_version": "1.0.0"
+    "stac_version": "1.0.0",
+    "renders": {
+        "dashboard": {
+            "reference": "true",
+            "resampling_method": "bilinear",
+            "variable": "tas",
+            "colormap_name": "coolwarm",
+            "rescale": "232,312",
+            "maxzoom": 12,
+            "title": "VEDA Dashboard Render Parameters"
+        }
+    }
 }
