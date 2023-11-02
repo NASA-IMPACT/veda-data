@@ -26,7 +26,8 @@
     },
     "license": "MIT",
     "stac_extensions": [
-        "https://stac-extensions.github.io/item-assets/v1.0.0/schema.json"
+        "https://stac-extensions.github.io/item-assets/v1.0.0/schema.json",
+        "https://stac-extensions.github.io/render/v1.0.0/schema.json"
     ],
     "item_assets": {
         "cog_default": {
@@ -51,6 +52,9 @@
             "rescale": [
                 0,
                 "1.5e16"
+            ],
+            "assets": [
+                "cog_default"
             ],
             "title": "VEDA Dashboard Render Parameters"
         }

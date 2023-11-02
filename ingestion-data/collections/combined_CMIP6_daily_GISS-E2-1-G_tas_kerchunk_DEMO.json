@@ -26,7 +26,8 @@
     },
     "license": "CC0-1.0",
     "stac_extensions": [
-        "https://stac-extensions.github.io/datacube/v2.0.0/schema.json"
+        "https://stac-extensions.github.io/datacube/v2.0.0/schema.json",
+        "https://stac-extensions.github.io/render/v1.0.0/schema.json"
     ],
     "data_type": "zarr",
     "collection": "combined_CMIP6_daily_GISS-E2-1-G_tas_kerchunk_DEMO",
@@ -99,6 +100,9 @@
             "colormap_name": "coolwarm",
             "rescale": "232,312",
             "maxzoom": 12,
+            "assets": [
+                "cog_default"
+            ],
             "title": "VEDA Dashboard Render Parameters"
         }
     }

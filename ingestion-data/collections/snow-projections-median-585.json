@@ -25,7 +25,9 @@
         }
     },
     "license": "CC0-1.0",
-    "stac_extensions": [],
+    "stac_extensions": [
+        "https://stac-extensions.github.io/render/v1.0.0/schema.json"
+    ],
     "item_assets": {
         "cog_default": {
             "type": "image/tiff; application=geotiff; profile=cloud-optimized",
@@ -48,6 +50,9 @@
             "rescale": [
                 0,
                 1000
+            ],
+            "assets": [
+                "cog_default"
             ],
             "title": "VEDA Dashboard Render Parameters"
         }

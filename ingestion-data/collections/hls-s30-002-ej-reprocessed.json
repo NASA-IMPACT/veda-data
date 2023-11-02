@@ -32,7 +32,9 @@
         }
     },
     "license": "MIT",
-    "stac_extensions": [],
+    "stac_extensions": [
+        "https://stac-extensions.github.io/render/v1.0.0/schema.json"
+    ],
     "provider": {
         "url": "https://lpdaac.usgs.gov/products/hlss30v002/",
         "name": "Land Processes Distributed Active Archive Center (LP DAAC)",
@@ -48,9 +50,7 @@
         "dashboard": {
             "post_process": "swir",
             "assets": [
-                "B12",
-                "B8A",
-                "B04"
+                "cog_default"
             ],
             "title": "VEDA Dashboard Render Parameters"
         }
