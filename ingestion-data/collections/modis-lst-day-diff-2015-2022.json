@@ -40,5 +40,13 @@
     "dashboard:is_periodic": true,
     "dashboard:time_density": "year",
     "stac_version": "1.0.0",
-    "providers": []
+    "providers": [
+        {
+            "name": "NASA VEDA",
+            "url": "https://www.earthdata.nasa.gov/dashboard/",
+            "roles": [
+                "host"
+            ]
+        }
+    ]
 }
