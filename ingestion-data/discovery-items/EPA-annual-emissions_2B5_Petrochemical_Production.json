@@ -1,0 +1,6 @@
+{
+    "collection": "EPA-annual-emissions_2B5_Petrochemical_Production",
+    "bucket": "veda-data-store-staging",
+    "discovery": "s3",
+    "upload": false
+}

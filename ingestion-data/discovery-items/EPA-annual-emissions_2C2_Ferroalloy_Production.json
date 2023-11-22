@@ -1,0 +1,6 @@
+{
+    "collection": "EPA-annual-emissions_2C2_Ferroalloy_Production",
+    "bucket": "veda-data-store-staging",
+    "discovery": "s3",
+    "upload": false
+}

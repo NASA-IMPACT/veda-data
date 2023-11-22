@@ -1,0 +1,6 @@
+{
+    "collection": "facebook_population_density",
+    "bucket": "veda-data-store-staging",
+    "discovery": "s3",
+    "upload": false
+}

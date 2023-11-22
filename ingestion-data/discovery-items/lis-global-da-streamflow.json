@@ -1,0 +1,6 @@
+{
+    "collection": "lis-global-da-streamflow",
+    "bucket": "veda-data-store-staging",
+    "discovery": "s3",
+    "upload": false
+}

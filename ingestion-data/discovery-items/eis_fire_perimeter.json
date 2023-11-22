@@ -1,0 +1,6 @@
+{
+    "collection": "eis_fire_perimeter",
+    "bucket": "veda-data-store-staging",
+    "discovery": "s3",
+    "upload": false
+}

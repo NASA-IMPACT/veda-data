@@ -1,0 +1,6 @@
+{
+    "collection": "entropy_difference_2022-09-05_2022-09-30",
+    "bucket": "veda-data-store-staging",
+    "discovery": "s3",
+    "upload": false
+}

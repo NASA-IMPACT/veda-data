@@ -1,0 +1,6 @@
+{
+    "collection": "EPA-annual-emissions_1A_Combustion_Mobile",
+    "bucket": "veda-data-store-staging",
+    "discovery": "s3",
+    "upload": false
+}

@@ -1,0 +1,6 @@
+{
+    "collection": "sport-lis-vsm0_100cm-percentile",
+    "bucket": "veda-data-store-staging",
+    "discovery": "s3",
+    "upload": false
+}

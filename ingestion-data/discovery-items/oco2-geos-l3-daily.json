@@ -1,0 +1,6 @@
+{
+    "collection": "oco2-geos-l3-daily",
+    "bucket": "veda-data-store-staging",
+    "discovery": "s3",
+    "upload": false
+}

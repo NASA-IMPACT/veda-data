@@ -1,0 +1,6 @@
+{
+    "collection": "EPA-annual-emissions_4B_Manure_Management",
+    "bucket": "veda-data-store-staging",
+    "discovery": "s3",
+    "upload": false
+}

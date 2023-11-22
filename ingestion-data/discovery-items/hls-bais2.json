@@ -1,0 +1,6 @@
+{
+    "collection": "hls-bais2",
+    "bucket": "veda-data-store-staging",
+    "discovery": "s3",
+    "upload": false
+}

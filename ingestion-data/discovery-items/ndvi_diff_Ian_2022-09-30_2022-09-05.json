@@ -1,0 +1,6 @@
+{
+    "collection": "ndvi_diff_Ian_2022-09-30_2022-09-05",
+    "bucket": "veda-data-store-staging",
+    "discovery": "s3",
+    "upload": false
+}

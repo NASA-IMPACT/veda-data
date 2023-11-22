@@ -1,0 +1,6 @@
+{
+    "collection": "nceo_africa_2017",
+    "bucket": "veda-data-store-staging",
+    "discovery": "s3",
+    "upload": false
+}

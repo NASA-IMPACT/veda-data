@@ -1,0 +1,6 @@
+{
+    "collection": "landsat-c2l2-sr-lakes-aral-sea",
+    "bucket": "veda-data-store-staging",
+    "discovery": "s3",
+    "upload": false
+}

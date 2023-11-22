@@ -1,0 +1,6 @@
+{
+    "collection": "combined_CMIP6_daily_GISS-E2-1-G_tas_kerchunk_DEMO",
+    "bucket": "veda-data-store-staging",
+    "discovery": "s3",
+    "upload": false
+}

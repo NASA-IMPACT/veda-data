@@ -1,0 +1,6 @@
+{
+    "collection": "EPA-annual-emissions_1B2b_Natural_Gas_Distribution",
+    "bucket": "veda-data-store-staging",
+    "discovery": "s3",
+    "upload": false
+}

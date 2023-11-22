@@ -1,0 +1,6 @@
+{
+    "collection": "EPA-annual-emissions_1B1a_Coal_Mining_Surface",
+    "bucket": "veda-data-store-staging",
+    "discovery": "s3",
+    "upload": false
+}
