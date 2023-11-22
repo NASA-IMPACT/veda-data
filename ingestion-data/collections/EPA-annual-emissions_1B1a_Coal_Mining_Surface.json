@@ -39,5 +39,23 @@
     },
     "dashboard:is_periodic": true,
     "dashboard:time_density": "year",
-    "stac_version": "1.0.0"
+    "stac_version": "1.0.0",
+    "providers": [
+        {
+            "name": "EPA",
+            "url": "https://www.epa.gov/ghgemissions/gridded-2012-methane-emissions",
+            "roles": [
+                "producer",
+                "processor",
+                "licensor"
+            ]
+        },
+        {
+            "name": "NASA VEDA",
+            "url": "https://www.earthdata.nasa.gov/dashboard/",
+            "roles": [
+                "host"
+            ]
+        }
+    ]
 }

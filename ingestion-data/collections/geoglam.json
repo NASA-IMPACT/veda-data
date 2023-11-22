@@ -39,5 +39,23 @@
     },
     "dashboard:is_periodic": false,
     "dashboard:time_density": "month",
-    "stac_version": "1.0.0"
+    "stac_version": "1.0.0",
+    "providers": [
+        {
+            "name": "USDA & Global Crop Monitor Group partners",
+            "url": "https://data.nal.usda.gov/dataset/geoglam-geo-global-agricultural-monitoring-crop-assessment-tool#:~:text=The%20GEOGLAM%20crop%20calendars%20are,USDA%20FAS%2C%20and%20USDA%20NASS.",
+            "roles": [
+                "producer",
+                "processor",
+                "licensor"
+            ]
+        },
+        {
+            "name": "NASA VEDA",
+            "url": "https://www.earthdata.nasa.gov/dashboard/",
+            "roles": [
+                "host"
+            ]
+        }
+    ]
 }
