@@ -77,7 +77,7 @@
                     255
                 ]
             },
-            "bidx": 1,
+            "bidx": [1],
             "return_mask": true,
             "assets": [
                 "cog_default"

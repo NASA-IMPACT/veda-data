@@ -46,8 +46,10 @@
         "dashboard": {
             "colormap_name": "rdylgn_r",
             "rescale": [
-                1,
-                4
+                [
+                    1,
+                    4
+                ]
             ],
             "assets": [
                 "cog_default"

@@ -45,11 +45,13 @@
     "renders": {
         "dashboard": {
             "resampling": "bilinear",
-            "bidx": 1,
+            "bidx": [1],
             "colormap_name": "rdbu_r",
             "rescale": [
-                -5.5,
-                5.5
+                [
+                    -5.5,
+                    5.5
+                ]
             ],
             "assets": [
                 "cog_default"

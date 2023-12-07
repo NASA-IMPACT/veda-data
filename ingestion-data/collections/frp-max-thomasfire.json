@@ -47,8 +47,10 @@
             "asset_bidx": "cog_default|1",
             "colormap_name": "inferno_r",
             "rescale": [
-                1.0,
-                1080
+                [
+                    1.0,
+                    1080
+                ]
             ],
             "nodata": "nan",
             "assets": [

@@ -46,8 +46,10 @@
         "dashboard": {
             "colormap_name": "bwr",
             "rescale": [
-                -0.1,
-                0.1
+                [
+                    -0.1,
+                    0.1
+                ]
             ],
             "nodata": 0,
             "assets": [
@@ -56,5 +58,27 @@
             "title": "VEDA Dashboard Render Parameters"
         }
     },
-    "providers": []
+    "providers": [
+        {
+            "name": "USGS",
+            "url": "https://lpdaac.usgs.gov/product_search/",
+            "roles": [
+                "producer"
+            ]
+        },
+        {
+            "name": "NASA VEDA",
+            "url": "https://www.earthdata.nasa.gov/dashboard/",
+            "roles": [
+                "host"
+            ]
+        },
+        {
+            "name": "NASA VEDA",
+            "url": "https://www.earthdata.nasa.gov/dashboard/",
+            "roles": [
+                "processor"
+            ]
+        }
+    ]
 }

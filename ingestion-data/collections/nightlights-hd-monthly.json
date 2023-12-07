@@ -44,11 +44,13 @@
     "stac_version": "1.0.0",
     "renders": {
         "dashboard": {
-            "bidx": 1,
+            "bidx": [1],
             "colormap_name": "inferno",
             "rescale": [
-                0,
-                255
+                [
+                    0,
+                    255
+                ]
             ],
             "assets": [
                 "cog_default"

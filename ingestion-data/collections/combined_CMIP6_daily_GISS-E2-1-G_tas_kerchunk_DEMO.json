@@ -98,7 +98,9 @@
             "resampling_method": "bilinear",
             "variable": "tas",
             "colormap_name": "coolwarm",
-            "rescale": "232,312",
+            "rescale": [
+                "232,312"
+            ],
             "maxzoom": 12,
             "assets": [
                 "cog_default"
@@ -119,6 +121,6 @@
         "datetime": [
             "1950-01-01T12:00:00Z",
             "2014-12-31T12:00:00Z"
-          ]
+        ]
     }
 }

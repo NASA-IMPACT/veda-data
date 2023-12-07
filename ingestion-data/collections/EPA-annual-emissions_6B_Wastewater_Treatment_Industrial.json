@@ -46,8 +46,10 @@
         "dashboard": {
             "colormap_name": "rainbow",
             "rescale": [
-                0,
-                1283751631912
+                [
+                    0,
+                    1283751631912
+                ]
             ],
             "nodata": 0,
             "assets": [

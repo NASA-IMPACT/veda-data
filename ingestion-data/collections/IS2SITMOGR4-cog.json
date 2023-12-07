@@ -46,8 +46,10 @@
         "dashboard": {
             "colormap_name": "plasma",
             "rescale": [
-                0,
-                16
+                [
+                    0,
+                    16
+                ]
             ],
             "assets": [
                 "cog_default"

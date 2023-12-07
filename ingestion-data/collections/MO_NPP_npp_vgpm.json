@@ -46,8 +46,10 @@
         "dashboard": {
             "colormap_name": "jet",
             "rescale": [
-                0,
-                1500
+                [
+                    0,
+                    1500
+                ]
             ],
             "assets": [
                 "cog_default"

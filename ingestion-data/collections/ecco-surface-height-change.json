@@ -46,8 +46,10 @@
         "dashboard": {
             "colormap_name": "rdbu",
             "rescale": [
-                -0.313,
-                0.313
+                [
+                    -0.313,
+                    0.313
+                ]
             ],
             "assets": [
                 "cog_default"

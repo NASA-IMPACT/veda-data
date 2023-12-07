@@ -81,7 +81,7 @@
                     201
                 ]
             },
-            "bidx": 1,
+            "bidx": [1],
             "unscale": false,
             "resampling": "nearest",
             "max_size": 1024,

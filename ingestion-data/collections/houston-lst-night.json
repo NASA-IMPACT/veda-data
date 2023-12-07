@@ -45,11 +45,13 @@
     "renders": {
         "dashboard": {
             "resampling": "bilinear",
-            "bidx": 1,
+            "bidx": [1],
             "colormap_name": "jet",
             "rescale": [
-                14300,
-                14830
+                [
+                    14300,
+                    14830
+                ]
             ],
             "assets": [
                 "cog_default"

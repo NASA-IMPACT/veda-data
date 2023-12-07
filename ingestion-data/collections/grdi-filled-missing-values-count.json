@@ -46,8 +46,10 @@
         "dashboard": {
             "colormap_name": "viridis",
             "rescale": [
-                1,
-                2
+                [
+                    1,
+                    2
+                ]
             ],
             "assets": [
                 "cog_default"

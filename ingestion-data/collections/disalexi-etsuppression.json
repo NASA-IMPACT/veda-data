@@ -47,8 +47,10 @@
             "asset_bidx": "cog_default|1",
             "colormap_name": "rdylbu",
             "rescale": [
-                -1.0,
-                1.0
+                [
+                    -1.0,
+                    1.0
+                ]
             ],
             "assets": [
                 "cog_default"

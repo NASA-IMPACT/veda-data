@@ -44,11 +44,13 @@
     "stac_version": "1.0.0",
     "renders": {
         "dashboard": {
-            "bidx": 1,
+            "bidx": [1],
             "colormap_name": "rdbu",
             "rescale": [
-                -40,
-                40
+                [
+                    -40,
+                    40
+                ]
             ],
             "nodata": -9999.0,
             "assets": [

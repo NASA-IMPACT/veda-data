@@ -46,8 +46,10 @@
         "dashboard": {
             "colormap_name": "inferno_r",
             "rescale": [
-                0,
-                93
+                [
+                    0,
+                    93
+                ]
             ],
             "assets": [
                 "cog_default"

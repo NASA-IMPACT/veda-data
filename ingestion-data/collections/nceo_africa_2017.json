@@ -53,8 +53,10 @@
         "dashboard": {
             "colormap_name": "gist_earth_r",
             "rescale": [
-                0,
-                400
+                [
+                    0,
+                    400
+                ]
             ],
             "assets": [
                 "cog_default"

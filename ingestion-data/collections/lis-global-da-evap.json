@@ -45,11 +45,13 @@
     "renders": {
         "dashboard": {
             "resampling": "bilinear",
-            "bidx": 1,
+            "bidx": [1],
             "colormap_name": "viridis",
             "rescale": [
-                0,
-                0.0001
+                [
+                    0,
+                    0.0001
+                ]
             ],
             "assets": [
                 "cog_default"

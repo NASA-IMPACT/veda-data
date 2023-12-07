@@ -47,8 +47,10 @@
             "colormap_name": "reds",
             "nodata": 0,
             "rescale": [
-                0,
-                1
+                [
+                    0,
+                    1
+                ]
             ],
             "assets": [
                 "cog_default"

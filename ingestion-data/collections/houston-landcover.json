@@ -45,7 +45,7 @@
     "renders": {
         "dashboard": {
             "resampling": "bilinear",
-            "bidx": 1,
+            "bidx": [1],
             "colormap": {
                 "11": "#486DA2",
                 "12": "#E7EFFC",
@@ -71,8 +71,10 @@
             },
             "nodata": -999,
             "rescale": [
-                0,
-                255
+                [
+                    0,
+                    255
+                ]
             ],
             "assets": [
                 "cog_default"

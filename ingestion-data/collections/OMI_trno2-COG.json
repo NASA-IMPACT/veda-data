@@ -46,8 +46,10 @@
         "dashboard": {
             "colormap_name": "reds",
             "rescale": [
-                0,
-                "30E14"
+                [
+                    0,
+                    "30E14"
+                ]
             ],
             "assets": [
                 "cog_default"

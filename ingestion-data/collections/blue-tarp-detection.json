@@ -45,11 +45,13 @@
     "renders": {
         "dashboard": {
             "resampling": "cubic_spline",
-            "bidx": 1,
+            "bidx": [1],
             "colormap_name": "reds",
             "rescale": [
-                0,
-                400
+                [
+                    0,
+                    400
+                ]
             ],
             "assets": [
                 "cog_default"
