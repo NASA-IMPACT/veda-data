@@ -26,9 +26,6 @@
     },
     "license": "MIT",
     "stac_extensions": [
-        "https://stac-extensions.github.io/render/v1.0.0/schema.json",
-        "https://stac-extensions.github.io/render/v1.0.0/schema.json",
-        "https://stac-extensions.github.io/render/v1.0.0/schema.json",
         "https://stac-extensions.github.io/render/v1.0.0/schema.json"
     ],
     "item_assets": {
@@ -57,5 +54,24 @@
             ],
             "title": "VEDA Dashboard Render Parameters"
         }
-    }
+    },
+    "providers": [
+        {
+            "name": "Monitoring Trends in Burn Severity",
+            "url": "https://www.mtbs.gov/",
+            "roles": [
+                "producer",
+                "processor",
+                "licensor",
+                "host"
+            ]
+        },
+        {
+            "name": "NASA VEDA",
+            "url": "https://www.earthdata.nasa.gov/dashboard/",
+            "roles": [
+                "host"
+            ]
+        }
+    ]
 }

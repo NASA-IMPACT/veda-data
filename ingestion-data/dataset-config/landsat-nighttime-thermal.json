@@ -1,0 +1,30 @@
+{
+    "collection": "landsat-nighttime-thermal",
+    "title": "Landsat 8 Nighttime Thermal Imagery",
+    "spatial_extent": {
+        "xmin": -156.75,
+        "ymin": 20.80,
+        "xmax": -156.55,
+        "ymax": 20.94
+    },
+    "temporal_extent": {
+        "startdate": "2023-08-08T10:35:00Z",
+        "enddate": "2023-08-08T10:35:59Z"
+    },
+    "data_type": "cog",
+    "license": "CC0",
+    "description": "Landsat-8 thermal IR data over Lahaina as the fire was active.",
+    "is_periodic": false,
+    "time_density": "day",
+    "sample_files": [
+        "s3://veda-data-store-staging/maui-fire/Lahaina_Landsat8_Thermal_2023-08-08.tif"
+    ],
+    "discovery_items": [
+        {
+            "discovery": "s3",
+            "prefix": "maui-fire/",
+            "bucket": "veda-data-store-staging",
+            "filename_regex": "(.*)Lahaina_Landsat8_Thermal(.*).tif$"
+        }
+    ]
+}

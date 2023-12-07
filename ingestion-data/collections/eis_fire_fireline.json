@@ -13,7 +13,14 @@
     "description": "Active fire line as estimated by new VIIRS detections.",
     "extent": {
         "spatial": {
-            "bbox": [[-171.791110603, 18.91619, -66.96466, 71.3577635769]]
+            "bbox": [
+                [
+                    -171.791110603,
+                    18.91619,
+                    -66.96466,
+                    71.3577635769
+                ]
+            ]
         },
         "temporal": {
             "interval": [
@@ -39,5 +46,28 @@
     },
     "dashboard:is_periodic": true,
     "dashboard:time_density": "day",
-    "stac_version": "1.0.0"
+    "stac_version": "1.0.0",
+    "providers": [
+        {
+            "name": "NASA National Oceanic and Atmospheric Administration",
+            "url": "https://www.nasa.gov/directorates/smd/joint-agency-satellite-division/noaa/",
+            "roles": [
+                "producer"
+            ]
+        },
+        {
+            "name": "NASA VEDA",
+            "url": "https://www.earthdata.nasa.gov/dashboard/",
+            "roles": [
+                "host"
+            ]
+        },
+        {
+            "name": "NASA Earth Information System",
+            "url": "https://www.earthdata.nasa.gov/eis",
+            "roles": [
+                "processor"
+            ]
+        }
+    ]
 }

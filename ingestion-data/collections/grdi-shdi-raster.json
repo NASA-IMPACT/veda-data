@@ -54,5 +54,23 @@
             ],
             "title": "VEDA Dashboard Render Parameters"
         }
-    }
+    },
+    "providers": [
+        {
+            "name": "NASA CIESIN",
+            "url": "https://sedac.ciesin.columbia.edu/data/set/povmap-grdi-v1",
+            "roles": [
+                "producer",
+                "processor",
+                "licensor"
+            ]
+        },
+        {
+            "name": "NASA VEDA",
+            "url": "https://www.earthdata.nasa.gov/dashboard/",
+            "roles": [
+                "host"
+            ]
+        }
+    ]
 }

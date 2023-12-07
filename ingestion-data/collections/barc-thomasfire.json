@@ -56,5 +56,28 @@
             ],
             "title": "VEDA Dashboard Render Parameters"
         }
-    }
+    },
+    "providers": [
+        {
+            "name": "USGS Burnt Area Emergency Response (BAER)",
+            "url": "https://burnseverity.cr.usgs.gov/products/baer",
+            "roles": [
+                "producer"
+            ]
+        },
+        {
+            "name": "NASA VEDA",
+            "url": "https://www.earthdata.nasa.gov/dashboard/",
+            "roles": [
+                "host"
+            ]
+        },
+        {
+            "name": "NASA VEDA",
+            "url": "https://www.earthdata.nasa.gov/dashboard/",
+            "roles": [
+                "processor"
+            ]
+        }
+    ]
 }

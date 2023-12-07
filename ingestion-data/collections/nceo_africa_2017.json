@@ -61,5 +61,23 @@
             ],
             "title": "VEDA Dashboard Render Parameters"
         }
-    }
+    },
+    "providers": [
+        {
+            "name": "National Center for Earth Observation",
+            "url": "https://ceos.org/gst/africa-biomass.html",
+            "roles": [
+                "producer",
+                "processor",
+                "licensor"
+            ]
+        },
+        {
+            "name": "NASA VEDA",
+            "url": "https://www.earthdata.nasa.gov/dashboard/",
+            "roles": [
+                "host"
+            ]
+        }
+    ]
 }

@@ -105,5 +105,20 @@
             ],
             "title": "VEDA Dashboard Render Parameters"
         }
+    },
+    "providers": [
+        {
+            "name": "NASA VEDA",
+            "url": "https://www.earthdata.nasa.gov/dashboard/",
+            "roles": [
+                "host"
+            ]
+        }
+    ],
+    "summaries": {
+        "datetime": [
+            "1950-01-01T12:00:00Z",
+            "2014-12-31T12:00:00Z"
+          ]
     }
 }

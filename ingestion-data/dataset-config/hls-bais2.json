@@ -1,0 +1,30 @@
+{
+    "collection": "hls-bais2",
+    "title": "HLS-calculated BAIS2 burned area",
+    "spatial_extent": {
+        "xmin": -156.75,
+        "ymin": 20.80,
+        "xmax": -156.55,
+        "ymax": 20.94
+    },
+    "temporal_extent": {
+        "startdate": "2023-08-13T00:00:00Z",
+        "enddate": "2023-08-13T23:59:59Z"
+    },
+    "data_type": "cog",
+    "license": "CC0",
+    "description": "HLS-calculated BAIS2 burned area index from 2023-08-13 after the Lahaina fire was contained. Higher values indicate greater likelihood of scorched earth.",
+    "is_periodic": false,
+    "time_density": "day",
+    "sample_files": [
+        "s3://veda-data-store-staging/maui-fire/Lahaina_BAIS2_2023-08-13.tif"
+    ],
+    "discovery_items": [
+        {
+            "discovery": "s3",
+            "prefix": "maui-fire/",
+            "bucket": "veda-data-store-staging",
+            "filename_regex": "(.*)Lahaina_BAIS2(.*).tif$"
+        }
+    ]
+}

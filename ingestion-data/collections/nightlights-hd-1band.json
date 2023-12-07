@@ -55,5 +55,22 @@
             ],
             "title": "VEDA Dashboard Render Parameters"
         }
-    }
+    },
+    "providers": [
+        {
+            "name": "NASA Black Marble",
+            "url": "https://blackmarble.gsfc.nasa.gov/",
+            "roles": [
+                "producer",
+                "processor"
+            ]
+        },
+        {
+            "name": "NASA VEDA",
+            "url": "https://www.earthdata.nasa.gov/dashboard/",
+            "roles": [
+                "host"
+            ]
+        }
+    ]
 }

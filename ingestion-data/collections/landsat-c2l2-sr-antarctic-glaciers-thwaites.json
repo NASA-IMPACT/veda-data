@@ -94,5 +94,23 @@
     },
     "dashboard:is_periodic": "false",
     "dashboard:time_density": "day",
-    "stac_version": "1.0.0"
+    "stac_version": "1.0.0",
+    "providers": [
+        {
+            "name": "NASA",
+            "url": "https://landsat.gsfc.nasa.gov/",
+            "roles": [
+                "producer",
+                "licensor"
+            ]
+        },
+        {
+            "name": "USGS",
+            "url": "https://www.usgs.gov/landsat-missions/landsat-collection-2-level-2-science-products",
+            "roles": [
+                "processor",
+                "host"
+            ]
+        }
+    ]
 }
