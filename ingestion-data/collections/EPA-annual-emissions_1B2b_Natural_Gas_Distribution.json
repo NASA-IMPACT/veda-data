@@ -24,7 +24,7 @@
             ]
         }
     },
-    "license": "CC0",
+    "license": "CC0-1.0",
     "stac_extensions": [
         "https://stac-extensions.github.io/render/v1.0.0/schema.json"
     ],

@@ -12,7 +12,7 @@
         "enddate": "2023-08-08T23:59:59Z"
     },
     "data_type": "cog",
-    "license": "CC0",
+    "license": "CC0-1.0",
     "description": "HLS falsecolor composite imagery using Bands 12, 8A, and 4.",
     "is_periodic": false,
     "time_density": "day",
