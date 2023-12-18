@@ -50,8 +50,8 @@
             "colormap_name": "rdbu_r",
             "rescale": [
                 [
-                    "-8e15",
-                    "8e15"
+                    -8e15,
+                    8e15
                 ]
             ],
             "assets": [

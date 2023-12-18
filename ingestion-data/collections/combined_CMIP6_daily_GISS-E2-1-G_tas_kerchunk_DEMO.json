@@ -99,7 +99,8 @@
             "variable": "tas",
             "colormap_name": "coolwarm",
             "rescale": [
-                "232,312"
+                232,
+                312
             ],
             "maxzoom": 12,
             "assets": [
