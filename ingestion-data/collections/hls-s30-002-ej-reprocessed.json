@@ -32,7 +32,10 @@
         }
     },
     "license": "MIT",
-    "stac_extensions": [],
+    "stac_extensions": [
+        "https://stac-extensions.github.io/render/v1.0.0/schema.json",
+        "https://stac-extensions.github.io/item-assets/v1.0.0/schema.json"
+    ],
     "provider": {
         "url": "https://lpdaac.usgs.gov/products/hlss30v002/",
         "name": "Land Processes Distributed Active Archive Center (LP DAAC)",
@@ -44,6 +47,15 @@
     "dashboard:is_periodic": false,
     "dashboard:time_density": "day",
     "stac_version": "1.0.0",
+    "renders": {
+        "dashboard": {
+            "post_process": "swir",
+            "assets": [
+                "cog_default"
+            ],
+            "title": "VEDA Dashboard Render Parameters"
+        }
+    },
     "providers": [
         {
             "name": "USGS",

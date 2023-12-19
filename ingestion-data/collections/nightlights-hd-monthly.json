@@ -25,7 +25,10 @@
         }
     },
     "license": "MIT",
-    "stac_extensions": [],
+    "stac_extensions": [
+        "https://stac-extensions.github.io/render/v1.0.0/schema.json",
+        "https://stac-extensions.github.io/item-assets/v1.0.0/schema.json"
+    ],
     "item_assets": {
         "cog_default": {
             "type": "image/tiff; application=geotiff; profile=cloud-optimized",
@@ -40,6 +43,24 @@
     "dashboard:is_periodic": true,
     "dashboard:time_density": "month",
     "stac_version": "1.0.0",
+    "renders": {
+        "dashboard": {
+            "bidx": [
+                1
+            ],
+            "colormap_name": "inferno",
+            "rescale": [
+                [
+                    0,
+                    255
+                ]
+            ],
+            "assets": [
+                "cog_default"
+            ],
+            "title": "VEDA Dashboard Render Parameters"
+        }
+    },
     "providers": [
         {
             "name": "NASA Black Marble",
