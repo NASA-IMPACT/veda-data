@@ -1,0 +1,8 @@
+{
+    "collection": "houston-landcover",
+    "bucket": "veda-data-store-staging",
+    "prefix":"houston-landcover/",
+    "filename_regex":"landcover_Z_f",
+    "discovery": "s3",
+    "upload": false
+}

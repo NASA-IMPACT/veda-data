@@ -1,0 +1,8 @@
+{
+    "collection": "houston-aod",
+    "bucket": "veda-data-store-staging",
+    "prefix":"houston-aod/",
+    "filename_regex":"^(.*)HOUS_AOD(.*)_cog.tif$",
+    "discovery": "s3",
+    "upload": false
+}

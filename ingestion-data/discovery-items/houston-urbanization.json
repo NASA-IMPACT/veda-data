@@ -1,0 +1,8 @@
+{
+    "collection": "houston-urbanization",
+    "bucket": "veda-data-store-staging",
+    "prefix": "urbanization/", 
+    "filename_regex":"HOUS_DFAL_urbanization",
+    "discovery": "s3",
+    "upload": false
+}

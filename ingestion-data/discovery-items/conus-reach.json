@@ -1,0 +1,8 @@
+{
+    "collection": "conus-reach",
+    "bucket": "veda-data-store-staging",
+    "prefix":"EIS/COG/Water-Quality/",
+    "discovery": "s3",
+    "filename_regex": "CONUS_Reach_2020",
+    "upload": false
+}

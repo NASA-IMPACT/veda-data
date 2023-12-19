@@ -1,0 +1,8 @@
+{
+    "collection": "hls-bais2",
+    "bucket": "veda-data-store-staging",
+    "prefix":"maui-fire",
+    "filename_regex":"Lahaina_BAIS2",
+    "discovery": "s3",
+    "upload": false
+}

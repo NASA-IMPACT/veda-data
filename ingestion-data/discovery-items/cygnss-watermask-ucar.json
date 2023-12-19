@@ -1,0 +1,8 @@
+{
+    "collection": "cygnss-watermask-ucar",
+    "prefix": "cygnss-watermask-ucar/",
+    "bucket": "veda-data-store-staging",
+    "filename_regex": "(.*)cygnss_watermask_ucar(.*).tif$",
+    "discovery": "s3",
+    "upload": false
+}

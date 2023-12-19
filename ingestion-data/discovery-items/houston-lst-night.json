@@ -1,0 +1,8 @@
+{
+    "collection": "houston-lst-night",
+    "bucket": "veda-data-store-staging",
+    "prefix":"houston-lst-night/",
+    "filename_regex":"LST_Night",
+    "discovery": "s3",
+    "upload": false
+}
