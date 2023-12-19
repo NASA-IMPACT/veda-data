@@ -25,7 +25,9 @@
         }
     },
     "license": "proprietary",
-    "stac_extensions": [],
+    "stac_extensions": [
+        "https://stac-extensions.github.io/item-assets/v1.0.0/schema.json"
+    ],
     "item_assets": {
         "nir": {
             "type": "image/vnd.stac.geotiff; cloud-optimized=true",

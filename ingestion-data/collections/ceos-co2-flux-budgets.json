@@ -38,7 +38,9 @@
         }
     },
     "license": "CC0-1.0",
-    "stac_extensions": [],
+    "stac_extensions": [
+        "https://stac-extensions.github.io/item-assets/v1.0.0/schema.json"
+    ],
     "item_assets": {
         "ff": {
             "type": "image/tiff; application=geotiff; profile=cloud-optimized",
@@ -193,7 +195,6 @@
             "title": "Land Nadir and Land Glint In situ Terrestrial net carbon exchange",
             "description": "Net flux of carbon from the surface to the atmosphere. For land, NCE can be defined as sum of NBE and fossil fuel and cement emissions"
         },
-        "cog_default": null,
         "lnlg-dc-loss": {
             "type": "image/tiff; application=geotiff; profile=cloud-optimized",
             "roles": [

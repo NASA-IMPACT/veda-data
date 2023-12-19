@@ -26,12 +26,10 @@
     },
     "license": "CC0-1.0",
     "stac_extensions": [
-        "https://stac-extensions.github.io/datacube/v2.0.0/schema.json",
-        "https://stac-extensions.github.io/render/v1.0.0/schema.json"
+        "https://stac-extensions.github.io/datacube/v2.0.0/schema.json"
     ],
     "data_type": "zarr",
     "collection": "combined_CMIP6_daily_GISS-E2-1-G_tas_kerchunk_DEMO",
-    "item_assets": null,
     "cube:variables": {
         "tas": {
             "type": "data",
@@ -92,23 +90,6 @@
     "dashboard:is_periodic": true,
     "dashboard:time_density": "day",
     "stac_version": "1.0.0",
-    "renders": {
-        "dashboard": {
-            "reference": "true",
-            "resampling_method": "bilinear",
-            "variable": "tas",
-            "colormap_name": "coolwarm",
-            "rescale": [
-                232,
-                312
-            ],
-            "maxzoom": 12,
-            "assets": [
-                "cog_default"
-            ],
-            "title": "VEDA Dashboard Render Parameters"
-        }
-    },
     "providers": [
         {
             "name": "NASA VEDA",

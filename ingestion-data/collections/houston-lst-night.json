@@ -26,7 +26,8 @@
     },
     "license": "CC0-1.0",
     "stac_extensions": [
-        "https://stac-extensions.github.io/render/v1.0.0/schema.json"
+        "https://stac-extensions.github.io/render/v1.0.0/schema.json",
+        "https://stac-extensions.github.io/item-assets/v1.0.0/schema.json"
     ],
     "item_assets": {
         "cog_default": {
@@ -45,7 +46,9 @@
     "renders": {
         "dashboard": {
             "resampling": "bilinear",
-            "bidx": [1],
+            "bidx": [
+                1
+            ],
             "colormap_name": "jet",
             "rescale": [
                 [

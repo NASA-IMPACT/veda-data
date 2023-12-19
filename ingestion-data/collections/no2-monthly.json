@@ -46,13 +46,15 @@
     "renders": {
         "dashboard": {
             "resampling": "bilinear",
-            "bidx": [1],
+            "bidx": [
+                1
+            ],
             "color_formula": "gamma r 1.05",
             "colormap_name": "rdbu_r",
             "rescale": [
                 [
                     0,
-                    1.5e16
+                    1.5e+16
                 ]
             ],
             "assets": [

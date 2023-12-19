@@ -26,7 +26,8 @@
     },
     "license": "not-provided",
     "stac_extensions": [
-        "https://stac-extensions.github.io/render/v1.0.0/schema.json"
+        "https://stac-extensions.github.io/render/v1.0.0/schema.json",
+        "https://stac-extensions.github.io/item-assets/v1.0.0/schema.json"
     ],
     "item_assets": {
         "cog_default": {
@@ -46,11 +47,15 @@
         "dashboard": {
             "colormap_name": "rdbu",
             "rescale": [
-                -0.3, 
-                0.3
+                [
+                    -0.3,
+                    0.3
+                ]
             ],
             "resampling": "bilinear",
-            "bidx": [1],
+            "bidx": [
+                1
+            ],
             "nodata": -9999,
             "assets": [
                 "cog_default"
