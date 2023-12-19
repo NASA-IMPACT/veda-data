@@ -12,7 +12,7 @@
         "enddate": "2022-12-31T23:59:59Z"
     },
     "data_type": "cog",
-    "license": "CC0",
+    "license": "CC0-1.0",
     "description": "MODIS NDVI difference from a three-year average of 2015 to 2018 subtracted from a three-year average of 2019-2022. These tri-annual averages represent periods before and after the fire.",
     "is_periodic": true,
     "time_density": "year",

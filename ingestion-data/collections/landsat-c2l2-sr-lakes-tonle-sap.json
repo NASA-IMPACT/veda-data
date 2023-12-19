@@ -25,7 +25,9 @@
         }
     },
     "license": "proprietary",
-    "stac_extensions": [],
+    "stac_extensions": [
+        "https://stac-extensions.github.io/item-assets/v1.0.0/schema.json"
+    ],
     "item_assets": {
         "red": {
             "type": "image/vnd.stac.geotiff; cloud-optimized=true",
@@ -92,7 +94,7 @@
             "description": "Cloud optimized default layer to display on map"
         }
     },
-    "dashboard:is_periodic": "false",
+    "dashboard:is_periodic": false,
     "dashboard:time_density": "day",
     "stac_version": "1.0.0",
     "providers": [

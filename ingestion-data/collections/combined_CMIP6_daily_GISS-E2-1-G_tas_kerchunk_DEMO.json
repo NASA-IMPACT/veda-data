@@ -30,7 +30,6 @@
     ],
     "data_type": "zarr",
     "collection": "combined_CMIP6_daily_GISS-E2-1-G_tas_kerchunk_DEMO",
-    "item_assets": null,
     "cube:variables": {
         "tas": {
             "type": "data",
@@ -99,5 +98,11 @@
                 "host"
             ]
         }
-    ]
+    ],
+    "summaries": {
+        "datetime": [
+            "1950-01-01T12:00:00Z",
+            "2014-12-31T12:00:00Z"
+        ]
+    }
 }

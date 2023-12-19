@@ -25,7 +25,10 @@
         }
     },
     "license": "CC0-1.0",
-    "stac_extensions": [],
+    "stac_extensions": [
+        "https://stac-extensions.github.io/render/v1.0.0/schema.json",
+        "https://stac-extensions.github.io/item-assets/v1.0.0/schema.json"
+    ],
     "item_assets": {
         "cog_default": {
             "type": "image/tiff; application=geotiff; profile=cloud-optimized",
@@ -40,5 +43,43 @@
     "dashboard:is_periodic": false,
     "dashboard:time_density": "year",
     "stac_version": "1.0.0",
-    "providers": []
+    "renders": {
+        "dashboard": {
+            "colormap_name": "bwr",
+            "rescale": [
+                [
+                    -0.1,
+                    0.1
+                ]
+            ],
+            "nodata": 0,
+            "assets": [
+                "cog_default"
+            ],
+            "title": "VEDA Dashboard Render Parameters"
+        }
+    },
+    "providers": [
+        {
+            "name": "USGS",
+            "url": "https://lpdaac.usgs.gov/product_search/",
+            "roles": [
+                "producer"
+            ]
+        },
+        {
+            "name": "NASA VEDA",
+            "url": "https://www.earthdata.nasa.gov/dashboard/",
+            "roles": [
+                "host"
+            ]
+        },
+        {
+            "name": "NASA VEDA",
+            "url": "https://www.earthdata.nasa.gov/dashboard/",
+            "roles": [
+                "processor"
+            ]
+        }
+    ]
 }

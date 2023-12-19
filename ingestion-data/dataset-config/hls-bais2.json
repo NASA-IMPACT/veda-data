@@ -12,7 +12,7 @@
         "enddate": "2023-08-13T23:59:59Z"
     },
     "data_type": "cog",
-    "license": "CC0",
+    "license": "CC0-1.0",
     "description": "HLS-calculated BAIS2 burned area index from 2023-08-13 after the Lahaina fire was contained. Higher values indicate greater likelihood of scorched earth.",
     "is_periodic": false,
     "time_density": "day",

@@ -25,7 +25,10 @@
         }
     },
     "license": "CC0-1.0",
-    "stac_extensions": [],
+    "stac_extensions": [
+        "https://stac-extensions.github.io/render/v1.0.0/schema.json",
+        "https://stac-extensions.github.io/item-assets/v1.0.0/schema.json"
+    ],
     "item_assets": {
         "cog_default": {
             "type": "image/tiff; application=geotiff; profile=cloud-optimized",
@@ -40,6 +43,25 @@
     "dashboard:is_periodic": true,
     "dashboard:time_density": "day",
     "stac_version": "1.0.0",
+    "renders": {
+        "dashboard": {
+            "resampling": "bilinear",
+            "bidx": [
+                1
+            ],
+            "colormap_name": "blues",
+            "rescale": [
+                [
+                    0,
+                    0.0001
+                ]
+            ],
+            "assets": [
+                "cog_default"
+            ],
+            "title": "VEDA Dashboard Render Parameters"
+        }
+    },
     "providers": [
         {
             "name": "NASA VEDA",

@@ -25,7 +25,10 @@
         }
     },
     "license": "MIT",
-    "stac_extensions": [],
+    "stac_extensions": [
+        "https://stac-extensions.github.io/render/v1.0.0/schema.json",
+        "https://stac-extensions.github.io/item-assets/v1.0.0/schema.json"
+    ],
     "item_assets": {
         "cog_default": {
             "type": "image/tiff; application=geotiff; profile=cloud-optimized",
@@ -40,6 +43,58 @@
     "dashboard:is_periodic": false,
     "dashboard:time_density": "month",
     "stac_version": "1.0.0",
+    "renders": {
+        "dashboard": {
+            "colormap": {
+                "1": [
+                    120,
+                    120,
+                    120
+                ],
+                "2": [
+                    130,
+                    65,
+                    0
+                ],
+                "3": [
+                    66,
+                    207,
+                    56
+                ],
+                "4": [
+                    245,
+                    239,
+                    0
+                ],
+                "5": [
+                    241,
+                    89,
+                    32
+                ],
+                "6": [
+                    168,
+                    0,
+                    0
+                ],
+                "7": [
+                    0,
+                    143,
+                    201
+                ]
+            },
+            "bidx": [
+                1
+            ],
+            "unscale": false,
+            "resampling": "nearest",
+            "max_size": 1024,
+            "return_mask": true,
+            "assets": [
+                "cog_default"
+            ],
+            "title": "VEDA Dashboard Render Parameters"
+        }
+    },
     "providers": [
         {
             "name": "USDA & Global Crop Monitor Group partners",

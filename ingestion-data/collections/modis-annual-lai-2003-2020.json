@@ -25,7 +25,9 @@
         }
     },
     "license": "CC0-1.0",
-    "stac_extensions": [],
+    "stac_extensions": [
+        "https://stac-extensions.github.io/item-assets/v1.0.0/schema.json"
+    ],
     "item_assets": {
         "cog_default": {
             "type": "image/tiff; application=geotiff; profile=cloud-optimized",
