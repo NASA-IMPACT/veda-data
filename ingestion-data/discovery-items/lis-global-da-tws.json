@@ -1,6 +1,8 @@
 {
     "collection": "lis-global-da-tws",
     "bucket": "veda-data-store-staging",
+    "prefix": "EIS/COG/LIS_GLOBAL_DA/TWS/",
+    "filename_regex":"LIS_TWS",
     "discovery": "s3",
     "upload": false
 }

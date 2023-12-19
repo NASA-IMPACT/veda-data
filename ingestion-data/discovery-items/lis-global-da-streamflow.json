@@ -1,6 +1,8 @@
 {
     "collection": "lis-global-da-streamflow",
     "bucket": "veda-data-store-staging",
+    "prefix": "EIS/COG/LIS_GLOBAL_DA/Streamflow/",
+    "filename_regex":"LIS_Streamflow",
     "discovery": "s3",
     "upload": false
 }

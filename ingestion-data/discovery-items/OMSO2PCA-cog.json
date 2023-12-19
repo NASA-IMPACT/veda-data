@@ -1,6 +1,8 @@
 {
     "collection": "OMSO2PCA-COG",
     "bucket": "veda-data-store-staging",
+    "prefix": "OMSO2PCA-COG/",
+    "filename_regex":"OMSO2PCA_LUT_SCD",
     "discovery": "s3",
     "upload": false
 }
