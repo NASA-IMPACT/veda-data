@@ -1,6 +1,0 @@
-{
-    "collection": "EPA-annual-emissions_6A_Landfills_Industrial",
-    "bucket": "veda-data-store-staging",
-    "discovery": "s3",
-    "upload": false
-}

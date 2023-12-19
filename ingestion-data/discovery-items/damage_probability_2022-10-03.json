@@ -1,6 +1,8 @@
 {
     "collection": "damage_probability_2022-10-03",
     "bucket": "veda-data-store-staging",
+    "prefix":"damage-probability/",
     "discovery": "s3",
+    "filename_regex":"damage_probability_cog",
     "upload": false
 }

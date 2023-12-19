@@ -1,6 +1,0 @@
-{
-    "collection": "EPA-daily-emissions_5_Forest_Fires",
-    "bucket": "veda-data-store-staging",
-    "discovery": "s3",
-    "upload": false
-}

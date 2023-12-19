@@ -1,6 +1,0 @@
-{
-    "collection": "grdi-vnl-raster",
-    "bucket": "veda-data-store-staging",
-    "discovery": "s3",
-    "upload": false
-}

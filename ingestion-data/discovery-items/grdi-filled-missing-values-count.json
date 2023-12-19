@@ -1,6 +1,0 @@
-{
-    "collection": "grdi-filled-missing-values-count",
-    "bucket": "veda-data-store-staging",
-    "discovery": "s3",
-    "upload": false
-}

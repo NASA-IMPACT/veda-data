@@ -1,6 +1,0 @@
-{
-    "collection": "EPA-monthly-emissions_4C_Rice_Cultivation",
-    "bucket": "veda-data-store-staging",
-    "discovery": "s3",
-    "upload": false
-}

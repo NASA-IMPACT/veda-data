@@ -1,6 +1,0 @@
-{
-    "collection": "EPA-monthly-emissions_1B2b_Natural_Gas_Production",
-    "bucket": "veda-data-store-staging",
-    "discovery": "s3",
-    "upload": false
-}

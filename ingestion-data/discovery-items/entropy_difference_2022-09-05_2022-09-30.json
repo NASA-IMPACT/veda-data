@@ -1,6 +1,10 @@
 {
     "collection": "entropy_difference_2022-09-05_2022-09-30",
     "bucket": "veda-data-store-staging",
+    "prefix":"hls-entropy",
+    "filename_regex":"entropy_difference",
     "discovery": "s3",
-    "upload": false
+    "upload": false,
+    "start_datetime": "2022-09-05T00:00:00Z",
+    "end_datetime": "2022-09-30T23:59:59Z"
 }
