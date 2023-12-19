@@ -4,6 +4,8 @@
     "discovery": "s3",
     "prefix": "EIS/CEOS_DATA/CO2_flux_updated/",
     "upload": false,
+    "id_regex": "",
+    "id_template": "",
     "assets": {
         "ff-meanyear": {
             "title": "Fossil fuel and cement emissions mean year",
@@ -11,8 +13,8 @@
             "regex": "FF_meanYear"
         },
         "crop-meanyear": {
-            "title": "",
-            "description": "Second of a multi-asset item.",
+            "title": "Lateral crop flux mean year",
+            "description": "The lateral flux of carbon in (positive) or out (negative) of a region due to agriculture.",
             "regex": "Crop_meanYear"  
         },
         "wood-meanyear": {

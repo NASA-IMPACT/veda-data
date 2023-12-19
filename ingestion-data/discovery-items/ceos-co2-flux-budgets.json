@@ -3,6 +3,8 @@
     "bucket": "veda-data-store-staging",
     "discovery": "s3",
     "prefix": "EIS/CEOS_DATA/CO2_flux_updated/",
+    "id_regex": "",
+    "id_template": "",
     "upload": false,
     "assets": {
         "ff": {
@@ -11,8 +13,8 @@
             "regex": "FF_CO2_Budget"
         },
         "crop": {
-            "title": "",
-            "description": "Second of a multi-asset item.",
+            "title": "Lateral crop flux",
+            "description": "The lateral flux of carbon in (positive) or out (negative) of a region due to agriculture.",
             "regex": "Crop_CO2_Budget"  
         },
         "wood": {
