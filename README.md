@@ -118,7 +118,7 @@ pip install -r requirements.txt
 Then:
 
 ```shell
-python scripts/validate_collections.py
+pytest
 ```
 
 ## Development
