@@ -35,6 +35,7 @@ Should follow the following format:
     "links":[
     ],
     "title":"<collection-title>",
+    "description": "<collection-description>",
     "extent":{
         "spatial":{
             "bbox":[
@@ -56,8 +57,12 @@ Should follow the following format:
         }
     },
     "license":"MIT",
-    "description": "<collection-description>",
+    "stac_extensions": [
+        "https://stac-extensions.github.io/render/v1.0.0/schema.json",
+        "https://stac-extensions.github.io/item-assets/v1.0.0/schema.json"
+    ],
     "stac_version": "1.0.0",
+    "license": "CC0-1.0",
     "dashboard:is_periodic": "<true/false>",
     "dashboard:time_density": "<month/>day/year>",
     "item_assets": {
@@ -70,14 +75,39 @@ Should follow the following format:
             "title": "Default COG Layer",
             "description": "Cloud optimized default layer to display on map"
         }
+    },
+    "providers": [
+        {
+            "name": "NASA VEDA",
+            "url": "https://www.earthdata.nasa.gov/dashboard/",
+            "roles": [
+                "host"
+            ]
+        }
+    ],
+    "renders": {
+        "dashboard": {
+            "colormap_name": "<colormap_name>",
+            "rescale": [
+                [
+                    "<min_rescale>",
+                    "<max_rescale>"
+                ]
+            ],
+            "nodata": "nan",
+            "assets": [
+                "cog_default"
+            ],
+            "title": "VEDA Dashboard Render Parameters"
+        }
     }
 }
 
 ```
 
-### `step-function-inputs/`
+### `discovery-items/`
 
-The `ingestion-data/step-function-inputs/` directory holds json files representing the step function inputs for initiating the discovery, ingest and publication workflows.
+The `ingestion-data/discovery-items/` directory holds json files representing the step function inputs for initiating the discovery, ingest and publication workflows.
 Can either be a single input event or a list of input events.
 
 Should follow the following format:
@@ -103,6 +133,42 @@ Should follow the following format:
     "cogify": "<true/false>",
     "upload": "<true/false>",
     "dry_run": "<true/false>",
+}
+```
+
+### `dataset-config/`
+
+The `ingestion-data/dataset-config/` directory holds json files that can be used with the `dataset/publish` stac ingestor endpoint, combining both collection metadata and discovery items. For an example of this ingestion workflow, see this [jupyter notebook](./transformation-scripts/example-template/example-geoglam-ingest.ipynb).
+
+```json
+{
+    "collection": "<collection-id>",
+    "title": "<collection-title>",
+    "description": "<collection-description>",
+    "type": "cog",
+    "spatial_extent": {
+        "xmin": -180,
+        "ymin": 90,
+        "xmax": -90,
+        "ymax": 180
+    },
+    "temporal_extent": {
+        "startdate": "<start-date>",
+        "enddate": "<end-date>"
+    },
+    "license": "CC0-1.0",
+    "is_periodic": false,
+    "time_density": null,
+    "stac_version": "1.0.0",
+    "discovery_items": [
+        {
+            "prefix": "<prefix>",
+            "bucket": "<bucket>",
+            "filename_regex": "<regexß>",
+            "discovery": "s3",
+            "upload": false
+        }
+    ]
 }
 ```
 
