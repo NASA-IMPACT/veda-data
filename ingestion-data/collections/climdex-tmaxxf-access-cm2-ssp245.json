@@ -1,0 +1,55 @@
+{
+  "id": "climdex-tmaxxf-access-cm2-ssp245",
+  "type": "Collection",
+  "links": [],
+  "title": "CLIMDEX ACCESS CM2 SSP245 tmaxXF",
+  "extent": {
+    "spatial": { "bbox": [[-180.0, -90.0, 180.0, 90.0]] },
+    "temporal": {
+      "interval": [["2015-01-01T00:00:00+00:00", "2101-12-31T23:59:59+00:00"]]
+    }
+  },
+  "license": "CC-BY-SA-4.0",
+  "description": "CLIMDEX ACCESS CM2 SSP245 - variable tmaxXF",
+  "item_assets": {
+    "cog_default": {
+        "type": "image/tiff; application=geotiff; profile=cloud-optimized",
+        "roles": ["data", "layer"],
+        "title": "Default COG Layer",
+        "description": "Cloud optimized default layer to display on map"
+    },
+    "tmax_above_86": {
+      "title": "Tmax Above 86",
+      "description": "Tmax Above 86",
+      "type": "image/tiff; application=geotiff; profile=cloud-optimized",
+      "roles": ["data", "layer"]
+    },
+    "tmax_above_90": {
+      "title": "Tmax Above 90",
+      "description": "Tmax Above 90",
+      "type": "image/tiff; application=geotiff; profile=cloud-optimized",
+      "roles": ["data", "layer"]
+    },
+    "tmax_above_100": {
+      "title": "Tmax Above 100",
+      "description": "Tmax Above 100",
+      "type": "image/tiff; application=geotiff; profile=cloud-optimized",
+      "roles": ["data", "layer"]
+    },
+    "tmax_above_110": {
+      "title": "Tmax Above 110",
+      "description": "Tmax Above 110",
+      "type": "image/tiff; application=geotiff; profile=cloud-optimized",
+      "roles": ["data", "layer"]
+    },
+    "tmax_above_115": {
+      "title": "Tmax Above 115",
+      "description": "Tmax Above 115",
+      "type": "image/tiff; application=geotiff; profile=cloud-optimized",
+      "roles": ["data", "layer"]
+    }
+  },
+  "stac_version": "1.0.0",
+  "dashboard:is_periodic": true,
+  "dashboard:time_density": "year"
+}
