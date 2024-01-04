@@ -1,0 +1,35 @@
+{
+  "collection": "climdex-tmaxxf-access-cm2-ssp370",
+  "bucket": "veda-data-store-staging",
+  "prefix": "climdex-tmaxxf-access-cm2-ssp370/",
+  "filename_regex": ".*-ssp370_(.*)_tmax.*.tif",
+  "datetime_group": ".*-ssp370_(.*)_tmax.*.tif",
+  "datetime_range": "year",
+  "assets": {
+    "tmax_above_86": {
+      "title": "Tmax Above 86",
+      "description": "Tmax Above 86",
+      "regex": ".*-ssp370_(.*)_tmax_above_86.tif"
+    },
+    "tmax_above_90": {
+      "title": "Tmax Above 90",
+      "description": "Tmax Above 90",
+      "regex": ".*-ssp370_(.*)_tmax_above_90.tif"
+    },
+    "tmax_above_100": {
+      "title": "Tmax Above 100",
+      "description": "Tmax Above 100",
+      "regex": ".*-ssp370_(.*)_tmax_above_100.tif"
+    },
+    "tmax_above_110": {
+      "title": "Tmax Above 110",
+      "description": "Tmax Above 110",
+      "regex": ".*-ssp370_(.*)_tmax_above_110.tif"
+    },
+    "tmax_above_115": {
+      "title": "Tmax Above 115",
+      "description": "Tmax Above 115",
+      "regex": ".*-ssp370_(.*)_tmax_above_115.tif"
+    }
+  }
+}
