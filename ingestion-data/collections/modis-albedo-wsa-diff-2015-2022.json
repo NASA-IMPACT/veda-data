@@ -1,54 +1,60 @@
 {
-    "id": "modis-albedo-wsa-diff-2015-2022",
-    "type": "Collection",
-    "title": "Camp Fire Domain: MODIS WSA Albedo Difference",
-    "links": [],
-    "description": "MODIS WSA Albedo difference from a three-year average of 2015 to 2018 subtracted from a three-year average of 2019-2022. These tri-annual averages represent periods before and after the fire.",
-    "extent": {
-        "spatial": {
-            "bbox": [
-                [
-                    -121.78011150193434,
-                    39.59830951410488,
-                    -121.35341172160868,
-                    39.89994756050158
-                ]
-            ]
-        },
-        "temporal": {
-            "interval": [
-                [
-                    "2015-01-01T00:00:00Z",
-                    "2022-01-01T00:00:00Z"
-                ]
-            ]
-        }
+  "id": "modis-albedo-wsa-diff-2015-2022",
+  "type": "Collection",
+  "title": "Camp Fire Domain: MODIS WSA Albedo Difference",
+  "links": [],
+  "description": "MODIS WSA Albedo difference from a three-year average of 2015 to 2018 subtracted from a three-year average of 2019-2022. These tri-annual averages represent periods before and after the fire.",
+  "extent": {
+    "spatial": {
+      "bbox": [
+        [
+          -121.78011150193434,
+          39.59830951410488,
+          -121.35341172160868,
+          39.89994756050158
+        ]
+      ]
     },
-    "license": "CC0-1.0",
-    "stac_extensions": [
-        "https://stac-extensions.github.io/item-assets/v1.0.0/schema.json"
-    ],
-    "item_assets": {
-        "cog_default": {
-            "type": "image/tiff; application=geotiff; profile=cloud-optimized",
-            "roles": [
-                "data",
-                "layer"
-            ],
-            "title": "Default COG Layer",
-            "description": "Cloud optimized default layer to display on map"
-        }
-    },
-    "dashboard:is_periodic": true,
-    "dashboard:time_density": "year",
-    "stac_version": "1.0.0",
-    "providers": [
-        {
-            "name": "NASA VEDA",
-            "url": "https://www.earthdata.nasa.gov/dashboard/",
-            "roles": [
-                "host"
-            ]
-        }
+    "temporal": {
+      "interval": [
+        [
+          "2015-01-01T00:00:00Z",
+          "2022-01-01T00:00:00Z"
+        ]
+      ]
+    }
+  },
+  "license": "CC0-1.0",
+  "stac_extensions": [
+    "https://stac-extensions.github.io/item-assets/v1.0.0/schema.json"
+  ],
+  "item_assets": {
+    "cog_default": {
+      "type": "image/tiff; application=geotiff; profile=cloud-optimized",
+      "roles": [
+        "data",
+        "layer"
+      ],
+      "title": "Default COG Layer",
+      "description": "Cloud optimized default layer to display on map"
+    }
+  },
+  "dashboard:is_periodic": true,
+  "dashboard:time_density": "year",
+  "stac_version": "1.0.0",
+  "providers": [
+    {
+      "name": "NASA VEDA",
+      "url": "https://www.earthdata.nasa.gov/dashboard/",
+      "roles": [
+        "host"
+      ]
+    }
+  ],
+  "summaries": {
+    "datetime": [
+      "2015-01-01T00:00:00Z",
+      "2022-01-01T00:00:00Z"
     ]
+  }
 }

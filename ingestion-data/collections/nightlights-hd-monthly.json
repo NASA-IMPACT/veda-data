@@ -1,81 +1,91 @@
 {
-    "id": "nightlights-hd-monthly",
-    "type": "Collection",
-    "title": "Black Marble High Definition Nightlights Monthly Dataset",
-    "links": [],
-    "description": "The High Definition Nightlights dataset is processed to eliminate light sources, including moonlight reflectance and other interferences. Darker colors indicate fewer night lights and less activity. Lighter colors indicate more night lights and more activity.",
-    "extent": {
-        "spatial": {
-            "bbox": [
-                [
-                    -122.63569641113281,
-                    -37.08,
-                    174.96,
-                    54.584515
-                ]
-            ]
-        },
-        "temporal": {
-            "interval": [
-                [
-                    "2019-01-01T00:00:00Z",
-                    "2022-03-31T00:00:00Z"
-                ]
-            ]
-        }
+  "id": "nightlights-hd-monthly",
+  "type": "Collection",
+  "title": "Black Marble High Definition Nightlights Monthly Dataset",
+  "links": [],
+  "description": "The High Definition Nightlights dataset is processed to eliminate light sources, including moonlight reflectance and other interferences. Darker colors indicate fewer night lights and less activity. Lighter colors indicate more night lights and more activity.",
+  "extent": {
+    "spatial": {
+      "bbox": [
+        [
+          -122.63569641113281,
+          -37.08,
+          174.96,
+          54.584515
+        ]
+      ]
     },
-    "license": "MIT",
-    "stac_extensions": [
-        "https://stac-extensions.github.io/render/v1.0.0/schema.json",
-        "https://stac-extensions.github.io/item-assets/v1.0.0/schema.json"
+    "temporal": {
+      "interval": [
+        [
+          "2019-01-01T00:00:00Z",
+          "2022-03-31T00:00:00Z"
+        ]
+      ]
+    }
+  },
+  "license": "MIT",
+  "stac_extensions": [
+    "https://stac-extensions.github.io/render/v1.0.0/schema.json",
+    "https://stac-extensions.github.io/item-assets/v1.0.0/schema.json"
+  ],
+  "item_assets": {
+    "cog_default": {
+      "type": "image/tiff; application=geotiff; profile=cloud-optimized",
+      "roles": [
+        "data",
+        "layer"
+      ],
+      "title": "Default COG Layer",
+      "description": "Cloud optimized default layer to display on map"
+    }
+  },
+  "dashboard:is_periodic": true,
+  "dashboard:time_density": "month",
+  "stac_version": "1.0.0",
+  "renders": {
+    "dashboard": {
+      "bidx": [
+        1
+      ],
+      "colormap_name": "inferno",
+      "rescale": [
+        [
+          0,
+          255
+        ]
+      ],
+      "assets": [
+        "cog_default"
+      ],
+      "title": "VEDA Dashboard Render Parameters"
+    }
+  },
+  "providers": [
+    {
+      "name": "NASA Black Marble",
+      "url": "https://blackmarble.gsfc.nasa.gov/",
+      "roles": [
+        "producer",
+        "processor"
+      ]
+    },
+    {
+      "name": "NASA VEDA",
+      "url": "https://www.earthdata.nasa.gov/dashboard/",
+      "roles": [
+        "host"
+      ]
+    }
+  ],
+  "summaries": {
+    "datetime": [
+      "2019-01-01T00:00:00Z",
+      "2022-03-01T00:00:00Z"
     ],
-    "item_assets": {
-        "cog_default": {
-            "type": "image/tiff; application=geotiff; profile=cloud-optimized",
-            "roles": [
-                "data",
-                "layer"
-            ],
-            "title": "Default COG Layer",
-            "description": "Cloud optimized default layer to display on map"
-        }
-    },
-    "dashboard:is_periodic": true,
-    "dashboard:time_density": "month",
-    "stac_version": "1.0.0",
-    "renders": {
-        "dashboard": {
-            "bidx": [
-                1
-            ],
-            "colormap_name": "inferno",
-            "rescale": [
-                [
-                    0,
-                    255
-                ]
-            ],
-            "assets": [
-                "cog_default"
-            ],
-            "title": "VEDA Dashboard Render Parameters"
-        }
-    },
-    "providers": [
-        {
-            "name": "NASA Black Marble",
-            "url": "https://blackmarble.gsfc.nasa.gov/",
-            "roles": [
-                "producer",
-                "processor"
-            ]
-        },
-        {
-            "name": "NASA VEDA",
-            "url": "https://www.earthdata.nasa.gov/dashboard/",
-            "roles": [
-                "host"
-            ]
-        }
-    ]
+    "cog_default": {
+      "max": 255,
+      "min": 0
+    }
+  }
 }

@@ -1,54 +1,60 @@
 {
-    "id": "cygnss-watermask-ucar",
-    "type": "Collection",
-    "title": "CYGNSS Surface Water Inundation Fractiion, UCAR/CU",
-    "links": [],
-    "description": "The UCAR/CU team led by investigator Clara Chew (clara@muonspace.com) has developed a surface water inundation fraction product using CYGNSS observations. Reference: Clara Chew, Eric Small, Hannah Huelsing, Flooding and inundation maps using interpolated CYGNSS reflectivity observations, Remote Sensing of Environment, Volume 293, 2023, 113598, ISSN 0034-4257, https://doi.org/10.1016/j.rse.2023.113598.",
-    "extent": {
-        "spatial": {
-            "bbox": [
-                [
-                    -180.00000000000114,
-                    -40.011459386133495,
-                    180.00000000000114,
-                    40.011459386133524
-                ]
-            ]
-        },
-        "temporal": {
-            "interval": [
-                [
-                    "2017-03-20T00:00:00Z",
-                    "2022-06-30T00:00:00Z"
-                ]
-            ]
-        }
+  "id": "cygnss-watermask-ucar",
+  "type": "Collection",
+  "title": "CYGNSS Surface Water Inundation Fractiion, UCAR/CU",
+  "links": [],
+  "description": "The UCAR/CU team led by investigator Clara Chew (clara@muonspace.com) has developed a surface water inundation fraction product using CYGNSS observations. Reference: Clara Chew, Eric Small, Hannah Huelsing, Flooding and inundation maps using interpolated CYGNSS reflectivity observations, Remote Sensing of Environment, Volume 293, 2023, 113598, ISSN 0034-4257, https://doi.org/10.1016/j.rse.2023.113598.",
+  "extent": {
+    "spatial": {
+      "bbox": [
+        [
+          -180.00000000000114,
+          -40.011459386133495,
+          180.00000000000114,
+          40.011459386133524
+        ]
+      ]
     },
-    "license": "CC-BY-NC-SA-1.0",
-    "stac_extensions": [
-        "https://stac-extensions.github.io/item-assets/v1.0.0/schema.json"
-    ],
-    "item_assets": {
-        "cog_default": {
-            "type": "image/tiff; application=geotiff; profile=cloud-optimized",
-            "roles": [
-                "data",
-                "layer"
-            ],
-            "title": "Default COG Layer",
-            "description": "Cloud optimized default layer to display on map"
-        }
-    },
-    "dashboard:is_periodic": true,
-    "dashboard:time_density": "day",
-    "stac_version": "1.0.0",
-    "providers": [
-        {
-            "name": "NASA VEDA",
-            "url": "https://www.earthdata.nasa.gov/dashboard/",
-            "roles": [
-                "host"
-            ]
-        }
+    "temporal": {
+      "interval": [
+        [
+          "2017-03-20T00:00:00Z",
+          "2022-06-30T00:00:00Z"
+        ]
+      ]
+    }
+  },
+  "license": "CC-BY-NC-SA-1.0",
+  "stac_extensions": [
+    "https://stac-extensions.github.io/item-assets/v1.0.0/schema.json"
+  ],
+  "item_assets": {
+    "cog_default": {
+      "type": "image/tiff; application=geotiff; profile=cloud-optimized",
+      "roles": [
+        "data",
+        "layer"
+      ],
+      "title": "Default COG Layer",
+      "description": "Cloud optimized default layer to display on map"
+    }
+  },
+  "dashboard:is_periodic": true,
+  "dashboard:time_density": "day",
+  "stac_version": "1.0.0",
+  "providers": [
+    {
+      "name": "NASA VEDA",
+      "url": "https://www.earthdata.nasa.gov/dashboard/",
+      "roles": [
+        "host"
+      ]
+    }
+  ],
+  "summaries": {
+    "datetime": [
+      "2017-03-20T00:00:00Z",
+      "2022-06-30T00:00:00Z"
     ]
+  }
 }

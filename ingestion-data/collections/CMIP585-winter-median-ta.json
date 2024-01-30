@@ -1,83 +1,95 @@
 {
-    "id": "CMIP585-winter-median-ta",
-    "type": "Collection",
-    "title": "Projected changes to winter (January, February, and March) average daily air temperature",
-    "links": [],
-    "description": "Differences in winter (January, February, and March) average daily air temperature between a historical period (1995 - 2014) and multiple 20-year periods from an ensemble of CMIP6 climate projections (SSP5-8.5) downscaled by NASA Earth Exchange (NEX-GDDP-CMIP6)",
-    "extent": {
-        "spatial": {
-            "bbox": [
-                [
-                    -126,
-                    30,
-                    -104,
-                    51
-                ]
-            ]
-        },
-        "temporal": {
-            "interval": [
-                [
-                    "2025-01-01T00:00:00Z",
-                    "2085-03-31T12:00:00Z"
-                ]
-            ]
-        }
+  "id": "CMIP585-winter-median-ta",
+  "type": "Collection",
+  "title": "Projected changes to winter (January, February, and March) average daily air temperature",
+  "links": [],
+  "description": "Differences in winter (January, February, and March) average daily air temperature between a historical period (1995 - 2014) and multiple 20-year periods from an ensemble of CMIP6 climate projections (SSP5-8.5) downscaled by NASA Earth Exchange (NEX-GDDP-CMIP6)",
+  "extent": {
+    "spatial": {
+      "bbox": [
+        [
+          -126,
+          30,
+          -104,
+          51
+        ]
+      ]
     },
-    "license": "MIT",
-    "stac_extensions": [
-        "https://stac-extensions.github.io/render/v1.0.0/schema.json",
-        "https://stac-extensions.github.io/item-assets/v1.0.0/schema.json"
+    "temporal": {
+      "interval": [
+        [
+          "2025-01-01T00:00:00Z",
+          "2085-03-31T12:00:00Z"
+        ]
+      ]
+    }
+  },
+  "license": "MIT",
+  "stac_extensions": [
+    "https://stac-extensions.github.io/render/v1.0.0/schema.json",
+    "https://stac-extensions.github.io/item-assets/v1.0.0/schema.json"
+  ],
+  "item_assets": {
+    "cog_default": {
+      "type": "image/tiff; application=geotiff; profile=cloud-optimized",
+      "roles": [
+        "data",
+        "layer"
+      ],
+      "title": "Default COG Layer",
+      "description": "Cloud optimized default layer to display on map"
+    }
+  },
+  "dashboard:is_periodic": false,
+  "dashboard:time_density": "year",
+  "stac_version": "1.0.0",
+  "renders": {
+    "dashboard": {
+      "resampling": "bilinear",
+      "bidx": [
+        1
+      ],
+      "colormap_name": "rdbu_r",
+      "rescale": [
+        [
+          -5.5,
+          5.5
+        ]
+      ],
+      "assets": [
+        "cog_default"
+      ],
+      "title": "VEDA Dashboard Render Parameters"
+    }
+  },
+  "providers": [
+    {
+      "name": "NASA Center for Climate Simulation (NCCS)",
+      "url": "https://www.nccs.nasa.gov/services/data-collections/land-based-products/nex-gddp-cmip6",
+      "roles": [
+        "producer",
+        "processor",
+        "licensor"
+      ]
+    },
+    {
+      "name": "NASA VEDA",
+      "url": "https://www.earthdata.nasa.gov/dashboard/",
+      "roles": [
+        "host"
+      ]
+    }
+  ],
+  "summaries": {
+    "datetime": [
+      "2025-01-01T00:00:00Z",
+      "2045-01-01T00:00:00Z",
+      "2065-01-01T00:00:00Z",
+      "2085-01-01T00:00:00Z"
     ],
-    "item_assets": {
-        "cog_default": {
-            "type": "image/tiff; application=geotiff; profile=cloud-optimized",
-            "roles": [
-                "data",
-                "layer"
-            ],
-            "title": "Default COG Layer",
-            "description": "Cloud optimized default layer to display on map"
-        }
-    },
-    "dashboard:is_periodic": false,
-    "dashboard:time_density": "year",
-    "stac_version": "1.0.0",
-    "renders": {
-        "dashboard": {
-            "resampling": "bilinear",
-            "bidx": [
-                1
-            ],
-            "colormap_name": "rdbu_r",
-            "rescale": [
-                [
-                    -5.5,
-                    5.5
-                ]
-            ],
-            "assets": [
-                "cog_default"
-            ],
-            "title": "VEDA Dashboard Render Parameters"
-        }
-    },
-    "providers": [
-        {
-            "name": "NASA Center for Climate Simulation (NCCS)",
-            "url": "https://www.nccs.nasa.gov/services/data-collections/land-based-products/nex-gddp-cmip6",
-            "roles": [
-                "producer",
-                "processor",
-                "licensor"
-            ]
-        },
-        {
-            "name": "NASA VEDA",
-            "url": "https://www.earthdata.nasa.gov/dashboard/",
-            "roles": [
-                "host"
-            ]
-        }
-    ]
+    "cog_default": {
+      "max": 6.98638916015625,
+      "min": 0.054443359375
+    }
+  }
 }

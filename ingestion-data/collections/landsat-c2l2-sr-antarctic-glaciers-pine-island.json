@@ -1,118 +1,168 @@
 {
-    "id": "landsat-c2l2-sr-antarctic-glaciers-pine-island",
-    "type": "Collection",
-    "title": "Selected Landsat 7 through 9 Surface Reflectance Scenes for the Pine Island Glacier",
-    "links": [],
-    "description": "Selected low-cloud-cover Landsat Collection-2 Level-2 Surface Reflectance scenes covering the Pine Island Glacier. Products from multiple missions and instruments are combined in this single collection for the purpose of visualizing RGB images. Note that the full item records are not interchangeable across instruments for purposes other than visualization and that the assets available are not the same for each instrument.",
-    "extent": {
-        "spatial": {
-            "bbox": [
-                [
-                    -106.16789353071125,
-                    -75.90813574456575,
-                    -96.92800405298678,
-                    -73.49948530332446
-                ]
-            ]
-        },
-        "temporal": {
-            "interval": [
-                [
-                    "2001-01-04T14:42:14.750591Z",
-                    "2023-01-25T14:52:12.364151Z"
-                ]
-            ]
-        }
+  "id": "landsat-c2l2-sr-antarctic-glaciers-pine-island",
+  "type": "Collection",
+  "title": "Selected Landsat 7 through 9 Surface Reflectance Scenes for the Pine Island Glacier",
+  "links": [],
+  "description": "Selected low-cloud-cover Landsat Collection-2 Level-2 Surface Reflectance scenes covering the Pine Island Glacier. Products from multiple missions and instruments are combined in this single collection for the purpose of visualizing RGB images. Note that the full item records are not interchangeable across instruments for purposes other than visualization and that the assets available are not the same for each instrument.",
+  "extent": {
+    "spatial": {
+      "bbox": [
+        [
+          -106.16789353071125,
+          -75.90813574456575,
+          -96.92800405298678,
+          -73.49948530332446
+        ]
+      ]
     },
-    "license": "proprietary",
-    "stac_extensions": [
-        "https://stac-extensions.github.io/item-assets/v1.0.0/schema.json"
-    ],
-    "item_assets": {
-        "red": {
-            "type": "image/vnd.stac.geotiff; cloud-optimized=true",
-            "roles": [
-                "data"
-            ],
-            "title": "Red Band (B4)",
-            "eo:bands": [
-                {
-                    "gsd": 30,
-                    "name": "B4",
-                    "common_name": "red",
-                    "center_wavelength": 0.65
-                }
-            ],
-            "description": "Collection 2 Level-2 Red Band (B4) Surface Reflectance"
-        },
-        "blue": {
-            "type": "image/vnd.stac.geotiff; cloud-optimized=true",
-            "roles": [
-                "data"
-            ],
-            "title": "Blue Band (B2)",
-            "eo:bands": [
-                {
-                    "gsd": 30,
-                    "name": "B2",
-                    "common_name": "blue",
-                    "center_wavelength": 0.48
-                }
-            ],
-            "description": "Collection 2 Level-2 Blue Band (B2) Surface Reflectance"
-        },
-        "green": {
-            "type": "image/vnd.stac.geotiff; cloud-optimized=true",
-            "roles": [
-                "data"
-            ],
-            "title": "Green Band (B3)",
-            "eo:bands": [
-                {
-                    "gsd": 30,
-                    "name": "B3",
-                    "common_name": "green",
-                    "center_wavelength": 0.56
-                }
-            ],
-            "description": "Collection 2 Level-2 Green Band (B3) Surface Reflectance"
-        },
-        "thumbnail": {
-            "type": "image/jpeg",
-            "roles": [
-                "thumbnail"
-            ],
-            "title": "Thumbnail image"
-        },
-        "cog_default": {
-            "type": "image/tiff; application=geotiff; profile=cloud-optimized",
-            "roles": [
-                "data",
-                "layer"
-            ],
-            "title": "Default COG Layer",
-            "description": "Cloud optimized default layer to display on map"
+    "temporal": {
+      "interval": [
+        [
+          "2001-01-04T14:42:14.750591Z",
+          "2023-01-25T14:52:12.364151Z"
+        ]
+      ]
+    }
+  },
+  "license": "proprietary",
+  "stac_extensions": [
+    "https://stac-extensions.github.io/item-assets/v1.0.0/schema.json"
+  ],
+  "item_assets": {
+    "red": {
+      "type": "image/vnd.stac.geotiff; cloud-optimized=true",
+      "roles": [
+        "data"
+      ],
+      "title": "Red Band (B4)",
+      "eo:bands": [
+        {
+          "gsd": 30,
+          "name": "B4",
+          "common_name": "red",
+          "center_wavelength": 0.65
         }
+      ],
+      "description": "Collection 2 Level-2 Red Band (B4) Surface Reflectance"
     },
-    "dashboard:is_periodic": false,
-    "dashboard:time_density": "day",
-    "stac_version": "1.0.0",
-    "providers": [
+    "blue": {
+      "type": "image/vnd.stac.geotiff; cloud-optimized=true",
+      "roles": [
+        "data"
+      ],
+      "title": "Blue Band (B2)",
+      "eo:bands": [
         {
-            "name": "NASA",
-            "url": "https://landsat.gsfc.nasa.gov/",
-            "roles": [
-                "producer",
-                "licensor"
-            ]
-        },
-        {
-            "name": "USGS",
-            "url": "https://www.usgs.gov/landsat-missions/landsat-collection-2-level-2-science-products",
-            "roles": [
-                "processor",
-                "host"
-            ]
+          "gsd": 30,
+          "name": "B2",
+          "common_name": "blue",
+          "center_wavelength": 0.48
         }
+      ],
+      "description": "Collection 2 Level-2 Blue Band (B2) Surface Reflectance"
+    },
+    "green": {
+      "type": "image/vnd.stac.geotiff; cloud-optimized=true",
+      "roles": [
+        "data"
+      ],
+      "title": "Green Band (B3)",
+      "eo:bands": [
+        {
+          "gsd": 30,
+          "name": "B3",
+          "common_name": "green",
+          "center_wavelength": 0.56
+        }
+      ],
+      "description": "Collection 2 Level-2 Green Band (B3) Surface Reflectance"
+    },
+    "thumbnail": {
+      "type": "image/jpeg",
+      "roles": [
+        "thumbnail"
+      ],
+      "title": "Thumbnail image"
+    },
+    "cog_default": {
+      "type": "image/tiff; application=geotiff; profile=cloud-optimized",
+      "roles": [
+        "data",
+        "layer"
+      ],
+      "title": "Default COG Layer",
+      "description": "Cloud optimized default layer to display on map"
+    }
+  },
+  "dashboard:is_periodic": false,
+  "dashboard:time_density": "day",
+  "stac_version": "1.0.0",
+  "providers": [
+    {
+      "name": "NASA",
+      "url": "https://landsat.gsfc.nasa.gov/",
+      "roles": [
+        "producer",
+        "licensor"
+      ]
+    },
+    {
+      "name": "USGS",
+      "url": "https://www.usgs.gov/landsat-missions/landsat-collection-2-level-2-science-products",
+      "roles": [
+        "processor",
+        "host"
+      ]
+    }
+  ],
+  "summaries": {
+    "datetime": [
+      "2001-01-04T14:42:14Z",
+      "2004-02-14T14:40:57Z",
+      "2005-02-16T14:41:27Z",
+      "2007-01-05T14:42:03Z",
+      "2007-11-05T14:41:52Z",
+      "2007-12-07T14:42:06Z",
+      "2009-11-10T14:42:23Z",
+      "2009-12-12T14:42:46Z",
+      "2010-01-29T14:43:33Z",
+      "2010-12-15T14:44:51Z",
+      "2011-02-01T14:45:13Z",
+      "2012-02-04T14:45:55Z",
+      "2012-11-02T14:47:40Z",
+      "2012-11-18T14:47:48Z",
+      "2013-10-12T14:53:42Z",
+      "2014-02-17T14:52:39Z",
+      "2014-12-02T14:52:01Z",
+      "2015-10-18T14:51:52Z",
+      "2015-11-03T14:51:57Z",
+      "2016-01-06T14:51:54Z",
+      "2016-11-05T14:52:10Z",
+      "2017-01-08T14:52:01Z",
+      "2017-01-24T14:51:56Z",
+      "2017-10-23T14:52:08Z",
+      "2017-12-10T14:51:59Z",
+      "2017-12-26T14:52:01Z",
+      "2018-01-27T14:51:46Z",
+      "2018-02-28T14:51:32Z",
+      "2018-11-11T14:51:46Z",
+      "2018-12-13T14:51:42Z",
+      "2019-01-14T14:51:40Z",
+      "2019-01-30T14:51:36Z",
+      "2019-10-29T14:52:14Z",
+      "2020-02-02T14:51:54Z",
+      "2020-10-15T14:52:10Z",
+      "2020-11-16T14:52:08Z",
+      "2021-01-19T14:51:58Z",
+      "2021-10-18T14:52:16Z",
+      "2021-11-19T14:52:10Z",
+      "2021-12-13T14:52:08Z",
+      "2021-12-29T14:52:07Z",
+      "2022-01-22T14:52:01Z",
+      "2022-10-21T14:52:25Z",
+      "2022-11-30T14:52:15Z",
+      "2022-12-24T14:52:13Z",
+      "2023-01-25T14:52:12Z"
     ]
+  }
 }

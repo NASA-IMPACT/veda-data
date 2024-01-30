@@ -1,54 +1,59 @@
 {
-    "id": "disturbance-probability-percentile",
-    "type": "Collection",
-    "title": "Near Real-time Disturbance probability map (%)",
-    "links": [],
-    "description": "The UCONN GERS lab developed a near real-time platform ('CONUS Disturbance Watcher') for detecting land disturbances from Harmonized Landsat Sentinel-2 (HLS) dataset. The platform first applied Stochastic Continuous Change Detection (S-CCD) to update spectral change magnitudes and other disturbance features based upon the latest images, and then predicts disturbance probability using the pre-trained models from historical disturbance datasets.",
-    "extent": {
-        "spatial": {
-            "bbox": [
-                [
-                    -84.13201748825585,
-                    25.198425815776577,
-                    -79.8533411848066,
-                    30.7280046689948
-                ]
-            ]
-        },
-        "temporal": {
-            "interval": [
-                [
-                    "2022-10-03T00:00:00Z",
-                    "2022-10-03T00:00:00Z"
-                ]
-            ]
-        }
+  "id": "disturbance-probability-percentile",
+  "type": "Collection",
+  "title": "Near Real-time Disturbance probability map (%)",
+  "links": [],
+  "description": "The UCONN GERS lab developed a near real-time platform ('CONUS Disturbance Watcher') for detecting land disturbances from Harmonized Landsat Sentinel-2 (HLS) dataset. The platform first applied Stochastic Continuous Change Detection (S-CCD) to update spectral change magnitudes and other disturbance features based upon the latest images, and then predicts disturbance probability using the pre-trained models from historical disturbance datasets.",
+  "extent": {
+    "spatial": {
+      "bbox": [
+        [
+          -84.13201748825585,
+          25.198425815776577,
+          -79.8533411848066,
+          30.7280046689948
+        ]
+      ]
     },
-    "license": "CC-BY-NC-SA-1.0",
-    "stac_extensions": [
-        "https://stac-extensions.github.io/item-assets/v1.0.0/schema.json"
-    ],
-    "item_assets": {
-        "cog_default": {
-            "type": "image/tiff; application=geotiff; profile=cloud-optimized",
-            "roles": [
-                "data",
-                "layer"
-            ],
-            "title": "Default COG Layer",
-            "description": "Cloud optimized default layer to display on map"
-        }
-    },
-    "dashboard:is_periodic": false,
-    "dashboard:time_density": null,
-    "stac_version": "1.0.0",
-    "providers": [
-        {
-            "name": "NASA VEDA",
-            "url": "https://www.earthdata.nasa.gov/dashboard/",
-            "roles": [
-                "host"
-            ]
-        }
+    "temporal": {
+      "interval": [
+        [
+          "2022-10-03T00:00:00Z",
+          "2022-10-03T00:00:00Z"
+        ]
+      ]
+    }
+  },
+  "license": "CC-BY-NC-SA-1.0",
+  "stac_extensions": [
+    "https://stac-extensions.github.io/item-assets/v1.0.0/schema.json"
+  ],
+  "item_assets": {
+    "cog_default": {
+      "type": "image/tiff; application=geotiff; profile=cloud-optimized",
+      "roles": [
+        "data",
+        "layer"
+      ],
+      "title": "Default COG Layer",
+      "description": "Cloud optimized default layer to display on map"
+    }
+  },
+  "dashboard:is_periodic": false,
+  "dashboard:time_density": null,
+  "stac_version": "1.0.0",
+  "providers": [
+    {
+      "name": "NASA VEDA",
+      "url": "https://www.earthdata.nasa.gov/dashboard/",
+      "roles": [
+        "host"
+      ]
+    }
+  ],
+  "summaries": {
+    "datetime": [
+      "2022-10-03T00:00:00Z"
     ]
+  }
 }

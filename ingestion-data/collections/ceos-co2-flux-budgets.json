@@ -1,346 +1,356 @@
 {
-    "id": "ceos-co2-flux-budgets",
-    "type": "Collection",
-    "title": "National CO2 budgets (2015–2020) inferred from atmospheric CO2 observations in support of the global stocktake",
-    "links": [
-        {
-            "rel": "cite-as",
-            "href": "https://doi.org/10.48588/npf6-sw92",
-            "title": "Dataset DOI",
-            "label:assets": null
-        },
-        {
-            "rel": "external",
-            "href": "https://doi.org/10.5194/essd-15-963-2023",
-            "title": "Paper DOI",
-            "label:assets": null
-        }
-    ],
-    "description": "This dataset (Byrne et al. 2022) is described by Byrne et al. (2023) and consists of:\n- Top-down annual net land-atmosphere CO2 fluxes (NCE) from an ensemble of atmospheric CO2 inversions.\n- Bottom-up estimates of fossil fuel emissions and lateral carbon fluxes due to crop trade, wood trade, and river export.\n- Annual changes (loss) in terrestrial carbon stocks (ΔCloss) obtained by combining top-down and bottom-up estimates. In addition, two metrics are provided to help users interpret country-level data: The Z-statistics, which characterizes the differences between top-down NCE estimates.\n- The Fractional Uncertainty Reduction (FUR), which characterizes the impact of assimilated CO2 data on reducing NCE uncertainties.\n- These data are provided for the period 2015-2020 on both a global grid and as country-level totals with error characterization. Figures 1 and 2 illustrates how these carbon fluxes relate to each other and the methodology is described in more detail below.\n",
-    "extent": {
-        "spatial": {
-            "bbox": [
-                [
-                    -180,
-                    -90,
-                    180,
-                    90
-                ]
-            ]
-        },
-        "temporal": {
-            "interval": [
-                [
-                    "2015-01-01T00:00:00Z",
-                    "2020-01-01T00:00:00Z"
-                ]
-            ]
-        }
+  "id": "ceos-co2-flux-budgets",
+  "type": "Collection",
+  "title": "National CO2 budgets (2015–2020) inferred from atmospheric CO2 observations in support of the global stocktake",
+  "links": [
+    {
+      "rel": "cite-as",
+      "href": "https://doi.org/10.48588/npf6-sw92",
+      "title": "Dataset DOI",
+      "label:assets": null
     },
-    "license": "CC0-1.0",
-    "stac_extensions": [
-        "https://stac-extensions.github.io/item-assets/v1.0.0/schema.json"
-    ],
-    "item_assets": {
-        "ff": {
-            "type": "image/tiff; application=geotiff; profile=cloud-optimized",
-            "roles": [
-                "data",
-                "layer"
-            ],
-            "title": "Fossil fuel and cement emissions",
-            "description": "The burning of fossil fuels and release of carbon due to cement production, representing a flux of carbon from the land surface (geologic reservoir) to the atmosphere"
-        },
-        "crop": {
-            "type": "image/tiff; application=geotiff; profile=cloud-optimized",
-            "roles": [
-                "data",
-                "layer"
-            ],
-            "title": "Lateral crop flux",
-            "description": "The lateral flux of carbon in (positive) or out (negative) of a region due to agriculture."
-        },
-        "wood": {
-            "type": "image/tiff; application=geotiff; profile=cloud-optimized",
-            "roles": [
-                "data",
-                "layer"
-            ],
-            "title": "Lateral wood flux",
-            "description": "The lateral flux of carbon in (positive) or out (negative) of a region due to wood product harvesting and usage."
-        },
-        "river": {
-            "type": "image/tiff; application=geotiff; profile=cloud-optimized",
-            "roles": [
-                "data",
-                "layer"
-            ],
-            "title": "Lateral rivers flux",
-            "description": "The lateral flux of carbon in (positive) or out (negative) of a region transported by the water cycle."
-        },
-        "ff-std": {
-            "type": "image/tiff; application=geotiff; profile=cloud-optimized",
-            "roles": [
-                "data",
-                "layer"
-            ],
-            "title": "Fossil fuel and cement emissions std",
-            "description": "The burning of fossil fuels and release of carbon due to cement production, representing a flux of carbon from the land surface (geologic reservoir) to the atmosphere"
-        },
-        "is-nbe": {
-            "type": "image/tiff; application=geotiff; profile=cloud-optimized",
-            "roles": [
-                "data",
-                "layer"
-            ],
-            "title": "In situ Net biosphere exchange",
-            "description": "Net flux of carbon from the terrestrial biosphere to the atmosphere due to biomass burning (BB) and Reco minus gross primary production (GPP) (i.e., ). It includes both anthropogenic processes (e.g., deforestation, reforestation, farming) and natural processes (e.g., climate-variability-induced carbon fluxes, disturbances, recovery from disturbances)."
-        },
-        "is-nce": {
-            "type": "image/tiff; application=geotiff; profile=cloud-optimized",
-            "roles": [
-                "data",
-                "layer"
-            ],
-            "title": "In situ Terrestrial net carbon exchange",
-            "description": "Net flux of carbon from the surface to the atmosphere. For land, NCE can be defined as sum of NBE and fossil fuel and cement emissions"
-        },
-        "crop-std": {
-            "type": "image/tiff; application=geotiff; profile=cloud-optimized",
-            "roles": [
-                "data",
-                "layer"
-            ],
-            "title": "lateral crop flux std ",
-            "description": "The lateral flux of carbon in (positive) or out (negative) of a region due to agriculture."
-        },
-        "lnlg-nbe": {
-            "type": "image/tiff; application=geotiff; profile=cloud-optimized",
-            "roles": [
-                "data",
-                "layer"
-            ],
-            "title": "Land Nadir and Land Glint Net biosphere exchange",
-            "description": "Net flux of carbon from the terrestrial biosphere to the atmosphere due to biomass burning (BB) and Reco minus gross primary production (GPP) (i.e., ). It includes both anthropogenic processes (e.g., deforestation, reforestation, farming) and natural processes (e.g., climate-variability-induced carbon fluxes, disturbances, recovery from disturbances"
-        },
-        "lnlg-nce": {
-            "type": "image/tiff; application=geotiff; profile=cloud-optimized",
-            "roles": [
-                "data",
-                "layer"
-            ],
-            "title": "Land Nadir and Land glint In situ Terrestrial net carbon exchange",
-            "description": "Net flux of carbon from the surface to the atmosphere. For land, NCE can be defined as sum of NBE and fossil fuel and cement emissions"
-        },
-        "wood-std": {
-            "type": "image/tiff; application=geotiff; profile=cloud-optimized",
-            "roles": [
-                "data",
-                "layer"
-            ],
-            "title": "Lateral wood flux std",
-            "description": "The lateral flux of carbon in (positive) or out (negative) of a region due to wood product harvesting and usage."
-        },
-        "river-std": {
-            "type": "image/tiff; application=geotiff; profile=cloud-optimized",
-            "roles": [
-                "data",
-                "layer"
-            ],
-            "title": "Lateral rivers flux std",
-            "description": "The lateral flux of carbon in (positive) or out (negative) of a region transported by the water cycle."
-        },
-        "is-dc-loss": {
-            "type": "image/tiff; application=geotiff; profile=cloud-optimized",
-            "roles": [
-                "data",
-                "layer"
-            ],
-            "title": "In situ Net terrestrial carbon stock loss",
-            "description": "Positive values indicate a loss (decrease) of terrestrial carbon stocks (organic matter stored on land), including above- and below-ground biomass in ecosystems and biomass contained in anthropogenic products (lumber, cattle, etc.)."
-        },
-        "is-nbe-std": {
-            "type": "image/tiff; application=geotiff; profile=cloud-optimized",
-            "roles": [
-                "data",
-                "layer"
-            ],
-            "title": "In situ Net biosphere exchange std",
-            "description": "Net flux of carbon from the terrestrial biosphere to the atmosphere due to biomass burning (BB) and Reco minus gross primary production (GPP) (i.e., ). It includes both anthropogenic processes (e.g., deforestation, reforestation, farming) and natural processes (e.g., climate-variability-induced carbon fluxes, disturbances, recovery from disturbances."
-        },
-        "is-nce-std": {
-            "type": "image/tiff; application=geotiff; profile=cloud-optimized",
-            "roles": [
-                "data",
-                "layer"
-            ],
-            "title": "In situ Terrestrial net carbon exchange std",
-            "description": "Net flux of carbon from the surface to the atmosphere. For land, NCE can be defined as sum of NBE and fossil fuel and cement emissions"
-        },
-        "lnlgis-nbe": {
-            "type": "image/tiff; application=geotiff; profile=cloud-optimized",
-            "roles": [
-                "data",
-                "layer"
-            ],
-            "title": "Land Nadir and Land Glint In situ Net biosphere exchange",
-            "description": "Net flux of carbon from the terrestrial biosphere to the atmosphere due to biomass burning (BB) and Reco minus gross primary production (GPP) (i.e., ). It includes both anthropogenic processes (e.g., deforestation, reforestation, farming) and natural processes (e.g., climate-variability-induced carbon fluxes, disturbances, recovery from disturbances"
-        },
-        "lnlgis-nce": {
-            "type": "image/tiff; application=geotiff; profile=cloud-optimized",
-            "roles": [
-                "data",
-                "layer"
-            ],
-            "title": "Land Nadir and Land Glint In situ Terrestrial net carbon exchange",
-            "description": "Net flux of carbon from the surface to the atmosphere. For land, NCE can be defined as sum of NBE and fossil fuel and cement emissions"
-        },
-        "lnlg-dc-loss": {
-            "type": "image/tiff; application=geotiff; profile=cloud-optimized",
-            "roles": [
-                "data",
-                "layer"
-            ],
-            "title": "Land Nadir and Land Glint Net terrestrial carbon stock loss",
-            "description": "Positive values indicate a loss (decrease) of terrestrial carbon stocks (organic matter stored on land), including above- and below-ground biomass in ecosystems and biomass contained in anthropogenic products (lumber, cattle, etc.)."
-        },
-        "lnlg-nbe-std": {
-            "type": "image/tiff; application=geotiff; profile=cloud-optimized",
-            "roles": [
-                "data",
-                "layer"
-            ],
-            "title": "Land Nadir and Land Glint Net biosphere exchange std",
-            "description": "Net flux of carbon from the terrestrial biosphere to the atmosphere due to biomass burning (BB) and Reco minus gross primary production (GPP) (i.e., ). It includes both anthropogenic processes (e.g., deforestation, reforestation, farming) and natural processes (e.g., climate-variability-induced carbon fluxes, disturbances, recovery from disturbances"
-        },
-        "lnlg-nce-std": {
-            "type": "image/tiff; application=geotiff; profile=cloud-optimized",
-            "roles": [
-                "data",
-                "layer"
-            ],
-            "title": "Land Nadir and Land Glint Terrestrial net carbon exchange std",
-            "description": "Net flux of carbon from the surface to the atmosphere. For land, NCE can be defined as sum of NBE and fossil fuel and cement emissions"
-        },
-        "lnlgogis-nbe": {
-            "type": "image/tiff; application=geotiff; profile=cloud-optimized",
-            "roles": [
-                "data",
-                "layer"
-            ],
-            "title": "Land Nadir, Land Glint, Ocean Glint and In sittu Net biosphere exchange",
-            "description": "Net flux of carbon from the terrestrial biosphere to the atmosphere due to biomass burning (BB) and Reco minus gross primary production (GPP) (i.e., ). It includes both anthropogenic processes (e.g., deforestation, reforestation, farming) and natural processes (e.g., climate-variability-induced carbon fluxes, disturbances, recovery from disturbances"
-        },
-        "lnlgogis-nce": {
-            "type": "image/tiff; application=geotiff; profile=cloud-optimized",
-            "roles": [
-                "data",
-                "layer"
-            ],
-            "title": "Land Nadir, Land Glint, Ocean Glint In situ Terrestrial net carbon exchange ",
-            "description": "Net flux of carbon from the surface to the atmosphere. For land, NCE can be defined as sum of NBE and fossil fuel and cement emissions"
-        },
-        "is-dc-loss-std": {
-            "type": "image/tiff; application=geotiff; profile=cloud-optimized",
-            "roles": [
-                "data",
-                "layer"
-            ],
-            "title": "In situ Net terrestrial carbon stock loss std",
-            "description": "Positive values indicate a loss (decrease) of terrestrial carbon stocks (organic matter stored on land), including above- and below-ground biomass in ecosystems and biomass contained in anthropogenic products (lumber, cattle, etc.)."
-        },
-        "lnlgis-dc-loss": {
-            "type": "image/tiff; application=geotiff; profile=cloud-optimized",
-            "roles": [
-                "data",
-                "layer"
-            ],
-            "title": "Land Nadir, Land Glint and In situ Net terrestrial carbon stock loss",
-            "description": "Positive values indicate a loss (decrease) of terrestrial carbon stocks (organic matter stored on land), including above- and below-ground biomass in ecosystems and biomass contained in anthropogenic products (lumber, cattle, etc.)."
-        },
-        "lnlgis-nbe-std": {
-            "type": "image/tiff; application=geotiff; profile=cloud-optimized",
-            "roles": [
-                "data",
-                "layer"
-            ],
-            "title": "Land Nadir and Land Glint In situ Net biosphere exchange std",
-            "description": "Net flux of carbon from the terrestrial biosphere to the atmosphere due to biomass burning (BB) and Reco minus gross primary production (GPP) (i.e., ). It includes both anthropogenic processes (e.g., deforestation, reforestation, farming) and natural processes (e.g., climate-variability-induced carbon fluxes, disturbances, recovery from disturbances"
-        },
-        "lnlgis-nce-std": {
-            "type": "image/tiff; application=geotiff; profile=cloud-optimized",
-            "roles": [
-                "data",
-                "layer"
-            ],
-            "title": "Land Nadir and Land Glint In situ Terrestrial net carbon exchange std",
-            "description": "Net flux of carbon from the surface to the atmosphere. For land, NCE can be defined as sum of NBE and fossil fuel and cement emissions"
-        },
-        "lnlg-dc-loss-std": {
-            "type": "image/tiff; application=geotiff; profile=cloud-optimized",
-            "roles": [
-                "data",
-                "layer"
-            ],
-            "title": "Land Nadir and Land glint Net terrestrial carbon stock loss std",
-            "description": "Positive values indicate a loss (decrease) of terrestrial carbon stocks (organic matter stored on land), including above- and below-ground biomass in ecosystems and biomass contained in anthropogenic products (lumber, cattle, etc.)."
-        },
-        "lnlgogis-dc-loss": {
-            "type": "image/tiff; application=geotiff; profile=cloud-optimized",
-            "roles": [
-                "data",
-                "layer"
-            ],
-            "title": "Land Nadir, Land Glint, Ocean Glint and In situ Net terrestrial carbon stock loss",
-            "description": "Positive values indicate a loss (decrease) of terrestrial carbon stocks (organic matter stored on land), including above- and below-ground biomass in ecosystems and biomass contained in anthropogenic products (lumber, cattle, etc.)."
-        },
-        "lnlgogis-nbe-std": {
-            "type": "image/tiff; application=geotiff; profile=cloud-optimized",
-            "roles": [
-                "data",
-                "layer"
-            ],
-            "title": "Land Nadir, Land Glint, Ocean Glint and In sittu Net biosphere exchange",
-            "description": "Net flux of carbon from the terrestrial biosphere to the atmosphere due to biomass burning (BB) and Reco minus gross primary production (GPP) (i.e., ). It includes both anthropogenic processes (e.g., deforestation, reforestation, farming) and natural processes (e.g., climate-variability-induced carbon fluxes, disturbances, recovery from disturbances"
-        },
-        "lnlgogis-nce-std": {
-            "type": "image/tiff; application=geotiff; profile=cloud-optimized",
-            "roles": [
-                "data",
-                "layer"
-            ],
-            "title": "Land Nadir, Land Glint, Ocean Glint In situ Terrestrial net carbon exchange std ",
-            "description": "Net flux of carbon from the surface to the atmosphere. For land, NCE can be defined as sum of NBE and fossil fuel and cement emissions"
-        },
-        "lnlgis-dc-loss-std": {
-            "type": "image/tiff; application=geotiff; profile=cloud-optimized",
-            "roles": [
-                "data",
-                "layer"
-            ],
-            "title": "Land Nadir, Land Glint and In situ Net terrestrial carbon stock loss std",
-            "description": "Positive values indicate a loss (decrease) of terrestrial carbon stocks (organic matter stored on land), including above- and below-ground biomass in ecosystems and biomass contained in anthropogenic products (lumber, cattle, etc.)."
-        },
-        "lnlgogis-dc-loss-std": {
-            "type": "image/tiff; application=geotiff; profile=cloud-optimized",
-            "roles": [
-                "data",
-                "layer"
-            ],
-            "title": "Land Nadir, Land Glint, Ocean Glint and In situ Net terrestrial carbon stock loss std",
-            "description": "Positive values indicate a loss (decrease) of terrestrial carbon stocks (organic matter stored on land), including above- and below-ground biomass in ecosystems and biomass contained in anthropogenic products (lumber, cattle, etc.)."
-        }
+    {
+      "rel": "external",
+      "href": "https://doi.org/10.5194/essd-15-963-2023",
+      "title": "Paper DOI",
+      "label:assets": null
+    }
+  ],
+  "description": "This dataset (Byrne et al. 2022) is described by Byrne et al. (2023) and consists of:\n- Top-down annual net land-atmosphere CO2 fluxes (NCE) from an ensemble of atmospheric CO2 inversions.\n- Bottom-up estimates of fossil fuel emissions and lateral carbon fluxes due to crop trade, wood trade, and river export.\n- Annual changes (loss) in terrestrial carbon stocks (ΔCloss) obtained by combining top-down and bottom-up estimates. In addition, two metrics are provided to help users interpret country-level data: The Z-statistics, which characterizes the differences between top-down NCE estimates.\n- The Fractional Uncertainty Reduction (FUR), which characterizes the impact of assimilated CO2 data on reducing NCE uncertainties.\n- These data are provided for the period 2015-2020 on both a global grid and as country-level totals with error characterization. Figures 1 and 2 illustrates how these carbon fluxes relate to each other and the methodology is described in more detail below.\n",
+  "extent": {
+    "spatial": {
+      "bbox": [
+        [
+          -180,
+          -90,
+          180,
+          90
+        ]
+      ]
     },
-    "dashboard:is_periodic": true,
-    "dashboard:time_density": "year",
-    "stac_version": "1.0.0",
-    "providers": [
-        {
-            "name": "NASA VEDA",
-            "url": "https://www.earthdata.nasa.gov/dashboard/",
-            "roles": [
-                "host"
-            ]
-        }
-    ]
+    "temporal": {
+      "interval": [
+        [
+          "2015-01-01T00:00:00Z",
+          "2020-01-01T00:00:00Z"
+        ]
+      ]
+    }
+  },
+  "license": "CC0-1.0",
+  "stac_extensions": [
+    "https://stac-extensions.github.io/item-assets/v1.0.0/schema.json"
+  ],
+  "item_assets": {
+    "ff": {
+      "type": "image/tiff; application=geotiff; profile=cloud-optimized",
+      "roles": [
+        "data",
+        "layer"
+      ],
+      "title": "Fossil fuel and cement emissions",
+      "description": "The burning of fossil fuels and release of carbon due to cement production, representing a flux of carbon from the land surface (geologic reservoir) to the atmosphere"
+    },
+    "crop": {
+      "type": "image/tiff; application=geotiff; profile=cloud-optimized",
+      "roles": [
+        "data",
+        "layer"
+      ],
+      "title": "Lateral crop flux",
+      "description": "The lateral flux of carbon in (positive) or out (negative) of a region due to agriculture."
+    },
+    "wood": {
+      "type": "image/tiff; application=geotiff; profile=cloud-optimized",
+      "roles": [
+        "data",
+        "layer"
+      ],
+      "title": "Lateral wood flux",
+      "description": "The lateral flux of carbon in (positive) or out (negative) of a region due to wood product harvesting and usage."
+    },
+    "river": {
+      "type": "image/tiff; application=geotiff; profile=cloud-optimized",
+      "roles": [
+        "data",
+        "layer"
+      ],
+      "title": "Lateral rivers flux",
+      "description": "The lateral flux of carbon in (positive) or out (negative) of a region transported by the water cycle."
+    },
+    "ff-std": {
+      "type": "image/tiff; application=geotiff; profile=cloud-optimized",
+      "roles": [
+        "data",
+        "layer"
+      ],
+      "title": "Fossil fuel and cement emissions std",
+      "description": "The burning of fossil fuels and release of carbon due to cement production, representing a flux of carbon from the land surface (geologic reservoir) to the atmosphere"
+    },
+    "is-nbe": {
+      "type": "image/tiff; application=geotiff; profile=cloud-optimized",
+      "roles": [
+        "data",
+        "layer"
+      ],
+      "title": "In situ Net biosphere exchange",
+      "description": "Net flux of carbon from the terrestrial biosphere to the atmosphere due to biomass burning (BB) and Reco minus gross primary production (GPP) (i.e., ). It includes both anthropogenic processes (e.g., deforestation, reforestation, farming) and natural processes (e.g., climate-variability-induced carbon fluxes, disturbances, recovery from disturbances)."
+    },
+    "is-nce": {
+      "type": "image/tiff; application=geotiff; profile=cloud-optimized",
+      "roles": [
+        "data",
+        "layer"
+      ],
+      "title": "In situ Terrestrial net carbon exchange",
+      "description": "Net flux of carbon from the surface to the atmosphere. For land, NCE can be defined as sum of NBE and fossil fuel and cement emissions"
+    },
+    "crop-std": {
+      "type": "image/tiff; application=geotiff; profile=cloud-optimized",
+      "roles": [
+        "data",
+        "layer"
+      ],
+      "title": "lateral crop flux std ",
+      "description": "The lateral flux of carbon in (positive) or out (negative) of a region due to agriculture."
+    },
+    "lnlg-nbe": {
+      "type": "image/tiff; application=geotiff; profile=cloud-optimized",
+      "roles": [
+        "data",
+        "layer"
+      ],
+      "title": "Land Nadir and Land Glint Net biosphere exchange",
+      "description": "Net flux of carbon from the terrestrial biosphere to the atmosphere due to biomass burning (BB) and Reco minus gross primary production (GPP) (i.e., ). It includes both anthropogenic processes (e.g., deforestation, reforestation, farming) and natural processes (e.g., climate-variability-induced carbon fluxes, disturbances, recovery from disturbances"
+    },
+    "lnlg-nce": {
+      "type": "image/tiff; application=geotiff; profile=cloud-optimized",
+      "roles": [
+        "data",
+        "layer"
+      ],
+      "title": "Land Nadir and Land glint In situ Terrestrial net carbon exchange",
+      "description": "Net flux of carbon from the surface to the atmosphere. For land, NCE can be defined as sum of NBE and fossil fuel and cement emissions"
+    },
+    "wood-std": {
+      "type": "image/tiff; application=geotiff; profile=cloud-optimized",
+      "roles": [
+        "data",
+        "layer"
+      ],
+      "title": "Lateral wood flux std",
+      "description": "The lateral flux of carbon in (positive) or out (negative) of a region due to wood product harvesting and usage."
+    },
+    "river-std": {
+      "type": "image/tiff; application=geotiff; profile=cloud-optimized",
+      "roles": [
+        "data",
+        "layer"
+      ],
+      "title": "Lateral rivers flux std",
+      "description": "The lateral flux of carbon in (positive) or out (negative) of a region transported by the water cycle."
+    },
+    "is-dc-loss": {
+      "type": "image/tiff; application=geotiff; profile=cloud-optimized",
+      "roles": [
+        "data",
+        "layer"
+      ],
+      "title": "In situ Net terrestrial carbon stock loss",
+      "description": "Positive values indicate a loss (decrease) of terrestrial carbon stocks (organic matter stored on land), including above- and below-ground biomass in ecosystems and biomass contained in anthropogenic products (lumber, cattle, etc.)."
+    },
+    "is-nbe-std": {
+      "type": "image/tiff; application=geotiff; profile=cloud-optimized",
+      "roles": [
+        "data",
+        "layer"
+      ],
+      "title": "In situ Net biosphere exchange std",
+      "description": "Net flux of carbon from the terrestrial biosphere to the atmosphere due to biomass burning (BB) and Reco minus gross primary production (GPP) (i.e., ). It includes both anthropogenic processes (e.g., deforestation, reforestation, farming) and natural processes (e.g., climate-variability-induced carbon fluxes, disturbances, recovery from disturbances."
+    },
+    "is-nce-std": {
+      "type": "image/tiff; application=geotiff; profile=cloud-optimized",
+      "roles": [
+        "data",
+        "layer"
+      ],
+      "title": "In situ Terrestrial net carbon exchange std",
+      "description": "Net flux of carbon from the surface to the atmosphere. For land, NCE can be defined as sum of NBE and fossil fuel and cement emissions"
+    },
+    "lnlgis-nbe": {
+      "type": "image/tiff; application=geotiff; profile=cloud-optimized",
+      "roles": [
+        "data",
+        "layer"
+      ],
+      "title": "Land Nadir and Land Glint In situ Net biosphere exchange",
+      "description": "Net flux of carbon from the terrestrial biosphere to the atmosphere due to biomass burning (BB) and Reco minus gross primary production (GPP) (i.e., ). It includes both anthropogenic processes (e.g., deforestation, reforestation, farming) and natural processes (e.g., climate-variability-induced carbon fluxes, disturbances, recovery from disturbances"
+    },
+    "lnlgis-nce": {
+      "type": "image/tiff; application=geotiff; profile=cloud-optimized",
+      "roles": [
+        "data",
+        "layer"
+      ],
+      "title": "Land Nadir and Land Glint In situ Terrestrial net carbon exchange",
+      "description": "Net flux of carbon from the surface to the atmosphere. For land, NCE can be defined as sum of NBE and fossil fuel and cement emissions"
+    },
+    "lnlg-dc-loss": {
+      "type": "image/tiff; application=geotiff; profile=cloud-optimized",
+      "roles": [
+        "data",
+        "layer"
+      ],
+      "title": "Land Nadir and Land Glint Net terrestrial carbon stock loss",
+      "description": "Positive values indicate a loss (decrease) of terrestrial carbon stocks (organic matter stored on land), including above- and below-ground biomass in ecosystems and biomass contained in anthropogenic products (lumber, cattle, etc.)."
+    },
+    "lnlg-nbe-std": {
+      "type": "image/tiff; application=geotiff; profile=cloud-optimized",
+      "roles": [
+        "data",
+        "layer"
+      ],
+      "title": "Land Nadir and Land Glint Net biosphere exchange std",
+      "description": "Net flux of carbon from the terrestrial biosphere to the atmosphere due to biomass burning (BB) and Reco minus gross primary production (GPP) (i.e., ). It includes both anthropogenic processes (e.g., deforestation, reforestation, farming) and natural processes (e.g., climate-variability-induced carbon fluxes, disturbances, recovery from disturbances"
+    },
+    "lnlg-nce-std": {
+      "type": "image/tiff; application=geotiff; profile=cloud-optimized",
+      "roles": [
+        "data",
+        "layer"
+      ],
+      "title": "Land Nadir and Land Glint Terrestrial net carbon exchange std",
+      "description": "Net flux of carbon from the surface to the atmosphere. For land, NCE can be defined as sum of NBE and fossil fuel and cement emissions"
+    },
+    "lnlgogis-nbe": {
+      "type": "image/tiff; application=geotiff; profile=cloud-optimized",
+      "roles": [
+        "data",
+        "layer"
+      ],
+      "title": "Land Nadir, Land Glint, Ocean Glint and In sittu Net biosphere exchange",
+      "description": "Net flux of carbon from the terrestrial biosphere to the atmosphere due to biomass burning (BB) and Reco minus gross primary production (GPP) (i.e., ). It includes both anthropogenic processes (e.g., deforestation, reforestation, farming) and natural processes (e.g., climate-variability-induced carbon fluxes, disturbances, recovery from disturbances"
+    },
+    "lnlgogis-nce": {
+      "type": "image/tiff; application=geotiff; profile=cloud-optimized",
+      "roles": [
+        "data",
+        "layer"
+      ],
+      "title": "Land Nadir, Land Glint, Ocean Glint In situ Terrestrial net carbon exchange ",
+      "description": "Net flux of carbon from the surface to the atmosphere. For land, NCE can be defined as sum of NBE and fossil fuel and cement emissions"
+    },
+    "is-dc-loss-std": {
+      "type": "image/tiff; application=geotiff; profile=cloud-optimized",
+      "roles": [
+        "data",
+        "layer"
+      ],
+      "title": "In situ Net terrestrial carbon stock loss std",
+      "description": "Positive values indicate a loss (decrease) of terrestrial carbon stocks (organic matter stored on land), including above- and below-ground biomass in ecosystems and biomass contained in anthropogenic products (lumber, cattle, etc.)."
+    },
+    "lnlgis-dc-loss": {
+      "type": "image/tiff; application=geotiff; profile=cloud-optimized",
+      "roles": [
+        "data",
+        "layer"
+      ],
+      "title": "Land Nadir, Land Glint and In situ Net terrestrial carbon stock loss",
+      "description": "Positive values indicate a loss (decrease) of terrestrial carbon stocks (organic matter stored on land), including above- and below-ground biomass in ecosystems and biomass contained in anthropogenic products (lumber, cattle, etc.)."
+    },
+    "lnlgis-nbe-std": {
+      "type": "image/tiff; application=geotiff; profile=cloud-optimized",
+      "roles": [
+        "data",
+        "layer"
+      ],
+      "title": "Land Nadir and Land Glint In situ Net biosphere exchange std",
+      "description": "Net flux of carbon from the terrestrial biosphere to the atmosphere due to biomass burning (BB) and Reco minus gross primary production (GPP) (i.e., ). It includes both anthropogenic processes (e.g., deforestation, reforestation, farming) and natural processes (e.g., climate-variability-induced carbon fluxes, disturbances, recovery from disturbances"
+    },
+    "lnlgis-nce-std": {
+      "type": "image/tiff; application=geotiff; profile=cloud-optimized",
+      "roles": [
+        "data",
+        "layer"
+      ],
+      "title": "Land Nadir and Land Glint In situ Terrestrial net carbon exchange std",
+      "description": "Net flux of carbon from the surface to the atmosphere. For land, NCE can be defined as sum of NBE and fossil fuel and cement emissions"
+    },
+    "lnlg-dc-loss-std": {
+      "type": "image/tiff; application=geotiff; profile=cloud-optimized",
+      "roles": [
+        "data",
+        "layer"
+      ],
+      "title": "Land Nadir and Land glint Net terrestrial carbon stock loss std",
+      "description": "Positive values indicate a loss (decrease) of terrestrial carbon stocks (organic matter stored on land), including above- and below-ground biomass in ecosystems and biomass contained in anthropogenic products (lumber, cattle, etc.)."
+    },
+    "lnlgogis-dc-loss": {
+      "type": "image/tiff; application=geotiff; profile=cloud-optimized",
+      "roles": [
+        "data",
+        "layer"
+      ],
+      "title": "Land Nadir, Land Glint, Ocean Glint and In situ Net terrestrial carbon stock loss",
+      "description": "Positive values indicate a loss (decrease) of terrestrial carbon stocks (organic matter stored on land), including above- and below-ground biomass in ecosystems and biomass contained in anthropogenic products (lumber, cattle, etc.)."
+    },
+    "lnlgogis-nbe-std": {
+      "type": "image/tiff; application=geotiff; profile=cloud-optimized",
+      "roles": [
+        "data",
+        "layer"
+      ],
+      "title": "Land Nadir, Land Glint, Ocean Glint and In sittu Net biosphere exchange",
+      "description": "Net flux of carbon from the terrestrial biosphere to the atmosphere due to biomass burning (BB) and Reco minus gross primary production (GPP) (i.e., ). It includes both anthropogenic processes (e.g., deforestation, reforestation, farming) and natural processes (e.g., climate-variability-induced carbon fluxes, disturbances, recovery from disturbances"
+    },
+    "lnlgogis-nce-std": {
+      "type": "image/tiff; application=geotiff; profile=cloud-optimized",
+      "roles": [
+        "data",
+        "layer"
+      ],
+      "title": "Land Nadir, Land Glint, Ocean Glint In situ Terrestrial net carbon exchange std ",
+      "description": "Net flux of carbon from the surface to the atmosphere. For land, NCE can be defined as sum of NBE and fossil fuel and cement emissions"
+    },
+    "lnlgis-dc-loss-std": {
+      "type": "image/tiff; application=geotiff; profile=cloud-optimized",
+      "roles": [
+        "data",
+        "layer"
+      ],
+      "title": "Land Nadir, Land Glint and In situ Net terrestrial carbon stock loss std",
+      "description": "Positive values indicate a loss (decrease) of terrestrial carbon stocks (organic matter stored on land), including above- and below-ground biomass in ecosystems and biomass contained in anthropogenic products (lumber, cattle, etc.)."
+    },
+    "lnlgogis-dc-loss-std": {
+      "type": "image/tiff; application=geotiff; profile=cloud-optimized",
+      "roles": [
+        "data",
+        "layer"
+      ],
+      "title": "Land Nadir, Land Glint, Ocean Glint and In situ Net terrestrial carbon stock loss std",
+      "description": "Positive values indicate a loss (decrease) of terrestrial carbon stocks (organic matter stored on land), including above- and below-ground biomass in ecosystems and biomass contained in anthropogenic products (lumber, cattle, etc.)."
+    }
+  },
+  "dashboard:is_periodic": true,
+  "dashboard:time_density": "year",
+  "stac_version": "1.0.0",
+  "providers": [
+    {
+      "name": "NASA VEDA",
+      "url": "https://www.earthdata.nasa.gov/dashboard/",
+      "roles": [
+        "host"
+      ]
+    }
+  ],
+  "summaries": {
+    "datetime": [
+      "2015-01-01T00:00:00Z",
+      "2020-01-01T00:00:00Z"
+    ],
+    "cog_default": {
+      "max": null,
+      "min": null
+    }
+  }
 }

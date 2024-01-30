@@ -1,79 +1,109 @@
 {
-    "id": "IS2SITMOGR4-cog",
-    "type": "Collection",
-    "title": "ICESat-2 L4 Monthly Gridded Sea Ice Thickness (COGs)",
-    "links": [],
-    "description": "ICESat-2 L4 Monthly Gridded Sea Ice Thickness (COGs)",
-    "extent": {
-        "spatial": {
-            "bbox": [
-                [
-                    -180,
-                    31.269270721494188,
-                    179.7061752664782,
-                    85.18898561151076
-                ]
-            ]
-        },
-        "temporal": {
-            "interval": [
-                [
-                    "2018-11-01T00:00:00Z",
-                    "2021-04-30T00:00:00Z"
-                ]
-            ]
-        }
+  "id": "IS2SITMOGR4-cog",
+  "type": "Collection",
+  "title": "ICESat-2 L4 Monthly Gridded Sea Ice Thickness (COGs)",
+  "links": [],
+  "description": "ICESat-2 L4 Monthly Gridded Sea Ice Thickness (COGs)",
+  "extent": {
+    "spatial": {
+      "bbox": [
+        [
+          -180,
+          31.269270721494188,
+          179.7061752664782,
+          85.18898561151076
+        ]
+      ]
     },
-    "license": "MIT",
-    "stac_extensions": [
-        "https://stac-extensions.github.io/render/v1.0.0/schema.json",
-        "https://stac-extensions.github.io/item-assets/v1.0.0/schema.json"
+    "temporal": {
+      "interval": [
+        [
+          "2018-11-01T00:00:00Z",
+          "2021-04-30T00:00:00Z"
+        ]
+      ]
+    }
+  },
+  "license": "MIT",
+  "stac_extensions": [
+    "https://stac-extensions.github.io/render/v1.0.0/schema.json",
+    "https://stac-extensions.github.io/item-assets/v1.0.0/schema.json"
+  ],
+  "item_assets": {
+    "cog_default": {
+      "type": "image/tiff; application=geotiff; profile=cloud-optimized",
+      "roles": [
+        "data",
+        "layer"
+      ],
+      "title": "Default COG Layer",
+      "description": "Cloud optimized default layer to display on map"
+    }
+  },
+  "dashboard:is_periodic": false,
+  "dashboard:time_density": "month",
+  "stac_version": "1.0.0",
+  "renders": {
+    "dashboard": {
+      "colormap_name": "plasma",
+      "rescale": [
+        [
+          0,
+          16
+        ]
+      ],
+      "assets": [
+        "cog_default"
+      ],
+      "title": "VEDA Dashboard Render Parameters"
+    }
+  },
+  "providers": [
+    {
+      "name": "National Snow And Ice Data Center (NSIDC)",
+      "url": "https://nsidc.org/data/explore-data",
+      "roles": [
+        "producer",
+        "processor",
+        "licensor"
+      ]
+    },
+    {
+      "name": "NASA VEDA",
+      "url": "https://www.earthdata.nasa.gov/dashboard/",
+      "roles": [
+        "host"
+      ]
+    }
+  ],
+  "summaries": {
+    "datetime": [
+      "2018-11-01T00:00:00Z",
+      "2018-12-01T00:00:00Z",
+      "2019-01-01T00:00:00Z",
+      "2019-02-01T00:00:00Z",
+      "2019-03-01T00:00:00Z",
+      "2019-04-01T00:00:00Z",
+      "2019-09-01T00:00:00Z",
+      "2019-10-01T00:00:00Z",
+      "2019-11-01T00:00:00Z",
+      "2019-12-01T00:00:00Z",
+      "2020-01-01T00:00:00Z",
+      "2020-02-01T00:00:00Z",
+      "2020-03-01T00:00:00Z",
+      "2020-04-01T00:00:00Z",
+      "2020-09-01T00:00:00Z",
+      "2020-10-01T00:00:00Z",
+      "2020-11-01T00:00:00Z",
+      "2020-12-01T00:00:00Z",
+      "2021-01-01T00:00:00Z",
+      "2021-02-01T00:00:00Z",
+      "2021-03-01T00:00:00Z",
+      "2021-04-01T00:00:00Z"
     ],
-    "item_assets": {
-        "cog_default": {
-            "type": "image/tiff; application=geotiff; profile=cloud-optimized",
-            "roles": [
-                "data",
-                "layer"
-            ],
-            "title": "Default COG Layer",
-            "description": "Cloud optimized default layer to display on map"
-        }
-    },
-    "dashboard:is_periodic": false,
-    "dashboard:time_density": "month",
-    "stac_version": "1.0.0",
-    "renders": {
-        "dashboard": {
-            "colormap_name": "plasma",
-            "rescale": [
-                [
-                    0,
-                    16
-                ]
-            ],
-            "assets": [
-                "cog_default"
-            ],
-            "title": "VEDA Dashboard Render Parameters"
-        }
-    },
-    "providers": [
-        {
-            "name": "National Snow And Ice Data Center (NSIDC)",
-            "url": "https://nsidc.org/data/explore-data",
-            "roles": [
-                "producer",
-                "processor",
-                "licensor"
-            ]
-        },
-        {
-            "name": "NASA VEDA",
-            "url": "https://www.earthdata.nasa.gov/dashboard/",
-            "roles": [
-                "host"
-            ]
-        }
-    ]
+    "cog_default": {
+      "max": 15.447999954223633,
+      "min": 0.0010000000474974513
+    }
+  }
 }

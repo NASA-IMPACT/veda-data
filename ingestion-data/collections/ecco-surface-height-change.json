@@ -1,84 +1,93 @@
 {
-    "id": "ecco-surface-height-change",
-    "type": "Collection",
-    "title": "ECCO sea-surface height change from 1992 to 2017",
-    "links": [],
-    "description": "Gridded global sea-surface height change from 1992 to 2017 from the Estimating the Circulation and Climate of the Ocean (ECCO) ocean state estimate. The dataset was calculated as the difference between the annual means over 2017 and 1992, from the 0.5 degree, gridded monthly mean data product available on PO.DAAC (https://podaac.jpl.nasa.gov/dataset/ECCO_L4_SSH_05DEG_MONTHLY_V4R4).",
-    "extent": {
-        "spatial": {
-            "bbox": [
-                [
-                    -180,
-                    -90,
-                    180,
-                    90
-                ]
-            ]
-        },
-        "temporal": {
-            "interval": [
-                [
-                    "1992-01-01T00:00:00Z",
-                    "2017-12-31T23:59:59Z"
-                ]
-            ]
-        }
+  "id": "ecco-surface-height-change",
+  "type": "Collection",
+  "title": "ECCO sea-surface height change from 1992 to 2017",
+  "links": [],
+  "description": "Gridded global sea-surface height change from 1992 to 2017 from the Estimating the Circulation and Climate of the Ocean (ECCO) ocean state estimate. The dataset was calculated as the difference between the annual means over 2017 and 1992, from the 0.5 degree, gridded monthly mean data product available on PO.DAAC (https://podaac.jpl.nasa.gov/dataset/ECCO_L4_SSH_05DEG_MONTHLY_V4R4).",
+  "extent": {
+    "spatial": {
+      "bbox": [
+        [
+          -180,
+          -90,
+          180,
+          90
+        ]
+      ]
     },
-    "license": "MIT",
-    "stac_extensions": [
-        "https://stac-extensions.github.io/render/v1.0.0/schema.json",
-        "https://stac-extensions.github.io/item-assets/v1.0.0/schema.json"
+    "temporal": {
+      "interval": [
+        [
+          "1992-01-01T00:00:00Z",
+          "2017-12-31T23:59:59Z"
+        ]
+      ]
+    }
+  },
+  "license": "MIT",
+  "stac_extensions": [
+    "https://stac-extensions.github.io/render/v1.0.0/schema.json",
+    "https://stac-extensions.github.io/item-assets/v1.0.0/schema.json"
+  ],
+  "item_assets": {
+    "cog_default": {
+      "type": "image/tiff; application=geotiff; profile=cloud-optimized",
+      "roles": [
+        "data",
+        "layer"
+      ],
+      "title": "Default COG Layer",
+      "description": "Cloud optimized default layer to display on map"
+    }
+  },
+  "dashboard:is_periodic": false,
+  "dashboard:time_density": null,
+  "stac_version": "1.0.0",
+  "renders": {
+    "dashboard": {
+      "colormap_name": "rdbu",
+      "rescale": [
+        [
+          -0.313,
+          0.313
+        ]
+      ],
+      "assets": [
+        "cog_default"
+      ],
+      "title": "VEDA Dashboard Render Parameters"
+    }
+  },
+  "providers": [
+    {
+      "name": "NASA JPL Physical Oceanography Distributed Active Archive Center (PODAAC)",
+      "url": "https://podaac.jpl.nasa.gov/dataset/ECCO_L4_SSH_05DEG_MONTHLY_V4R4",
+      "roles": [
+        "producer"
+      ]
+    },
+    {
+      "name": "NASA VEDA",
+      "url": "https://www.earthdata.nasa.gov/dashboard/",
+      "roles": [
+        "host"
+      ]
+    },
+    {
+      "name": "NASA VEDA",
+      "url": "https://www.earthdata.nasa.gov/dashboard/",
+      "roles": [
+        "processor"
+      ]
+    }
+  ],
+  "summaries": {
+    "datetime": [
+      "1992-01-01T00:00:00Z"
     ],
-    "item_assets": {
-        "cog_default": {
-            "type": "image/tiff; application=geotiff; profile=cloud-optimized",
-            "roles": [
-                "data",
-                "layer"
-            ],
-            "title": "Default COG Layer",
-            "description": "Cloud optimized default layer to display on map"
-        }
-    },
-    "dashboard:is_periodic": false,
-    "dashboard:time_density": null,
-    "stac_version": "1.0.0",
-    "renders": {
-        "dashboard": {
-            "colormap_name": "rdbu",
-            "rescale": [
-                [
-                    -0.313,
-                    0.313
-                ]
-            ],
-            "assets": [
-                "cog_default"
-            ],
-            "title": "VEDA Dashboard Render Parameters"
-        }
-    },
-    "providers": [
-        {
-            "name": "NASA JPL Physical Oceanography Distributed Active Archive Center (PODAAC)",
-            "url": "https://podaac.jpl.nasa.gov/dataset/ECCO_L4_SSH_05DEG_MONTHLY_V4R4",
-            "roles": [
-                "producer"
-            ]
-        },
-        {
-            "name": "NASA VEDA",
-            "url": "https://www.earthdata.nasa.gov/dashboard/",
-            "roles": [
-                "host"
-            ]
-        },
-        {
-            "name": "NASA VEDA",
-            "url": "https://www.earthdata.nasa.gov/dashboard/",
-            "roles": [
-                "processor"
-            ]
-        }
-    ]
+    "cog_default": {
+      "max": 0.3127937912940979,
+      "min": -0.09822296351194382
+    }
+  }
 }

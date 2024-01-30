@@ -1,74 +1,94 @@
 {
-    "id": "blue-tarp-detection",
-    "type": "Collection",
-    "title": "Hurricane Ida - Detected Blue Tarps",
-    "links": [],
-    "description": "Blue tarps were detected in the aftermath of Hurricane Ida using Planet Imagery. The detection algorithm involved segmenting out blue pixels from the buildings in the affected region.",
-    "extent": {
-        "spatial": {
-            "bbox": [
-                [
-                    -90.27360106927819,
-                    18.30419449685249,
-                    -65.97626446723649,
-                    30.05152357730603
-                ]
-            ]
-        },
-        "temporal": {
-            "interval": [
-                [
-                    "2017-02-11T00:00:00Z",
-                    "2022-02-12T00:00:00Z"
-                ]
-            ]
-        }
+  "id": "blue-tarp-detection",
+  "type": "Collection",
+  "title": "Hurricane Ida - Detected Blue Tarps",
+  "links": [],
+  "description": "Blue tarps were detected in the aftermath of Hurricane Ida using Planet Imagery. The detection algorithm involved segmenting out blue pixels from the buildings in the affected region.",
+  "extent": {
+    "spatial": {
+      "bbox": [
+        [
+          -90.27360106927819,
+          18.30419449685249,
+          -65.97626446723649,
+          30.05152357730603
+        ]
+      ]
     },
-    "license": "MIT",
-    "stac_extensions": [
-        "https://stac-extensions.github.io/render/v1.0.0/schema.json",
-        "https://stac-extensions.github.io/item-assets/v1.0.0/schema.json"
+    "temporal": {
+      "interval": [
+        [
+          "2017-02-11T00:00:00Z",
+          "2022-02-12T00:00:00Z"
+        ]
+      ]
+    }
+  },
+  "license": "MIT",
+  "stac_extensions": [
+    "https://stac-extensions.github.io/render/v1.0.0/schema.json",
+    "https://stac-extensions.github.io/item-assets/v1.0.0/schema.json"
+  ],
+  "item_assets": {
+    "cog_default": {
+      "type": "image/tiff; application=geotiff; profile=cloud-optimized",
+      "roles": [
+        "data",
+        "layer"
+      ],
+      "title": "Default COG Layer",
+      "description": "Cloud optimized default blue-tarp detection layer to display on map"
+    }
+  },
+  "dashboard:is_periodic": false,
+  "dashboard:time_density": "day",
+  "stac_version": "1.0.0",
+  "renders": {
+    "dashboard": {
+      "resampling": "cubic_spline",
+      "bidx": [
+        1
+      ],
+      "colormap_name": "reds",
+      "rescale": [
+        [
+          0,
+          400
+        ]
+      ],
+      "assets": [
+        "cog_default"
+      ],
+      "title": "VEDA Dashboard Render Parameters"
+    }
+  },
+  "providers": [
+    {
+      "name": "NASA VEDA",
+      "url": "https://www.earthdata.nasa.gov/dashboard/",
+      "roles": [
+        "host"
+      ]
+    }
+  ],
+  "summaries": {
+    "datetime": [
+      "2017-02-11T00:00:00Z",
+      "2017-09-24T00:00:00Z",
+      "2017-10-30T00:00:00Z",
+      "2018-01-02T00:00:00Z",
+      "2018-11-29T00:00:00Z",
+      "2019-10-12T00:00:00Z",
+      "2021-08-23T00:00:00Z",
+      "2021-09-26T00:00:00Z",
+      "2021-11-24T00:00:00Z",
+      "2021-12-15T00:00:00Z",
+      "2022-01-11T00:00:00Z",
+      "2022-02-12T00:00:00Z"
     ],
-    "item_assets": {
-        "cog_default": {
-            "type": "image/tiff; application=geotiff; profile=cloud-optimized",
-            "roles": [
-                "data",
-                "layer"
-            ],
-            "title": "Default COG Layer",
-            "description": "Cloud optimized default blue-tarp detection layer to display on map"
-        }
-    },
-    "dashboard:is_periodic": false,
-    "dashboard:time_density": "day",
-    "stac_version": "1.0.0",
-    "renders": {
-        "dashboard": {
-            "resampling": "cubic_spline",
-            "bidx": [
-                1
-            ],
-            "colormap_name": "reds",
-            "rescale": [
-                [
-                    0,
-                    400
-                ]
-            ],
-            "assets": [
-                "cog_default"
-            ],
-            "title": "VEDA Dashboard Render Parameters"
-        }
-    },
-    "providers": [
-        {
-            "name": "NASA VEDA",
-            "url": "https://www.earthdata.nasa.gov/dashboard/",
-            "roles": [
-                "host"
-            ]
-        }
-    ]
+    "cog_default": {
+      "max": 255,
+      "min": 0
+    }
+  }
 }

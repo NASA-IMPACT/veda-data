@@ -1,82 +1,88 @@
 {
-    "id": "no2-monthly-diff",
-    "type": "Collection",
-    "title": "NO₂ (Diff)",
-    "links": [],
-    "description": "This layer shows changes in nitrogen dioxide (NO₂) levels. Redder colors indicate increases in NO₂. Bluer colors indicate lower levels of NO₂. Missing pixels indicate areas of no data most likely associated with cloud cover or snow.",
-    "extent": {
-        "spatial": {
-            "bbox": [
-                [
-                    -180,
-                    -90,
-                    180,
-                    90
-                ]
-            ]
-        },
-        "temporal": {
-            "interval": [
-                [
-                    "2015-01-01T00:00:00Z",
-                    "2022-12-31T00:00:00Z"
-                ]
-            ]
-        }
+  "id": "no2-monthly-diff",
+  "type": "Collection",
+  "title": "NO₂ (Diff)",
+  "links": [],
+  "description": "This layer shows changes in nitrogen dioxide (NO₂) levels. Redder colors indicate increases in NO₂. Bluer colors indicate lower levels of NO₂. Missing pixels indicate areas of no data most likely associated with cloud cover or snow.",
+  "extent": {
+    "spatial": {
+      "bbox": [
+        [
+          -180,
+          -90,
+          180,
+          90
+        ]
+      ]
     },
-    "license": "MIT",
-    "stac_extensions": [
-        "https://stac-extensions.github.io/item-assets/v1.0.0/schema.json",
-        "https://stac-extensions.github.io/render/v1.0.0/schema.json"
-    ],
-    "item_assets": {
-        "cog_default": {
-            "type": "image/tiff; application=geotiff; profile=cloud-optimized",
-            "roles": [
-                "data",
-                "layer"
-            ],
-            "title": "Default COG Layer",
-            "description": "Cloud optimized default layer to display on map"
-        }
+    "temporal": {
+      "interval": [
+        [
+          "2015-01-01T00:00:00Z",
+          "2022-12-31T00:00:00Z"
+        ]
+      ]
+    }
+  },
+  "license": "MIT",
+  "stac_extensions": [
+    "https://stac-extensions.github.io/item-assets/v1.0.0/schema.json",
+    "https://stac-extensions.github.io/render/v1.0.0/schema.json"
+  ],
+  "item_assets": {
+    "cog_default": {
+      "type": "image/tiff; application=geotiff; profile=cloud-optimized",
+      "roles": [
+        "data",
+        "layer"
+      ],
+      "title": "Default COG Layer",
+      "description": "Cloud optimized default layer to display on map"
+    }
+  },
+  "dashboard:is_periodic": true,
+  "dashboard:time_density": "month",
+  "stac_version": "1.0.0",
+  "renders": {
+    "dashboard": {
+      "resampling": "bilinear",
+      "bidx": [
+        1
+      ],
+      "colormap_name": "rdbu_r",
+      "rescale": [
+        [
+          -8000000000000000.0,
+          8000000000000000.0
+        ]
+      ],
+      "assets": [
+        "cog_default"
+      ],
+      "title": "VEDA Dashboard Render Parameters"
+    }
+  },
+  "providers": [
+    {
+      "name": "NASA Goddard Earth Sciences Data and Information Services Center",
+      "url": "https://disc.gsfc.nasa.gov/",
+      "roles": [
+        "producer",
+        "processor"
+      ]
     },
-    "dashboard:is_periodic": true,
-    "dashboard:time_density": "month",
-    "stac_version": "1.0.0",
-    "renders": {
-        "dashboard": {
-            "resampling": "bilinear",
-            "bidx": [
-                1
-            ],
-            "colormap_name": "rdbu_r",
-            "rescale": [
-                [
-                    -8000000000000000.0,
-                    8000000000000000.0
-                ]
-            ],
-            "assets": [
-                "cog_default"
-            ],
-            "title": "VEDA Dashboard Render Parameters"
-        }
-    },
-    "providers": [
-        {
-            "name": "NASA Goddard Earth Sciences Data and Information Services Center",
-            "url": "https://disc.gsfc.nasa.gov/",
-            "roles": [
-                "producer",
-                "processor"
-            ]
-        },
-        {
-            "name": "NASA VEDA",
-            "url": "https://www.earthdata.nasa.gov/dashboard/",
-            "roles": [
-                "host"
-            ]
-        }
+    {
+      "name": "NASA VEDA",
+      "url": "https://www.earthdata.nasa.gov/dashboard/",
+      "roles": [
+        "host"
+      ]
+    }
+  ],
+  "summaries": {
+    "datetime": [
+      "2015-01-01T00:00:00Z",
+      "2023-09-30T00:00:00Z"
     ]
+  }
 }
