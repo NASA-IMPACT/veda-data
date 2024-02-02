@@ -74,14 +74,5 @@
         "processor"
       ]
     }
-  ],
-  "summaries": {
-    "datetime": [
-      "2020-01-01T00:00:00Z"
-    ],
-    "cog_default": {
-      "max": 65535,
-      "min": 59036
-    }
-  }
+  ]
 }

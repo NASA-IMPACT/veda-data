@@ -342,14 +342,5 @@
         "host"
       ]
     }
-  ],
-  "summaries": {
-    "datetime": [
-      "2015-01-01T00:00:00Z"
-    ],
-    "cog_default": {
-      "max": null,
-      "min": null
-    }
-  }
+  ]
 }

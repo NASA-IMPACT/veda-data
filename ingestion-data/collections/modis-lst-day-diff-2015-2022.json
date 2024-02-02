@@ -42,11 +42,5 @@
   "dashboard:is_periodic": true,
   "dashboard:time_density": "year",
   "stac_version": "1.0.0",
-  "providers": [],
-  "summaries": {
-    "datetime": [
-      "2015-01-01T00:00:00Z",
-      "2022-01-01T00:00:00Z"
-    ]
-  }
+  "providers": []
 }

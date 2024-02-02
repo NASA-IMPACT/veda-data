@@ -120,11 +120,5 @@
   "dashboard:is_periodic": true,
   "dashboard:time_density": "day",
   "stac_version": "1.0.0",
-  "providers": [],
-  "summaries": {
-    "datetime": [
-      null,
-      null
-    ]
-  }
+  "providers": []
 }

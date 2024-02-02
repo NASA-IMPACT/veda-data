@@ -75,14 +75,5 @@
         "host"
       ]
     }
-  ],
-  "summaries": {
-    "datetime": [
-      "2010-01-01T00:00:00Z"
-    ],
-    "cog_default": {
-      "max": 2,
-      "min": 1
-    }
-  }
+  ]
 }

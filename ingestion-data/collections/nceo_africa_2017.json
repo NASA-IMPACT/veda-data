@@ -82,14 +82,5 @@
         "host"
       ]
     }
-  ],
-  "summaries": {
-    "datetime": [
-      "2017-01-01T00:00:00Z"
-    ],
-    "cog_default": {
-      "max": 429,
-      "min": 0
-    }
-  }
+  ]
 }

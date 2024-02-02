@@ -81,14 +81,5 @@
         "processor"
       ]
     }
-  ],
-  "summaries": {
-    "datetime": [
-      "2017-12-01T00:00:00Z"
-    ],
-    "cog_default": {
-      "max": 4,
-      "min": 1
-    }
-  }
+  ]
 }

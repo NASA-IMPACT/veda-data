@@ -110,15 +110,5 @@
         "processor"
       ]
     }
-  ],
-  "summaries": {
-    "datetime": [
-      "2001-01-01T00:00:00Z",
-      "2020-01-01T00:00:00Z"
-    ],
-    "cog_default": {
-      "max": 400,
-      "min": 0
-    }
-  }
+  ]
 }
