@@ -1,116 +1,116 @@
 {
-  "id": "geoglam",
-  "type": "Collection",
-  "title": "GEOGLAM Crop Monitor",
-  "links": [],
-  "description": "The Crop Monitors were designed to provide a public good of open, timely, science-driven information on crop conditions in support of market transparency for the G20 Agricultural Market Information System (AMIS). Reflecting an international, multi-source, consensus assessment of crop growing conditions, status, and agro-climatic factors likely to impact global production, focusing on the major producing and trading countries for the four primary crops monitored by AMIS (wheat, maize, rice, and soybeans). The Crop Monitor for AMIS brings together over 40 partners from national, regional (i.e. sub-continental), and global monitoring systems, space agencies, agriculture organizations and universities. Read more: https://cropmonitor.org/index.php/about/aboutus/",
-  "extent": {
-    "spatial": {
-      "bbox": [
-        [
-          -180.004464285715,
-          -90,
-          180.00611292773385,
-          90
-        ]
-      ]
+    "id": "geoglam",
+    "type": "Collection",
+    "title": "GEOGLAM Crop Monitor",
+    "links": [],
+    "description": "The Crop Monitors were designed to provide a public good of open, timely, science-driven information on crop conditions in support of market transparency for the G20 Agricultural Market Information System (AMIS). Reflecting an international, multi-source, consensus assessment of crop growing conditions, status, and agro-climatic factors likely to impact global production, focusing on the major producing and trading countries for the four primary crops monitored by AMIS (wheat, maize, rice, and soybeans). The Crop Monitor for AMIS brings together over 40 partners from national, regional (i.e. sub-continental), and global monitoring systems, space agencies, agriculture organizations and universities. Read more: https://cropmonitor.org/index.php/about/aboutus/",
+    "extent": {
+        "spatial": {
+            "bbox": [
+                [
+                    -180.004464285715,
+                    -90,
+                    180.00611292773385,
+                    90
+                ]
+            ]
+        },
+        "temporal": {
+            "interval": [
+                [
+                    "2020-01-01T00:00:00Z",
+                    "2023-06-01T00:00:00Z"
+                ]
+            ]
+        }
     },
-    "temporal": {
-      "interval": [
-        [
-          "2020-01-01T00:00:00Z",
-          "2023-06-01T00:00:00Z"
-        ]
-      ]
-    }
-  },
-  "license": "MIT",
-  "stac_extensions": [
-    "https://stac-extensions.github.io/render/v1.0.0/schema.json",
-    "https://stac-extensions.github.io/item-assets/v1.0.0/schema.json"
-  ],
-  "item_assets": {
-    "cog_default": {
-      "type": "image/tiff; application=geotiff; profile=cloud-optimized",
-      "roles": [
-        "data",
-        "layer"
-      ],
-      "title": "Default COG Layer",
-      "description": "Cloud optimized default layer to display on map"
-    }
-  },
-  "dashboard:is_periodic": false,
-  "dashboard:time_density": "month",
-  "stac_version": "1.0.0",
-  "renders": {
-    "dashboard": {
-      "colormap": {
-        "1": [
-          120,
-          120,
-          120
-        ],
-        "2": [
-          130,
-          65,
-          0
-        ],
-        "3": [
-          66,
-          207,
-          56
-        ],
-        "4": [
-          245,
-          239,
-          0
-        ],
-        "5": [
-          241,
-          89,
-          32
-        ],
-        "6": [
-          168,
-          0,
-          0
-        ],
-        "7": [
-          0,
-          143,
-          201
-        ]
-      },
-      "bidx": [
-        1
-      ],
-      "unscale": false,
-      "resampling": "nearest",
-      "max_size": 1024,
-      "return_mask": true,
-      "assets": [
-        "cog_default"
-      ],
-      "title": "VEDA Dashboard Render Parameters"
-    }
-  },
-  "providers": [
-    {
-      "name": "USDA & Global Crop Monitor Group partners",
-      "url": "https://data.nal.usda.gov/dataset/geoglam-geo-global-agricultural-monitoring-crop-assessment-tool#:~:text=The%20GEOGLAM%20crop%20calendars%20are,USDA%20FAS%2C%20and%20USDA%20NASS.",
-      "roles": [
-        "producer",
-        "processor",
-        "licensor"
-      ]
+    "license": "MIT",
+    "stac_extensions": [
+        "https://stac-extensions.github.io/render/v1.0.0/schema.json",
+        "https://stac-extensions.github.io/item-assets/v1.0.0/schema.json"
+    ],
+    "item_assets": {
+        "cog_default": {
+            "type": "image/tiff; application=geotiff; profile=cloud-optimized",
+            "roles": [
+                "data",
+                "layer"
+            ],
+            "title": "Default COG Layer",
+            "description": "Cloud optimized default layer to display on map"
+        }
     },
-    {
-      "name": "NASA VEDA",
-      "url": "https://www.earthdata.nasa.gov/dashboard/",
-      "roles": [
-        "host"
-      ]
-    }
-  ]
+    "dashboard:is_periodic": false,
+    "dashboard:time_density": "month",
+    "stac_version": "1.0.0",
+    "renders": {
+        "dashboard": {
+            "colormap": {
+                "1": [
+                    120,
+                    120,
+                    120
+                ],
+                "2": [
+                    130,
+                    65,
+                    0
+                ],
+                "3": [
+                    66,
+                    207,
+                    56
+                ],
+                "4": [
+                    245,
+                    239,
+                    0
+                ],
+                "5": [
+                    241,
+                    89,
+                    32
+                ],
+                "6": [
+                    168,
+                    0,
+                    0
+                ],
+                "7": [
+                    0,
+                    143,
+                    201
+                ]
+            },
+            "bidx": [
+                1
+            ],
+            "unscale": false,
+            "resampling": "nearest",
+            "max_size": 1024,
+            "return_mask": true,
+            "assets": [
+                "cog_default"
+            ],
+            "title": "VEDA Dashboard Render Parameters"
+        }
+    },
+    "providers": [
+        {
+            "name": "USDA & Global Crop Monitor Group partners",
+            "url": "https://data.nal.usda.gov/dataset/geoglam-geo-global-agricultural-monitoring-crop-assessment-tool#:~:text=The%20GEOGLAM%20crop%20calendars%20are,USDA%20FAS%2C%20and%20USDA%20NASS.",
+            "roles": [
+                "producer",
+                "processor",
+                "licensor"
+            ]
+        },
+        {
+            "name": "NASA VEDA",
+            "url": "https://www.earthdata.nasa.gov/dashboard/",
+            "roles": [
+                "host"
+            ]
+        }
+    ]
 }

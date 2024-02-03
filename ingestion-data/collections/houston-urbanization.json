@@ -1,85 +1,85 @@
 {
-  "id": "houston-urbanization",
-  "type": "Collection",
-  "title": "New Urbanization from 2001-2019 (NLCD)",
-  "links": [],
-  "description": "New urbanization compared between 2001 and 2019 NLCD datasets. This is a national map at 30-meter resolution.",
-  "extent": {
-    "spatial": {
-      "bbox": [
-        [
-          -97.00026404228275,
-          27.999851863091195,
-          -93.99998082485196,
-          31.008781007332363
-        ]
-      ]
+    "id": "houston-urbanization",
+    "type": "Collection",
+    "title": "New Urbanization from 2001-2019 (NLCD)",
+    "links": [],
+    "description": "New urbanization compared between 2001 and 2019 NLCD datasets. This is a national map at 30-meter resolution.",
+    "extent": {
+        "spatial": {
+            "bbox": [
+                [
+                    -97.00026404228275,
+                    27.999851863091195,
+                    -93.99998082485196,
+                    31.008781007332363
+                ]
+            ]
+        },
+        "temporal": {
+            "interval": [
+                [
+                    "2001-01-01T00:00:00Z",
+                    "2019-01-01T00:00:00Z"
+                ]
+            ]
+        }
     },
-    "temporal": {
-      "interval": [
-        [
-          "2001-01-01T00:00:00Z",
-          "2019-01-01T00:00:00Z"
-        ]
-      ]
-    }
-  },
-  "license": "CC0-1.0",
-  "stac_extensions": [
-    "https://stac-extensions.github.io/render/v1.0.0/schema.json",
-    "https://stac-extensions.github.io/item-assets/v1.0.0/schema.json"
-  ],
-  "item_assets": {
-    "cog_default": {
-      "type": "image/tiff; application=geotiff; profile=cloud-optimized",
-      "roles": [
-        "data",
-        "layer"
-      ],
-      "title": "Default COG Layer",
-      "description": "Cloud optimized default layer to display on map"
-    }
-  },
-  "dashboard:is_periodic": false,
-  "dashboard:time_density": "year",
-  "stac_version": "1.0.0",
-  "renders": {
-    "dashboard": {
-      "colormap_name": "reds",
-      "nodata": 0,
-      "rescale": [
-        [
-          0,
-          1
-        ]
-      ],
-      "assets": [
-        "cog_default"
-      ],
-      "title": "VEDA Dashboard Render Parameters"
-    }
-  },
-  "providers": [
-    {
-      "name": "USGS",
-      "url": "https://lpdaac.usgs.gov/product_search/",
-      "roles": [
-        "producer"
-      ]
+    "license": "CC0-1.0",
+    "stac_extensions": [
+        "https://stac-extensions.github.io/render/v1.0.0/schema.json",
+        "https://stac-extensions.github.io/item-assets/v1.0.0/schema.json"
+    ],
+    "item_assets": {
+        "cog_default": {
+            "type": "image/tiff; application=geotiff; profile=cloud-optimized",
+            "roles": [
+                "data",
+                "layer"
+            ],
+            "title": "Default COG Layer",
+            "description": "Cloud optimized default layer to display on map"
+        }
     },
-    {
-      "name": "NASA VEDA",
-      "url": "https://www.earthdata.nasa.gov/dashboard/",
-      "roles": [
-        "host"
-      ]
+    "dashboard:is_periodic": false,
+    "dashboard:time_density": "year",
+    "stac_version": "1.0.0",
+    "renders": {
+        "dashboard": {
+            "colormap_name": "reds",
+            "nodata": 0,
+            "rescale": [
+                [
+                    0,
+                    1
+                ]
+            ],
+            "assets": [
+                "cog_default"
+            ],
+            "title": "VEDA Dashboard Render Parameters"
+        }
     },
-    {
-      "name": "NASA VEDA",
-      "url": "https://www.earthdata.nasa.gov/dashboard/",
-      "roles": [
-        "processor"
-      ]
-    }
-  ]
+    "providers": [
+        {
+            "name": "USGS",
+            "url": "https://lpdaac.usgs.gov/product_search/",
+            "roles": [
+                "producer"
+            ]
+        },
+        {
+            "name": "NASA VEDA",
+            "url": "https://www.earthdata.nasa.gov/dashboard/",
+            "roles": [
+                "host"
+            ]
+        },
+        {
+            "name": "NASA VEDA",
+            "url": "https://www.earthdata.nasa.gov/dashboard/",
+            "roles": [
+                "processor"
+            ]
+        }
+    ]
 }

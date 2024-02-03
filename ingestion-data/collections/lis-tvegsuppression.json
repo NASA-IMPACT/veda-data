@@ -1,71 +1,71 @@
 {
-  "id": "lis-tvegsuppression",
-  "type": "Collection",
-  "title": "Change in transpiration for 2020 fires using LIS outputs",
-  "links": [],
-  "description": "Change in vegetation transpiration for 2020 fires using model outputs from Land Information System (LIS) framework that synthesizes multiple remote sensing observations within the Noah-MP land surface model. Change is calculated as the difference of transpiration in the immediate post-fire water year from that in the immediate pre-fire water year. The difference is normalized by pre-fire transpiration and negative values denote vegetation disturbance induced by fire or by a climatological anomaly resulting in the decline in transpiration.",
-  "extent": {
-    "spatial": {
-      "bbox": [
-        [
-          -125.03991200973752,
-          31.972665113477177,
-          -109.401550219135,
-          49.27566382776904
-        ]
-      ]
+    "id": "lis-tvegsuppression",
+    "type": "Collection",
+    "title": "Change in transpiration for 2020 fires using LIS outputs",
+    "links": [],
+    "description": "Change in vegetation transpiration for 2020 fires using model outputs from Land Information System (LIS) framework that synthesizes multiple remote sensing observations within the Noah-MP land surface model. Change is calculated as the difference of transpiration in the immediate post-fire water year from that in the immediate pre-fire water year. The difference is normalized by pre-fire transpiration and negative values denote vegetation disturbance induced by fire or by a climatological anomaly resulting in the decline in transpiration.",
+    "extent": {
+        "spatial": {
+            "bbox": [
+                [
+                    -125.03991200973752,
+                    31.972665113477177,
+                    -109.401550219135,
+                    49.27566382776904
+                ]
+            ]
+        },
+        "temporal": {
+            "interval": [
+                [
+                    "2020-01-01T00:00:00Z",
+                    "2020-12-31T00:00:00Z"
+                ]
+            ]
+        }
     },
-    "temporal": {
-      "interval": [
-        [
-          "2020-01-01T00:00:00Z",
-          "2020-12-31T00:00:00Z"
-        ]
-      ]
-    }
-  },
-  "license": "CC0-1.0",
-  "stac_extensions": [
-    "https://stac-extensions.github.io/render/v1.0.0/schema.json",
-    "https://stac-extensions.github.io/item-assets/v1.0.0/schema.json"
-  ],
-  "item_assets": {
-    "cog_default": {
-      "type": "image/tiff; application=geotiff; profile=cloud-optimized",
-      "roles": [
-        "data",
-        "layer"
-      ],
-      "title": "Default COG Layer",
-      "description": "Cloud optimized default layer to display on map"
-    }
-  },
-  "dashboard:is_periodic": false,
-  "dashboard:time_density": null,
-  "stac_version": "1.0.0",
-  "renders": {
-    "dashboard": {
-      "asset_bidx": "cog_default|1",
-      "colormap_name": "rdylbu",
-      "rescale": [
-        [
-          -0.6,
-          0.6
-        ]
-      ],
-      "assets": [
-        "cog_default"
-      ],
-      "title": "VEDA Dashboard Render Parameters"
-    }
-  },
-  "providers": [
-    {
-      "name": "NASA VEDA",
-      "url": "https://www.earthdata.nasa.gov/dashboard/",
-      "roles": [
-        "host"
-      ]
-    }
-  ]
+    "license": "CC0-1.0",
+    "stac_extensions": [
+        "https://stac-extensions.github.io/render/v1.0.0/schema.json",
+        "https://stac-extensions.github.io/item-assets/v1.0.0/schema.json"
+    ],
+    "item_assets": {
+        "cog_default": {
+            "type": "image/tiff; application=geotiff; profile=cloud-optimized",
+            "roles": [
+                "data",
+                "layer"
+            ],
+            "title": "Default COG Layer",
+            "description": "Cloud optimized default layer to display on map"
+        }
+    },
+    "dashboard:is_periodic": false,
+    "dashboard:time_density": null,
+    "stac_version": "1.0.0",
+    "renders": {
+        "dashboard": {
+            "asset_bidx": "cog_default|1",
+            "colormap_name": "rdylbu",
+            "rescale": [
+                [
+                    -0.6,
+                    0.6
+                ]
+            ],
+            "assets": [
+                "cog_default"
+            ],
+            "title": "VEDA Dashboard Render Parameters"
+        }
+    },
+    "providers": [
+        {
+            "name": "NASA VEDA",
+            "url": "https://www.earthdata.nasa.gov/dashboard/",
+            "roles": [
+                "host"
+            ]
+        }
+    ]
 }

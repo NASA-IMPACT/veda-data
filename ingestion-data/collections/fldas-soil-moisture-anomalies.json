@@ -1,67 +1,67 @@
 {
-  "id": "fldas-soil-moisture-anomalies",
-  "type": "Collection",
-  "title": "FLDAS Surface Soil Moisture Anomalies",
-  "links": [],
-  "description": "A 10 km global data product with 40 years of monthly soil moisture anomalies for food and water security monitoring from the Famine Early Warning System Network (FEWS NET) Land Data Assimilation System",
-  "extent": {
-    "spatial": {
-      "bbox": [
-        [
-          -180,
-          -60,
-          180,
-          90
-        ]
-      ]
+    "id": "fldas-soil-moisture-anomalies",
+    "type": "Collection",
+    "title": "FLDAS Surface Soil Moisture Anomalies",
+    "links": [],
+    "description": "A 10 km global data product with 40 years of monthly soil moisture anomalies for food and water security monitoring from the Famine Early Warning System Network (FEWS NET) Land Data Assimilation System",
+    "extent": {
+        "spatial": {
+            "bbox": [
+                [
+                    -180,
+                    -60,
+                    180,
+                    90
+                ]
+            ]
+        },
+        "temporal": {
+            "interval": [
+                [
+                    "1982-01-01T00:00:00Z",
+                    "2023-07-01T00:00:00Z"
+                ]
+            ]
+        }
     },
-    "temporal": {
-      "interval": [
-        [
-          "1982-01-01T00:00:00Z",
-          "2023-07-01T00:00:00Z"
-        ]
-      ]
-    }
-  },
-  "license": "not-provided",
-  "stac_extensions": [
-    "https://stac-extensions.github.io/render/v1.0.0/schema.json",
-    "https://stac-extensions.github.io/item-assets/v1.0.0/schema.json"
-  ],
-  "item_assets": {
-    "cog_default": {
-      "type": "image/tiff; application=geotiff; profile=cloud-optimized",
-      "roles": [
-        "data",
-        "layer"
-      ],
-      "title": "Default COG Layer",
-      "description": "Cloud optimized default layer to display on map"
-    }
-  },
-  "dashboard:is_periodic": false,
-  "dashboard:time_density": "month",
-  "stac_version": "1.0.0",
-  "renders": {
-    "dashboard": {
-      "colormap_name": "rdbu",
-      "rescale": [
-        [
-          -0.3,
-          0.3
-        ]
-      ],
-      "resampling": "bilinear",
-      "bidx": [
-        1
-      ],
-      "nodata": -9999,
-      "assets": [
-        "cog_default"
-      ],
-      "title": "VEDA Dashboard Render Parameters"
-    }
-  },
-  "providers": []
+    "license": "not-provided",
+    "stac_extensions": [
+        "https://stac-extensions.github.io/render/v1.0.0/schema.json",
+        "https://stac-extensions.github.io/item-assets/v1.0.0/schema.json"
+    ],
+    "item_assets": {
+        "cog_default": {
+            "type": "image/tiff; application=geotiff; profile=cloud-optimized",
+            "roles": [
+                "data",
+                "layer"
+            ],
+            "title": "Default COG Layer",
+            "description": "Cloud optimized default layer to display on map"
+        }
+    },
+    "dashboard:is_periodic": false,
+    "dashboard:time_density": "month",
+    "stac_version": "1.0.0",
+    "renders": {
+        "dashboard": {
+            "colormap_name": "rdbu",
+            "rescale": [
+                [
+                    -0.3,
+                    0.3
+                ]
+            ],
+            "resampling": "bilinear",
+            "bidx": [
+                1
+            ],
+            "nodata": -9999,
+            "assets": [
+                "cog_default"
+            ],
+            "title": "VEDA Dashboard Render Parameters"
+        }
+    },
+    "providers": []
 }

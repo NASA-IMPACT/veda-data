@@ -1,85 +1,85 @@
 {
-  "id": "houston-aod-diff",
-  "type": "Collection",
-  "title": "Houston AOD: Difference Between 2000-2009 & 2010-2019",
-  "links": [],
-  "description": "MODIS-calculated Aerosol Optical Depth (AOD) difference over the Houston metro area, differenced over a time period from 2000 to 2019.",
-  "extent": {
-    "spatial": {
-      "bbox": [
-        [
-          -97.00906753206712,
-          27.992675617599986,
-          -93.99072817742552,
-          31.017446580357053
-        ]
-      ]
+    "id": "houston-aod-diff",
+    "type": "Collection",
+    "title": "Houston AOD: Difference Between 2000-2009 & 2010-2019",
+    "links": [],
+    "description": "MODIS-calculated Aerosol Optical Depth (AOD) difference over the Houston metro area, differenced over a time period from 2000 to 2019.",
+    "extent": {
+        "spatial": {
+            "bbox": [
+                [
+                    -97.00906753206712,
+                    27.992675617599986,
+                    -93.99072817742552,
+                    31.017446580357053
+                ]
+            ]
+        },
+        "temporal": {
+            "interval": [
+                [
+                    "2000-01-01T00:00:00Z",
+                    "2019-01-01T00:00:00Z"
+                ]
+            ]
+        }
     },
-    "temporal": {
-      "interval": [
-        [
-          "2000-01-01T00:00:00Z",
-          "2019-01-01T00:00:00Z"
-        ]
-      ]
-    }
-  },
-  "license": "CC0-1.0",
-  "stac_extensions": [
-    "https://stac-extensions.github.io/render/v1.0.0/schema.json",
-    "https://stac-extensions.github.io/item-assets/v1.0.0/schema.json"
-  ],
-  "item_assets": {
-    "cog_default": {
-      "type": "image/tiff; application=geotiff; profile=cloud-optimized",
-      "roles": [
-        "data",
-        "layer"
-      ],
-      "title": "Default COG Layer",
-      "description": "Cloud optimized default layer to display on map"
-    }
-  },
-  "dashboard:is_periodic": false,
-  "dashboard:time_density": "year",
-  "stac_version": "1.0.0",
-  "renders": {
-    "dashboard": {
-      "colormap_name": "bwr",
-      "rescale": [
-        [
-          -0.1,
-          0.1
-        ]
-      ],
-      "nodata": 0,
-      "assets": [
-        "cog_default"
-      ],
-      "title": "VEDA Dashboard Render Parameters"
-    }
-  },
-  "providers": [
-    {
-      "name": "USGS",
-      "url": "https://lpdaac.usgs.gov/product_search/",
-      "roles": [
-        "producer"
-      ]
+    "license": "CC0-1.0",
+    "stac_extensions": [
+        "https://stac-extensions.github.io/render/v1.0.0/schema.json",
+        "https://stac-extensions.github.io/item-assets/v1.0.0/schema.json"
+    ],
+    "item_assets": {
+        "cog_default": {
+            "type": "image/tiff; application=geotiff; profile=cloud-optimized",
+            "roles": [
+                "data",
+                "layer"
+            ],
+            "title": "Default COG Layer",
+            "description": "Cloud optimized default layer to display on map"
+        }
     },
-    {
-      "name": "NASA VEDA",
-      "url": "https://www.earthdata.nasa.gov/dashboard/",
-      "roles": [
-        "host"
-      ]
+    "dashboard:is_periodic": false,
+    "dashboard:time_density": "year",
+    "stac_version": "1.0.0",
+    "renders": {
+        "dashboard": {
+            "colormap_name": "bwr",
+            "rescale": [
+                [
+                    -0.1,
+                    0.1
+                ]
+            ],
+            "nodata": 0,
+            "assets": [
+                "cog_default"
+            ],
+            "title": "VEDA Dashboard Render Parameters"
+        }
     },
-    {
-      "name": "NASA VEDA",
-      "url": "https://www.earthdata.nasa.gov/dashboard/",
-      "roles": [
-        "processor"
-      ]
-    }
-  ]
+    "providers": [
+        {
+            "name": "USGS",
+            "url": "https://lpdaac.usgs.gov/product_search/",
+            "roles": [
+                "producer"
+            ]
+        },
+        {
+            "name": "NASA VEDA",
+            "url": "https://www.earthdata.nasa.gov/dashboard/",
+            "roles": [
+                "host"
+            ]
+        },
+        {
+            "name": "NASA VEDA",
+            "url": "https://www.earthdata.nasa.gov/dashboard/",
+            "roles": [
+                "processor"
+            ]
+        }
+    ]
 }

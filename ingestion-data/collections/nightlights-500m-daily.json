@@ -1,62 +1,62 @@
 {
-  "id": "nightlights-500m-daily",
-  "type": "Collection",
-  "title": "Black Marble 500m Nightlights Daily Dataset",
-  "links": [],
-  "description": "Darker colors indicate fewer night lights and less activity. Lighter colors indicate more night lights and more activity. Check out the HD dataset to see a light-corrected version of this dataset.",
-  "extent": {
-    "spatial": {
-      "bbox": [
-        [
-          -130,
-          9.997916666666665,
-          150,
-          60
-        ]
-      ]
+    "id": "nightlights-500m-daily",
+    "type": "Collection",
+    "title": "Black Marble 500m Nightlights Daily Dataset",
+    "links": [],
+    "description": "Darker colors indicate fewer night lights and less activity. Lighter colors indicate more night lights and more activity. Check out the HD dataset to see a light-corrected version of this dataset.",
+    "extent": {
+        "spatial": {
+            "bbox": [
+                [
+                    -130,
+                    9.997916666666665,
+                    150,
+                    60
+                ]
+            ]
+        },
+        "temporal": {
+            "interval": [
+                [
+                    "2020-01-01T00:00:00Z",
+                    "2021-03-01T00:00:00Z"
+                ]
+            ]
+        }
     },
-    "temporal": {
-      "interval": [
-        [
-          "2020-01-01T00:00:00Z",
-          "2021-03-01T00:00:00Z"
-        ]
-      ]
-    }
-  },
-  "license": "MIT",
-  "stac_extensions": [
-    "https://stac-extensions.github.io/item-assets/v1.0.0/schema.json"
-  ],
-  "item_assets": {
-    "cog_default": {
-      "type": "image/tiff; application=geotiff; profile=cloud-optimized",
-      "roles": [
-        "data",
-        "layer"
-      ],
-      "title": "Default COG Layer",
-      "description": "Cloud optimized default layer to display on map"
-    }
-  },
-  "dashboard:is_periodic": true,
-  "dashboard:time_density": "day",
-  "stac_version": "1.0.0",
-  "providers": [
-    {
-      "name": "NASA Black Marble",
-      "url": "https://blackmarble.gsfc.nasa.gov/",
-      "roles": [
-        "producer",
-        "processor"
-      ]
+    "license": "MIT",
+    "stac_extensions": [
+        "https://stac-extensions.github.io/item-assets/v1.0.0/schema.json"
+    ],
+    "item_assets": {
+        "cog_default": {
+            "type": "image/tiff; application=geotiff; profile=cloud-optimized",
+            "roles": [
+                "data",
+                "layer"
+            ],
+            "title": "Default COG Layer",
+            "description": "Cloud optimized default layer to display on map"
+        }
     },
-    {
-      "name": "NASA VEDA",
-      "url": "https://www.earthdata.nasa.gov/dashboard/",
-      "roles": [
-        "host"
-      ]
-    }
-  ]
+    "dashboard:is_periodic": true,
+    "dashboard:time_density": "day",
+    "stac_version": "1.0.0",
+    "providers": [
+        {
+            "name": "NASA Black Marble",
+            "url": "https://blackmarble.gsfc.nasa.gov/",
+            "roles": [
+                "producer",
+                "processor"
+            ]
+        },
+        {
+            "name": "NASA VEDA",
+            "url": "https://www.earthdata.nasa.gov/dashboard/",
+            "roles": [
+                "host"
+            ]
+        }
+    ]
 }

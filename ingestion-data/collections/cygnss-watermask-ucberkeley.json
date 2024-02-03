@@ -1,54 +1,54 @@
 {
-  "id": "cygnss-watermask-ucberkeley",
-  "type": "Collection",
-  "title": "CYGNSS Surface Watermask (with lakes), UC Berkeley",
-  "links": [],
-  "description": "The UC Berkeley team led by investigator Cynthia Gerlein-Safdi has developed a novel surface watermask product using CYGNSS observations. Information at the pixel-level is combined with topographic and othe information in a computer vision based algorithm to segment land and surface water classes.",
-  "extent": {
-    "spatial": {
-      "bbox": [
-        [
-          -180,
-          -37.405,
-          180,
-          37.405
-        ]
-      ]
+    "id": "cygnss-watermask-ucberkeley",
+    "type": "Collection",
+    "title": "CYGNSS Surface Watermask (with lakes), UC Berkeley",
+    "links": [],
+    "description": "The UC Berkeley team led by investigator Cynthia Gerlein-Safdi has developed a novel surface watermask product using CYGNSS observations. Information at the pixel-level is combined with topographic and othe information in a computer vision based algorithm to segment land and surface water classes.",
+    "extent": {
+        "spatial": {
+            "bbox": [
+                [
+                    -180,
+                    -37.405,
+                    180,
+                    37.405
+                ]
+            ]
+        },
+        "temporal": {
+            "interval": [
+                [
+                    "2018-08-01T00:00:00Z",
+                    "2023-04-30T00:00:00Z"
+                ]
+            ]
+        }
     },
-    "temporal": {
-      "interval": [
-        [
-          "2018-08-01T00:00:00Z",
-          "2023-04-30T00:00:00Z"
-        ]
-      ]
-    }
-  },
-  "license": "CC-BY-NC-SA-1.0",
-  "stac_extensions": [
-    "https://stac-extensions.github.io/item-assets/v1.0.0/schema.json"
-  ],
-  "item_assets": {
-    "cog_default": {
-      "type": "image/tiff; application=geotiff; profile=cloud-optimized",
-      "roles": [
-        "data",
-        "layer"
-      ],
-      "title": "Default COG Layer",
-      "description": "Cloud optimized default layer to display on map"
-    }
-  },
-  "dashboard:is_periodic": true,
-  "dashboard:time_density": "month",
-  "stac_version": "1.0.0",
-  "providers": [
-    {
-      "name": "NASA VEDA",
-      "url": "https://www.earthdata.nasa.gov/dashboard/",
-      "roles": [
-        "host"
-      ]
-    }
-  ]
+    "license": "CC-BY-NC-SA-1.0",
+    "stac_extensions": [
+        "https://stac-extensions.github.io/item-assets/v1.0.0/schema.json"
+    ],
+    "item_assets": {
+        "cog_default": {
+            "type": "image/tiff; application=geotiff; profile=cloud-optimized",
+            "roles": [
+                "data",
+                "layer"
+            ],
+            "title": "Default COG Layer",
+            "description": "Cloud optimized default layer to display on map"
+        }
+    },
+    "dashboard:is_periodic": true,
+    "dashboard:time_density": "month",
+    "stac_version": "1.0.0",
+    "providers": [
+        {
+            "name": "NASA VEDA",
+            "url": "https://www.earthdata.nasa.gov/dashboard/",
+            "roles": [
+                "host"
+            ]
+        }
+    ]
 }

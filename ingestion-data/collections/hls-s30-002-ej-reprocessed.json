@@ -1,82 +1,82 @@
 {
-  "id": "hls-s30-002-ej-reprocessed",
-  "type": "Collection",
-  "title": "HLSS30.002 Environmental Justice Events",
-  "links": [
-    {
-      "rel": "external",
-      "href": "https://cmr.earthdata.nasa.gov/search/concepts/C2021957295-LPCLOUD.html",
-      "type": "text/html",
-      "title": "NASA Common Metadata Repository Record for this Dataset"
-    }
-  ],
-  "description": "A subset of HLS S30 data to support visualization of specific events. Read more about the source data on the NASA CMR Landing page: https://cmr.earthdata.nasa.gov/search/concepts/C2021957295-LPCLOUD.html",
-  "extent": {
-    "spatial": {
-      "bbox": [
-        [
-          -90.932637,
-          17.963773,
-          -65.110098,
-          30.71627
-        ]
-      ]
+    "id": "hls-s30-002-ej-reprocessed",
+    "type": "Collection",
+    "title": "HLSS30.002 Environmental Justice Events",
+    "links": [
+        {
+            "rel": "external",
+            "href": "https://cmr.earthdata.nasa.gov/search/concepts/C2021957295-LPCLOUD.html",
+            "type": "text/html",
+            "title": "NASA Common Metadata Repository Record for this Dataset"
+        }
+    ],
+    "description": "A subset of HLS S30 data to support visualization of specific events. Read more about the source data on the NASA CMR Landing page: https://cmr.earthdata.nasa.gov/search/concepts/C2021957295-LPCLOUD.html",
+    "extent": {
+        "spatial": {
+            "bbox": [
+                [
+                    -90.932637,
+                    17.963773,
+                    -65.110098,
+                    30.71627
+                ]
+            ]
+        },
+        "temporal": {
+            "interval": [
+                [
+                    "2017-07-12T15:07:20.450000Z",
+                    "2021-10-27T16:55:17.997700Z"
+                ]
+            ]
+        }
     },
-    "temporal": {
-      "interval": [
-        [
-          "2017-07-12T15:07:20.450000Z",
-          "2021-10-27T16:55:17.997700Z"
+    "license": "MIT",
+    "stac_extensions": [
+        "https://stac-extensions.github.io/render/v1.0.0/schema.json",
+        "https://stac-extensions.github.io/item-assets/v1.0.0/schema.json"
+    ],
+    "provider": {
+        "url": "https://lpdaac.usgs.gov/products/hlss30v002/",
+        "name": "Land Processes Distributed Active Archive Center (LP DAAC)",
+        "roles": [
+            "processor"
         ]
-      ]
-    }
-  },
-  "license": "MIT",
-  "stac_extensions": [
-    "https://stac-extensions.github.io/render/v1.0.0/schema.json",
-    "https://stac-extensions.github.io/item-assets/v1.0.0/schema.json"
-  ],
-  "provider": {
-    "url": "https://lpdaac.usgs.gov/products/hlss30v002/",
-    "name": "Land Processes Distributed Active Archive Center (LP DAAC)",
-    "roles": [
-      "processor"
+    },
+    "item_assets": {},
+    "dashboard:is_periodic": false,
+    "dashboard:time_density": "day",
+    "stac_version": "1.0.0",
+    "renders": {
+        "dashboard": {
+            "post_process": "swir",
+            "assets": [
+                "cog_default"
+            ],
+            "title": "VEDA Dashboard Render Parameters"
+        }
+    },
+    "providers": [
+        {
+            "name": "USGS",
+            "url": "https://lpdaac.usgs.gov/product_search/",
+            "roles": [
+                "producer"
+            ]
+        },
+        {
+            "name": "NASA VEDA",
+            "url": "https://www.earthdata.nasa.gov/dashboard/",
+            "roles": [
+                "host"
+            ]
+        },
+        {
+            "name": "NASA VEDA",
+            "url": "https://www.earthdata.nasa.gov/dashboard/",
+            "roles": [
+                "processor"
+            ]
+        }
     ]
-  },
-  "item_assets": {},
-  "dashboard:is_periodic": false,
-  "dashboard:time_density": "day",
-  "stac_version": "1.0.0",
-  "renders": {
-    "dashboard": {
-      "post_process": "swir",
-      "assets": [
-        "cog_default"
-      ],
-      "title": "VEDA Dashboard Render Parameters"
-    }
-  },
-  "providers": [
-    {
-      "name": "USGS",
-      "url": "https://lpdaac.usgs.gov/product_search/",
-      "roles": [
-        "producer"
-      ]
-    },
-    {
-      "name": "NASA VEDA",
-      "url": "https://www.earthdata.nasa.gov/dashboard/",
-      "roles": [
-        "host"
-      ]
-    },
-    {
-      "name": "NASA VEDA",
-      "url": "https://www.earthdata.nasa.gov/dashboard/",
-      "roles": [
-        "processor"
-      ]
-    }
-  ]
 }

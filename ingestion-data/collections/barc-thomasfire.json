@@ -1,85 +1,85 @@
 {
-  "id": "barc-thomasfire",
-  "type": "Collection",
-  "title": "Burn Area Reflectance Classification for Thomas Fire",
-  "links": [],
-  "description": "Burn Area Reflectance Classification (BARC) from the Burned Area Emergency Response (BAER) program for Thomas fire, 2017",
-  "extent": {
-    "spatial": {
-      "bbox": [
-        [
-          -119.7279834250452,
-          34.19572604525683,
-          -118.88724142537933,
-          34.72668711929945
-        ]
-      ]
+    "id": "barc-thomasfire",
+    "type": "Collection",
+    "title": "Burn Area Reflectance Classification for Thomas Fire",
+    "links": [],
+    "description": "Burn Area Reflectance Classification (BARC) from the Burned Area Emergency Response (BAER) program for Thomas fire, 2017",
+    "extent": {
+        "spatial": {
+            "bbox": [
+                [
+                    -119.7279834250452,
+                    34.19572604525683,
+                    -118.88724142537933,
+                    34.72668711929945
+                ]
+            ]
+        },
+        "temporal": {
+            "interval": [
+                [
+                    "2017-12-01T00:00:00Z",
+                    "2017-12-31T00:00:00Z"
+                ]
+            ]
+        }
     },
-    "temporal": {
-      "interval": [
-        [
-          "2017-12-01T00:00:00Z",
-          "2017-12-31T00:00:00Z"
-        ]
-      ]
-    }
-  },
-  "license": "CC0-1.0",
-  "stac_extensions": [
-    "https://stac-extensions.github.io/render/v1.0.0/schema.json",
-    "https://stac-extensions.github.io/item-assets/v1.0.0/schema.json"
-  ],
-  "item_assets": {
-    "cog_default": {
-      "type": "image/tiff; application=geotiff; profile=cloud-optimized",
-      "roles": [
-        "data",
-        "layer"
-      ],
-      "title": "Default COG Layer",
-      "description": "Cloud optimized default layer to display on map"
-    }
-  },
-  "dashboard:is_periodic": false,
-  "dashboard:time_density": null,
-  "stac_version": "1.0.0",
-  "renders": {
-    "dashboard": {
-      "colormap_name": "rdylgn_r",
-      "rescale": [
-        [
-          1,
-          4
-        ]
-      ],
-      "nodata": "nan",
-      "assets": [
-        "cog_default"
-      ],
-      "title": "VEDA Dashboard Render Parameters"
-    }
-  },
-  "providers": [
-    {
-      "name": "USGS Burnt Area Emergency Response (BAER)",
-      "url": "https://burnseverity.cr.usgs.gov/products/baer",
-      "roles": [
-        "producer"
-      ]
+    "license": "CC0-1.0",
+    "stac_extensions": [
+        "https://stac-extensions.github.io/render/v1.0.0/schema.json",
+        "https://stac-extensions.github.io/item-assets/v1.0.0/schema.json"
+    ],
+    "item_assets": {
+        "cog_default": {
+            "type": "image/tiff; application=geotiff; profile=cloud-optimized",
+            "roles": [
+                "data",
+                "layer"
+            ],
+            "title": "Default COG Layer",
+            "description": "Cloud optimized default layer to display on map"
+        }
     },
-    {
-      "name": "NASA VEDA",
-      "url": "https://www.earthdata.nasa.gov/dashboard/",
-      "roles": [
-        "host"
-      ]
+    "dashboard:is_periodic": false,
+    "dashboard:time_density": null,
+    "stac_version": "1.0.0",
+    "renders": {
+        "dashboard": {
+            "colormap_name": "rdylgn_r",
+            "rescale": [
+                [
+                    1,
+                    4
+                ]
+            ],
+            "nodata": "nan",
+            "assets": [
+                "cog_default"
+            ],
+            "title": "VEDA Dashboard Render Parameters"
+        }
     },
-    {
-      "name": "NASA VEDA",
-      "url": "https://www.earthdata.nasa.gov/dashboard/",
-      "roles": [
-        "processor"
-      ]
-    }
-  ]
+    "providers": [
+        {
+            "name": "USGS Burnt Area Emergency Response (BAER)",
+            "url": "https://burnseverity.cr.usgs.gov/products/baer",
+            "roles": [
+                "producer"
+            ]
+        },
+        {
+            "name": "NASA VEDA",
+            "url": "https://www.earthdata.nasa.gov/dashboard/",
+            "roles": [
+                "host"
+            ]
+        },
+        {
+            "name": "NASA VEDA",
+            "url": "https://www.earthdata.nasa.gov/dashboard/",
+            "roles": [
+                "processor"
+            ]
+        }
+    ]
 }

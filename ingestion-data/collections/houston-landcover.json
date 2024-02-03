@@ -1,111 +1,111 @@
 {
-  "id": "houston-landcover",
-  "type": "Collection",
-  "title": "Houston Land Cover",
-  "links": [],
-  "description": "MODIS-derived land use-land cover over the Houston metro area (zoomed-in extent). Displays colors 0-255 from a lookup table for land cover type (ex: reds = urbanized).",
-  "extent": {
-    "spatial": {
-      "bbox": [
-        [
-          -95.99531873393823,
-          29.07716802830657,
-          -94.29534689027045,
-          30.39936449861516
-        ]
-      ]
+    "id": "houston-landcover",
+    "type": "Collection",
+    "title": "Houston Land Cover",
+    "links": [],
+    "description": "MODIS-derived land use-land cover over the Houston metro area (zoomed-in extent). Displays colors 0-255 from a lookup table for land cover type (ex: reds = urbanized).",
+    "extent": {
+        "spatial": {
+            "bbox": [
+                [
+                    -95.99531873393823,
+                    29.07716802830657,
+                    -94.29534689027045,
+                    30.39936449861516
+                ]
+            ]
+        },
+        "temporal": {
+            "interval": [
+                [
+                    "2001-01-01T00:00:00Z",
+                    "2019-01-01T00:00:00Z"
+                ]
+            ]
+        }
     },
-    "temporal": {
-      "interval": [
-        [
-          "2001-01-01T00:00:00Z",
-          "2019-01-01T00:00:00Z"
-        ]
-      ]
-    }
-  },
-  "license": "CC0-1.0",
-  "stac_extensions": [
-    "https://stac-extensions.github.io/render/v1.0.0/schema.json",
-    "https://stac-extensions.github.io/item-assets/v1.0.0/schema.json"
-  ],
-  "item_assets": {
-    "cog_default": {
-      "type": "image/tiff; application=geotiff; profile=cloud-optimized",
-      "roles": [
-        "data",
-        "layer"
-      ],
-      "title": "Default COG Layer",
-      "description": "Cloud optimized default layer to display on map"
-    }
-  },
-  "dashboard:is_periodic": false,
-  "dashboard:time_density": "year",
-  "stac_version": "1.0.0",
-  "renders": {
-    "dashboard": {
-      "resampling": "bilinear",
-      "bidx": [
-        1
-      ],
-      "colormap": {
-        "11": "#486DA2",
-        "12": "#E7EFFC",
-        "21": "#E1CDCE",
-        "22": "#DC9881",
-        "23": "#F10100",
-        "24": "#AB0101",
-        "31": "#B3AFA4",
-        "41": "#6BA966",
-        "42": "#1D6533",
-        "43": "#BDCC93",
-        "51": "#B29C46",
-        "52": "#D1BB82",
-        "71": "#EDECCD",
-        "72": "#D0D181",
-        "73": "#A4CC51",
-        "74": "#82BA9D",
-        "81": "#DDD83E",
-        "82": "#AE7229",
-        "90": "#BBD7ED",
-        "95": "#71A4C1",
-        "0": "#00BFFF"
-      },
-      "nodata": -999,
-      "rescale": [
-        [
-          0,
-          255
-        ]
-      ],
-      "assets": [
-        "cog_default"
-      ],
-      "title": "VEDA Dashboard Render Parameters"
-    }
-  },
-  "providers": [
-    {
-      "name": "USGS",
-      "url": "https://lpdaac.usgs.gov/product_search/",
-      "roles": [
-        "producer"
-      ]
+    "license": "CC0-1.0",
+    "stac_extensions": [
+        "https://stac-extensions.github.io/render/v1.0.0/schema.json",
+        "https://stac-extensions.github.io/item-assets/v1.0.0/schema.json"
+    ],
+    "item_assets": {
+        "cog_default": {
+            "type": "image/tiff; application=geotiff; profile=cloud-optimized",
+            "roles": [
+                "data",
+                "layer"
+            ],
+            "title": "Default COG Layer",
+            "description": "Cloud optimized default layer to display on map"
+        }
     },
-    {
-      "name": "NASA VEDA",
-      "url": "https://www.earthdata.nasa.gov/dashboard/",
-      "roles": [
-        "host"
-      ]
+    "dashboard:is_periodic": false,
+    "dashboard:time_density": "year",
+    "stac_version": "1.0.0",
+    "renders": {
+        "dashboard": {
+            "resampling": "bilinear",
+            "bidx": [
+                1
+            ],
+            "colormap": {
+                "11": "#486DA2",
+                "12": "#E7EFFC",
+                "21": "#E1CDCE",
+                "22": "#DC9881",
+                "23": "#F10100",
+                "24": "#AB0101",
+                "31": "#B3AFA4",
+                "41": "#6BA966",
+                "42": "#1D6533",
+                "43": "#BDCC93",
+                "51": "#B29C46",
+                "52": "#D1BB82",
+                "71": "#EDECCD",
+                "72": "#D0D181",
+                "73": "#A4CC51",
+                "74": "#82BA9D",
+                "81": "#DDD83E",
+                "82": "#AE7229",
+                "90": "#BBD7ED",
+                "95": "#71A4C1",
+                "0": "#00BFFF"
+            },
+            "nodata": -999,
+            "rescale": [
+                [
+                    0,
+                    255
+                ]
+            ],
+            "assets": [
+                "cog_default"
+            ],
+            "title": "VEDA Dashboard Render Parameters"
+        }
     },
-    {
-      "name": "NASA VEDA",
-      "url": "https://www.earthdata.nasa.gov/dashboard/",
-      "roles": [
-        "processor"
-      ]
-    }
-  ]
+    "providers": [
+        {
+            "name": "USGS",
+            "url": "https://lpdaac.usgs.gov/product_search/",
+            "roles": [
+                "producer"
+            ]
+        },
+        {
+            "name": "NASA VEDA",
+            "url": "https://www.earthdata.nasa.gov/dashboard/",
+            "roles": [
+                "host"
+            ]
+        },
+        {
+            "name": "NASA VEDA",
+            "url": "https://www.earthdata.nasa.gov/dashboard/",
+            "roles": [
+                "processor"
+            ]
+        }
+    ]
 }
