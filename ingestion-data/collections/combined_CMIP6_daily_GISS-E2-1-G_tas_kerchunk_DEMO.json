@@ -4,6 +4,16 @@
     "title": "CMIP6 Daily GISS-E2-1-G TAS Kerchunk (DEMO)",
     "links": [],
     "description": "for zarr testing",
+    "assets": {
+        "zarr": {
+          "href": "s3://veda-data-store-staging/cmip6-GISS-E2-1-G-tas-kerchunk/combined_CMIP6_daily_GISS-E2-1-G_tas_kerchunk.json",
+          "type": "application/vnd+zarr",
+          "roles": [
+            "data"
+          ],
+          "title": "zarr"
+        }
+    },    
     "extent": {
         "spatial": {
             "bbox": [
