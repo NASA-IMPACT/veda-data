@@ -11,7 +11,7 @@
         "collection": "modis_diff",
         "bucket": "veda-data-store-staging",
         "prefix": "modis_diff/",
-        "filename_regex":"campfire_ndvi_2015_2022.tif",
+        "filename_regex":"^(.*)campfire_ndvi_2015_2022.tif",
         "discovery": "s3",
         "upload": true
     }

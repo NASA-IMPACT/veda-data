@@ -1,0 +1,9 @@
+[
+    {
+        "origin_bucket": "veda-data-store-staging",
+        "origin_prefix": "",
+        "target_bucket": "veda-data-store",
+        "collection": "combined_CMIP6_daily_GISS-E2-1-G_tas_kerchunk_DEMO",
+        "filename_regex": ""
+    }
+]

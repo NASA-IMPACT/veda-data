@@ -1,0 +1,9 @@
+[
+    {
+        "origin_bucket": "veda-data-store-staging",
+        "origin_prefix": "houston-lst-night/",
+        "target_bucket": "veda-data-store",
+        "collection": "houston-lst-night",
+        "filename_regex": "^(.*)LST_Night"
+    }
+]

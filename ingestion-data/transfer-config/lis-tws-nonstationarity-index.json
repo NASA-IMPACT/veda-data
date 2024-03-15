@@ -1,0 +1,9 @@
+[
+    {
+        "origin_bucket": "veda-data-store-staging",
+        "origin_prefix": "EIS/Global_TWS_data/DATWS_nonstationarity_index_v2.cog.tif",
+        "target_bucket": "veda-data-store",
+        "collection": "lis-tws-nonstationarity-index",
+        "filename_regex": "^(.*).tif$"
+    }
+]

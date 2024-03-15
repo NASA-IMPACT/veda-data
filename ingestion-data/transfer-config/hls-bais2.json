@@ -1,0 +1,9 @@
+[
+    {
+        "origin_bucket": "veda-data-store-staging",
+        "origin_prefix": "maui-fire",
+        "target_bucket": "veda-data-store",
+        "collection": "hls-bais2",
+        "filename_regex": "^(.*)Lahaina_BAIS2"
+    }
+]

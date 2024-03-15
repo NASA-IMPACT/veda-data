@@ -1,0 +1,9 @@
+[
+    {
+        "origin_bucket": "veda-data-store-staging",
+        "origin_prefix": "modis-fire-anomalies-diff-covid-19-changing-landscape/",
+        "target_bucket": "veda-data-store",
+        "collection": "modis-fire-anomalies-diff-covid-19-changing-landscape",
+        "filename_regex": "^(.*)MODIS-AF_anomalies_USA(.*).tif$"
+    }
+]

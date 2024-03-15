@@ -1,0 +1,9 @@
+[
+    {
+        "origin_bucket": "veda-data-store-staging",
+        "origin_prefix": "",
+        "target_bucket": "veda-data-store",
+        "collection": "landsat-c2l2-sr-lakes-tonle-sap",
+        "filename_regex": ""
+    }
+]

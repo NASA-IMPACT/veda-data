@@ -1,0 +1,9 @@
+[
+    {
+        "origin_bucket": "veda-data-store-staging",
+        "origin_prefix": "EIS/COG/Fire-Hydro/",
+        "target_bucket": "veda-data-store",
+        "collection": "lis-tvegsuppression",
+        "filename_regex": "^(.*)lis_tvegsuppression_2020"
+    }
+]

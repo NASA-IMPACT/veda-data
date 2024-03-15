@@ -3,6 +3,6 @@
     "bucket": "veda-data-store-staging",
     "prefix":"disturbance-probability-percentile",
     "discovery": "s3",
-    "filename_regex":"spec_prob_mosaic",
+    "filename_regex":"^(.*)spec_prob_mosaic",
     "upload": false
 }

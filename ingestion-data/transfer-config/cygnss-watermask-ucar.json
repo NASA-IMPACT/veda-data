@@ -1,0 +1,9 @@
+[
+    {
+        "origin_bucket": "veda-data-store-staging",
+        "origin_prefix": "cygnss-watermask-ucar/",
+        "target_bucket": "veda-data-store",
+        "collection": "cygnss-watermask-ucar",
+        "filename_regex": "(.*)cygnss_watermask_ucar(.*).tif$"
+    }
+]

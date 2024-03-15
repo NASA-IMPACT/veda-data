@@ -1,0 +1,37 @@
+[
+    {
+        "origin_bucket": "veda-data-store-staging",
+        "origin_prefix": "EIS/COG/Fire-Hydro/",
+        "target_bucket": "veda-data-store",
+        "collection": "mtbs-burn-severity",
+        "filename_regex": "^(.*)mtbs_CONUS_2016.cog.tif"
+    },
+    {
+        "origin_bucket": "veda-data-store-staging",
+        "origin_prefix": "EIS/COG/Fire-Hydro/",
+        "target_bucket": "veda-data-store",
+        "collection": "mtbs-burn-severity",
+        "filename_regex": "^(.*)mtbs_CONUS_2017.cog.tif"
+    },
+    {
+        "origin_bucket": "veda-data-store-staging",
+        "origin_prefix": "EIS/COG/Fire-Hydro/",
+        "target_bucket": "veda-data-store",
+        "collection": "mtbs-burn-severity",
+        "filename_regex": "^(.*)mtbs_CONUS_2018.cog.tif"
+    },
+    {
+        "origin_bucket": "veda-data-store-staging",
+        "origin_prefix": "EIS/COG/Fire-Hydro/",
+        "target_bucket": "veda-data-store",
+        "collection": "mtbs-burn-severity",
+        "filename_regex": "^(.*)mtbs_CONUS_2019.cog.tif"
+    },
+    {
+        "origin_bucket": "veda-data-store-staging",
+        "origin_prefix": "EIS/COG/Fire-Hydro/",
+        "target_bucket": "veda-data-store",
+        "collection": "mtbs-burn-severity",
+        "filename_regex": "^(.*)mtbs_CONUS_2020.cog.tif"
+    }
+]

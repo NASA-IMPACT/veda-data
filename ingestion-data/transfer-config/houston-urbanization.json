@@ -1,0 +1,9 @@
+[
+    {
+        "origin_bucket": "veda-data-store-staging",
+        "origin_prefix": "urbanization/",
+        "target_bucket": "veda-data-store",
+        "collection": "houston-urbanization",
+        "filename_regex": "^(.*)HOUS_DFAL_urbanization"
+    }
+]

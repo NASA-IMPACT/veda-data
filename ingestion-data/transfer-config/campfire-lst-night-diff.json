@@ -1,0 +1,9 @@
+[
+    {
+        "origin_bucket": "veda-data-store-staging",
+        "origin_prefix": "campfire-data/",
+        "target_bucket": "veda-data-store",
+        "collection": "campfire-lst-night-diff",
+        "filename_regex": "^(.*)CampFire_LST_Night_2015_2022_diff"
+    }
+]

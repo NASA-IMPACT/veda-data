@@ -2,7 +2,7 @@
     "collection": "lis-global-da-qsb",
     "bucket": "veda-data-store-staging",
     "prefix": "EIS/COG/LIS_GLOBAL_DA/Qsb/",
-    "filename_regex":"LIS_Qsb",
+    "filename_regex":"^(.*)LIS_Qsb",
     "discovery": "s3",
     "upload": false
 }

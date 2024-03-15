@@ -1,0 +1,9 @@
+[
+    {
+        "origin_bucket": "veda-data-store-staging",
+        "origin_prefix": "lis-global-da-swe",
+        "target_bucket": "veda-data-store",
+        "collection": "lis-global-da-swe",
+        "filename_regex": "^(.*)LIS_SWE"
+    }
+]

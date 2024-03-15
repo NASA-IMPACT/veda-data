@@ -1,0 +1,9 @@
+[
+    {
+        "origin_bucket": "veda-data-store-staging",
+        "origin_prefix": "EIS/cog/EPA-inventory-2012/daily/emissions_5_Forest_Fires/",
+        "target_bucket": "veda-data-store",
+        "collection": "EPA-daily-emissions_5_Forest_Fires",
+        "filename_regex": "^(.*)Forest_Fires_(.*).tif$"
+    }
+]

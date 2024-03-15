@@ -2,7 +2,7 @@
     "collection": "houston-lst-diff",
     "bucket": "climatedashboard-data",
     "prefix":"houston/",
-    "filename_regex":"houston-lst-diff_2000_2019",
+    "filename_regex":"^(.*)houston-lst-diff_2000_2019",
     "discovery": "s3",
     "upload": false
 }

@@ -1,0 +1,9 @@
+[
+    {
+        "origin_bucket": "veda-data-store-staging",
+        "origin_prefix": "EIS/COG/Fire-Hydro/",
+        "target_bucket": "veda-data-store",
+        "collection": "barc-thomasfire",
+        "filename_regex": "^(.*)thomas_fire_barc_201712"
+    }
+]

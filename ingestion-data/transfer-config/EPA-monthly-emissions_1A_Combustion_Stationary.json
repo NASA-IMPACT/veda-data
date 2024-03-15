@@ -1,0 +1,44 @@
+[
+    {
+        "origin_bucket": "veda-data-store-staging",
+        "origin_prefix": "EIS/cog/EPA-inventory-2012/monthly/",
+        "target_bucket": "veda-data-store",
+        "collection": "EPA-monthly-emissions_1A_Combustion_Stationary",
+        "filename_regex": "^(.*)Combustion_Stationary_(.*).tif$"
+    },
+    {
+        "origin_bucket": "veda-data-store-staging",
+        "origin_prefix": "EIS/cog/EPA-inventory-2012/monthly/",
+        "target_bucket": "veda-data-store",
+        "collection": "EPA-monthly-emissions_1B2a_Petroleum",
+        "filename_regex": "^(.*)Petroleum_(.*).tif$"
+    },
+    {
+        "origin_bucket": "veda-data-store-staging",
+        "origin_prefix": "EIS/cog/EPA-inventory-2012/monthly/",
+        "target_bucket": "veda-data-store",
+        "collection": "EPA-monthly-emissions_1B2b_Natural_Gas_Production",
+        "filename_regex": "^(.*)Natural_Gas_Production_(.*).tif$"
+    },
+    {
+        "origin_bucket": "veda-data-store-staging",
+        "origin_prefix": "EIS/cog/EPA-inventory-2012/monthly/",
+        "target_bucket": "veda-data-store",
+        "collection": "EPA-monthly-emissions_4C_Rice_Cultivation",
+        "filename_regex": "^(.*)Rice_Cultivation_(.*).tif$"
+    },
+    {
+        "origin_bucket": "veda-data-store-staging",
+        "origin_prefix": "EIS/cog/EPA-inventory-2012/monthly/",
+        "target_bucket": "veda-data-store",
+        "collection": "EPA-monthly-emissions_4F_Field_Burning",
+        "filename_regex": "^(.*)Field_Burning_(.*).tif$"
+    },
+    {
+        "origin_bucket": "veda-data-store-staging",
+        "origin_prefix": "EIS/cog/EPA-inventory-2012/monthly/",
+        "target_bucket": "veda-data-store",
+        "collection": "EPA-monthly-emissions_4B_Manure_Management",
+        "filename_regex": "^(.*)Manure_Management_(.*).tif$"
+    }
+]

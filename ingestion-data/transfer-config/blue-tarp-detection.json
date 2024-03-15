@@ -1,0 +1,9 @@
+[
+    {
+        "origin_bucket": "veda-data-store-staging",
+        "origin_prefix": "blue-tarp-detection/",
+        "target_bucket": "veda-data-store",
+        "collection": "blue-tarp-detection",
+        "filename_regex": "^(.*).tif$"
+    }
+]

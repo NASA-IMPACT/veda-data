@@ -1,0 +1,9 @@
+[
+    {
+        "origin_bucket": "veda-data-store-staging",
+        "origin_prefix": "file-staging/nasa-map/nceo-africa-2017/",
+        "target_bucket": "veda-data-store",
+        "collection": "nceo_africa_2017",
+        "filename_regex": "^(.*)AGB_map_2017v0m_COG.tif$"
+    }
+]

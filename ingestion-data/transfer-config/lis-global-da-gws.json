@@ -1,0 +1,9 @@
+[
+    {
+        "origin_bucket": "veda-data-store-staging",
+        "origin_prefix": "EIS/COG/LIS_GLOBAL_DA/GWS/",
+        "target_bucket": "veda-data-store",
+        "collection": "lis-global-da-gws",
+        "filename_regex": "^(.*)LIS_GWS"
+    }
+]

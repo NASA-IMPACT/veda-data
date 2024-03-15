@@ -1,0 +1,9 @@
+[
+    {
+        "origin_bucket": "veda-data-store-staging",
+        "origin_prefix": "MO_NPP_npp_vgpm/",
+        "target_bucket": "veda-data-store",
+        "collection": "MO_NPP_npp_vgpm",
+        "filename_regex": "^(.*).tif$"
+    }
+]
