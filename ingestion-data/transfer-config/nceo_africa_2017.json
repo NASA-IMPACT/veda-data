@@ -1,6 +1,6 @@
 [
     {
-        "origin_bucket": "veda-data-store-staging",
+        "origin_bucket": "nasa-maap-data-store",
         "origin_prefix": "file-staging/nasa-map/nceo-africa-2017/",
         "target_bucket": "veda-data-store",
         "collection": "nceo_africa_2017",

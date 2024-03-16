@@ -1,6 +1,6 @@
 [
     {
-        "origin_bucket": "veda-data-store-staging",
+        "origin_bucket": "climatedashboard-data",
         "origin_prefix": "houston/",
         "target_bucket": "veda-data-store",
         "collection": "houston-lst-diff",

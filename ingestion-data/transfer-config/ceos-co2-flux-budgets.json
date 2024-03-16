@@ -4,223 +4,223 @@
         "origin_prefix": "EIS/CEOS_DATA/CO2_flux_updated/",
         "target_bucket": "veda-data-store",
         "collection": "ceos-co2-flux-budgets",
-        "filename_regex": "^(.*)LNLGOGIS_dC_loss_std_CO2_Budget"
+        "filename_regex": "^(.*)pilot_topdown_FF_CO2_Budget_grid_v1"
     },
     {
         "origin_bucket": "veda-data-store-staging",
         "origin_prefix": "EIS/CEOS_DATA/CO2_flux_updated/",
         "target_bucket": "veda-data-store",
         "collection": "ceos-co2-flux-budgets",
-        "filename_regex": "^(.*)LNLGOGIS_dC_loss_std_CO2_Budget"
+        "filename_regex": "^(.*)pilot_topdown_Crop_CO2_Budget_grid_v1"
     },
     {
         "origin_bucket": "veda-data-store-staging",
         "origin_prefix": "EIS/CEOS_DATA/CO2_flux_updated/",
         "target_bucket": "veda-data-store",
         "collection": "ceos-co2-flux-budgets",
-        "filename_regex": "^(.*)LNLGOGIS_dC_loss_std_CO2_Budget"
+        "filename_regex": "^(.*)pilot_topdown_Wood_CO2_Budget_grid_v1"
     },
     {
         "origin_bucket": "veda-data-store-staging",
         "origin_prefix": "EIS/CEOS_DATA/CO2_flux_updated/",
         "target_bucket": "veda-data-store",
         "collection": "ceos-co2-flux-budgets",
-        "filename_regex": "^(.*)LNLGOGIS_dC_loss_std_CO2_Budget"
+        "filename_regex": "^(.*)pilot_topdown_River_CO2_Budget_grid_v1"
     },
     {
         "origin_bucket": "veda-data-store-staging",
         "origin_prefix": "EIS/CEOS_DATA/CO2_flux_updated/",
         "target_bucket": "veda-data-store",
         "collection": "ceos-co2-flux-budgets",
-        "filename_regex": "^(.*)LNLGOGIS_dC_loss_std_CO2_Budget"
+        "filename_regex": "^(.*)pilot_topdown_FF_std_CO2_Budget_grid_v1"
     },
     {
         "origin_bucket": "veda-data-store-staging",
         "origin_prefix": "EIS/CEOS_DATA/CO2_flux_updated/",
         "target_bucket": "veda-data-store",
         "collection": "ceos-co2-flux-budgets",
-        "filename_regex": "^(.*)LNLGOGIS_dC_loss_std_CO2_Budget"
+        "filename_regex": "^(.*)pilot_topdown_IS_NBE_CO2_Budget_grid_v1"
     },
     {
         "origin_bucket": "veda-data-store-staging",
         "origin_prefix": "EIS/CEOS_DATA/CO2_flux_updated/",
         "target_bucket": "veda-data-store",
         "collection": "ceos-co2-flux-budgets",
-        "filename_regex": "^(.*)LNLGOGIS_dC_loss_std_CO2_Budget"
+        "filename_regex": "^(.*)pilot_topdown_IS_NCE_CO2_Budget_grid_v1"
     },
     {
         "origin_bucket": "veda-data-store-staging",
         "origin_prefix": "EIS/CEOS_DATA/CO2_flux_updated/",
         "target_bucket": "veda-data-store",
         "collection": "ceos-co2-flux-budgets",
-        "filename_regex": "^(.*)LNLGOGIS_dC_loss_std_CO2_Budget"
+        "filename_regex": "^(.*)pilot_topdown_Crop_std_CO2_Budget_grid_v1"
     },
     {
         "origin_bucket": "veda-data-store-staging",
         "origin_prefix": "EIS/CEOS_DATA/CO2_flux_updated/",
         "target_bucket": "veda-data-store",
         "collection": "ceos-co2-flux-budgets",
-        "filename_regex": "^(.*)LNLGOGIS_dC_loss_std_CO2_Budget"
+        "filename_regex": "^(.*)pilot_topdown_LNLG_NBE_CO2_Budget_grid_v1"
     },
     {
         "origin_bucket": "veda-data-store-staging",
         "origin_prefix": "EIS/CEOS_DATA/CO2_flux_updated/",
         "target_bucket": "veda-data-store",
         "collection": "ceos-co2-flux-budgets",
-        "filename_regex": "^(.*)LNLGOGIS_dC_loss_std_CO2_Budget"
+        "filename_regex": "^(.*)pilot_topdown_LNLG_NCE_CO2_Budget_grid_v1"
     },
     {
         "origin_bucket": "veda-data-store-staging",
         "origin_prefix": "EIS/CEOS_DATA/CO2_flux_updated/",
         "target_bucket": "veda-data-store",
         "collection": "ceos-co2-flux-budgets",
-        "filename_regex": "^(.*)LNLGOGIS_dC_loss_std_CO2_Budget"
+        "filename_regex": "^(.*)pilot_topdown_Wood_std_CO2_Budget_grid_v1"
     },
     {
         "origin_bucket": "veda-data-store-staging",
         "origin_prefix": "EIS/CEOS_DATA/CO2_flux_updated/",
         "target_bucket": "veda-data-store",
         "collection": "ceos-co2-flux-budgets",
-        "filename_regex": "^(.*)LNLGOGIS_dC_loss_std_CO2_Budget"
+        "filename_regex": "^(.*)pilot_topdown_River_std_CO2_Budget_grid_v1"
     },
     {
         "origin_bucket": "veda-data-store-staging",
         "origin_prefix": "EIS/CEOS_DATA/CO2_flux_updated/",
         "target_bucket": "veda-data-store",
         "collection": "ceos-co2-flux-budgets",
-        "filename_regex": "^(.*)LNLGOGIS_dC_loss_std_CO2_Budget"
+        "filename_regex": "^(.*)pilot_topdown_IS_dC_loss_CO2_Budget_grid_v1"
     },
     {
         "origin_bucket": "veda-data-store-staging",
         "origin_prefix": "EIS/CEOS_DATA/CO2_flux_updated/",
         "target_bucket": "veda-data-store",
         "collection": "ceos-co2-flux-budgets",
-        "filename_regex": "^(.*)LNLGOGIS_dC_loss_std_CO2_Budget"
+        "filename_regex": "^(.*)pilot_topdown_IS_NBE_std_CO2_Budget_grid_v1"
     },
     {
         "origin_bucket": "veda-data-store-staging",
         "origin_prefix": "EIS/CEOS_DATA/CO2_flux_updated/",
         "target_bucket": "veda-data-store",
         "collection": "ceos-co2-flux-budgets",
-        "filename_regex": "^(.*)LNLGOGIS_dC_loss_std_CO2_Budget"
+        "filename_regex": "^(.*)pilot_topdown_IS_NCE_std_CO2_Budget_grid_v1"
     },
     {
         "origin_bucket": "veda-data-store-staging",
         "origin_prefix": "EIS/CEOS_DATA/CO2_flux_updated/",
         "target_bucket": "veda-data-store",
         "collection": "ceos-co2-flux-budgets",
-        "filename_regex": "^(.*)LNLGOGIS_dC_loss_std_CO2_Budget"
+        "filename_regex": "^(.*)pilot_topdown_LNLGIS_NBE_CO2_Budget_grid_v1"
     },
     {
         "origin_bucket": "veda-data-store-staging",
         "origin_prefix": "EIS/CEOS_DATA/CO2_flux_updated/",
         "target_bucket": "veda-data-store",
         "collection": "ceos-co2-flux-budgets",
-        "filename_regex": "^(.*)LNLGOGIS_dC_loss_std_CO2_Budget"
+        "filename_regex": "^(.*)pilot_topdown_LNLGIS_NCE_CO2_Budget_grid_v1"
     },
     {
         "origin_bucket": "veda-data-store-staging",
         "origin_prefix": "EIS/CEOS_DATA/CO2_flux_updated/",
         "target_bucket": "veda-data-store",
         "collection": "ceos-co2-flux-budgets",
-        "filename_regex": "^(.*)LNLGOGIS_dC_loss_std_CO2_Budget"
+        "filename_regex": "^(.*)pilot_topdown_LNLG_dC_loss_CO2_Budget_grid_v1"
     },
     {
         "origin_bucket": "veda-data-store-staging",
         "origin_prefix": "EIS/CEOS_DATA/CO2_flux_updated/",
         "target_bucket": "veda-data-store",
         "collection": "ceos-co2-flux-budgets",
-        "filename_regex": "^(.*)LNLGOGIS_dC_loss_std_CO2_Budget"
+        "filename_regex": "^(.*)pilot_topdown_LNLG_NBE_std_CO2_Budget_grid_v1"
     },
     {
         "origin_bucket": "veda-data-store-staging",
         "origin_prefix": "EIS/CEOS_DATA/CO2_flux_updated/",
         "target_bucket": "veda-data-store",
         "collection": "ceos-co2-flux-budgets",
-        "filename_regex": "^(.*)LNLGOGIS_dC_loss_std_CO2_Budget"
+        "filename_regex": "^(.*)pilot_topdown_LNLG_NCE_std_CO2_Budget_grid_v1"
     },
     {
         "origin_bucket": "veda-data-store-staging",
         "origin_prefix": "EIS/CEOS_DATA/CO2_flux_updated/",
         "target_bucket": "veda-data-store",
         "collection": "ceos-co2-flux-budgets",
-        "filename_regex": "^(.*)LNLGOGIS_dC_loss_std_CO2_Budget"
+        "filename_regex": "^(.*)pilot_topdown_LNLGOGIS_NBE_CO2_Budget_grid_v1_2020"
     },
     {
         "origin_bucket": "veda-data-store-staging",
         "origin_prefix": "EIS/CEOS_DATA/CO2_flux_updated/",
         "target_bucket": "veda-data-store",
         "collection": "ceos-co2-flux-budgets",
-        "filename_regex": "^(.*)LNLGOGIS_dC_loss_std_CO2_Budget"
+        "filename_regex": "^(.*)pilot_topdown_LNLGOGIS_NCE_CO2_Budget_grid_v1"
     },
     {
         "origin_bucket": "veda-data-store-staging",
         "origin_prefix": "EIS/CEOS_DATA/CO2_flux_updated/",
         "target_bucket": "veda-data-store",
         "collection": "ceos-co2-flux-budgets",
-        "filename_regex": "^(.*)LNLGOGIS_dC_loss_std_CO2_Budget"
+        "filename_regex": "^(.*)pilot_topdown_IS_dC_loss_std_CO2_Budget_grid_v1"
     },
     {
         "origin_bucket": "veda-data-store-staging",
         "origin_prefix": "EIS/CEOS_DATA/CO2_flux_updated/",
         "target_bucket": "veda-data-store",
         "collection": "ceos-co2-flux-budgets",
-        "filename_regex": "^(.*)LNLGOGIS_dC_loss_std_CO2_Budget"
+        "filename_regex": "^(.*)pilot_topdown_LNLGIS_dC_loss_CO2_Budget_grid_v1"
     },
     {
         "origin_bucket": "veda-data-store-staging",
         "origin_prefix": "EIS/CEOS_DATA/CO2_flux_updated/",
         "target_bucket": "veda-data-store",
         "collection": "ceos-co2-flux-budgets",
-        "filename_regex": "^(.*)LNLGOGIS_dC_loss_std_CO2_Budget"
+        "filename_regex": "^(.*)pilot_topdown_LNLGIS_NBE_std_CO2_Budget_grid_v1"
     },
     {
         "origin_bucket": "veda-data-store-staging",
         "origin_prefix": "EIS/CEOS_DATA/CO2_flux_updated/",
         "target_bucket": "veda-data-store",
         "collection": "ceos-co2-flux-budgets",
-        "filename_regex": "^(.*)LNLGOGIS_dC_loss_std_CO2_Budget"
+        "filename_regex": "^(.*)pilot_topdown_LNLGIS_NCE_std_CO2_Budget_grid_v1"
     },
     {
         "origin_bucket": "veda-data-store-staging",
         "origin_prefix": "EIS/CEOS_DATA/CO2_flux_updated/",
         "target_bucket": "veda-data-store",
         "collection": "ceos-co2-flux-budgets",
-        "filename_regex": "^(.*)LNLGOGIS_dC_loss_std_CO2_Budget"
+        "filename_regex": "^(.*)pilot_topdown_LNLG_dC_loss_std_CO2_Budget_grid_v1"
     },
     {
         "origin_bucket": "veda-data-store-staging",
         "origin_prefix": "EIS/CEOS_DATA/CO2_flux_updated/",
         "target_bucket": "veda-data-store",
         "collection": "ceos-co2-flux-budgets",
-        "filename_regex": "^(.*)LNLGOGIS_dC_loss_std_CO2_Budget"
+        "filename_regex": "^(.*)pilot_topdown_LNLGOGIS_dC_loss_CO2_Budget_grid_v1"
     },
     {
         "origin_bucket": "veda-data-store-staging",
         "origin_prefix": "EIS/CEOS_DATA/CO2_flux_updated/",
         "target_bucket": "veda-data-store",
         "collection": "ceos-co2-flux-budgets",
-        "filename_regex": "^(.*)LNLGOGIS_dC_loss_std_CO2_Budget"
+        "filename_regex": "^(.*)pilot_topdown_LNLGOGIS_NBE_std_CO2_Budget_grid_v1"
     },
     {
         "origin_bucket": "veda-data-store-staging",
         "origin_prefix": "EIS/CEOS_DATA/CO2_flux_updated/",
         "target_bucket": "veda-data-store",
         "collection": "ceos-co2-flux-budgets",
-        "filename_regex": "^(.*)LNLGOGIS_dC_loss_std_CO2_Budget"
+        "filename_regex": "^(.*)pilot_topdown_LNLGOGIS_NCE_CO2_Budget_grid_v1"
     },
     {
         "origin_bucket": "veda-data-store-staging",
         "origin_prefix": "EIS/CEOS_DATA/CO2_flux_updated/",
         "target_bucket": "veda-data-store",
         "collection": "ceos-co2-flux-budgets",
-        "filename_regex": "^(.*)LNLGOGIS_dC_loss_std_CO2_Budget"
+        "filename_regex": "^(.*)pilot_topdown_LNLGIS_dC_loss_std_CO2_Budget_grid_v1"
     },
     {
         "origin_bucket": "veda-data-store-staging",
         "origin_prefix": "EIS/CEOS_DATA/CO2_flux_updated/",
         "target_bucket": "veda-data-store",
         "collection": "ceos-co2-flux-budgets",
-        "filename_regex": "^(.*)LNLGOGIS_dC_loss_std_CO2_Budget"
+        "filename_regex": "^(.*)pilot_topdown_LNLGOGIS_dC_loss_std_CO2_Budget_grid_v1"
     }
 ]
