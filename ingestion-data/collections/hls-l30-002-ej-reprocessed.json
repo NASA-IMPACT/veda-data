@@ -36,13 +36,6 @@
         "https://stac-extensions.github.io/render/v1.0.0/schema.json",
         "https://stac-extensions.github.io/item-assets/v1.0.0/schema.json"
     ],
-    "provider": {
-        "url": "https://lpdaac.usgs.gov/products/hlsl30v002/",
-        "name": "Land Processes Distributed Active Archive Center (LP DAAC)",
-        "roles": [
-            "processor"
-        ]
-    },
     "item_assets": {},
     "dashboard:is_periodic": false,
     "dashboard:time_density": "day",
@@ -74,6 +67,13 @@
         {
             "name": "NASA VEDA",
             "url": "https://www.earthdata.nasa.gov/dashboard/",
+            "roles": [
+                "processor"
+            ]
+        },
+        {
+            "url": "https://lpdaac.usgs.gov/products/hlsl30v002/",
+            "name": "Land Processes Distributed Active Archive Center (LP DAAC)",
             "roles": [
                 "processor"
             ]
