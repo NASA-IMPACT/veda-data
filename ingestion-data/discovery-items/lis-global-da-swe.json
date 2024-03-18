@@ -1,8 +1,8 @@
 {
     "collection": "lis-global-da-swe",
     "bucket": "veda-data-store-staging",
-    "prefix": "lis-global-da-swe",
-    "filename_regex":"LIS_SWE",
+    "prefix": "EIS/COG/LIS_GLOBAL_DA/SWE/",
+    "filename_regex":"^(.*)LIS_SWE",
     "discovery": "s3",
     "upload": false
 }

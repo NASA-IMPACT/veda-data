@@ -1,0 +1,9 @@
+[
+    {
+        "origin_bucket": "veda-data-store-staging",
+        "origin_prefix": "facebook_population_density/",
+        "target_bucket": "veda-data-store",
+        "collection": "facebook_population_density",
+        "filename_regex": "^(.*).tif$"
+    }
+]

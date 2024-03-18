@@ -1,0 +1,9 @@
+[
+    {
+        "origin_bucket": "veda-data-store-staging",
+        "origin_prefix": "pzd-anomaly-covid-19/",
+        "target_bucket": "veda-data-store",
+        "collection": "pzd-anomaly-covid-19",
+        "filename_regex": "^(.*)anomaly-pzd-gl(.*).tif$"
+    }
+]

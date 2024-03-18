@@ -1,0 +1,9 @@
+[
+    {
+        "origin_bucket": "veda-data-store-staging",
+        "origin_prefix": "maui-fire/",
+        "target_bucket": "veda-data-store",
+        "collection": "landsat-nighttime-thermal",
+        "filename_regex": "^(.*)Lahaina_Landsat8_Thermal"
+    }
+]

@@ -1,0 +1,51 @@
+[
+    {
+        "origin_bucket": "veda-data-store-staging",
+        "origin_prefix": "nightlights-500m-daily/",
+        "target_bucket": "veda-data-store",
+        "collection": "nightlights-500m-daily",
+        "filename_regex": "^(.*)V011_be_\\d{4}-\\d{2}-\\d{2}(.*).tif$"
+    },
+    {
+        "origin_bucket": "veda-data-store-staging",
+        "origin_prefix": "nightlights-500m-daily/",
+        "target_bucket": "veda-data-store",
+        "collection": "nightlights-500m-daily",
+        "filename_regex": "^(.*)V011_ca_\\d{4}-\\d{2}-\\d{2}(.*).tif$"
+    },
+    {
+        "origin_bucket": "veda-data-store-staging",
+        "origin_prefix": "nightlights-500m-daily/",
+        "target_bucket": "veda-data-store",
+        "collection": "nightlights-500m-daily",
+        "filename_regex": "^(.*)V011_la_\\d{4}-\\d{2}-\\d{2}(.*).tif$"
+    },
+    {
+        "origin_bucket": "veda-data-store-staging",
+        "origin_prefix": "nightlights-500m-daily/",
+        "target_bucket": "veda-data-store",
+        "collection": "nightlights-500m-daily",
+        "filename_regex": "^(.*)V011_ny_\\d{4}-\\d{2}-\\d{2}(.*).tif$"
+    },
+    {
+        "origin_bucket": "veda-data-store-staging",
+        "origin_prefix": "nightlights-500m-daily/",
+        "target_bucket": "veda-data-store",
+        "collection": "nightlights-500m-daily",
+        "filename_regex": "^(.*)V011_sf_\\d{4}-\\d{2}-\\d{2}(.*).tif$"
+    },
+    {
+        "origin_bucket": "veda-data-store-staging",
+        "origin_prefix": "nightlights-500m-daily/",
+        "target_bucket": "veda-data-store",
+        "collection": "nightlights-500m-daily",
+        "filename_regex": "^(.*)EUPorts_\\d{4}-\\d{2}-\\d{2}(.*).tif$"
+    },
+    {
+        "origin_bucket": "veda-data-store-staging",
+        "origin_prefix": "nightlights-500m-daily/",
+        "target_bucket": "veda-data-store",
+        "collection": "nightlights-500m-daily",
+        "filename_regex": "^(.*)V011_tk_\\d{4}-\\d{2}-\\d{2}(.*).tif$"
+    }
+]

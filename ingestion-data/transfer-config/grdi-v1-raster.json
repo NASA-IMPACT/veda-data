@@ -1,0 +1,58 @@
+[
+    {
+        "origin_bucket": "veda-data-store-staging",
+        "origin_prefix": "grdi-v1-raster/",
+        "target_bucket": "veda-data-store",
+        "collection": "grdi-v1-raster",
+        "filename_regex": "^(.*)v1_2010(.*).tif$"
+    },
+    {
+        "origin_bucket": "veda-data-store-staging",
+        "origin_prefix": "grdi-v1-built/",
+        "target_bucket": "veda-data-store",
+        "collection": "grdi-v1-built",
+        "filename_regex": "^(.*)v1_BUILT(.*).tif$"
+    },
+    {
+        "origin_bucket": "veda-data-store-staging",
+        "origin_prefix": "grdi-imr-raster/",
+        "target_bucket": "veda-data-store",
+        "collection": "grdi-imr-raster",
+        "filename_regex": "^(.*)IMR(.*).tif$"
+    },
+    {
+        "origin_bucket": "veda-data-store-staging",
+        "origin_prefix": "grdi-shdi-raster/",
+        "target_bucket": "veda-data-store",
+        "collection": "grdi-shdi-raster",
+        "filename_regex": "^(.*)SHDI(.*).tif$"
+    },
+    {
+        "origin_bucket": "veda-data-store-staging",
+        "origin_prefix": "grdi-vnl-raster/",
+        "target_bucket": "veda-data-store",
+        "collection": "grdi-vnl-raster",
+        "filename_regex": "^(.*)VNL_(.*).tif$"
+    },
+    {
+        "origin_bucket": "veda-data-store-staging",
+        "origin_prefix": "grdi-vnl-slope-raster/",
+        "target_bucket": "veda-data-store",
+        "collection": "grdi-vnl-slope-raster",
+        "filename_regex": "^(.*)_VNL-slope_(.*).tif$"
+    },
+    {
+        "origin_bucket": "veda-data-store-staging",
+        "origin_prefix": "grdi-cdr-raster/",
+        "target_bucket": "veda-data-store",
+        "collection": "grdi-cdr-raster",
+        "filename_regex": "^(.*)CDR(.*).tif$"
+    },
+    {
+        "origin_bucket": "veda-data-store-staging",
+        "origin_prefix": "grdi-filled-missing-values-count/",
+        "target_bucket": "veda-data-store",
+        "collection": "grdi-filled-missing-values-count",
+        "filename_regex": "^(.*)FilledMissingValues(.*).tif$"
+    }
+]

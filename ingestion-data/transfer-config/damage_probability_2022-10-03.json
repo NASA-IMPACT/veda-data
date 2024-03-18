@@ -1,0 +1,9 @@
+[
+    {
+        "origin_bucket": "veda-data-store-staging",
+        "origin_prefix": "damage-probability/",
+        "target_bucket": "veda-data-store",
+        "collection": "damage_probability_2022-10-03",
+        "filename_regex": "^(.*)damage_probability_cog"
+    }
+]

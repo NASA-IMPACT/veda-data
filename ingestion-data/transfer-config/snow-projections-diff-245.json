@@ -1,0 +1,9 @@
+[
+    {
+        "origin_bucket": "veda-data-store-staging",
+        "origin_prefix": "EIS/snowProjections/",
+        "target_bucket": "veda-data-store",
+        "collection": "snow-projections-diff-245",
+        "filename_regex": "^(.*)ssp245(.*)percChange.cog.tif$"
+    }
+]

@@ -1,0 +1,9 @@
+[
+    {
+        "origin_bucket": "veda-data-store-staging",
+        "origin_prefix": "modis-albedo-wsa-diff-2015-2022/",
+        "target_bucket": "veda-data-store",
+        "collection": "modis-albedo-wsa-diff-2015-2022",
+        "filename_regex": "^(.*)campfire_albedo_wsa_difference_2015_2022"
+    }
+]

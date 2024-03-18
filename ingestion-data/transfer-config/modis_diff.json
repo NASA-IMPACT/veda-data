@@ -1,0 +1,16 @@
+[
+    {
+        "origin_bucket": "veda-data-store-staging",
+        "origin_prefix": "modis_diff/",
+        "target_bucket": "veda-data-store",
+        "collection": "modis_diff",
+        "filename_regex": "^(.*)campfire(.*)difference(.*).tif$"
+    },
+    {
+        "origin_bucket": "veda-data-store-staging",
+        "origin_prefix": "modis_diff/",
+        "target_bucket": "veda-data-store",
+        "collection": "modis_diff",
+        "filename_regex": "^(.*)campfire_ndvi_2015_2022.tif"
+    }
+]

@@ -1,0 +1,9 @@
+[
+    {
+        "origin_bucket": "veda-data-store-staging",
+        "origin_prefix": "disturbance-probability-percentile",
+        "target_bucket": "veda-data-store",
+        "collection": "disturbance-probability-percentile",
+        "filename_regex": "^(.*)spec_prob_mosaic"
+    }
+]
