@@ -1,0 +1,33 @@
+{
+  "collection": "campfire-nlcd",
+  "title": "Camp Fire Domain: Land Cover",
+  "spatial_extent": {
+    "xmin": -122.21,
+    "ymin": 39.33,
+    "xmax": -120.91,
+    "ymax": 40.22
+  },
+  "temporal_extent": {
+    "startdate": "2016-01-01T00:00:00Z",
+    "enddate": "2019-12-31T12:59:59Z"
+  },
+  "license": "CC0",
+  "description": "NLCD-derived land use-land cover for 2016 over the Camp Fire burn scar domain. Displays colors 0-255 from a lookup table for land cover type (ex: reds = urbanized).",
+  "stac_version": "1.0.0",
+  "is_periodic": false,
+  "time_density": "year",
+  "sample_files": [
+    "s3://veda-data-store-staging/campfire-data/CampFire_NLCD_2016_cog.tif",
+    "s3://veda-data-store-staging/campfire-data/CampFire_NLCD_2019_cog.tif"
+  ],
+  "discovery_items": [
+    {
+      "discovery": "s3",
+      "prefix": "campfire-data/",
+      "bucket": "veda-data-store-staging",
+      "filename_regex": "(.*)CampFire_NLCD(.*).tif$",
+      "datetime_range": "year"
+    }
+  ],
+  "data_type": "cog"
+}
