@@ -4,3 +4,4 @@ pre-commit
 pystac[validation]
 pytest
 ruff
+stac-validator
