@@ -107,7 +107,7 @@ Should follow the following format:
 
 ### `discovery-items/`
 
-The `ingestion-data/discovery-items/` directory holds json files representing the step function inputs for initiating the discovery, ingest and publication workflows.
+The `ingestion-data/discovery-items/` directory holds json files representing the inputs for initiating the discovery, ingest and publication workflows.
 Can either be a single input event or a list of input events.
 
 Should follow the following format:
@@ -138,7 +138,7 @@ Should follow the following format:
 
 ### `dataset-config/`
 
-The `ingestion-data/dataset-config/` directory holds json files that can be used with the `dataset/publish` stac ingestor endpoint, combining both collection metadata and discovery items. For an example of this ingestion workflow, see this [jupyter notebook](./transformation-scripts/example-template/example-geoglam-ingest.ipynb).
+The `ingestion-data/dataset-config/` directory holds json files that can be used with the `dataset/publish` veda-backend ingest-api endpoint, combining both collection metadata and discovery items. For an example of this ingestion workflow, see this [jupyter notebook](./transformation-scripts/example-template/example-geoglam-ingest.ipynb).
 
 ```json
 {
@@ -171,6 +171,10 @@ The `ingestion-data/dataset-config/` directory holds json files that can be used
     ]
 }
 ```
+
+### `transfer-config/`
+
+After data have been evaluated in the staging system, data are published to the production data store. When promoting a collecction to production, a new configuration file is added `transfer-config/` directory. These configuration files are formatted like discovery-items but the asset locations reflect the production data store.
 
 ## Validation
 
