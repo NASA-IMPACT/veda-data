@@ -1,0 +1,81 @@
+{
+    "id": "methane-manure",
+    "type": "Collection",
+    "links": [],
+    "title": "Methane Emissions Manure Management",
+    "extent": {
+      "spatial": {
+        "bbox": [
+          [-129.999996943876, 19.9999992348745, -60.0000030561237, 55.0000007651255]
+        ]
+      },
+      "temporal": {
+        "interval": [
+          [
+            "2020-01-0100:00:00Z",
+            "2020-01-0100:00:00Z"
+          ]
+        ]
+      }
+    },
+    "license": "CC0-1.0",
+    "summaries": {
+      "datetime": [
+        "2020-01-01T00:00:00Z",
+        "2020-01-01T00:00:00Z"
+      ]
+    },
+    "description": "Gridded EPA Methane Data for Manure Management 2020",
+    "item_assets": {
+      "cog_default": {
+        "type": "image/tiff; application=geotiff; profile=cloud-optimized",
+        "roles": [
+          "data",
+          "layer"
+        ],
+        "title": "Default COG Layer",
+        "description": "Cloud optimized default layer to display on map"
+      }
+    },
+    "stac_version": "1.0.0",
+    "stac_extensions": [
+        "https://stac-extensions.github.io/render/v1.0.0/schema.json",
+        "https://stac-extensions.github.io/item-assets/v1.0.0/schema.json"
+    ],
+    "dashboard:is_periodic": true,
+    "dashboard:time_density": "year",
+    "renders": {
+        "dashboard": {
+            "colormap_name": "rainbow",
+            "rescale": [
+                [
+                    0,
+                    46428019752
+                ]
+            ],
+            "nodata": 0,
+            "assets": [
+                "cog_default"
+            ],
+            "title": "VEDA Dashboard Render Parameters"
+        }
+    },
+    "providers": [
+        {
+            "name": "EPA",
+            "url": "https://www.epa.gov/ghgemissions/gridded-2012-methane-emissions",
+            "roles": [
+                "producer",
+                "processor",
+                "licensor"
+            ]
+        },
+        {
+            "name": "NASA VEDA",
+            "url": "https://www.earthdata.nasa.gov/dashboard/",
+            "roles": [
+                "host"
+            ]
+        }
+    ]
+  }
