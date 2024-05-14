@@ -1,0 +1,8 @@
+{
+    "collection": "campfire-nlcd",
+    "bucket": "veda-data-store-staging",
+    "prefix": "campfire-nlcd/",
+    "filename_regex": "^(.*)CampFire_NLCD_2019",
+    "discovery": "s3",
+    "upload": false
+}

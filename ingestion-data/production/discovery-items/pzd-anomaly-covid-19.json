@@ -1,0 +1,10 @@
+{
+    "collection": "pzd-anomaly-covid-19",
+    "discovery": "s3",
+    "prefix": "pzd-anomaly-covid-19/",
+    "bucket": "veda-data-store",
+    "filename_regex": "^(.*)anomaly-pzd-gl(.*).tif$",
+    "start_datetime": "2020-01-01T00:00:00Z",
+    "end_datetime": "2021-12-31T23:59:59Z",
+    "cogify": false
+}

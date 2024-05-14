@@ -1,0 +1,8 @@
+{
+    "collection": "campfire-ndvi-diff",
+    "bucket": "veda-data-store-staging",
+    "prefix": "campfire-ndvi-diff/",
+    "filename_regex": "^(.*)CampFire_NDVI_2015_2022_diff",
+    "discovery": "s3",
+    "upload": false
+}

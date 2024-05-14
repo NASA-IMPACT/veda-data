@@ -1,0 +1,8 @@
+{
+    "collection": "lis-global-da-qs",
+    "bucket": "veda-data-store",
+    "prefix": "lis-global-da-qs/",
+    "filename_regex": "^(.*)LIS_Qs",
+    "discovery": "s3",
+    "upload": false
+}

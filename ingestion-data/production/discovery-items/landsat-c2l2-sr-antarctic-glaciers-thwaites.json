@@ -1,0 +1,7 @@
+{
+    "collection": "landsat-c2l2-sr-antarctic-glaciers-thwaites",
+    "bucket": "veda-data-store",
+    "discovery": "s3",
+    "upload": false,
+    "prefix": "landsat-c2l2-sr-antarctic-glaciers-thwaites/"
+}

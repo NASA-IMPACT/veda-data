@@ -1,0 +1,8 @@
+{
+    "collection": "hls-swir-falsecolor-composite",
+    "bucket": "veda-data-store",
+    "prefix": "hls-swir-falsecolor-composite/",
+    "filename_regex": "^(.*)SWIR_falsecolor_cog",
+    "discovery": "s3",
+    "upload": false
+}

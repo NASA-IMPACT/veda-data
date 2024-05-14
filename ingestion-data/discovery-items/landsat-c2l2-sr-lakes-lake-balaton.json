@@ -1,6 +1,0 @@
-{
-    "collection": "landsat-c2l2-sr-lakes-lake-balaton",
-    "bucket": "veda-data-store-staging",
-    "discovery": "s3",
-    "upload": false
-}

@@ -1,8 +1,0 @@
-{
-    "collection": "modis-lst-day-diff-2015-2022",
-    "bucket": "veda-data-store-staging",
-    "prefix": "modis-lst-day-diff-2015-2022/",
-    "filename_regex":"^(.*)campfire_lst_day_difference",
-    "discovery": "s3",
-    "upload": false
-}

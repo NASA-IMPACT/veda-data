@@ -1,0 +1,8 @@
+{
+    "collection": "lis-global-da-gpp-trend",
+    "bucket": "veda-data-store-staging",
+    "prefix": "lis-global-da-gpp-trend/",
+    "filename_regex": "^(.*)DAGPP_STL_based_trend",
+    "discovery": "s3",
+    "upload": false
+}

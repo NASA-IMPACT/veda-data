@@ -1,0 +1,8 @@
+{
+    "collection": "disturbance-probability-percentile",
+    "bucket": "veda-data-store",
+    "prefix": "disturbance-probability-percentile/",
+    "discovery": "s3",
+    "filename_regex": "^(.*)spec_prob_mosaic",
+    "upload": false
+}

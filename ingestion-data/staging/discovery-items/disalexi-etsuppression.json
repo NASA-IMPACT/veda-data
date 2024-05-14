@@ -1,0 +1,8 @@
+{
+    "collection": "disalexi-etsuppression",
+    "bucket": "veda-data-store-staging",
+    "prefix": "disalexi-etsuppression/",
+    "filename_regex": "^(.*)disalexi_etsuppression",
+    "discovery": "s3",
+    "upload": false
+}

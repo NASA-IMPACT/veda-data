@@ -1,0 +1,8 @@
+{
+    "collection": "lis-etsuppression",
+    "bucket": "veda-data-store",
+    "prefix": "lis-etsuppression/",
+    "filename_regex": "^(.*)lis_etsuppression_2020",
+    "discovery": "s3",
+    "upload": false
+}

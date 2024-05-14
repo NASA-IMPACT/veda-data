@@ -1,0 +1,8 @@
+{
+    "collection": "barc-thomasfire",
+    "bucket": "veda-data-store",
+    "prefix": "barc-thomasfire/",
+    "filename_regex": "^(.*)thomas_fire_barc_201712",
+    "discovery": "s3",
+    "upload": false
+}

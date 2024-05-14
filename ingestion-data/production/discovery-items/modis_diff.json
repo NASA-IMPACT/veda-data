@@ -1,0 +1,18 @@
+[
+    {
+        "collection": "modis_diff",
+        "bucket": "veda-data-store",
+        "prefix": "modis_diff/",
+        "filename_regex":"^(.*)campfire(.*)difference(.*).tif$",
+        "discovery": "s3",
+        "upload": false
+    },
+    {
+        "collection": "modis_diff",
+        "bucket": "veda-data-store",
+        "prefix": "modis_diff/",
+        "filename_regex":"^(.*)campfire_ndvi_2015_2022.tif",
+        "discovery": "s3",
+        "upload": true
+    }
+]

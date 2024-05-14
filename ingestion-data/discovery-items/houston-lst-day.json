@@ -1,8 +1,0 @@
-{
-    "collection": "houston-lst-day",
-    "bucket": "veda-data-store-staging",
-    "prefix":"houston-lst-day/",
-    "filename_regex":"^(.*)LST_Day",
-    "discovery": "s3",
-    "upload": false
-}

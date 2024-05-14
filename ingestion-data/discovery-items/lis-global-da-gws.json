@@ -1,8 +1,0 @@
-{
-    "collection": "lis-global-da-gws",
-    "bucket": "veda-data-store-staging",
-    "prefix": "EIS/COG/LIS_GLOBAL_DA/GWS/",
-    "filename_regex":"^(.*)LIS_GWS",
-    "discovery": "s3",
-    "upload": false
-}

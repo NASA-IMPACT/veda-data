@@ -1,8 +1,0 @@
-{
-    "collection": "hls-ndvi",
-    "bucket": "veda-data-store-staging",
-    "prefix":"hls-ndvi",
-    "filename_regex":"^(.*)ndvi_cog_2022-09-05",
-    "discovery": "s3",
-    "upload": false
-}

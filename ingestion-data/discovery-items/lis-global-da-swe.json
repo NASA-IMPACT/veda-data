@@ -1,8 +1,0 @@
-{
-    "collection": "lis-global-da-swe",
-    "bucket": "veda-data-store-staging",
-    "prefix": "EIS/COG/LIS_GLOBAL_DA/SWE/",
-    "filename_regex":"^(.*)LIS_SWE",
-    "discovery": "s3",
-    "upload": false
-}

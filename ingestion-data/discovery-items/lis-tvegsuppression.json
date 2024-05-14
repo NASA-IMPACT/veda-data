@@ -1,8 +1,0 @@
-{
-    "collection": "lis-tvegsuppression",
-    "bucket": "veda-data-store-staging",
-    "prefix": "EIS/COG/Fire-Hydro/",
-    "filename_regex":"^(.*)lis_tvegsuppression_2020",
-    "discovery": "s3",
-    "upload": false
-}
