@@ -1,8 +1,8 @@
 {
     "collection": "lis-global-da-evap",
     "bucket": "veda-data-store-staging",
-    "prefix": "lis-global-da-evap/",
-    "filename_regex": "^(.*)LIS_Evap",
+    "prefix":"EIS/COG/LIS_GLOBAL_DA/Evap/",
+    "filename_regex":"^(.*)LIS_Evap",
     "discovery": "s3",
     "upload": false
 }

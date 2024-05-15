@@ -1,8 +1,8 @@
 {
     "collection": "hls-swir-falsecolor-composite",
     "bucket": "veda-data-store-staging",
-    "prefix": "hls-swir-falsecolor-composite/",
-    "filename_regex": "^(.*)SWIR_falsecolor_cog",
+    "prefix":"maui-fire",
+    "filename_regex":"^(.*)SWIR_falsecolor_cog",
     "discovery": "s3",
     "upload": false
 }

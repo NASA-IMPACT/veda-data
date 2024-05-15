@@ -1,7 +1,7 @@
 [
     {
         "collection": "EPA-annual-emissions_1A_Combustion_Mobile",
-        "prefix": "EPA-annual-emissions_1A_Combustion_Mobile/",
+        "prefix": "EIS/cog/EPA-inventory-2012/annual/",
         "bucket": "veda-data-store-staging",
         "filename_regex": "^(.*)Combustion_Mobile.tif$",
         "discovery": "s3",
@@ -11,7 +11,7 @@
     },
     {
         "collection": "EPA-annual-emissions_1A_Combustion_Stationary",
-        "prefix": "EPA-annual-emissions_1A_Combustion_Stationary/",
+        "prefix": "EIS/cog/EPA-inventory-2012/annual/",
         "bucket": "veda-data-store-staging",
         "filename_regex": "^(.*)Combustion_Stationary.tif$",
         "discovery": "s3",
@@ -21,7 +21,7 @@
     },
     {
         "collection": "EPA-annual-emissions_1B1a_Abandoned_Coal",
-        "prefix": "EPA-annual-emissions_1B1a_Abandoned_Coal/",
+        "prefix": "EIS/cog/EPA-inventory-2012/annual/",
         "bucket": "veda-data-store-staging",
         "filename_regex": "^(.*)Abandoned_Coal.tif$",
         "discovery": "s3",
@@ -31,7 +31,7 @@
     },
     {
         "collection": "EPA-annual-emissions_1B1a_Coal_Mining_Surface",
-        "prefix": "EPA-annual-emissions_1B1a_Coal_Mining_Surface/",
+        "prefix": "EIS/cog/EPA-inventory-2012/annual/",
         "bucket": "veda-data-store-staging",
         "filename_regex": "^(.*)Coal_Mining_Surface.tif$",
         "discovery": "s3",
@@ -41,7 +41,7 @@
     },
     {
         "collection": "EPA-annual-emissions_1B1a_Coal_Mining_Underground",
-        "prefix": "EPA-annual-emissions_1B1a_Coal_Mining_Underground/",
+        "prefix": "EIS/cog/EPA-inventory-2012/annual/",
         "bucket": "veda-data-store-staging",
         "filename_regex": "^(.*)Coal_Mining_Underground.tif$",
         "discovery": "s3",
@@ -51,7 +51,7 @@
     },
     {
         "collection": "EPA-annual-emissions_1B2a_Petroleum",
-        "prefix": "EPA-annual-emissions_1B2a_Petroleum/",
+        "prefix": "EIS/cog/EPA-inventory-2012/annual/",
         "bucket": "veda-data-store-staging",
         "filename_regex": "^(.*)Petroleum.tif$",
         "discovery": "s3",
@@ -61,7 +61,7 @@
     },
     {
         "collection": "EPA-annual-emissions_1B2b_Natural_Gas_Distribution",
-        "prefix": "EPA-annual-emissions_1B2b_Natural_Gas_Distribution/",
+        "prefix": "EIS/cog/EPA-inventory-2012/annual/",
         "bucket": "veda-data-store-staging",
         "filename_regex": "^(.*)Natural_Gas_Distribution.tif$",
         "discovery": "s3",
@@ -71,7 +71,7 @@
     },
     {
         "collection": "EPA-annual-emissions_1B2b_Natural_Gas_Processing",
-        "prefix": "EPA-annual-emissions_1B2b_Natural_Gas_Processing/",
+        "prefix": "EIS/cog/EPA-inventory-2012/annual/",
         "bucket": "veda-data-store-staging",
         "filename_regex": "^(.*)Natural_Gas_Processing.tif$",
         "discovery": "s3",
@@ -81,7 +81,7 @@
     },
     {
         "collection": "EPA-annual-emissions_1B2b_Natural_Gas_Production",
-        "prefix": "EPA-annual-emissions_1B2b_Natural_Gas_Production/",
+        "prefix": "EIS/cog/EPA-inventory-2012/annual/",
         "bucket": "veda-data-store-staging",
         "filename_regex": "^(.*)Natural_Gas_Production.tif$",
         "discovery": "s3",
@@ -91,7 +91,7 @@
     },
     {
         "collection": "EPA-annual-emissions_1B2b_Natural_Gas_Transmission",
-        "prefix": "EPA-annual-emissions_1B2b_Natural_Gas_Transmission/",
+        "prefix": "EIS/cog/EPA-inventory-2012/annual/",
         "bucket": "veda-data-store-staging",
         "filename_regex": "^(.*)Natural_Gas_Transmission.tif$",
         "discovery": "s3",
@@ -101,7 +101,7 @@
     },
     {
         "collection": "EPA-annual-emissions_2B5_Petrochemical_Production",
-        "prefix": "EPA-annual-emissions_2B5_Petrochemical_Production/",
+        "prefix": "EIS/cog/EPA-inventory-2012/annual/",
         "bucket": "veda-data-store-staging",
         "filename_regex": "^(.*)Petrochemical_Production.tif$",
         "discovery": "s3",
@@ -111,7 +111,7 @@
     },
     {
         "collection": "EPA-annual-emissions_2C2_Ferroalloy_Production",
-        "prefix": "EPA-annual-emissions_2C2_Ferroalloy_Production/",
+        "prefix": "EIS/cog/EPA-inventory-2012/annual/",
         "bucket": "veda-data-store-staging",
         "filename_regex": "^(.*)Ferroalloy_Production.tif$",
         "discovery": "s3",
@@ -121,7 +121,7 @@
     },
     {
         "collection": "EPA-annual-emissions_4A_Enteric_Fermentation",
-        "prefix": "EPA-annual-emissions_4A_Enteric_Fermentation/",
+        "prefix": "EIS/cog/EPA-inventory-2012/annual/",
         "bucket": "veda-data-store-staging",
         "filename_regex": "^(.*)Enteric_Fermentation.tif$",
         "discovery": "s3",
@@ -131,7 +131,7 @@
     },
     {
         "collection": "EPA-annual-emissions_4B_Manure_Management",
-        "prefix": "EPA-annual-emissions_4B_Manure_Management/",
+        "prefix": "EIS/cog/EPA-inventory-2012/annual/",
         "bucket": "veda-data-store-staging",
         "filename_regex": "^(.*)Manure_Management.tif$",
         "discovery": "s3",
@@ -141,7 +141,7 @@
     },
     {
         "collection": "EPA-annual-emissions_4C_Rice_Cultivation",
-        "prefix": "EPA-annual-emissions_4C_Rice_Cultivation/",
+        "prefix": "EIS/cog/EPA-inventory-2012/annual/",
         "bucket": "veda-data-store-staging",
         "filename_regex": "^(.*)Rice_Cultivation.tif$",
         "discovery": "s3",
@@ -151,7 +151,7 @@
     },
     {
         "collection": "EPA-annual-emissions_4F_Field_Burning",
-        "prefix": "EPA-annual-emissions_4F_Field_Burning/",
+        "prefix": "EIS/cog/EPA-inventory-2012/annual/",
         "bucket": "veda-data-store-staging",
         "filename_regex": "^(.*)Field_Burning.tif$",
         "discovery": "s3",
@@ -161,7 +161,7 @@
     },
     {
         "collection": "EPA-annual-emissions_5_Forest_Fires",
-        "prefix": "EPA-annual-emissions_5_Forest_Fires/",
+        "prefix": "EIS/cog/EPA-inventory-2012/annual/",
         "bucket": "veda-data-store-staging",
         "filename_regex": "^(.*)Forest_Fires.tif$",
         "discovery": "s3",
@@ -171,7 +171,7 @@
     },
     {
         "collection": "EPA-annual-emissions_6A_Landfills_Industrial",
-        "prefix": "EPA-annual-emissions_6A_Landfills_Industrial/",
+        "prefix": "EIS/cog/EPA-inventory-2012/annual/",
         "bucket": "veda-data-store-staging",
         "filename_regex": "^(.*)Landfills_Industrial.tif$",
         "discovery": "s3",
@@ -181,7 +181,7 @@
     },
     {
         "collection": "EPA-annual-emissions_6A_Landfills_Municipal",
-        "prefix": "EPA-annual-emissions_6A_Landfills_Municipal/",
+        "prefix": "EIS/cog/EPA-inventory-2012/annual/",
         "bucket": "veda-data-store-staging",
         "filename_regex": "^(.*)Landfills_Municipal.tif$",
         "discovery": "s3",
@@ -191,7 +191,7 @@
     },
     {
         "collection": "EPA-annual-emissions_6B_Wastewater_Treatment_Domestic",
-        "prefix": "EPA-annual-emissions_6B_Wastewater_Treatment_Domestic/",
+        "prefix": "EIS/cog/EPA-inventory-2012/annual/",
         "bucket": "veda-data-store-staging",
         "filename_regex": "^(.*)Wastewater_Treatment_Domestic.tif$",
         "discovery": "s3",
@@ -201,7 +201,7 @@
     },
     {
         "collection": "EPA-annual-emissions_6B_Wastewater_Treatment_Industrial",
-        "prefix": "EPA-annual-emissions_6B_Wastewater_Treatment_Industrial/",
+        "prefix": "EIS/cog/EPA-inventory-2012/annual/",
         "bucket": "veda-data-store-staging",
         "filename_regex": "^(.*)Wastewater_Treatment_Industrial.tif$",
         "discovery": "s3",
@@ -211,7 +211,7 @@
     },
     {
         "collection": "EPA-annual-emissions_6D_Composting",
-        "prefix": "EPA-annual-emissions_6D_Composting/",
+        "prefix": "EIS/cog/EPA-inventory-2012/annual/",
         "bucket": "veda-data-store-staging",
         "filename_regex": "^(.*)Composting.tif$",
         "discovery": "s3",

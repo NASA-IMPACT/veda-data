@@ -2,7 +2,7 @@
     "collection": "modis-albedo-wsa-diff-2015-2022",
     "bucket": "veda-data-store-staging",
     "prefix": "modis-albedo-wsa-diff-2015-2022/",
-    "filename_regex": "^(.*)campfire_albedo_wsa_difference_2015_2022",
+    "filename_regex":"^(.*)campfire_albedo_wsa_difference_2015_2022",
     "discovery": "s3",
     "upload": false
 }

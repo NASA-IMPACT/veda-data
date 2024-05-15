@@ -1,7 +1,7 @@
 [
     {
       "collection": "CMIP585-winter-median-pr",
-      "prefix": "CMIP585-winter-median-pr/",
+      "prefix": "EIS/NEX-GDDP-CMIP6/",
       "bucket": "veda-data-store-staging",
       "filename_regex": "^(.*)_pr(.*)ssp585_2025(.*).cog.tif$",
       "discovery": "s3",
@@ -11,7 +11,7 @@
     },
     {
       "collection": "CMIP585-winter-median-pr",
-      "prefix": "CMIP585-winter-median-pr/",
+      "prefix": "EIS/NEX-GDDP-CMIP6/",
       "bucket": "veda-data-store-staging",
       "filename_regex": "^(.*)_pr(.*)ssp585_2045(.*).cog.tif$",
       "discovery": "s3",
@@ -21,7 +21,7 @@
     },
     {
       "collection": "CMIP585-winter-median-pr",
-      "prefix": "CMIP585-winter-median-pr/",
+      "prefix": "EIS/NEX-GDDP-CMIP6/",
       "bucket": "veda-data-store-staging",
       "filename_regex": "^(.*)_pr(.*)ssp585_2065(.*).cog.tif$",
       "discovery": "s3",
@@ -31,7 +31,7 @@
     },
     {
       "collection": "CMIP585-winter-median-pr",
-      "prefix": "CMIP585-winter-median-pr/",
+      "prefix": "EIS/NEX-GDDP-CMIP6/",
       "bucket": "veda-data-store-staging",
       "filename_regex": "^(.*)_pr(.*)ssp585_2085(.*).cog.tif$",
       "discovery": "s3",

@@ -1,8 +1,8 @@
 {
     "collection": "fldas-soil-moisture-anomalies",
     "bucket": "veda-data-store-staging",
-    "prefix": "fldas-soil-moisture-anomalies/",
+    "prefix":"fldas-soil-moisture-anomalies",
     "discovery": "s3",
-    "filename_regex": "^(.*)FLDAS_NOAH01_SoilMoi00_10cm_tavg",
+    "filename_regex":"^(.*)FLDAS_NOAH01_SoilMoi00_10cm_tavg",
     "upload": false
 }

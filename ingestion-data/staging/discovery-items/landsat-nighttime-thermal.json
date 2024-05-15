@@ -1,8 +1,8 @@
 {
     "collection": "landsat-nighttime-thermal",
     "bucket": "veda-data-store-staging",
-    "prefix": "landsat-nighttime-thermal/",
-    "filename_regex": "^(.*)Lahaina_Landsat8_Thermal",
+    "prefix": "maui-fire/",
+    "filename_regex":"^(.*)Lahaina_Landsat8_Thermal",
     "discovery": "s3",
     "upload": false
 }

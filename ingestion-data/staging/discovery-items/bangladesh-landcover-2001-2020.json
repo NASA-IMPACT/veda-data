@@ -1,7 +1,7 @@
 [
   {
       "collection": "bangladesh-landcover-2001-2020",
-      "prefix": "bangladesh-landcover-2001-2020/",
+      "prefix": "EIS/COG/coastal-flooding-and-slr/",
       "bucket": "veda-data-store-staging",
       "filename_regex": "^(.*)MODIS_LC_2001_BD_v2.cog.tif$",
       "discovery": "s3",
@@ -11,7 +11,7 @@
   },
   {
       "collection": "bangladesh-landcover-2001-2020",
-      "prefix": "bangladesh-landcover-2001-2020/",
+      "prefix": "EIS/COG/coastal-flooding-and-slr/",
       "bucket": "veda-data-store-staging",
       "filename_regex": "^(.*)MODIS_LC_2020_BD.cog.tif$",
       "discovery": "s3",

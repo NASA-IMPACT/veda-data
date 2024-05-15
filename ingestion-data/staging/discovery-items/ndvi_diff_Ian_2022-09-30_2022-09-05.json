@@ -1,8 +1,8 @@
 {
     "collection": "ndvi_diff_Ian_2022-09-30_2022-09-05",
     "bucket": "veda-data-store-staging",
-    "prefix": "ndvi_diff_Ian_2022-09-30_2022-09-05/",
-    "filename_regex": "^(.*)ndvi_diff",
+    "prefix": "hls-ndvi/",
+    "filename_regex":"^(.*)ndvi_diff",
     "discovery": "s3",
     "upload": false
 }

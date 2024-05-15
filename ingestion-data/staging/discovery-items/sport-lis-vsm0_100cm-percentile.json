@@ -2,7 +2,7 @@
     "collection": "sport-lis-vsm0_100cm-percentile",
     "bucket": "veda-data-store-staging",
     "prefix": "sport-lis-vsm0_100cm-percentile/",
-    "filename_regex": "^(.*)sport_lis(.*)cog.tif$",
+    "filename_regex":"^(.*)sport_lis(.*)cog.tif$",
     "discovery": "s3",
     "upload": false
 }

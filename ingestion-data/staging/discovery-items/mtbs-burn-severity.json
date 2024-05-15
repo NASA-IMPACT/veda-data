@@ -2,7 +2,7 @@
   {
     "collection": "mtbs-burn-severity",
     "discovery": "s3",
-    "prefix": "mtbs-burn-severity/",
+    "prefix": "EIS/COG/Fire-Hydro/",
     "bucket": "veda-data-store-staging",
     "filename_regex": "^(.*)mtbs_CONUS_2016.cog.tif",
     "start_datetime": "2016-01-01T00:00:00Z",
@@ -11,7 +11,7 @@
   {
     "collection": "mtbs-burn-severity",
     "discovery": "s3",
-    "prefix": "mtbs-burn-severity/",
+    "prefix": "EIS/COG/Fire-Hydro/",
     "bucket": "veda-data-store-staging",
     "filename_regex": "^(.*)mtbs_CONUS_2017.cog.tif",
     "start_datetime": "2017-01-01T00:00:00Z",
@@ -20,7 +20,7 @@
   {
     "collection": "mtbs-burn-severity",
     "discovery": "s3",
-    "prefix": "mtbs-burn-severity/",
+    "prefix": "EIS/COG/Fire-Hydro/",
     "bucket": "veda-data-store-staging",
     "filename_regex": "^(.*)mtbs_CONUS_2018.cog.tif",
     "start_datetime": "2018-01-01T00:00:00Z",
@@ -29,7 +29,7 @@
   {
     "collection": "mtbs-burn-severity",
     "discovery": "s3",
-    "prefix": "mtbs-burn-severity/",
+    "prefix": "EIS/COG/Fire-Hydro/",
     "bucket": "veda-data-store-staging",
     "filename_regex": "^(.*)mtbs_CONUS_2019.cog.tif",
     "start_datetime": "2019-01-01T00:00:00Z",
@@ -38,7 +38,7 @@
   {
     "collection": "mtbs-burn-severity",
     "discovery": "s3",
-    "prefix": "mtbs-burn-severity/",
+    "prefix": "EIS/COG/Fire-Hydro/",
     "bucket": "veda-data-store-staging",
     "filename_regex": "^(.*)mtbs_CONUS_2020.cog.tif",
     "start_datetime": "2020-01-01T00:00:00Z",

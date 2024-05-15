@@ -1,7 +1,7 @@
 [
   {
     "collection": "modis-annual-lai-2003-2020",
-    "prefix": "modis-annual-lai-2003-2020/",
+    "prefix": "EIS/COG/coastal-flooding-and-slr/",
     "bucket": "veda-data-store-staging",
     "filename_regex": "^(.*)MODIS_LAI_2003_BD.cog.tif$",
     "discovery": "s3",
@@ -11,7 +11,7 @@
   },
   {
     "collection": "modis-annual-lai-2003-2020",
-    "prefix": "modis-annual-lai-2003-2020/",
+    "prefix": "EIS/COG/coastal-flooding-and-slr/",
     "bucket": "veda-data-store-staging",
     "filename_regex": "^(.*)MODIS_LAI_2020_BD.cog.tif$",
     "discovery": "s3",

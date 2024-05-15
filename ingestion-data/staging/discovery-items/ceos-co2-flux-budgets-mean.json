@@ -2,7 +2,7 @@
     "collection": "ceos-co2-flux-budgets-mean",
     "bucket": "veda-data-store-staging",
     "discovery": "s3",
-    "prefix": "ceos-co2-flux-budgets-mean/",
+    "prefix": "EIS/CEOS_DATA/CO2_flux_updated/",
     "upload": false,
     "id_regex": "",
     "id_template": "",

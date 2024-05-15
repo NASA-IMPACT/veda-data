@@ -1,8 +1,8 @@
 {
     "collection": "lis-global-da-gpp",
     "bucket": "veda-data-store-staging",
-    "prefix": "lis-global-da-gpp/",
-    "filename_regex": "^(.*)LIS_GPP",
+    "prefix": "EIS/COG/LIS_GLOBAL_DA/GPP/",
+    "filename_regex":"^(.*)LIS_GPP",
     "discovery": "s3",
     "upload": false
 }

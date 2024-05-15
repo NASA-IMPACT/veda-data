@@ -1,8 +1,8 @@
 {
     "collection": "frp-max-thomasfire",
     "bucket": "veda-data-store-staging",
-    "prefix": "frp-max-thomasfire/",
-    "filename_regex": "^(.*)thomas_fire_frpmax",
+    "prefix":"EIS/COG/Fire-Hydro/",
+    "filename_regex":"^(.*)thomas_fire_frpmax",
     "discovery": "s3",
     "upload": false
 }

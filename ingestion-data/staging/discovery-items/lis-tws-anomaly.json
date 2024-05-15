@@ -1,7 +1,7 @@
 [
     {
         "collection": "lis-tws-anomaly",
-        "prefix": "lis-tws-anomaly/",
+        "prefix": "EIS/COG/LIS_TWS_ANOMALY/",
         "bucket": "veda-data-store-staging",
         "filename_regex": "^(.*)2001(.*).tif$",
         "discovery": "s3",
@@ -9,7 +9,7 @@
     },
     {
         "collection": "lis-tws-anomaly",
-        "prefix": "lis-tws-anomaly/",
+        "prefix": "EIS/COG/LIS_TWS_ANOMALY/",
         "bucket": "veda-data-store-staging",
         "filename_regex": "^(.*)2002(.*).tif$",
         "discovery": "s3",
@@ -17,7 +17,7 @@
     },
     {
         "collection": "lis-tws-anomaly",
-        "prefix": "lis-tws-anomaly/",
+        "prefix": "EIS/COG/LIS_TWS_ANOMALY/",
         "bucket": "veda-data-store-staging",
         "filename_regex": "^(.*)2003(.*).tif$",
         "discovery": "s3",
@@ -25,7 +25,7 @@
     },
     {
         "collection": "lis-tws-anomaly",
-        "prefix": "lis-tws-anomaly/",
+        "prefix": "EIS/COG/LIS_TWS_ANOMALY/",
         "bucket": "veda-data-store-staging",
         "filename_regex": "^(.*)2004(.*).tif$",
         "discovery": "s3",
@@ -33,7 +33,7 @@
     },
     {
         "collection": "lis-tws-anomaly",
-        "prefix": "lis-tws-anomaly/",
+        "prefix": "EIS/COG/LIS_TWS_ANOMALY/",
         "bucket": "veda-data-store-staging",
         "filename_regex": "^(.*)2005(.*).tif$",
         "discovery": "s3",
@@ -41,7 +41,7 @@
     },
     {
         "collection": "lis-tws-anomaly",
-        "prefix": "lis-tws-anomaly/",
+        "prefix": "EIS/COG/LIS_TWS_ANOMALY/",
         "bucket": "veda-data-store-staging",
         "filename_regex": "^(.*)2006(.*).tif$",
         "discovery": "s3",
@@ -49,7 +49,7 @@
     },
     {
         "collection": "lis-tws-anomaly",
-        "prefix": "lis-tws-anomaly/",
+        "prefix": "EIS/COG/LIS_TWS_ANOMALY/",
         "bucket": "veda-data-store-staging",
         "filename_regex": "^(.*)2007(.*).tif$",
         "discovery": "s3",
@@ -57,7 +57,7 @@
     },
     {
         "collection": "lis-tws-anomaly",
-        "prefix": "lis-tws-anomaly/",
+        "prefix": "EIS/COG/LIS_TWS_ANOMALY/",
         "bucket": "veda-data-store-staging",
         "filename_regex": "^(.*)2008(.*).tif$",
         "discovery": "s3",
@@ -65,7 +65,7 @@
     },
     {
         "collection": "lis-tws-anomaly",
-        "prefix": "lis-tws-anomaly/",
+        "prefix": "EIS/COG/LIS_TWS_ANOMALY/",
         "bucket": "veda-data-store-staging",
         "filename_regex": "^(.*)2009(.*).tif$",
         "discovery": "s3",
@@ -73,7 +73,7 @@
     },
     {
         "collection": "lis-tws-anomaly",
-        "prefix": "lis-tws-anomaly/",
+        "prefix": "EIS/COG/LIS_TWS_ANOMALY/",
         "bucket": "veda-data-store-staging",
         "filename_regex": "^(.*)2010(.*).tif$",
         "discovery": "s3",
@@ -81,7 +81,7 @@
     },
     {
         "collection": "lis-tws-anomaly",
-        "prefix": "lis-tws-anomaly/",
+        "prefix": "EIS/COG/LIS_TWS_ANOMALY/",
         "bucket": "veda-data-store-staging",
         "filename_regex": "^(.*)2011(.*).tif$",
         "discovery": "s3",
@@ -89,7 +89,7 @@
     },
     {
         "collection": "lis-tws-anomaly",
-        "prefix": "lis-tws-anomaly/",
+        "prefix": "EIS/COG/LIS_TWS_ANOMALY/",
         "bucket": "veda-data-store-staging",
         "filename_regex": "^(.*)2012(.*).tif$",
         "discovery": "s3",
@@ -97,7 +97,7 @@
     },
     {
         "collection": "lis-tws-anomaly",
-        "prefix": "lis-tws-anomaly/",
+        "prefix": "EIS/COG/LIS_TWS_ANOMALY/",
         "bucket": "veda-data-store-staging",
         "filename_regex": "^(.*)2013(.*).tif$",
         "discovery": "s3",
@@ -105,7 +105,7 @@
     },
     {
         "collection": "lis-tws-anomaly",
-        "prefix": "lis-tws-anomaly/",
+        "prefix": "EIS/COG/LIS_TWS_ANOMALY/",
         "bucket": "veda-data-store-staging",
         "filename_regex": "^(.*)2014(.*).tif$",
         "discovery": "s3",
@@ -113,7 +113,7 @@
     },
     {
         "collection": "lis-tws-anomaly",
-        "prefix": "lis-tws-anomaly/",
+        "prefix": "EIS/COG/LIS_TWS_ANOMALY/",
         "bucket": "veda-data-store-staging",
         "filename_regex": "^(.*)2015(.*).tif$",
         "discovery": "s3",
@@ -121,7 +121,7 @@
     },
     {
         "collection": "lis-tws-anomaly",
-        "prefix": "lis-tws-anomaly/",
+        "prefix": "EIS/COG/LIS_TWS_ANOMALY/",
         "bucket": "veda-data-store-staging",
         "filename_regex": "^(.*)2016(.*).tif$",
         "discovery": "s3",
@@ -129,7 +129,7 @@
     },
     {
         "collection": "lis-tws-anomaly",
-        "prefix": "lis-tws-anomaly/",
+        "prefix": "EIS/COG/LIS_TWS_ANOMALY/",
         "bucket": "veda-data-store-staging",
         "filename_regex": "^(.*)2017(.*).tif$",
         "discovery": "s3",
@@ -137,7 +137,7 @@
     },
     {
         "collection": "lis-tws-anomaly",
-        "prefix": "lis-tws-anomaly/",
+        "prefix": "EIS/COG/LIS_TWS_ANOMALY/",
         "bucket": "veda-data-store-staging",
         "filename_regex": "^(.*)2018(.*).tif$",
         "discovery": "s3",
@@ -145,7 +145,7 @@
     },
     {
         "collection": "lis-tws-anomaly",
-        "prefix": "lis-tws-anomaly/",
+        "prefix": "EIS/COG/LIS_TWS_ANOMALY/",
         "bucket": "veda-data-store-staging",
         "filename_regex": "^(.*)2019(.*).tif$",
         "discovery": "s3",
@@ -153,7 +153,7 @@
     },
     {
         "collection": "lis-tws-anomaly",
-        "prefix": "lis-tws-anomaly/",
+        "prefix": "EIS/COG/LIS_TWS_ANOMALY/",
         "bucket": "veda-data-store-staging",
         "filename_regex": "^(.*)2020(.*).tif$",
         "discovery": "s3",
@@ -161,7 +161,7 @@
     },
     {
         "collection": "lis-tws-anomaly",
-        "prefix": "lis-tws-anomaly/",
+        "prefix": "EIS/COG/LIS_TWS_ANOMALY/",
         "bucket": "veda-data-store-staging",
         "filename_regex": "^(.*)2021(.*).tif$",
         "discovery": "s3",
@@ -169,7 +169,7 @@
     },
     {
         "collection": "lis-tws-anomaly",
-        "prefix": "lis-tws-anomaly/",
+        "prefix": "EIS/COG/LIS_TWS_ANOMALY/",
         "bucket": "veda-data-store-staging",
         "filename_regex": "^(.*)2022(.*).tif$",
         "discovery": "s3",

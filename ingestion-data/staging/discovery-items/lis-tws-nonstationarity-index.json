@@ -1,6 +1,6 @@
 {
     "collection": "lis-tws-nonstationarity-index",
-    "prefix": "lis-tws-nonstationarity-index/",
+    "prefix": "EIS/Global_TWS_data/DATWS_nonstationarity_index_v2.cog.tif",
     "bucket": "veda-data-store-staging",
     "filename_regex": "^(.*).tif$",
     "discovery": "s3",

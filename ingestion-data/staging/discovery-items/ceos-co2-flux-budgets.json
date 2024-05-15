@@ -2,7 +2,7 @@
     "collection": "ceos-co2-flux-budgets",
     "bucket": "veda-data-store-staging",
     "discovery": "s3",
-    "prefix": "ceos-co2-flux-budgets/",
+    "prefix": "EIS/CEOS_DATA/CO2_flux_updated/",
     "id_regex": "",
     "id_template": "",
     "upload": false,
@@ -15,7 +15,7 @@
         "crop": {
             "title": "Lateral crop flux",
             "description": "The lateral flux of carbon in (positive) or out (negative) of a region due to agriculture.",
-            "regex": "^(.*)pilot_topdown_Crop_CO2_Budget_grid_v1"
+            "regex": "^(.*)pilot_topdown_Crop_CO2_Budget_grid_v1"  
         },
         "wood": {
             "title": "Lateral wood flux",

@@ -1,8 +1,8 @@
 {
     "collection": "lis-global-da-totalprecip",
     "bucket": "veda-data-store-staging",
-    "prefix": "lis-global-da-totalprecip/",
-    "filename_regex": "^(.*)LIS_TotalPrecip",
+    "prefix": "EIS/COG/LIS_GLOBAL_DA/TotalPrecip/",
+    "filename_regex":"^(.*)LIS_TotalPrecip",
     "discovery": "s3",
     "upload": false
 }

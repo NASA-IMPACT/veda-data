@@ -2,6 +2,5 @@
     "collection": "ls8-covid-19-example-data",
     "bucket": "veda-data-store-staging",
     "discovery": "s3",
-    "upload": false,
-    "prefix": "ls8-covid-19-example-data/"
+    "upload": false
 }

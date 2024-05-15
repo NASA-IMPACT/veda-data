@@ -1,7 +1,7 @@
 {
     "collection": "disalexi-etsuppression",
     "bucket": "veda-data-store-staging",
-    "prefix": "disalexi-etsuppression/",
+    "prefix":"EIS/COG/Fire-Hydro/",
     "filename_regex": "^(.*)disalexi_etsuppression",
     "discovery": "s3",
     "upload": false
