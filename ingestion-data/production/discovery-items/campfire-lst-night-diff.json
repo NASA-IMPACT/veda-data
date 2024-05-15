@@ -1,0 +1,8 @@
+{
+    "collection": "campfire-lst-night-diff",
+    "bucket": "veda-data-store",
+    "prefix": "campfire-lst-night-diff/",
+    "filename_regex": "^(.*)CampFire_LST_Night_2015_2022_diff",
+    "discovery": "s3",
+    "upload": false
+}

@@ -1,0 +1,8 @@
+{
+    "collection": "houston-ndvi",
+    "bucket": "veda-data-store",
+    "prefix": "houston-ndvi/",
+    "filename_regex": "^(.*)NDVI",
+    "discovery": "s3",
+    "upload": false
+}

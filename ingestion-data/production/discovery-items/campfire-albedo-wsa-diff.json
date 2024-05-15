@@ -1,0 +1,8 @@
+{
+    "collection": "campfire-albedo-wsa-diff",
+    "bucket": "veda-data-store",
+    "prefix": "campfire-albedo-wsa-diff/",
+    "filename_regex": "^(.*)CampFire_albedo_WSA_2015_2022_diff",
+    "discovery": "s3",
+    "upload": false
+}

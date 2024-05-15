@@ -1,0 +1,7 @@
+{
+    "collection": "hls-l30-002-ej-reprocessed",
+    "bucket": "veda-data-store",
+    "discovery": "s3",
+    "upload": false,
+    "prefix": "hls-l30-002-ej-reprocessed/"
+}

@@ -1,0 +1,8 @@
+{
+    "collection": "lis-global-da-gpp",
+    "bucket": "veda-data-store",
+    "prefix": "lis-global-da-gpp/",
+    "filename_regex": "^(.*)LIS_GPP",
+    "discovery": "s3",
+    "upload": false
+}

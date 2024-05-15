@@ -1,0 +1,8 @@
+{
+    "collection": "lis-global-da-gws",
+    "bucket": "veda-data-store",
+    "prefix": "lis-global-da-gws/",
+    "filename_regex": "^(.*)LIS_GWS",
+    "discovery": "s3",
+    "upload": false
+}
