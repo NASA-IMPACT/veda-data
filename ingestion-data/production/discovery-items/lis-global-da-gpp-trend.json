@@ -1,8 +1,28 @@
-{
-    "collection": "lis-global-da-gpp-trend",
-    "bucket": "veda-data-store",
-    "prefix": "lis-global-da-gpp-trend/",
-    "filename_regex": "^(.*)DAGPP_STL_based_trend",
-    "discovery": "s3",
-    "upload": false
-}
+[
+    {
+        "collection": "lis-global-da-gpp-trend",
+        "bucket": "veda-data-store",
+        "prefix": "lis-global-da-gpp-trend/",
+        "filename_regex": "^(.*)DAGPP_STL_based_trend_v3_2003_2021.cog.tif",
+        "discovery": "s3",
+        "upload": false
+    },
+    {
+        "collection": "lis-global-da-gpp-trend",
+        "bucket": "veda-data-store",
+        "prefix": "lis-global-da-gpp-trend/",
+        "filename_regex": "^(.*)DAGPP_STL_based_trendv2_2003_2021.cog.tif",
+        "discovery": "s3",
+        "upload": false
+    },
+    {
+        "collection": "lis-global-da-gpp-trend",
+        "bucket": "veda-data-store",
+        "prefix": "lis-global-da-gpp-trend/",
+        "filename_regex": "^(.*)DAGPP_STL_based_trend.cog.tif",
+        "discovery": "s3",
+        "upload": false,
+        "start_datetime": "2003-01-01T00:00:00Z",
+        "end_datetime": "2021-12-31T23:59:59Z"
+    }
+]
