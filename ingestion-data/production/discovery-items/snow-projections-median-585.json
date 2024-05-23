@@ -1,7 +1,7 @@
 [
     {
         "collection": "snow-projections-median-585",
-        "prefix": "snow-projections-diff-245/",
+        "prefix": "snow-projections-median-585/",
         "bucket": "veda-data-store",
         "filename_regex": "^(.*)ssp585(.*)median.cog.tif$",
         "discovery": "s3",

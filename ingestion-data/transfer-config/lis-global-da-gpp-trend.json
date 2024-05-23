@@ -4,6 +4,20 @@
         "origin_prefix": "EIS/COG/LIS_GLOBAL_DA/DA_Trends/",
         "target_bucket": "veda-data-store",
         "collection": "lis-global-da-gpp-trend",
-        "filename_regex": "^(.*)DAGPP_STL_based_trend"
+        "filename_regex": "^(.*)DAGPP_STL_based_trend.cog.tif"
+    },
+    {
+        "origin_bucket": "veda-data-store-staging",
+        "origin_prefix": "EIS/COG/LIS_GLOBAL_DA/DA_Trends/",
+        "target_bucket": "veda-data-store",
+        "collection": "lis-global-da-gpp-trend",
+        "filename_regex": "^(.*)DAGPP_STL_based_trend_v3_2003_2021.cog.tif"
+    },
+    {
+        "origin_bucket": "veda-data-store-staging",
+        "origin_prefix": "EIS/COG/LIS_GLOBAL_DA/DA_Trends/",
+        "target_bucket": "veda-data-store",
+        "collection": "lis-global-da-gpp-trend",
+        "filename_regex": "^(.*)DAGPP_STL_based_trendv2_2003_2021.cog.tif"
     }
 ]
