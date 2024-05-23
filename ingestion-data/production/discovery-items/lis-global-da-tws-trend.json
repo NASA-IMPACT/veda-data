@@ -21,6 +21,8 @@
         "prefix": "lis-global-da-tws-trend/",
         "filename_regex":"^(.*)DATWS_STL_based_trend.cog.tif",
         "discovery": "s3",
-        "upload": false
+        "upload": false,
+        "start_datetime": "2003-01-01T00:00:00Z",
+        "end_datetime": "2021-12-31T23:59:59Z"
     }
 ]
