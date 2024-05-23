@@ -1,6 +1,6 @@
 {
     "collection": "modis-lst-night-diff-2015-2022",
-    "bucket": "veda-data-store/",
+    "bucket": "veda-data-store",
     "prefix": "modis-lst-night-diff-2015-2022/",
     "filename_regex": "^(.*)campfire_lst_night_difference",
     "discovery": "s3",

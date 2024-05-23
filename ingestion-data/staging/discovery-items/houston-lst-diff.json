@@ -1,6 +1,6 @@
 {
     "collection": "houston-lst-diff",
-    "bucket": "climatedashboard-data",
+    "bucket": "veda-data-store-staging",
     "prefix":"houston/",
     "filename_regex":"^(.*)houston-lst-diff_2000_2019",
     "discovery": "s3",
