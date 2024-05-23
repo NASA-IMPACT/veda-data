@@ -1,0 +1,75 @@
+{
+    "id": "eis_fire_perimeter",
+    "type": "Collection",
+    "title": "Fire Perimeters",
+    "links": [
+        {
+            "rel": "external",
+            "href": "https://firenrt.delta-backend.com/collections/public.eis_fire_snapshot_perimeter_nrt",
+            "type": "application/json",
+            "label:assets": null
+        }
+    ],
+    "description": "Perimeter of cumulative fire-area estimated from VIIRs detections",
+    "extent": {
+        "spatial": {
+            "bbox": [
+                [
+                    -171.791110603,
+                    18.91619,
+                    -66.96466,
+                    71.3577635769
+                ]
+            ]
+        },
+        "temporal": {
+            "interval": [
+                [
+                    null,
+                    null
+                ]
+            ]
+        }
+    },
+    "license": "public-domain",
+    "stac_extensions": [
+        "https://stac-extensions.github.io/item-assets/v1.0.0/schema.json"
+    ],
+    "item_assets": {
+        "cog_default": {
+            "type": "image/tiff; application=geotiff; profile=cloud-optimized",
+            "roles": [
+                "data",
+                "layer"
+            ],
+            "title": "Default COG Layer",
+            "description": "Cloud optimized default layer to display on map"
+        }
+    },
+    "dashboard:is_periodic": true,
+    "dashboard:time_density": "day",
+    "stac_version": "1.0.0",
+    "providers": [
+        {
+            "name": "NASA National Oceanic and Atmospheric Administration",
+            "url": "https://www.nasa.gov/directorates/smd/joint-agency-satellite-division/noaa/",
+            "roles": [
+                "producer"
+            ]
+        },
+        {
+            "name": "NASA VEDA",
+            "url": "https://www.earthdata.nasa.gov/dashboard/",
+            "roles": [
+                "host"
+            ]
+        },
+        {
+            "name": "NASA Earth Information System",
+            "url": "https://www.earthdata.nasa.gov/eis",
+            "roles": [
+                "processor"
+            ]
+        }
+    ]
+}

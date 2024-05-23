@@ -1,0 +1,54 @@
+{
+    "id": "blue-tarp-planetscope",
+    "type": "Collection",
+    "title": "Hurricane Ida - Blue Tarps PlanetScope Image",
+    "links": [],
+    "description": "Blue tarps were detected in the aftermath of Hurricane Ida using Planet Imagery. The detection algorithm involved segmenting out blue pixels from the buildings in the affected region. This collection contains PlanetScope images used for detection.",
+    "extent": {
+        "spatial": {
+            "bbox": [
+                [
+                    -90.27360950831685,
+                    18.30419449685249,
+                    -65.97626446723649,
+                    30.051540153516584
+                ]
+            ]
+        },
+        "temporal": {
+            "interval": [
+                [
+                    "2017-02-11T00:00:00Z",
+                    "2022-02-12T00:00:00Z"
+                ]
+            ]
+        }
+    },
+    "license": "MIT",
+    "stac_extensions": [
+        "https://stac-extensions.github.io/item-assets/v1.0.0/schema.json"
+    ],
+    "item_assets": {
+        "cog_default": {
+            "type": "image/tiff; application=geotiff; profile=cloud-optimized",
+            "roles": [
+                "data",
+                "layer"
+            ],
+            "title": "Default COG Layer",
+            "description": "Cloud optimized default base PlanetScope image (used for blue-tarp detection) layer to display on map"
+        }
+    },
+    "dashboard:is_periodic": false,
+    "dashboard:time_density": "day",
+    "stac_version": "1.0.0",
+    "providers": [
+        {
+            "name": "NASA VEDA",
+            "url": "https://www.earthdata.nasa.gov/dashboard/",
+            "roles": [
+                "host"
+            ]
+        }
+    ]
+}

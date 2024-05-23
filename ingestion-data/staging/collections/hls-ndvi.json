@@ -1,0 +1,54 @@
+{
+    "id": "hls-ndvi",
+    "type": "Collection",
+    "title": "Normalized difference vegetation index from HLS",
+    "links": [],
+    "description": "NDVI calculated from Harmonized Landsat and Sentinel-2 Data",
+    "extent": {
+        "spatial": {
+            "bbox": [
+                [
+                    -82.37631113903603,
+                    26.31173859507485,
+                    -81.9037040761012,
+                    27.035837664631245
+                ]
+            ]
+        },
+        "temporal": {
+            "interval": [
+                [
+                    "2022-09-05T00:00:00Z",
+                    "2022-09-05T00:00:00Z"
+                ]
+            ]
+        }
+    },
+    "license": "CC0-1.0",
+    "stac_extensions": [
+        "https://stac-extensions.github.io/item-assets/v1.0.0/schema.json"
+    ],
+    "item_assets": {
+        "cog_default": {
+            "type": "image/tiff; application=geotiff; profile=cloud-optimized",
+            "roles": [
+                "data",
+                "layer"
+            ],
+            "title": "Default COG Layer",
+            "description": "Cloud optimized default layer to display on map"
+        }
+    },
+    "dashboard:is_periodic": false,
+    "dashboard:time_density": "day",
+    "stac_version": "1.0.0",
+    "providers": [
+        {
+            "name": "NASA VEDA",
+            "url": "https://www.earthdata.nasa.gov/dashboard/",
+            "roles": [
+                "host"
+            ]
+        }
+    ]
+}

@@ -1,0 +1,112 @@
+{
+    "id": "combined_CMIP6_daily_GISS-E2-1-G_tas_kerchunk_DEMO",
+    "type": "Collection",
+    "title": "CMIP6 Daily GISS-E2-1-G TAS Kerchunk (DEMO)",
+    "links": [],
+    "description": "for zarr testing",
+    "assets": {
+        "zarr": {
+          "href": "s3://veda-data-store-staging/cmip6-GISS-E2-1-G-tas-kerchunk/combined_CMIP6_daily_GISS-E2-1-G_tas_kerchunk.json",
+          "type": "application/vnd+zarr",
+          "roles": [
+            "data"
+          ],
+          "title": "zarr"
+        }
+    },    
+    "extent": {
+        "spatial": {
+            "bbox": [
+                [
+                    0.0,
+                    -59.0,
+                    359.0,
+                    89.0
+                ]
+            ]
+        },
+        "temporal": {
+            "interval": [
+                [
+                    "1950-01-01T12:00:00Z",
+                    "2014-12-31T12:00:00Z"
+                ]
+            ]
+        }
+    },
+    "license": "CC0-1.0",
+    "stac_extensions": [
+        "https://stac-extensions.github.io/datacube/v2.0.0/schema.json"
+    ],
+    "data_type": "zarr",
+    "collection": "combined_CMIP6_daily_GISS-E2-1-G_tas_kerchunk_DEMO",
+    "cube:variables": {
+        "tas": {
+            "type": "data",
+            "unit": "K",
+            "attrs": {
+                "units": "K",
+                "comment": "near-surface (usually, 2 meter) air temperature; derived from downscaled tasmax & tasmin",
+                "long_name": "Daily Near-Surface Air Temperature",
+                "cell_methods": "area: mean time: maximum",
+                "standard_name": "air_temperature"
+            },
+            "shape": [
+                23725,
+                600,
+                1440
+            ],
+            "dimensions": [
+                "time",
+                "lat",
+                "lon"
+            ],
+            "description": "Daily Near-Surface Air Temperature"
+        }
+    },
+    "cube:dimensions": {
+        "lat": {
+            "axis": "y",
+            "step": 0.25,
+            "type": "spatial",
+            "extent": [
+                -59.875,
+                89.875
+            ],
+            "description": "latitude",
+            "reference_system": 4326
+        },
+        "lon": {
+            "axis": "x",
+            "step": 0.25,
+            "type": "spatial",
+            "extent": [
+                0.125,
+                359.875
+            ],
+            "description": "longitude",
+            "reference_system": 4326
+        },
+        "time": {
+            "step": "P1DT0H0M0S",
+            "type": "temporal",
+            "extent": [
+                "1950-01-01T12:00:00Z",
+                "2014-12-31T12:00:00Z"
+            ],
+            "description": "time"
+        }
+    },
+    "dashboard:is_periodic": true,
+    "dashboard:time_density": "day",
+    "stac_version": "1.0.0",
+    "providers": [
+        {
+            "name": "NASA VEDA",
+            "url": "https://www.earthdata.nasa.gov/dashboard/",
+            "roles": [
+                "host"
+            ]
+        }
+    ]
+}

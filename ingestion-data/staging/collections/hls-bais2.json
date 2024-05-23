@@ -1,0 +1,54 @@
+{
+    "id": "hls-bais2",
+    "type": "Collection",
+    "title": "HLS-calculated BAIS2 burned area",
+    "links": [],
+    "description": "HLS-calculated BAIS2 burned area index from 2023-08-13 after the Lahaina fire was contained. Higher values indicate greater likelihood of scorched earth.",
+    "extent": {
+        "spatial": {
+            "bbox": [
+                [
+                    -156.69638870402082,
+                    20.842046882739975,
+                    -156.64345004018185,
+                    20.911820074106824
+                ]
+            ]
+        },
+        "temporal": {
+            "interval": [
+                [
+                    "2023-08-13T00:00:00Z",
+                    "2023-08-13T00:00:00Z"
+                ]
+            ]
+        }
+    },
+    "license": "CC0-1.0",
+    "stac_extensions": [
+        "https://stac-extensions.github.io/item-assets/v1.0.0/schema.json"
+    ],
+    "item_assets": {
+        "cog_default": {
+            "type": "image/tiff; application=geotiff; profile=cloud-optimized",
+            "roles": [
+                "data",
+                "layer"
+            ],
+            "title": "Default COG Layer",
+            "description": "Cloud optimized default layer to display on map"
+        }
+    },
+    "dashboard:is_periodic": false,
+    "dashboard:time_density": "day",
+    "stac_version": "1.0.0",
+    "providers": [
+        {
+            "name": "NASA VEDA",
+            "url": "https://www.earthdata.nasa.gov/dashboard/",
+            "roles": [
+                "host"
+            ]
+        }
+    ]
+}
