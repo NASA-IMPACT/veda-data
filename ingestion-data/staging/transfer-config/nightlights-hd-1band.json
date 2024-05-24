@@ -1,0 +1,16 @@
+[
+    {
+        "origin_bucket": "veda-data-store-staging",
+        "origin_prefix": "nightlights-hd-1band/",
+        "target_bucket": "veda-data-store",
+        "collection": "nightlights-hd-1band",
+        "filename_regex": "^(.*)BMHD_Ida(.*)1band.tif$"
+    },
+    {
+        "origin_bucket": "veda-data-store-staging",
+        "origin_prefix": "nightlights-hd-1band/",
+        "target_bucket": "veda-data-store",
+        "collection": "nightlights-hd-1band",
+        "filename_regex": "^(.*)Maria(.*)1band.tif$"
+    }
+]

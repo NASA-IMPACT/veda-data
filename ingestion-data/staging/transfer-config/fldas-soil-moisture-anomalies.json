@@ -1,0 +1,9 @@
+[
+    {
+        "origin_bucket": "veda-data-store-staging",
+        "origin_prefix": "fldas-soil-moisture-anomalies",
+        "target_bucket": "veda-data-store",
+        "collection": "fldas-soil-moisture-anomalies",
+        "filename_regex": "^(.*)FLDAS_NOAH01_SoilMoi00_10cm_tavg"
+    }
+]

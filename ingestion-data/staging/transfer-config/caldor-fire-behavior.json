@@ -1,0 +1,9 @@
+[
+    {
+        "origin_bucket": "veda-data-store-staging",
+        "origin_prefix": "EIS/COG/Fire-Hydro/",
+        "target_bucket": "veda-data-store",
+        "collection": "caldor-fire-behavior",
+        "filename_regex": "^(.*)frp_to_save.tif$"
+    }
+]

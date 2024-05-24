@@ -1,0 +1,9 @@
+[
+    {
+        "origin_bucket": "veda-data-store-staging",
+        "origin_prefix": "houston-aod/",
+        "target_bucket": "veda-data-store",
+        "collection": "houston-aod-diff",
+        "filename_regex": "^(.*)HOUS_AOD_difference_2000_2019"
+    }
+]

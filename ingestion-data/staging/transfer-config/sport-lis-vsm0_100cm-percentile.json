@@ -1,0 +1,9 @@
+[
+    {
+        "origin_bucket": "veda-data-store-staging",
+        "origin_prefix": "sport-lis-vsm0_100cm-percentile/",
+        "target_bucket": "veda-data-store",
+        "collection": "sport-lis-vsm0_100cm-percentile",
+        "filename_regex": "^(.*)sport_lis(.*)cog.tif$"
+    }
+]

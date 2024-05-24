@@ -1,0 +1,9 @@
+[
+    {
+        "origin_bucket": "veda-data-store-staging",
+        "origin_prefix": "",
+        "target_bucket": "veda-data-store",
+        "collection": "epa-ch4emission-yeargrid-v2express",
+        "filename_regex": ""
+    }
+]

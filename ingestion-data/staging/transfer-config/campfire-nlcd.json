@@ -1,0 +1,9 @@
+[
+    {
+        "origin_bucket": "veda-data-store-staging",
+        "origin_prefix": "campfire-data/",
+        "target_bucket": "veda-data-store",
+        "collection": "campfire-nlcd",
+        "filename_regex": "^(.*)CampFire_NLCD_2019"
+    }
+]

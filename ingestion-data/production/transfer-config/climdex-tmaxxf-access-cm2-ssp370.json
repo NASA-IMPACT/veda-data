@@ -1,0 +1,9 @@
+[
+    {
+        "origin_bucket": "veda-data-store-staging",
+        "origin_prefix": "",
+        "target_bucket": "veda-data-store",
+        "collection": "climdex-tmaxxf-access-cm2-ssp370",
+        "filename_regex": ""
+    }
+]
