@@ -1,0 +1,96 @@
+{
+    "id": "climdex-tmaxxf-access-cm2-ssp126",
+    "type": "Collection",
+    "links": [],
+    "title": "CLIMDEX ACCESS CM2 SSP125 tmaxXF",
+    "extent": {
+        "spatial": {
+            "bbox": [
+                [
+                    -180,
+                    -90,
+                    180,
+                    90
+                ]
+            ]
+        },
+        "temporal": {
+            "interval": [
+                [
+                    "2015-01-01T00:00:00+00:00",
+                    "2101-12-31T23:59:59+00:00"
+                ]
+            ]
+        }
+    },
+    "license": "CC-BY-SA-4.0",
+    "description": "CLIMDEX ACCESS CM2 SSP125 - variable tmaxXF",
+    "item_assets": {
+        "cog_default": {
+            "type": "image/tiff; application=geotiff; profile=cloud-optimized",
+            "roles": [
+                "data",
+                "layer"
+            ],
+            "title": "Default COG Layer",
+            "description": "Cloud optimized default layer to display on map"
+        },
+        "tmax_above_86": {
+            "type": "image/tiff; application=geotiff; profile=cloud-optimized",
+            "roles": [
+                "data",
+                "layer"
+            ],
+            "title": "Tmax Above 86",
+            "description": "Tmax Above 86"
+        },
+        "tmax_above_90": {
+            "type": "image/tiff; application=geotiff; profile=cloud-optimized",
+            "roles": [
+                "data",
+                "layer"
+            ],
+            "title": "Tmax Above 90",
+            "description": "Tmax Above 90"
+        },
+        "tmax_above_100": {
+            "type": "image/tiff; application=geotiff; profile=cloud-optimized",
+            "roles": [
+                "data",
+                "layer"
+            ],
+            "title": "Tmax Above 100",
+            "description": "Tmax Above 100"
+        },
+        "tmax_above_110": {
+            "type": "image/tiff; application=geotiff; profile=cloud-optimized",
+            "roles": [
+                "data",
+                "layer"
+            ],
+            "title": "Tmax Above 110",
+            "description": "Tmax Above 110"
+        },
+        "tmax_above_115": {
+            "type": "image/tiff; application=geotiff; profile=cloud-optimized",
+            "roles": [
+                "data",
+                "layer"
+            ],
+            "title": "Tmax Above 115",
+            "description": "Tmax Above 115"
+        }
+    },
+    "stac_version": "1.0.0",
+    "dashboard:is_periodic": true,
+    "dashboard:time_density": "year",
+    "providers": [
+        {
+            "name": "NASA VEDA",
+            "url": "https://www.earthdata.nasa.gov/dashboard/",
+            "roles": [
+                "host"
+            ]
+        }
+    ]
+}

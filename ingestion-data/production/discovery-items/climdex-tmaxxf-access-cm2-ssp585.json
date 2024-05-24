@@ -1,0 +1,8 @@
+{
+    "collection": "climdex-tmaxxf-access-cm2-ssp585",
+    "bucket": "veda-data-store",
+    "prefix": "climdex-tmaxxf-access-cm2-ssp585/",
+    "filename_regex": "",
+    "discovery": "s3",
+    "upload": false
+}

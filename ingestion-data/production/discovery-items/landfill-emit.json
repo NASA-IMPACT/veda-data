@@ -1,0 +1,8 @@
+{
+    "collection": "landfill-emit",
+    "bucket": "veda-data-store",
+    "prefix": "landfill-emit/",
+    "filename_regex": "",
+    "discovery": "s3",
+    "upload": false
+}

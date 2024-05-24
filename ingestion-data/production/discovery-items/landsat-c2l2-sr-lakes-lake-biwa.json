@@ -1,7 +1,0 @@
-{
-    "collection": "landsat-c2l2-sr-lakes-lake-biwa",
-    "bucket": "veda-data-store",
-    "discovery": "s3",
-    "upload": false,
-    "prefix": "landsat-c2l2-sr-lakes-lake-biwa/"
-}

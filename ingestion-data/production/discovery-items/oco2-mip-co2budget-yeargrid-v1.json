@@ -1,0 +1,8 @@
+{
+    "collection": "oco2-mip-co2budget-yeargrid-v1",
+    "bucket": "veda-data-store",
+    "prefix": "oco2-mip-co2budget-yeargrid-v1/",
+    "filename_regex": "",
+    "discovery": "s3",
+    "upload": false
+}

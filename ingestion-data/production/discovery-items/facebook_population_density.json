@@ -1,0 +1,8 @@
+{
+    "collection": "facebook_population_density",
+    "bucket": "",
+    "prefix": "facebook_population_density/",
+    "filename_regex": "",
+    "discovery": "s3",
+    "upload": false
+}

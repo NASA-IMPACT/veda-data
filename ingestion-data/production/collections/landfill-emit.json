@@ -1,0 +1,73 @@
+{
+    "id": "landfill-emit",
+    "type": "Collection",
+    "links": [],
+    "title": "EMIT Landfill Plumes",
+    "assets": null,
+    "extent": {
+        "spatial": {
+            "bbox": [
+                [
+                    -121.19141340990029,
+                    32.521156113298424,
+                    -96.67328554146772,
+                    37.883293506113645
+                ]
+            ]
+        },
+        "temporal": {
+            "interval": [
+                [
+                    "2023-06-22T00:00:00+00:00",
+                    "2023-08-25T00:00:00+00:00"
+                ]
+            ]
+        }
+    },
+    "license": "CC0-1.0",
+    "renders": {
+        "dashboard": {
+            "bidx": [
+                1
+            ],
+            "title": "VEDA Dashboard Render Parameters",
+            "assets": [
+                "cog_default"
+            ],
+            "rescale": [
+                [
+                    1,
+                    1500
+                ]
+            ],
+            "colormap_name": "plasma"
+        }
+    },
+    "keywords": null,
+    "providers": null,
+    "summaries": {
+        "datetime": [
+            "2023-06-22T00:00:00Z",
+            "2023-08-25T00:00:00Z"
+        ]
+    },
+    "description": "EMIT landfill plumes in June and August 2023 supporting Environmental Justice",
+    "item_assets": {
+        "cog_default": {
+            "type": "image/tiff; application=geotiff; profile=cloud-optimized",
+            "roles": [
+                "data",
+                "layer"
+            ],
+            "title": "Default COG Layer",
+            "description": "Cloud optimized default layer to display on map"
+        }
+    },
+    "stac_version": "1.0.0",
+    "stac_extensions": [
+        "https://stac-extensions.github.io/render/v1.0.0/schema.json",
+        "https://stac-extensions.github.io/item-assets/v1.0.0/schema.json"
+    ],
+    "dashboard:is_periodic": false,
+    "dashboard:time_density": "day"
+}

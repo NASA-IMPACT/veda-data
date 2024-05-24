@@ -2,8 +2,7 @@
     "collection": "OMSO2PCA-COG",
     "bucket": "veda-data-store",
     "prefix": "OMSO2PCA-COG/",
-    "filename_regex": "^(.*)OMSO2PCA_LUT_SCD",
+    "filename_regex": "",
     "discovery": "s3",
-    "upload": false,
-    "datetime_range": "year"
+    "upload": false
 }
