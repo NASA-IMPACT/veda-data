@@ -1,9 +1,9 @@
 [
     {
         "origin_bucket": "veda-data-store-staging",
-        "origin_prefix": "",
+        "origin_prefix": "landfill/",
         "target_bucket": "veda-data-store",
         "collection": "landfill-emit",
-        "filename_regex": ""
+        "filename_regex": "^(.*)EMIT_landfill"
     }
 ]

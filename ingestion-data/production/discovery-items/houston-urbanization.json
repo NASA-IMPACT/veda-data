@@ -2,7 +2,7 @@
     "collection": "houston-urbanization",
     "bucket": "veda-data-store",
     "prefix": "houston-urbanization/",
-    "filename_regex": "^(.*)HOUS_DFAL_urbanization",
+    "filename_regex": "^(.*)HOUS_DFAL_urbanization_2001_2019.tif$",
     "discovery": "s3",
     "upload": false
 }

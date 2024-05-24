@@ -3,7 +3,6 @@
     "type": "Collection",
     "links": [],
     "title": "EMIT Landfill Plumes",
-    "assets": null,
     "extent": {
         "spatial": {
             "bbox": [
@@ -43,8 +42,6 @@
             "colormap_name": "plasma"
         }
     },
-    "keywords": null,
-    "providers": null,
     "summaries": {
         "datetime": [
             "2023-06-22T00:00:00Z",
@@ -69,5 +66,14 @@
         "https://stac-extensions.github.io/item-assets/v1.0.0/schema.json"
     ],
     "dashboard:is_periodic": false,
-    "dashboard:time_density": "day"
+    "dashboard:time_density": "day",
+    "providers": [
+        {
+            "name": "NASA VEDA",
+            "url": "https://www.earthdata.nasa.gov/dashboard/",
+            "roles": [
+                "host"
+            ]
+        }
+    ]
 }
