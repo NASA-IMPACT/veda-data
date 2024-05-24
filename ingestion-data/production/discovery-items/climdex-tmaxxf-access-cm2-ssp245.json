@@ -2,7 +2,7 @@
     "collection": "climdex-tmaxxf-access-cm2-ssp245",
     "bucket": "veda-data-store",
     "prefix": "climdex-tmaxxf-access-cm2-ssp245/",
-    "filename_regex": "",
+    "filename_regex": ".*-ssp245_(.*)_tmax.*.tif",
     "discovery": "s3",
     "upload": false
 }
