@@ -3,8 +3,8 @@
     "bucket": "veda-data-store",
     "prefix": "climdex-tmaxxf-access-cm2-ssp126/",
     "filename_regex": ".*-ssp126_(.*)_tmax.*.tif$",
-    "id_template": "",
-    "id_regex": "",
+    "id_regex": ".*-ssp126_(.*)_tmax.*.tif$",
+    "id_template": "climdex-tmaxxf-access-cm2-ssp126-{}",
     "datetime_range": "year",
     "assets": {
         "tmax_above_86": {
