@@ -2,7 +2,7 @@
     "collection": "lis-global-da-streamflow",
     "bucket": "veda-data-store",
     "prefix": "lis-global-da-streamflow/",
-    "filename_regex": "^(.*)LIS_Streamflow",
+    "filename_regex": "^(.*)LIS_Streamflow(.*).tif$",
     "discovery": "s3",
     "upload": false
 }
