@@ -2,7 +2,7 @@
     "collection": "lis-global-da-gpp-trend",
     "bucket": "veda-data-store",
     "prefix": "lis-global-da-gpp-trend/",
-    "filename_regex": "^(.*)DAGPP_STL_based_trend",
+    "filename_regex": "^(.*)DAGPP_STL_based_trend_v3_2003_2021",
     "discovery": "s3",
     "upload": false
 }
