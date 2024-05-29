@@ -24,7 +24,7 @@ When submitting STAC records to ingest, a pull request can be made with the data
 
 ### `collections/`
 
-The `ingestion-data/collections/` directory holds json files representing the data for VEDA collection metadata (STAC).
+The `ingestion-data/production/collections/` directory holds json files representing the data for VEDA collection metadata (STAC).
 
 Should follow the following format:
 
