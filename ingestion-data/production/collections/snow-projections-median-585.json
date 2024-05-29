@@ -1,0 +1,90 @@
+{
+    "id": "snow-projections-median-585",
+    "type": "Collection",
+    "title": "Projections of Snow Water Equivalent (SWE) - SSP5-8.5",
+    "links": [],
+    "description": "Historical (1995 - 2014) and future SWE simulated using the LIS framework and CMIP6 climate projections (SSP5-8.5 scenario) downscaled by NASA Earth Exchange (NEX-GDDP-CMIP6)",
+    "extent": {
+        "spatial": {
+            "bbox": [
+                [
+                    -121.2149658203125,
+                    36.66500091552734,
+                    -105.40498779296708,
+                    49.064999694823946
+                ]
+            ]
+        },
+        "temporal": {
+            "interval": [
+                [
+                    "2017-04-01T00:00:00Z",
+                    "2077-05-01T00:00:00Z"
+                ]
+            ]
+        }
+    },
+    "license": "CC0-1.0",
+    "stac_extensions": [
+        "https://stac-extensions.github.io/render/v1.0.0/schema.json",
+        "https://stac-extensions.github.io/item-assets/v1.0.0/schema.json"
+    ],
+    "item_assets": {
+        "cog_default": {
+            "type": "image/tiff; application=geotiff; profile=cloud-optimized",
+            "roles": [
+                "data",
+                "layer"
+            ],
+            "title": "Default COG Layer",
+            "description": "Cloud optimized default layer to display on map"
+        }
+    },
+    "dashboard:is_periodic": false,
+    "dashboard:time_density": null,
+    "stac_version": "1.0.0",
+    "renders": {
+        "dashboard": {
+            "resampling": "bilinear",
+            "bidx": [
+                1
+            ],
+            "colormap_name": "blues",
+            "rescale": [
+                [
+                    0,
+                    1000
+                ]
+            ],
+            "assets": [
+                "cog_default"
+            ],
+            "title": "VEDA Dashboard Render Parameters"
+        }
+    },
+    "providers": [
+        {
+            "name": "NASA Center for Climate Simulation (NCCS)",
+            "url": "https://www.nccs.nasa.gov/services/data-collections/land-based-products/nex-gddp-cmip6",
+            "roles": [
+                "producer",
+                "processor",
+                "licensor"
+            ]
+        },
+        {
+            "name": "NASA Earth Information System",
+            "url": "https://www.earthdata.nasa.gov/eis",
+            "roles": [
+                "processor"
+            ]
+        },
+        {
+            "name": "NASA VEDA",
+            "url": "https://www.earthdata.nasa.gov/dashboard/",
+            "roles": [
+                "host"
+            ]
+        }
+    ]
+}

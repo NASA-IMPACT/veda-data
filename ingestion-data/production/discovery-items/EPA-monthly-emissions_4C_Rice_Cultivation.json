@@ -1,0 +1,9 @@
+{
+    "collection": "EPA-monthly-emissions_4C_Rice_Cultivation",
+    "prefix": "EPA-monthly-emissions_4C_Rice_Cultivation/",
+    "bucket": "veda-data-store",
+    "filename_regex": "^(.*)Rice_Cultivation_(.*).tif$",
+    "discovery": "s3",
+    "upload": false,
+    "datetime_range": "month"
+}

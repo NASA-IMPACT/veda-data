@@ -1,0 +1,9 @@
+[
+    {
+        "origin_bucket": "veda-data-store-staging",
+        "origin_prefix": "OMSO2PCA-COG/",
+        "target_bucket": "veda-data-store",
+        "collection": "OMSO2PCA-COG",
+        "filename_regex": "^(.*)OMSO2PCA_LUT_SCD"
+    }
+]

@@ -1,0 +1,8 @@
+{
+    "collection": "grdi-cdr-raster",
+    "bucket": "veda-data-store",
+    "prefix": "grdi-cdr-raster/",
+    "filename_regex": "",
+    "discovery": "s3",
+    "upload": false
+}

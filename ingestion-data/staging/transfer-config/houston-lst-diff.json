@@ -1,0 +1,9 @@
+[
+    {
+        "origin_bucket": "climatedashboard-data",
+        "origin_prefix": "houston/",
+        "target_bucket": "veda-data-store",
+        "collection": "houston-lst-diff",
+        "filename_regex": "^(.*)houston-lst-diff_2000_2019"
+    }
+]

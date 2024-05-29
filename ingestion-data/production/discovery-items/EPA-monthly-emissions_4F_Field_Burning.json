@@ -1,0 +1,9 @@
+{
+    "collection": "EPA-monthly-emissions_4F_Field_Burning",
+    "prefix": "EPA-monthly-emissions_4F_Field_Burning/",
+    "bucket": "veda-data-store",
+    "filename_regex": "^(.*)Field_Burning_(.*).tif$",
+    "discovery": "s3",
+    "upload": false,
+    "datetime_range": "month"
+}

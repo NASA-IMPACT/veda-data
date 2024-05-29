@@ -1,8 +1,0 @@
-{
-    "collection": "hls-bais2",
-    "bucket": "veda-data-store",
-    "prefix": "hls-bais2/",
-    "filename_regex": "^(.*)Lahaina_BAIS2",
-    "discovery": "s3",
-    "upload": false
-}

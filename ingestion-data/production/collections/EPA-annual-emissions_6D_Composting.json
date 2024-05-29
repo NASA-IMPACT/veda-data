@@ -1,0 +1,80 @@
+{
+    "id": "EPA-annual-emissions_6D_Composting",
+    "type": "Collection",
+    "title": "Gridded 2012 EPA Methane Emissions - Composting",
+    "links": [],
+    "description": "Emissions from sector 6D from composting.",
+    "extent": {
+        "spatial": {
+            "bbox": [
+                [
+                    -129.99999694660497,
+                    19.999999240339655,
+                    -59.999999238697754,
+                    54.99999694496308
+                ]
+            ]
+        },
+        "temporal": {
+            "interval": [
+                [
+                    "2012-01-01T00:00:00Z",
+                    "2012-12-31T23:59:59Z"
+                ]
+            ]
+        }
+    },
+    "license": "CC0-1.0",
+    "stac_extensions": [
+        "https://stac-extensions.github.io/render/v1.0.0/schema.json",
+        "https://stac-extensions.github.io/item-assets/v1.0.0/schema.json"
+    ],
+    "item_assets": {
+        "cog_default": {
+            "type": "image/tiff; application=geotiff; profile=cloud-optimized",
+            "roles": [
+                "data",
+                "layer"
+            ],
+            "title": "Default COG Layer",
+            "description": "Cloud optimized default layer to display on map"
+        }
+    },
+    "dashboard:is_periodic": true,
+    "dashboard:time_density": "year",
+    "stac_version": "1.0.0",
+    "renders": {
+        "dashboard": {
+            "colormap_name": "rainbow",
+            "rescale": [
+                [
+                    0,
+                    7718224527
+                ]
+            ],
+            "nodata": 0,
+            "assets": [
+                "cog_default"
+            ],
+            "title": "VEDA Dashboard Render Parameters"
+        }
+    },
+    "providers": [
+        {
+            "name": "EPA",
+            "url": "https://www.epa.gov/ghgemissions/gridded-2012-methane-emissions",
+            "roles": [
+                "producer",
+                "processor",
+                "licensor"
+            ]
+        },
+        {
+            "name": "NASA VEDA",
+            "url": "https://www.earthdata.nasa.gov/dashboard/",
+            "roles": [
+                "host"
+            ]
+        }
+    ]
+}

@@ -1,9 +1,0 @@
-{
-    "collection": "cygnss-watermask-ucberkeley",
-    "prefix": "cygnss-watermask-ucberkeley/",
-    "bucket": "veda-data-store",
-    "filename_regex": "(.*)cygnss_watermask_ucberkeley(.*).tif$",
-    "datetime_range": "month",
-    "discovery": "s3",
-    "upload": false
-}

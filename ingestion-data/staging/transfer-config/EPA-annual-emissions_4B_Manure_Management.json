@@ -1,0 +1,7 @@
+{
+    "origin_bucket": "veda-data-store-staging",
+    "origin_prefix": "EIS/cog/EPA-inventory-2012/annual/",
+    "target_bucket": "veda-data-store",
+    "collection": "EPA-annual-emissions_4B_Manure_Management",
+    "filename_regex": "^(.*)Manure_Management.tif$"
+}

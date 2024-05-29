@@ -1,0 +1,86 @@
+{
+    "id": "frp-max-thomasfire",
+    "type": "Collection",
+    "title": "Maximum Fire Radiative Power for Thomas Fire",
+    "links": [],
+    "description": "Maximum Fire Radiative Power per 12hr fire line segment for Thomas fire of 2017",
+    "extent": {
+        "spatial": {
+            "bbox": [
+                [
+                    -119.7279834250452,
+                    34.19572604525683,
+                    -118.88724142537933,
+                    34.72668711929945
+                ]
+            ]
+        },
+        "temporal": {
+            "interval": [
+                [
+                    "2017-12-01T00:00:00Z",
+                    "2017-12-31T00:00:00Z"
+                ]
+            ]
+        }
+    },
+    "license": "CC0-1.0",
+    "stac_extensions": [
+        "https://stac-extensions.github.io/render/v1.0.0/schema.json",
+        "https://stac-extensions.github.io/item-assets/v1.0.0/schema.json"
+    ],
+    "item_assets": {
+        "cog_default": {
+            "type": "image/tiff; application=geotiff; profile=cloud-optimized",
+            "roles": [
+                "data",
+                "layer"
+            ],
+            "title": "Default COG Layer",
+            "description": "Cloud optimized default layer to display on map"
+        }
+    },
+    "dashboard:is_periodic": false,
+    "dashboard:time_density": null,
+    "stac_version": "1.0.0",
+    "renders": {
+        "dashboard": {
+            "asset_bidx": "cog_default|1",
+            "colormap_name": "inferno_r",
+            "rescale": [
+                [
+                    1.0,
+                    1080
+                ]
+            ],
+            "nodata": "nan",
+            "assets": [
+                "cog_default"
+            ],
+            "title": "VEDA Dashboard Render Parameters"
+        }
+    },
+    "providers": [
+        {
+            "name": "USGS Burnt Area Emergency Response (BAER)",
+            "url": "https://burnseverity.cr.usgs.gov/products/baer",
+            "roles": [
+                "producer"
+            ]
+        },
+        {
+            "name": "NASA VEDA",
+            "url": "https://www.earthdata.nasa.gov/dashboard/",
+            "roles": [
+                "host"
+            ]
+        },
+        {
+            "name": "NASA VEDA",
+            "url": "https://www.earthdata.nasa.gov/dashboard/",
+            "roles": [
+                "processor"
+            ]
+        }
+    ]
+}

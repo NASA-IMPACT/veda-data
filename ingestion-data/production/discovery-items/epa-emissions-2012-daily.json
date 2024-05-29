@@ -1,8 +1,0 @@
-{
-    "collection": "EPA-daily-emissions_5_Forest_Fires",
-    "prefix": "EPA-daily-emissions_5_Forest_Fires/",
-    "bucket": "veda-data-store",
-    "filename_regex": "^(.*)Forest_Fires_(.*).tif$",
-    "discovery": "s3",
-    "upload": false
-}

@@ -1,0 +1,8 @@
+{
+    "collection": "EPA-daily-emissions_5_Forest_Fires",
+    "bucket": "veda-data-store",
+    "prefix": "EPA-daily-emissions_5_Forest_Fires/",
+    "filename_regex": "",
+    "discovery": "s3",
+    "upload": false
+}

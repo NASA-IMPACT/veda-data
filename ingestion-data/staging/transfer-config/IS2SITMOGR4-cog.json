@@ -1,0 +1,9 @@
+[
+    {
+        "origin_bucket": "veda-data-store-staging",
+        "origin_prefix": "IS2SITMOGR4-cog/",
+        "target_bucket": "veda-data-store",
+        "collection": "IS2SITMOGR4-cog",
+        "filename_regex": "^(.*).tif$"
+    }
+]

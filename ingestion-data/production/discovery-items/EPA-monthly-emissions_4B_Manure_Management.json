@@ -1,0 +1,9 @@
+{
+    "collection": "EPA-monthly-emissions_4B_Manure_Management",
+    "prefix": "EPA-monthly-emissions_4B_Manure_Management/",
+    "bucket": "veda-data-store",
+    "filename_regex": "^(.*)Manure_Management_(.*).tif$",
+    "discovery": "s3",
+    "upload": false,
+    "datetime_range": "month"
+}

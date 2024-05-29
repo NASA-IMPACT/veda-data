@@ -1,0 +1,8 @@
+{
+    "collection": "epa-ch4emission-yeargrid-v2express",
+    "bucket": "veda-data-store",
+    "prefix": "epa-ch4emission-yeargrid-v2express/",
+    "filename_regex": "",
+    "discovery": "s3",
+    "upload": false
+}

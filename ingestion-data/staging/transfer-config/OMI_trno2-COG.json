@@ -1,0 +1,9 @@
+[
+    {
+        "origin_bucket": "veda-data-store-staging",
+        "origin_prefix": "OMI_trno2-COG/",
+        "target_bucket": "veda-data-store",
+        "collection": "OMI_trno2-COG",
+        "filename_regex": "^(.*).tif$"
+    }
+]

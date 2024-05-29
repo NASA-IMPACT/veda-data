@@ -1,0 +1,9 @@
+[
+    {
+        "origin_bucket": "veda-data-store-staging",
+        "origin_prefix": "houston-landcover/",
+        "target_bucket": "veda-data-store",
+        "collection": "houston-landcover",
+        "filename_regex": "^(.*)landcover_Z_f"
+    }
+]

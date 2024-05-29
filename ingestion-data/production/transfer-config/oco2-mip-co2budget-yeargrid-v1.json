@@ -1,0 +1,9 @@
+[
+    {
+        "origin_bucket": "veda-data-store-staging",
+        "origin_prefix": "",
+        "target_bucket": "veda-data-store",
+        "collection": "oco2-mip-co2budget-yeargrid-v1",
+        "filename_regex": ""
+    }
+]

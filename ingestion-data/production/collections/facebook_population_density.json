@@ -1,0 +1,90 @@
+{
+    "id": "facebook_population_density",
+    "type": "Collection",
+    "title": "Population Density Maps using satellite imagery built by Meta",
+    "links": [
+        {
+            "rel": "external",
+            "href": "https://arxiv.org/pdf/1712.05839.pdf",
+            "type": "application/pdf",
+            "title": "Mapping the world population one building at a time"
+        }
+    ],
+    "description": "Facebook high-resolution population density: Darker areas indicate higher population density areas and lighter areas indicate lower population density areas, with a 30m² resolution.",
+    "extent": {
+        "spatial": {
+            "bbox": [
+                [
+                    -180.00041666666667,
+                    -55.985972222324634,
+                    179.82041666695605,
+                    71.33069444444443
+                ]
+            ]
+        },
+        "temporal": {
+            "interval": [
+                [
+                    "2015-01-01T00:00:00Z",
+                    "2015-01-01T00:00:00Z"
+                ]
+            ]
+        }
+    },
+    "license": "MIT",
+    "stac_extensions": [
+        "https://stac-extensions.github.io/render/v1.0.0/schema.json",
+        "https://stac-extensions.github.io/item-assets/v1.0.0/schema.json"
+    ],
+    "item_assets": {
+        "cog_default": {
+            "type": "image/tiff; application=geotiff; profile=cloud-optimized",
+            "roles": [
+                "data",
+                "layer"
+            ],
+            "title": "Default COG Layer",
+            "description": "Cloud optimized default layer to display on map"
+        }
+    },
+    "dashboard:is_periodic": false,
+    "dashboard:time_density": null,
+    "stac_version": "1.0.0",
+    "renders": {
+        "dashboard": {
+            "resampling": "bilinear",
+            "bidx": [
+                1
+            ],
+            "colormap_name": "ylorrd",
+            "rescale": [
+                [
+                    0,
+                    69
+                ]
+            ],
+            "assets": [
+                "cog_default"
+            ],
+            "title": "VEDA Dashboard Render Parameters"
+        }
+    },
+    "providers": [
+        {
+            "name": "Meta Data for Good",
+            "url": "https://dataforgood.facebook.com/dfg/tools/high-resolution-population-density-maps",
+            "roles": [
+                "producer",
+                "processor",
+                "licensor"
+            ]
+        },
+        {
+            "name": "NASA VEDA",
+            "url": "https://www.earthdata.nasa.gov/dashboard/",
+            "roles": [
+                "host"
+            ]
+        }
+    ]
+}

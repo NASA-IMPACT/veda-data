@@ -1,0 +1,9 @@
+[
+    {
+        "origin_bucket": "veda-data-store-staging",
+        "origin_prefix": "no2-monthly-diff/",
+        "target_bucket": "veda-data-store",
+        "collection": "no2-monthly-diff",
+        "filename_regex": "^(.*).tif$"
+    }
+]

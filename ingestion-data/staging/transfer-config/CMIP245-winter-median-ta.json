@@ -1,0 +1,30 @@
+[
+    {
+        "origin_bucket": "veda-data-store-staging",
+        "origin_prefix": "EIS/NEX-GDDP-CMIP6/",
+        "target_bucket": "veda-data-store",
+        "collection": "CMIP245-winter-median-ta",
+        "filename_regex": "^(.*)_tas(.*)ssp245_2025(.*).cog.tif$"
+    },
+    {
+        "origin_bucket": "veda-data-store-staging",
+        "origin_prefix": "EIS/NEX-GDDP-CMIP6/",
+        "target_bucket": "veda-data-store",
+        "collection": "CMIP245-winter-median-ta",
+        "filename_regex": "^(.*)_tas(.*)ssp245_2045(.*).cog.tif$"
+    },
+    {
+        "origin_bucket": "veda-data-store-staging",
+        "origin_prefix": "EIS/NEX-GDDP-CMIP6/",
+        "target_bucket": "veda-data-store",
+        "collection": "CMIP245-winter-median-ta",
+        "filename_regex": "^(.*)_tas(.*)ssp245_2065(.*).cog.tif$"
+    },
+    {
+        "origin_bucket": "veda-data-store-staging",
+        "origin_prefix": "EIS/NEX-GDDP-CMIP6/",
+        "target_bucket": "veda-data-store",
+        "collection": "CMIP245-winter-median-ta",
+        "filename_regex": "^(.*)_tas(.*)ssp245_2085(.*).cog.tif$"
+    }
+]

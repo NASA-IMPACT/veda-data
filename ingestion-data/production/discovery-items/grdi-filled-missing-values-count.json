@@ -1,0 +1,8 @@
+{
+    "collection": "grdi-filled-missing-values-count",
+    "bucket": "veda-data-store",
+    "prefix": "grdi-filled-missing-values-count/",
+    "filename_regex": "",
+    "discovery": "s3",
+    "upload": false
+}

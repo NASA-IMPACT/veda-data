@@ -1,0 +1,7 @@
+{
+    "origin_bucket": "veda-data-store-staging",
+    "origin_prefix": "EIS/cog/EPA-inventory-2012/monthly/",
+    "target_bucket": "veda-data-store",
+    "collection": "EPA-monthly-emissions_4F_Field_Burning",
+    "filename_regex": "^(.*)Field_Burning_(.*).tif$"
+}

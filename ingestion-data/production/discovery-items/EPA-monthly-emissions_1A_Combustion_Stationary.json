@@ -1,0 +1,9 @@
+{
+    "collection": "EPA-monthly-emissions_1A_Combustion_Stationary",
+    "prefix": "EPA-monthly-emissions_1A_Combustion_Stationary/",
+    "bucket": "veda-data-store",
+    "filename_regex": "^(.*)Combustion_Stationary_(.*).tif$",
+    "discovery": "s3",
+    "upload": false,
+    "datetime_range": "month"
+}

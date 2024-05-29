@@ -1,0 +1,7 @@
+{
+    "origin_bucket": "veda-data-store-staging",
+    "origin_prefix": "EIS/cog/EPA-inventory-2012/annual/",
+    "target_bucket": "veda-data-store",
+    "collection": "EPA-annual-emissions_1B2b_Natural_Gas_Transmission",
+    "filename_regex": "^(.*)Natural_Gas_Transmission.tif$"
+}

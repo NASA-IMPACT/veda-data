@@ -1,0 +1,58 @@
+[
+    {
+        "origin_bucket": "veda-data-store-staging",
+        "origin_prefix": "co2-mean/",
+        "target_bucket": "veda-data-store",
+        "collection": "co2-mean",
+        "filename_regex": "^(.*)2015.*.tif$"
+    },
+    {
+        "origin_bucket": "veda-data-store-staging",
+        "origin_prefix": "co2-mean/",
+        "target_bucket": "veda-data-store",
+        "collection": "co2-mean",
+        "filename_regex": "^(.*)2016.*.tif$"
+    },
+    {
+        "origin_bucket": "veda-data-store-staging",
+        "origin_prefix": "co2-mean/",
+        "target_bucket": "veda-data-store",
+        "collection": "co2-mean",
+        "filename_regex": "^(.*)2017.*.tif$"
+    },
+    {
+        "origin_bucket": "veda-data-store-staging",
+        "origin_prefix": "co2-mean/",
+        "target_bucket": "veda-data-store",
+        "collection": "co2-mean",
+        "filename_regex": "^(.*)2018.*.tif$"
+    },
+    {
+        "origin_bucket": "veda-data-store-staging",
+        "origin_prefix": "co2-mean/",
+        "target_bucket": "veda-data-store",
+        "collection": "co2-mean",
+        "filename_regex": "^(.*)2019.*.tif$"
+    },
+    {
+        "origin_bucket": "veda-data-store-staging",
+        "origin_prefix": "co2-mean/",
+        "target_bucket": "veda-data-store",
+        "collection": "co2-mean",
+        "filename_regex": "^(.*)2020.*.tif$"
+    },
+    {
+        "origin_bucket": "veda-data-store-staging",
+        "origin_prefix": "co2-mean/",
+        "target_bucket": "veda-data-store",
+        "collection": "co2-mean",
+        "filename_regex": "^(.*)2021.*.tif$"
+    },
+    {
+        "origin_bucket": "veda-data-store-staging",
+        "origin_prefix": "co2-mean/",
+        "target_bucket": "veda-data-store",
+        "collection": "co2-mean",
+        "filename_regex": "^(.*)2022.*.tif$"
+    }
+]

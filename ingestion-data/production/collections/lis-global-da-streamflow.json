@@ -1,0 +1,74 @@
+{
+    "id": "lis-global-da-streamflow",
+    "type": "Collection",
+    "title": "Streamflow - LIS 10km Global DA",
+    "links": [],
+    "description": "Routed streamflow (in m3 s-1) from 10km global LIS+HyMAP with assimilation",
+    "extent": {
+        "spatial": {
+            "bbox": [
+                [
+                    -179.9500000157243,
+                    -59.98224871364589,
+                    179.9973980503783,
+                    89.9999999874719
+                ]
+            ]
+        },
+        "temporal": {
+            "interval": [
+                [
+                    "2002-08-01T00:00:00Z",
+                    "2019-01-01T00:00:00Z"
+                ]
+            ]
+        }
+    },
+    "license": "CC0-1.0",
+    "stac_extensions": [
+        "https://stac-extensions.github.io/render/v1.0.0/schema.json",
+        "https://stac-extensions.github.io/item-assets/v1.0.0/schema.json"
+    ],
+    "item_assets": {
+        "cog_default": {
+            "type": "image/tiff; application=geotiff; profile=cloud-optimized",
+            "roles": [
+                "data",
+                "layer"
+            ],
+            "title": "Default COG Layer",
+            "description": "Cloud optimized default layer to display on map"
+        }
+    },
+    "dashboard:is_periodic": true,
+    "dashboard:time_density": "day",
+    "stac_version": "1.0.0",
+    "renders": {
+        "dashboard": {
+            "resampling": "bilinear",
+            "bidx": [
+                1
+            ],
+            "colormap_name": "viridis",
+            "rescale": [
+                [
+                    0,
+                    2500
+                ]
+            ],
+            "assets": [
+                "cog_default"
+            ],
+            "title": "VEDA Dashboard Render Parameters"
+        }
+    },
+    "providers": [
+        {
+            "name": "NASA VEDA",
+            "url": "https://www.earthdata.nasa.gov/dashboard/",
+            "roles": [
+                "host"
+            ]
+        }
+    ]
+}

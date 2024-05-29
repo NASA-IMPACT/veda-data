@@ -1,0 +1,9 @@
+[
+    {
+        "origin_bucket": "veda-data-store-staging",
+        "origin_prefix": "houston-ndvi/",
+        "target_bucket": "veda-data-store",
+        "collection": "houston-ndvi",
+        "filename_regex": "^(.*)NDVI"
+    }
+]

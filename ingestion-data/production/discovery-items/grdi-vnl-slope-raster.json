@@ -1,0 +1,8 @@
+{
+    "collection": "grdi-vnl-slope-raster",
+    "bucket": "veda-data-store",
+    "prefix": "grdi-vnl-slope-raster/",
+    "filename_regex": "",
+    "discovery": "s3",
+    "upload": false
+}

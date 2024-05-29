@@ -2,7 +2,7 @@
     "collection": "lis-global-da-totalprecip",
     "bucket": "veda-data-store",
     "prefix": "lis-global-da-totalprecip/",
-    "filename_regex": "^(.*)LIS_TotalPrecip",
+    "filename_regex": "^(.*)LIS_TotalPrecip(.*).tif$",
     "discovery": "s3",
     "upload": false
 }

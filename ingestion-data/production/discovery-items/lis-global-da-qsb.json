@@ -2,7 +2,7 @@
     "collection": "lis-global-da-qsb",
     "bucket": "veda-data-store",
     "prefix": "lis-global-da-qsb/",
-    "filename_regex": "^(.*)LIS_Qsb",
+    "filename_regex": "^(.*)LIS_Qsb(.*).tif$",
     "discovery": "s3",
     "upload": false
 }

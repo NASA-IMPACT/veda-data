@@ -1,0 +1,156 @@
+[
+    {
+        "origin_bucket": "veda-data-store-staging",
+        "origin_prefix": "EIS/COG/LIS_TWS_ANOMALY/",
+        "target_bucket": "veda-data-store",
+        "collection": "lis-tws-anomaly",
+        "filename_regex": "^(.*)2001(.*).tif$"
+    },
+    {
+        "origin_bucket": "veda-data-store-staging",
+        "origin_prefix": "EIS/COG/LIS_TWS_ANOMALY/",
+        "target_bucket": "veda-data-store",
+        "collection": "lis-tws-anomaly",
+        "filename_regex": "^(.*)2002(.*).tif$"
+    },
+    {
+        "origin_bucket": "veda-data-store-staging",
+        "origin_prefix": "EIS/COG/LIS_TWS_ANOMALY/",
+        "target_bucket": "veda-data-store",
+        "collection": "lis-tws-anomaly",
+        "filename_regex": "^(.*)2003(.*).tif$"
+    },
+    {
+        "origin_bucket": "veda-data-store-staging",
+        "origin_prefix": "EIS/COG/LIS_TWS_ANOMALY/",
+        "target_bucket": "veda-data-store",
+        "collection": "lis-tws-anomaly",
+        "filename_regex": "^(.*)2004(.*).tif$"
+    },
+    {
+        "origin_bucket": "veda-data-store-staging",
+        "origin_prefix": "EIS/COG/LIS_TWS_ANOMALY/",
+        "target_bucket": "veda-data-store",
+        "collection": "lis-tws-anomaly",
+        "filename_regex": "^(.*)2005(.*).tif$"
+    },
+    {
+        "origin_bucket": "veda-data-store-staging",
+        "origin_prefix": "EIS/COG/LIS_TWS_ANOMALY/",
+        "target_bucket": "veda-data-store",
+        "collection": "lis-tws-anomaly",
+        "filename_regex": "^(.*)2006(.*).tif$"
+    },
+    {
+        "origin_bucket": "veda-data-store-staging",
+        "origin_prefix": "EIS/COG/LIS_TWS_ANOMALY/",
+        "target_bucket": "veda-data-store",
+        "collection": "lis-tws-anomaly",
+        "filename_regex": "^(.*)2007(.*).tif$"
+    },
+    {
+        "origin_bucket": "veda-data-store-staging",
+        "origin_prefix": "EIS/COG/LIS_TWS_ANOMALY/",
+        "target_bucket": "veda-data-store",
+        "collection": "lis-tws-anomaly",
+        "filename_regex": "^(.*)2008(.*).tif$"
+    },
+    {
+        "origin_bucket": "veda-data-store-staging",
+        "origin_prefix": "EIS/COG/LIS_TWS_ANOMALY/",
+        "target_bucket": "veda-data-store",
+        "collection": "lis-tws-anomaly",
+        "filename_regex": "^(.*)2009(.*).tif$"
+    },
+    {
+        "origin_bucket": "veda-data-store-staging",
+        "origin_prefix": "EIS/COG/LIS_TWS_ANOMALY/",
+        "target_bucket": "veda-data-store",
+        "collection": "lis-tws-anomaly",
+        "filename_regex": "^(.*)2010(.*).tif$"
+    },
+    {
+        "origin_bucket": "veda-data-store-staging",
+        "origin_prefix": "EIS/COG/LIS_TWS_ANOMALY/",
+        "target_bucket": "veda-data-store",
+        "collection": "lis-tws-anomaly",
+        "filename_regex": "^(.*)2011(.*).tif$"
+    },
+    {
+        "origin_bucket": "veda-data-store-staging",
+        "origin_prefix": "EIS/COG/LIS_TWS_ANOMALY/",
+        "target_bucket": "veda-data-store",
+        "collection": "lis-tws-anomaly",
+        "filename_regex": "^(.*)2012(.*).tif$"
+    },
+    {
+        "origin_bucket": "veda-data-store-staging",
+        "origin_prefix": "EIS/COG/LIS_TWS_ANOMALY/",
+        "target_bucket": "veda-data-store",
+        "collection": "lis-tws-anomaly",
+        "filename_regex": "^(.*)2013(.*).tif$"
+    },
+    {
+        "origin_bucket": "veda-data-store-staging",
+        "origin_prefix": "EIS/COG/LIS_TWS_ANOMALY/",
+        "target_bucket": "veda-data-store",
+        "collection": "lis-tws-anomaly",
+        "filename_regex": "^(.*)2014(.*).tif$"
+    },
+    {
+        "origin_bucket": "veda-data-store-staging",
+        "origin_prefix": "EIS/COG/LIS_TWS_ANOMALY/",
+        "target_bucket": "veda-data-store",
+        "collection": "lis-tws-anomaly",
+        "filename_regex": "^(.*)2015(.*).tif$"
+    },
+    {
+        "origin_bucket": "veda-data-store-staging",
+        "origin_prefix": "EIS/COG/LIS_TWS_ANOMALY/",
+        "target_bucket": "veda-data-store",
+        "collection": "lis-tws-anomaly",
+        "filename_regex": "^(.*)2016(.*).tif$"
+    },
+    {
+        "origin_bucket": "veda-data-store-staging",
+        "origin_prefix": "EIS/COG/LIS_TWS_ANOMALY/",
+        "target_bucket": "veda-data-store",
+        "collection": "lis-tws-anomaly",
+        "filename_regex": "^(.*)2017(.*).tif$"
+    },
+    {
+        "origin_bucket": "veda-data-store-staging",
+        "origin_prefix": "EIS/COG/LIS_TWS_ANOMALY/",
+        "target_bucket": "veda-data-store",
+        "collection": "lis-tws-anomaly",
+        "filename_regex": "^(.*)2018(.*).tif$"
+    },
+    {
+        "origin_bucket": "veda-data-store-staging",
+        "origin_prefix": "EIS/COG/LIS_TWS_ANOMALY/",
+        "target_bucket": "veda-data-store",
+        "collection": "lis-tws-anomaly",
+        "filename_regex": "^(.*)2019(.*).tif$"
+    },
+    {
+        "origin_bucket": "veda-data-store-staging",
+        "origin_prefix": "EIS/COG/LIS_TWS_ANOMALY/",
+        "target_bucket": "veda-data-store",
+        "collection": "lis-tws-anomaly",
+        "filename_regex": "^(.*)2020(.*).tif$"
+    },
+    {
+        "origin_bucket": "veda-data-store-staging",
+        "origin_prefix": "EIS/COG/LIS_TWS_ANOMALY/",
+        "target_bucket": "veda-data-store",
+        "collection": "lis-tws-anomaly",
+        "filename_regex": "^(.*)2021(.*).tif$"
+    },
+    {
+        "origin_bucket": "veda-data-store-staging",
+        "origin_prefix": "EIS/COG/LIS_TWS_ANOMALY/",
+        "target_bucket": "veda-data-store",
+        "collection": "lis-tws-anomaly",
+        "filename_regex": "^(.*)2022(.*).tif$"
+    }
+]

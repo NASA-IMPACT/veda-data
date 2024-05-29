@@ -1,0 +1,7 @@
+{
+    "origin_bucket": "veda-data-store-staging",
+    "origin_prefix": "EIS/cog/EPA-inventory-2012/annual/",
+    "target_bucket": "veda-data-store",
+    "collection": "EPA-annual-emissions_2C2_Ferroalloy_Production",
+    "filename_regex": "^(.*)Ferroalloy_Production.tif$"
+}

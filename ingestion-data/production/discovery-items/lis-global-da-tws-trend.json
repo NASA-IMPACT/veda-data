@@ -3,7 +3,7 @@
         "collection": "lis-global-da-tws-trend",
         "bucket": "veda-data-store",
         "prefix": "lis-global-da-tws-trend/",
-        "filename_regex":"^(.*)DATWS_STL_based_trend_v3_2003_2021",
+        "filename_regex": "^(.*)DATWS_STL_based_trend_v3_2003_2021",
         "discovery": "s3",
         "upload": false
     },
@@ -11,7 +11,7 @@
         "collection": "lis-global-da-tws-trend",
         "bucket": "veda-data-store",
         "prefix": "lis-global-da-tws-trend/",
-        "filename_regex":"^(.*)DATWS_STL_based_trendv2_2003_2021",
+        "filename_regex": "^(.*)DATWS_STL_based_trendv2_2003_2021",
         "discovery": "s3",
         "upload": false
     },
@@ -19,7 +19,7 @@
         "collection": "lis-global-da-tws-trend",
         "bucket": "veda-data-store",
         "prefix": "lis-global-da-tws-trend/",
-        "filename_regex":"^(.*)DATWS_STL_based_trend.cog.tif",
+        "filename_regex": "^(.*)DATWS_STL_based_trend.cog.tif",
         "discovery": "s3",
         "upload": false,
         "start_datetime": "2003-01-01T00:00:00Z",
