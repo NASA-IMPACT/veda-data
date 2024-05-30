@@ -1,0 +1,9 @@
+[
+    {
+        "origin_bucket": "veda-data-store-staging",
+        "origin_prefix": "hls-ndvi",
+        "target_bucket": "veda-data-store",
+        "collection": "hls-ndvi",
+        "filename_regex": "^(.*)ndvi_cog_2022-09-[0-9]{2}_day.tif$"
+    }
+]
