@@ -1,0 +1,176 @@
+{
+    "type": "Collection",
+    "id": "landsat-c2l2-sr-lakes-lake-biwa",
+    "stac_version": "1.0.0",
+    "description": "Selected low-cloud-cover Landsat Collection-2 Level-2 Surface Reflectance scenes covering Lake Biwa. Products from multiple missions and instruments are combined in this single collection for the purpose of visualizing RGB images. Note that the full item records are not interchangeable across instruments for purposes other than visualization and that the assets available are not the same for each instrument.",
+    "links": [],
+    "stac_extensions": [
+        "https://stac-extensions.github.io/item-assets/v1.0.0/schema.json"
+    ],
+    "item_assets": {
+        "red": {
+            "type": "image/vnd.stac.geotiff; cloud-optimized=true",
+            "roles": [
+                "data"
+            ],
+            "title": "Red Band (B4)",
+            "eo:bands": [
+                {
+                    "gsd": 30,
+                    "name": "B4",
+                    "common_name": "red",
+                    "center_wavelength": 0.65
+                }
+            ],
+            "description": "Collection 2 Level-2 Red Band (B4) Surface Reflectance"
+        },
+        "blue": {
+            "type": "image/vnd.stac.geotiff; cloud-optimized=true",
+            "roles": [
+                "data"
+            ],
+            "title": "Blue Band (B2)",
+            "eo:bands": [
+                {
+                    "gsd": 30,
+                    "name": "B2",
+                    "common_name": "blue",
+                    "center_wavelength": 0.48
+                }
+            ],
+            "description": "Collection 2 Level-2 Blue Band (B2) Surface Reflectance"
+        },
+        "green": {
+            "type": "image/vnd.stac.geotiff; cloud-optimized=true",
+            "roles": [
+                "data"
+            ],
+            "title": "Green Band (B3)",
+            "eo:bands": [
+                {
+                    "gsd": 30,
+                    "name": "B3",
+                    "common_name": "green",
+                    "center_wavelength": 0.56
+                }
+            ],
+            "description": "Collection 2 Level-2 Green Band (B3) Surface Reflectance"
+        },
+        "thumbnail": {
+            "type": "image/jpeg",
+            "roles": [
+                "thumbnail"
+            ],
+            "title": "Thumbnail image"
+        }
+    },
+    "dashboard:is_periodic": false,
+    "dashboard:time_density": "day",
+    "title": "Selected Landsat 7 through 9 Surface Reflectance Scenes for Lake Biwa",
+    "extent": {
+        "spatial": {
+            "bbox": [
+                [
+                    135.2055231,
+                    33.5515966,
+                    138.0953959,
+                    35.7354584
+                ]
+            ]
+        },
+        "temporal": {
+            "interval": [
+                [
+                    "1984-06-11T00:56:49.159075Z",
+                    "2023-03-19T01:28:30.265546Z"
+                ]
+            ]
+        }
+    },
+    "license": "proprietary",
+    "providers": [
+        {
+            "name": "NASA VEDA",
+            "roles": [
+                "host"
+            ],
+            "url": "https://www.earthdata.nasa.gov/dashboard/"
+        }
+    ],
+    "summaries": {
+        "datetime": [
+            "1984-06-11T00:56:49Z",
+            "1985-11-21T00:57:00Z",
+            "1986-06-01T00:52:46Z",
+            "1987-11-11T00:56:34Z",
+            "1989-06-01T01:02:00Z",
+            "1990-01-19T00:50:57Z",
+            "1990-04-25T00:48:48Z",
+            "1990-12-05T00:47:47Z",
+            "1991-11-22T00:52:45Z",
+            "1993-05-19T00:51:04Z",
+            "1995-05-09T00:36:28Z",
+            "1995-07-28T00:32:50Z",
+            "1995-11-17T00:28:06Z",
+            "1996-04-25T00:38:29Z",
+            "1996-07-14T00:42:54Z",
+            "1997-04-12T00:55:47Z",
+            "1997-10-21T01:01:59Z",
+            "1998-03-30T01:05:21Z",
+            "1999-11-20T01:21:25Z",
+            "2000-12-08T01:18:55Z",
+            "2001-04-07T01:08:29Z",
+            "2001-04-15T01:18:42Z",
+            "2001-11-25T01:17:09Z",
+            "2002-03-09T01:06:42Z",
+            "2002-04-02T01:17:20Z",
+            "2003-09-28T01:16:46Z",
+            "2003-12-25T01:07:17Z",
+            "2004-03-14T01:07:40Z",
+            "2004-05-25T01:17:45Z",
+            "2004-11-17T01:17:31Z",
+            "2005-05-04T01:15:48Z",
+            "2006-08-03T01:18:16Z",
+            "2006-09-04T01:18:11Z",
+            "2006-09-20T01:18:05Z",
+            "2007-03-23T01:23:30Z",
+            "2007-04-08T01:23:25Z",
+            "2007-05-26T01:22:57Z",
+            "2008-10-19T01:12:33Z",
+            "2009-04-29T01:16:01Z",
+            "2009-11-07T01:18:52Z",
+            "2011-02-22T01:22:04Z",
+            "2012-04-29T01:22:59Z",
+            "2012-10-22T01:24:23Z",
+            "2013-04-16T01:24:34Z",
+            "2013-08-14T01:30:35Z",
+            "2014-01-29T01:25:25Z",
+            "2014-11-21T01:28:44Z",
+            "2014-12-31T01:27:04Z",
+            "2015-10-07T01:28:36Z",
+            "2016-02-28T01:28:29Z",
+            "2016-11-26T01:28:55Z",
+            "2017-04-03T01:28:09Z",
+            "2017-05-29T01:31:07Z",
+            "2017-12-07T01:31:01Z",
+            "2017-12-23T01:30:52Z",
+            "2018-03-29T01:29:36Z",
+            "2018-05-24T01:27:29Z",
+            "2019-05-11T01:28:06Z",
+            "2019-12-29T01:09:38Z",
+            "2020-01-06T01:28:47Z",
+            "2020-03-26T01:28:20Z",
+            "2020-12-07T01:28:56Z",
+            "2021-02-25T01:28:36Z",
+            "2021-04-30T01:28:08Z",
+            "2021-10-15T00:23:23Z",
+            "2022-03-08T00:09:29Z",
+            "2022-04-09T01:28:30Z",
+            "2022-05-03T01:28:24Z",
+            "2022-10-02T01:28:56Z",
+            "2022-10-26T01:29:12Z",
+            "2022-11-19T01:29:03Z",
+            "2023-03-19T01:28:30Z"
+        ]
+    }
+}
