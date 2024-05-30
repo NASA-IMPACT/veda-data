@@ -1,0 +1,8 @@
+{
+    "collection": "hls-ndvi",
+    "bucket": "veda-data-store",
+    "prefix":"hls-ndvi",
+    "filename_regex":"^(.*)ndvi_cog_2022-09-[0-9]{2}_day.tif$",
+    "discovery": "s3",
+    "upload": false
+}
