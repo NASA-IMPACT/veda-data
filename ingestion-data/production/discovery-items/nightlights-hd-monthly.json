@@ -1,8 +1,8 @@
 {
     "collection": "nightlights-hd-monthly",
-    "discovery": "s3",
     "prefix": "nightlights-hd-monthly/",
     "bucket": "veda-data-store",
     "filename_regex": "^(.*)(Barcelona|Lima|Paris|Milan|Marseille|Beijing|Dhaka_Dhaka-city|Ghent|Fukuoka_Fukuoka-city|Tokyo-23Wards|Aichi_Nagoya-city|Dunkirk|Madrid|Colombo|Gdynia|Hamburg|Osaka_Osaka-city|Singapore|Venice|Auckland|Genoa|Kyoto_Kyoto-city|London|Rome|Amsterdam|Hokkaido_Sapporo)(.*).tif$",
+    "discovery": "s3",
     "datetime_range": "month"
 }
