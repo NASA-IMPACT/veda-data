@@ -76,5 +76,13 @@
                 "processor"
             ]
         }
-    ]
+    ],
+    "assets": {
+        "thumbnail": {
+            "title": "Thumbnail",
+            "href": "https://thumbnails.openveda.cloud/hls-events-ej--dataset-cover.png",
+            "type": "image/png",
+            "roles": ["thumbnail"]
+        }
+    }
 }
