@@ -63,5 +63,14 @@
             "title": "VEDA Dashboard Render Parameters"
         }
     },
-    "providers": []
+    "providers": [],
+    "assets": {
+        "thumbnail": {
+            "title": "Thumbnail",
+            "description": "Photo by Amy McNally (Landscape in Gondar, Ethiopia)",
+            "href": "https://thumbnails.openveda.cloud/FLDAS_Dataset_Cover.jpg",
+            "type": "image/jpeg",
+            "roles": ["thumbnail"]
+        }
+    }
 }

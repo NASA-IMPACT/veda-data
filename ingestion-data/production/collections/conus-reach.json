@@ -74,5 +74,14 @@
                 "processor"
             ]
         }
-    ]
+    ],
+    "assets": {
+        "thumbnail": {
+            "title": "Thumbnail",
+            "description": "Photo by [NASA](https://www.nasa.gov) (A map showing nitrate loads in the rivers of the United States on 07/01/2018)",
+            "href": "https://thumbnails.openveda.cloud/CONUS_Nitrate_07012018.png",
+            "type": "image/png",
+            "roles": ["thumbnail"]
+        }
+    }
 }

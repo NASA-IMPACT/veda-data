@@ -76,5 +76,14 @@
                 "host"
             ]
         }
-    ]
+    ],
+    "assets": {
+        "thumbnail": {
+            "title": "Thumbnail",
+            "description": "Photo by [American Public Power Association](https://unsplash.com/photos/TF-DL_2L1JM) (Gas processing plant at dusk)",
+            "href": "https://thumbnails.openveda.cloud/epa-natural-gas--cover.jpg",
+            "type": "image/jpeg",
+            "roles": ["thumbnail"]
+        }
+    }
 }

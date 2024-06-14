@@ -75,5 +75,14 @@
                 "host"
             ]
         }
-    ]
+    ],
+    "assets": {
+        "thumbnail": {
+            "title": "Thumbnail",
+            "description": "Photo by [Jordan Opel](https://unsplash.com/photos/3VLHF9b9Plg) (Shacks along a river almost collapsing)",
+            "href": "https://thumbnails.openveda.cloud/grdi--dataset-cover.jpg",
+            "type": "image/jpeg",
+            "roles": ["thumbnail"]
+        }
+    }
 }

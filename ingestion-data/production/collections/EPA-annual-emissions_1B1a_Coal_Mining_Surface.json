@@ -76,5 +76,14 @@
                 "host"
             ]
         }
-    ]
+    ],
+    "assets": {
+        "thumbnail": {
+            "title": "Thumbnail",
+            "description": "Photo by [Dominik Vanyi](https://unsplash.com/photos/Mk2ls9UBO2E) (Machinery working a very large coal mine)",
+            "href": "https://thumbnails.openveda.cloud/epa-coal-mines--cover.jpg",
+            "type": "image/jpeg",
+            "roles": ["thumbnail"]
+        }
+    }
 }

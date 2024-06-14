@@ -110,5 +110,14 @@
                 "processor"
             ]
         }
-    ]
+    ],
+    "assets": {
+        "thumbnail": {
+            "title": "Thumbnail",
+            "description": "Photo by [USGS](https://unsplash.com/photos/d59NHNtT_Ss) (Annual land cover maps for 2001 and 2020 (Bangladesh))",
+            "href": "https://thumbnails.openveda.cloud/bangladesh-landcover-2001-2020--dataset-cover.jpg",
+            "type": "image/jpeg",
+            "roles": ["thumbnail"]
+        }
+    }
 }

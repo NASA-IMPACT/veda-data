@@ -112,5 +112,14 @@
                 "host"
             ]
         }
-    ]
+    ],
+    "assets": {
+        "thumbnail": {
+            "title": "Thumbnail",
+            "description": "Photo by [Jean Wimmerlin](https://unsplash.com/photos/RUj5b4YXaHE) (Bird's eye view of fields)",
+            "href": "https://thumbnails.openveda.cloud/geoglam--dataset-cover.jpg",
+            "type": "image/jpeg",
+            "roles": ["thumbnail"]
+        }
+    }
 }

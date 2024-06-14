@@ -76,5 +76,14 @@
                 "host"
             ]
         }
-    ]
+    ],
+    "assets": {
+        "thumbnail": {
+            "title": "Thumbnail",
+            "description": "Photo by [James Baltz](https://unsplash.com/photos/jAt6cN6zl8M) (Tractors tending a corn field)",
+            "href": "https://thumbnails.openveda.cloud/epa-agriculture--cover.jpg",
+            "type": "image/jpeg",
+            "roles": ["thumbnail"]
+        }
+    }
 }

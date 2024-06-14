@@ -66,5 +66,14 @@
                 "host"
             ]
         }
-    ]
+    ],
+    "assets": {
+        "thumbnail": {
+            "title": "Thumbnail",
+            "description": "Photo by [Karl Callwood](https://unsplash.com/photos/Ko1sGLhZm5w) (Rocky ocean shore)",
+            "href": "https://thumbnails.openveda.cloud/ocean-production--dataset-cover.jpg",
+            "type": "image/jpeg",
+            "roles": ["thumbnail"]
+        }
+    }
 }

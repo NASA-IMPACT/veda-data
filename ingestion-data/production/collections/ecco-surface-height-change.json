@@ -80,5 +80,14 @@
                 "processor"
             ]
         }
-    ]
+    ],
+    "assets": {
+        "thumbnail": {
+            "title": "Thumbnail",
+            "description": "Photo by [Lance Asper](https://unsplash.com/photos/3P3NHLZGCp8) (Wave crashing on a sandy beach)",
+            "href": "https://thumbnails.openveda.cloud/ecco-surface-height-change--dataset-cover.jpg",
+            "type": "image/jpeg",
+            "roles": ["thumbnail"]
+        }
+    }
 }

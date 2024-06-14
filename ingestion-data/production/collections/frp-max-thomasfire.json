@@ -82,5 +82,14 @@
                 "processor"
             ]
         }
-    ]
+    ],
+    "assets": {
+        "thumbnail": {
+            "title": "Thumbnail",
+            "description": "Photo by [Mike Newbry](https://unsplash.com/photos/DwtX9mMHBJ0) (Hillside engulfed by wildfire)",
+            "href": "https://thumbnails.openveda.cloud/mtbs-burn-severity--dataset-cover.jpg",
+            "type": "image/jpeg",
+            "roles": ["thumbnail"]
+        }
+    }
 }

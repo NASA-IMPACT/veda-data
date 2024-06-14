@@ -50,5 +50,14 @@
                 "host"
             ]
         }
-    ]
+    ],
+    "assets": {
+        "thumbnail": {
+            "title": "Thumbnail",
+            "description": "Photo by NASA (Blue tarp detections for Jefferson Parish, LA on February 12, 2022)",
+            "href": "https://thumbnails.openveda.cloud/ps-bluetarp--dataset-cover.jpg",
+            "type": "image/jpeg",
+            "roles": ["thumbnail"]
+        }
+    }
 }

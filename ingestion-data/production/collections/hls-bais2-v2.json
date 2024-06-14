@@ -50,5 +50,14 @@
                 "host"
             ]
         }
-    ]
+    ],
+    "assets": {
+        "thumbnail": {
+            "title": "Thumbnail",
+            "description": "Photo by [XXXXXXX](XXX) (XXX)",
+            "href": "https://thumbnails.openveda.cloud/XXX.jpg",
+            "type": "image/jpeg",
+            "roles": ["thumbnail"]
+        }
+    }
 }

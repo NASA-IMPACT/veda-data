@@ -70,5 +70,14 @@
                 "host"
             ]
         }
-    ]
+    ],
+    "assets": {
+        "thumbnail": {
+            "title": "Thumbnail",
+            "description": "Photo by NASA LIS (One day of terrestrial water storage from LIS outputs)",
+            "href": "https://thumbnails.openveda.cloud/global_tws_blackbg_v2.png",
+            "type": "image/png",
+            "roles": ["thumbnail"]
+        }
+    }
 }

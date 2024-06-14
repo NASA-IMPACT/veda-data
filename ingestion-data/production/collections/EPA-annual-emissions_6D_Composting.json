@@ -76,5 +76,14 @@
                 "host"
             ]
         }
-    ]
+    ],
+    "assets": {
+        "thumbnail": {
+            "title": "Thumbnail",
+            "description": "Photo by [Antoine GIRET](https://unsplash.com/photos/7_TSzqJms4w) (Mountain of rubbish and garbage on the beach by the sea)",
+            "href": "https://thumbnails.openveda.cloud/epa-waste--cover.jpg",
+            "type": "image/jpeg",
+            "roles": ["thumbnail"]
+        }
+    }
 }

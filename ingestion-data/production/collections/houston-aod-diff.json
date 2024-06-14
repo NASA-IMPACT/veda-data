@@ -81,5 +81,14 @@
                 "processor"
             ]
         }
-    ]
+    ],
+    "assets": {
+        "thumbnail": {
+            "title": "Thumbnail",
+            "description": "Photo by [Nick van den Berg](https://unsplash.com/photos/2vb-_3t6YCM) (Smog Located In City)",
+            "href": "https://thumbnails.openveda.cloud/smog-city.png",
+            "type": "image/jpeg",
+            "roles": ["thumbnail"]
+        }
+    }
 }
