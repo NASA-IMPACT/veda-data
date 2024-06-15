@@ -79,5 +79,14 @@
                 "host"
             ]
         }
-    ]
+    ],
+    "assets": {
+        "thumbnail": {
+            "title": "Thumbnail",
+            "description": "Photo by [Mick Truyts](https://unsplash.com/photos/x6WQeNYJC1w) (Power plant shooting steam at the sky)",
+            "href": "https://thumbnails.openveda.cloud/no2--dataset-cover.jpg",
+            "type": "image/jpeg",
+            "roles": ["thumbnail"]
+        }
+    }
 }

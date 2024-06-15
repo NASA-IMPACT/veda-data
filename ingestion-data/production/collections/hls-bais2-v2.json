@@ -54,8 +54,8 @@
     "assets": {
         "thumbnail": {
             "title": "Thumbnail",
-            "description": "Photo by [XXXXXXX](XXX) (XXX)",
-            "href": "https://thumbnails.openveda.cloud/XXX.jpg",
+            "description": "Photo by [Matthew Thayer/AP](https://www.sfchronicle.com/travel/article/hawaii-fire-maui-lahaina-18289213.php) (Wildfire erupting over Lahaina, HI, August 8, 2023)",
+            "href": "https://thumbnails.openveda.cloud/lahaina-fire-background.jpg",
             "type": "image/jpeg",
             "roles": ["thumbnail"]
         }

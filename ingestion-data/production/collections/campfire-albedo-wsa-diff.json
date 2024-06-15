@@ -51,11 +51,13 @@
             ]
         }
     ],
-    "thumbnail": {
-        "title": "Thumbnail",
-        "description": "Photo by [Mike Newbry](https://unsplash.com/photos/DwtX9mMHBJ0) (Engulfed hillside in California, 2021)",
-        "href": "https://thumbnails.openveda.cloud/camp-fire-background.jpg",
-        "type": "image/jpeg",
-        "roles": ["thumbnail"]
+    "assets": {
+        "thumbnail": {
+            "title": "Thumbnail",
+            "description": "Photo by [Mike Newbry](https://unsplash.com/photos/DwtX9mMHBJ0) (Engulfed hillside in California, 2021)",
+            "href": "https://thumbnails.openveda.cloud/camp-fire-background.jpg",
+            "type": "image/jpeg",
+            "roles": ["thumbnail"]
+        }
     }
 }

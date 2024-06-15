@@ -172,5 +172,14 @@
             "2022-11-19T01:29:03Z",
             "2023-03-19T01:28:30Z"
         ]
+    },
+    "assets": {
+        "thumbnail": {
+            "title": "Thumbnail",
+            "description": "Photo by [Planetary Computer](https://planetarycomputer.microsoft.com/explore?c=136.1421%2C35.2565&z=10.14&v=2&d=landsat-c2-l2&s=false%3A%3A100%3A%3Atrue&ae=0&sr=desc&m=Most+recent+%28low+cloud%29&r=Natural+color) (Screenshot of lake in landsat natural color satellite image viewer)",
+            "href": "https://thumbnails.openveda.cloud/landsat-c2l2-sr-lakes-lake-biwa.png",
+            "type": "image/png",
+            "roles": ["thumbnail"]
+        }
     }
 }

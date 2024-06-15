@@ -50,5 +50,14 @@
                 "host"
             ]
         }
-    ]
+    ],
+    "assets": {
+        "thumbnail": {
+            "title": "Thumbnail",
+            "description": "Photo by NASA (Screenshot of harmonized landsat normalized difference vegetation index from September 2022)",
+            "href": "https://thumbnails.openveda.cloud/hls-ndvi.png",
+            "type": "image/png",
+            "roles": ["thumbnail"]
+        }
+    }
 }
