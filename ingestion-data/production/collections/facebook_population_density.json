@@ -86,5 +86,14 @@
                 "host"
             ]
         }
-    ]
+    ],
+    "assets": {
+        "thumbnail": {
+            "title": "Thumbnail",
+            "description": "Photo by NASA (2015 high resolution population density for Paris)",
+            "href": "https://thumbnails.openveda.cloud/fb-population--dataset-cover.png",
+            "type": "image/png",
+            "roles": ["thumbnail"]
+        }
+    }
 }

@@ -430,5 +430,14 @@
             "2023-04-23T01:26:43Z",
             "2023-05-05T01:16:34Z"
         ]
+    },
+    "assets": {
+        "thumbnail": {
+            "title": "Thumbnail",
+            "description": "Photo by [Planetary Computer](https://planetarycomputer.microsoft.com/explore?c=104.1632%2C12.8505&z=9.43&v=2&d=landsat-c2-l2&s=false%3A%3A100%3A%3Atrue&ae=0&sr=desc&m=Most+recent+%28low+cloud%29&r=Natural+color) (Screenshot of lake in landsat natural color satellite image viewer)",
+            "href": "https://thumbnails.openveda.cloud/landsat-c2l2-sr-lakes-tonle-sap.png",
+            "type": "image/png",
+            "roles": ["thumbnail"]
+        }
     }
 }

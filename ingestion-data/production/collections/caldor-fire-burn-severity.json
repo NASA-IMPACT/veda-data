@@ -80,5 +80,14 @@
                 "processor"
             ]
         }
-    ]
+    ],
+    "assets": {
+        "thumbnail": {
+            "title": "Thumbnail",
+            "description": "Photo by [Marek Piwnicki](https://unsplash.com/photos/WiZOyYqzUss) (Hillside engulfed by a wildfire)",
+            "href": "https://thumbnails.openveda.cloud/caldor-fire--dataset-cover.jpg",
+            "type": "image/jpeg",
+            "roles": ["thumbnail"]
+        }
+    }
 }

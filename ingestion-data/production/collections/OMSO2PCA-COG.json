@@ -70,5 +70,14 @@
                 "host"
             ]
         }
-    ]
+    ],
+    "assets": {
+        "thumbnail": {
+            "title": "Thumbnail",
+            "description": "Photo by NASA (2018 Social Vulnerability Index (SVI) based on minority status and language score)",
+            "href": "https://thumbnails.openveda.cloud/so2--dataset-cover.jpg",
+            "type": "image/jpeg",
+            "roles": ["thumbnail"]
+        }
+    }
 }

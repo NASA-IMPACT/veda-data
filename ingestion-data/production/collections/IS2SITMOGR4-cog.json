@@ -75,5 +75,14 @@
                 "host"
             ]
         }
-    ]
+    ],
+    "assets": {
+        "thumbnail": {
+            "title": "Thumbnail",
+            "description": "Photo by [Matt Broch](https://unsplash.com/photos/bwD3GLrV4pY) (Huge chunk of ice calving into the sea below)",
+            "href": "https://thumbnails.openveda.cloud/sea-ice-thick--dataset-cover.jpg",
+            "type": "image/jpeg",
+            "roles": ["thumbnail"]
+        }
+    }
 }

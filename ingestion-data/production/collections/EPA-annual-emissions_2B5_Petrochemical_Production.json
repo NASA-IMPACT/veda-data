@@ -76,5 +76,14 @@
                 "host"
             ]
         }
-    ]
+    ],
+    "assets": {
+        "thumbnail": {
+            "title": "Thumbnail",
+            "description": "Photo by [Harry Schaefer / Documerica](https://unsplash.com/photos/EjSw6WdnLRA) (Orange Ford truck leaving a Union Carbide ferro-alloy plant. Shot on May 1975)",
+            "href": "https://thumbnails.openveda.cloud/epa-other--cover.jpg",
+            "type": "image/jpeg",
+            "roles": ["thumbnail"]
+        }
+    }
 }

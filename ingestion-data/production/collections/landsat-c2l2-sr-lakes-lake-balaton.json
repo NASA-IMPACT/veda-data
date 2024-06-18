@@ -286,5 +286,14 @@
             "2023-03-17T07:40:36Z",
             "2023-05-22T07:35:18Z"
         ]
+    },
+    "assets": {
+        "thumbnail": {
+            "title": "Thumbnail",
+            "description": "Photo by [EO Dashboard](https://eodashboard.org/explore?indicator=NLK&x=8286191.16928&y=3916735.01076&z=2.74483) (Screenshot of lake in landsat natural color satellite image viewer)",
+            "href": "https://thumbnails.openveda.cloud/landsat-c2l2-sr-lakes-lake-balaton.png",
+            "type": "image/png",
+            "roles": ["thumbnail"]
+        }
     }
 }

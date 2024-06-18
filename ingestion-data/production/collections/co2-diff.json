@@ -66,5 +66,14 @@
                 "host"
             ]
         }
-    ]
+    ],
+    "assets": {
+        "thumbnail": {
+            "title": "Thumbnail",
+            "description": "Photo by [Marek Piwnicki](https://unsplash.com/photos/WiZOyYqzUss) (Power plant shooting steam at the sky)",
+            "href": "https://thumbnails.openveda.cloud/co2--dataset-cover.jpg",
+            "type": "image/jpeg",
+            "roles": ["thumbnail"]
+        }
+    }
 }

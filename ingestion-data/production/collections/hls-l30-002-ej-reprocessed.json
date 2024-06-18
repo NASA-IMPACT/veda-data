@@ -80,6 +80,7 @@
     "assets": {
         "thumbnail": {
             "title": "Thumbnail",
+            "description": "Photo by [NASA](https://nasa.gov) (2017 harmonized Landsat 8 shortwave infrared (SWIR) false color composite image that provides enhanced contrast to detect flood extent)",
             "href": "https://thumbnails.openveda.cloud/hls-events-ej--dataset-cover.png",
             "type": "image/png",
             "roles": ["thumbnail"]

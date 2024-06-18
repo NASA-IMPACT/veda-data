@@ -82,5 +82,14 @@
                 "host"
             ]
         }
-    ]
+    ],
+    "assets": {
+        "thumbnail": {
+            "title": "Thumbnail",
+            "description": "Photo by [Olena Sergienko](https://unsplash.com/photos/0Ws_-v4Y_wY) (Green trees seen from above)",
+            "href": "https://thumbnails.openveda.cloud/nceo-africa--dataset-cover.jpg",
+            "type": "image/jpeg",
+            "roles": ["thumbnail"]
+        }
+    }
 }

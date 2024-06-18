@@ -12,7 +12,15 @@
             "data"
           ],
           "title": "zarr"
+        },
+        "thumbnail": {
+            "title": "Thumbnail",
+            "description": "Photo by NASA (CMIP6 Near-Surface Air Temperature Screenshot)",
+            "href": "https://thumbnails.openveda.cloud/cmip6-tas.png",
+            "type": "image/png",
+            "roles": ["thumbnail"]
         }
+
     },    
     "extent": {
         "spatial": {

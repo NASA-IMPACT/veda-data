@@ -77,5 +77,14 @@
                 "host"
             ]
         }
-    ]
+    ],
+    "assets": {
+        "thumbnail": {
+            "title": "Thumbnail",
+            "description": "Photo by [NASA Earth Observatory](https://appliedsciences.nasa.gov/our-impact/news/satellite-observes-power-outages-new-orleans) (Nighttime lights for New Orleans, LA on August 31, 2021)",
+            "href": "https://thumbnails.openveda.cloud/nighttime-lights-ej--dataset-cover-neworleans.jpeg",
+            "type": "image/jpeg",
+            "roles": ["thumbnail"]
+        }
+    }
 }

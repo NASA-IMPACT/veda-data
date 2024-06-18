@@ -162,5 +162,14 @@
             "2022-12-04T15:17:07Z",
             "2022-12-20T15:16:58Z"
         ]
+    },
+    "assets": {
+        "thumbnail": {
+            "title": "Thumbnail",
+            "description": "Photo by [EO Dashboard](https://eodashboard.org/explore?indicator=NLK&x=8286191.16928&y=3916735.01076&z=2.74483) (Screenshot of glacier in landsat natural color satellite image viewer)",
+            "href": "https://thumbnails.openveda.cloud/landsat-c2l2-sr-antarctic-glaciers-thwaites.png",
+            "type": "image/png",
+            "roles": ["thumbnail"]
+        }
     }
 }

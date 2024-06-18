@@ -79,5 +79,14 @@
                 "host"
             ]
         }
-    ]
+    ],
+    "assets": {
+        "thumbnail": {
+            "title": "Thumbnail",
+            "description": "Photo by Justin Pflug (Photo of Nisqually glacier)",
+            "href": "https://thumbnails.openveda.cloud/CMIP-winter-median.jpeg",
+            "type": "image/jpeg",
+            "roles": ["thumbnail"]
+        }
+    }
 }

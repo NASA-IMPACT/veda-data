@@ -76,5 +76,14 @@
                 "host"
             ]
         }
-    ]
+    ],
+    "assets": {
+        "thumbnail": {
+            "title": "Thumbnail",
+            "description": "Photo by [Patrick Hendry](https://unsplash.com/photos/6xeDIZgoPaw) (Punk style picture of a petroleum refinery)",
+            "href": "https://thumbnails.openveda.cloud/epa-petroleum--cover.jpg",
+            "type": "image/jpeg",
+            "roles": ["thumbnail"]
+        }
+    }
 }

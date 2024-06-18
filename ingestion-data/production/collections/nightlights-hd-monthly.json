@@ -77,5 +77,14 @@
                 "host"
             ]
         }
-    ]
+    ],
+    "assets": {
+        "thumbnail": {
+            "title": "Thumbnail",
+            "description": "Photo by [NASA Earth Observatory](https://earthobservatory.nasa.gov/images/90008/night-light-maps-open-up-new-applications) (Satellite image of Earth at night)",
+            "href": "https://thumbnails.openveda.cloud/nighttime-lights--dataset-cover.jpg",
+            "type": "image/jpeg",
+            "roles": ["thumbnail"]
+        }
+    }
 }

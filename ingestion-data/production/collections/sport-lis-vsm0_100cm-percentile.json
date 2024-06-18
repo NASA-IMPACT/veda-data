@@ -71,5 +71,14 @@
                 "host"
             ]
         }
-    ]
+    ],
+    "assets": {
+        "thumbnail": {
+            "title": "Thumbnail",
+            "description": "Photo by [Clay Banks](https://unsplash.com/photos/EdscD_R28bM) (Dry Clay Wall with Cracks)",
+            "href": "https://thumbnails.openveda.cloud/soil-moisture-main.jpg",
+            "type": "image/jpeg",
+            "roles": ["thumbnail"]
+        }
+    }
 }

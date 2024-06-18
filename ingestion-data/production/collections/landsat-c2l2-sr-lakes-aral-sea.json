@@ -1534,5 +1534,14 @@
             "2023-06-20T06:39:55Z",
             "2023-06-20T06:40:19Z"
         ]
+    },
+    "assets": {
+        "thumbnail": {
+            "title": "Thumbnail",
+            "description": "Photo by [Planetary Computer](https://planetarycomputer.microsoft.com/explore?c=60.8520%2C45.4330&z=7.71&v=2&d=landsat-c2-l2&s=false%3A%3A100%3A%3Atrue&ae=0&sr=desc&m=Jun+%E2%80%93+Aug%2C+2022+%28low+cloud%29&r=Natural+color) (Screenshot of lake in landsat natural color satellite image viewer)",
+            "href": "https://thumbnails.openveda.cloud/landsat-c2l2-sr-lakes-aral-sea.png",
+            "type": "image/png",
+            "roles": ["thumbnail"]
+        }
     }
 }

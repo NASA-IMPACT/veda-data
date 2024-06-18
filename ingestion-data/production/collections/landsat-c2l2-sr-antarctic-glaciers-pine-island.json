@@ -155,5 +155,14 @@
             "2022-12-24T14:52:13Z",
             "2023-01-25T14:52:12Z"
         ]
+    },
+    "assets": {
+        "thumbnail": {
+            "title": "Thumbnail",
+            "description": "Photo by [EO Dashboard](https://eodashboard.org/explore?indicator=NLK&x=8286191.16928&y=3916735.01076&z=2.74483) (Screenshot of glacier in landsat natural color satellite image viewer)",
+            "href": "https://thumbnails.openveda.cloud/landsat-c2l2-sr-antarctic-glaciers-pine-island.png",
+            "type": "image/png",
+            "roles": ["thumbnail"]
+        }
     }
 }

@@ -71,5 +71,14 @@
                 "processor"
             ]
         }
-    ]
+    ],
+    "assets": {
+        "thumbnail": {
+            "title": "Thumbnail",
+            "description": "Photo by [Matt Howard](https://unsplash.com/photos/eAKDzK4lo4o) (Forest burning at night)",
+            "href": "https://thumbnails.openveda.cloud/fire--dataset-cover.jpg",
+            "type": "image/jpeg",
+            "roles": ["thumbnail"]
+        }
+    }
 }
