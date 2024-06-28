@@ -1,0 +1,9 @@
+[
+    {
+        "origin_bucket": "veda-data-store-staging",
+        "origin_prefix": "recovery-proxy-maps-covid-19/",
+        "target_bucket": "veda-data-store",
+        "collection": "recovery-proxy-maps-covid-19",
+        "filename_regex": "^(.*)RPM_2020(.*).tif$"
+    }
+]
