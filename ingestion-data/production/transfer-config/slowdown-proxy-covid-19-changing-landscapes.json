@@ -1,0 +1,9 @@
+[
+    {
+        "origin_bucket": "veda-data-store-staging",
+        "origin_prefix": "slowdown-proxy-covid-19-changing-landscapes/",
+        "target_bucket": "veda-data-store",
+        "collection": "slowdown-proxy-covid-19-changing-landscapes",
+        "filename_regex": "^(.*)SPM_2020(.*).tif$"
+    }
+]
