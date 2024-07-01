@@ -42,6 +42,7 @@
     },
     "stac_version": "1.0.0",
     "stac_extensions": [
+      "https://stac-extensions.github.io/render/v1.0.0/schema.json",
       "https://stac-extensions.github.io/item-assets/v1.0.0/schema.json"
     ],
     "dashboard:is_periodic": false,
