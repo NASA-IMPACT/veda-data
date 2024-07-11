@@ -1,0 +1,7 @@
+{
+    "origin_bucket": "veda-data-store-staging",
+    "origin_prefix": "hls-entropy",
+    "target_bucket": "veda-data-store",
+    "collection": "hls-entropy-difference",
+    "filename_regex": "^(.*)entropy_difference_2022-09-30.tif$"
+}
