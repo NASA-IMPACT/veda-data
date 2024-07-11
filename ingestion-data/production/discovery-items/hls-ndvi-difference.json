@@ -1,0 +1,8 @@
+{
+  "collection": "hls-ndvi-difference",
+  "prefix": "hls-ndvi",
+  "bucket": "veda-data-store-staging",
+  "filename_regex": "^(.*)ndvi_diff_ian_2022-09-30.tif$",
+  "discovery": "s3",
+  "datetime_range": "day"
+}

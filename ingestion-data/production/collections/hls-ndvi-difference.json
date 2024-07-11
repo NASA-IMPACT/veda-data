@@ -1,9 +1,8 @@
 {
-  "id": "hls-entropy-difference",
+  "id": "hls-ndvi-difference",
   "type": "Collection",
-  "links": [
-  ],
-  "title": "HLS-derived entropy difference for Assessing impacts from Hurricane Ian",
+  "links": [],
+  "title": "HLS-derived NDVI difference for Assessing Impacts from Hurricane Iann",
   "extent": {
     "spatial": {
       "bbox": [
@@ -28,8 +27,8 @@
             "host"
         ]
     }
-],
-  "description": "Entropy difference calculated from Harmonized Landsat and Sentinel-2 Data for September 5th and September 30th, 2022 ",
+  ],
+  "description": "Difference in NDVI calculated from Harmonized Landsat and Sentinel-2 Data for September 5th and September 30th, 2022",
   "item_assets": {
     "cog_default": {
       "type": "image/tiff; application=geotiff; profile=cloud-optimized",
@@ -44,7 +43,7 @@
   "stac_version": "1.0.0",
   "renders": {
     "dashboard": {
-        "colormap_name": "bwr",
+        "colormap_name": "rdbu",
         "rescale": [
           [-1,1]
         ],
