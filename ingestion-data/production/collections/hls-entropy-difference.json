@@ -53,7 +53,7 @@
   "stac_version": "1.0.0",
   "renders": {
     "dashboard": {
-        "colormap": "bwr",
+        "colormap_name": "bwr",
         "rescale": [
           [-1,1]
         ],
