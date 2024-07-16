@@ -1,6 +1,6 @@
 {
   "collection": "hls-entropy-difference",
-  "prefix": "hls-entropy",
+  "prefix": "hls-entropy-difference",
   "bucket": "veda-data-store",
   "filename_regex": "^(.*)entropy_difference_2022-09-30.tif$",
   "discovery": "s3",

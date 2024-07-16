@@ -12,8 +12,8 @@
     "temporal": {
       "interval": [
         [
-          "2022-09-30 00:00:00+00",
-          "2022-09-30 00:00:00+00"
+          "2022-09-30T00:00:00Z",
+          "2022-09-30T23:59:59Z"
         ]
       ]
     }
@@ -61,5 +61,16 @@
     "https://stac-extensions.github.io/item-assets/v1.0.0/schema.json"
   ],
   "dashboard:is_periodic": false,
-  "dashboard:time_density": "day"
+  "dashboard:time_density": "day",
+  "assets": {
+    "thumbnail": {
+      "href": "https://thumbnails.openveda.cloud/ian_goes_cover.jpg",
+      "type": "image/jpeg",
+      "roles": [
+        "thumbnail"
+      ],
+      "title": "Thumbnail",
+      "description": "Photo by [Joshua Stevens, using GOES 16 imagery courtesy of NESDIS](https://visibleearth.nasa.gov/images/150408/hurricane-ian-reaches-florida) (Hurricane Ian as seen from space as it makes landfall with the state of Florida. NASA Earth Observatory image.)"
+    }
+  }
 }
