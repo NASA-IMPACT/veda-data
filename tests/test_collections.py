@@ -4,7 +4,7 @@ import pytest
 from pystac import Collection
 
 ROOT = Path(__file__).parents[1]
-COLLECTIONS_PATH = ROOT / "ingestion-data" / "collections"
+COLLECTIONS_PATH = ROOT / "ingestion-data" / "production" / "collections"
 
 
 @pytest.mark.parametrize("path", COLLECTIONS_PATH.rglob("*.json"))
