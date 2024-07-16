@@ -3,6 +3,5 @@
   "prefix": "damage_probability_2022-10-03",
   "bucket": "veda-data-store",
   "filename_regex": "^(.*)damage_probability_2022-10-03.tif$",
-  "discovery": "s3",
-  "datetime_range": "day"
+  "discovery": "s3"
 }
