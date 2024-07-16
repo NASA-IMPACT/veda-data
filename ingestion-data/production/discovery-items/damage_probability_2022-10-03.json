@@ -1,0 +1,8 @@
+{
+  "collection": "damage_probability_2022-10-03",
+  "prefix": "damage-probability",
+  "bucket": "veda-data-store-staging",
+  "filename_regex": "^(.*)damage_probability_2022-10-03.tif$",
+  "discovery": "s3",
+  "datetime_range": "day"
+}

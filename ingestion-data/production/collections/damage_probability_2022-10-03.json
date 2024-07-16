@@ -1,0 +1,71 @@
+{
+  "id": "damage_probability_2022-10-03",
+  "type": "Collection",
+  "links": [],
+  "title": "Damage Probability Derived from UCONN GERs Lab After Hurricane Ian",
+  "extent": {
+    "spatial": {
+      "bbox": [
+        [-82.376311139036, 26.3117385950749, -81.5589711806718, 27.0376515475538]
+      ]
+    },
+    "temporal": {
+      "interval": [
+        [
+          "2022-01-01T00:00:00+00:00",
+          "2022-10-03T00:00:00+00:00"
+        ]
+      ]
+    }
+  },
+  "license": "CC0-1.0",
+  "providers": [
+    {
+      "url": "https://www.earthdata.nasa.gov/dashboard/",
+      "name": "NASA VEDA",
+      "roles": [
+        "host"
+      ]
+    }
+  ],
+  "summaries": {
+    "datetime": [
+      "2022-01-01T00:00:00Z",
+      "2022-10-03T00:00:00Z"
+    ]
+  },
+  "description": "Damage Probability Derived from UCONN GERs Lab After Hurricane Ian.",
+  "item_assets": {
+    "cog_default": {
+      "type": "image/tiff; application=geotiff; profile=cloud-optimized",
+      "roles": [
+        "data",
+        "layer"
+      ],
+      "title": "Default COG Layer",
+      "description": "Cloud optimized default layer to display on map"
+    }
+  },
+  "stac_version": "1.0.0",
+  "renders": {
+    "dashboard": {
+        "colormap_name": "magma",
+        "rescale": [
+          [0,99]
+        ],
+        "bidx": [
+            1
+        ],
+        "assets": [
+            "cog_default"
+        ],
+        "title": "VEDA Dashboard Render Parameters"
+    }
+  },
+  "stac_extensions": [
+    "https://stac-extensions.github.io/render/v1.0.0/schema.json",
+    "https://stac-extensions.github.io/item-assets/v1.0.0/schema.json"
+  ],
+  "dashboard:is_periodic": true,
+  "dashboard:time_density": "day"
+}
