@@ -28,12 +28,6 @@
       ]
     }
   ],
-  "summaries": {
-    "datetime": [
-      "2022-01-01T00:00:00Z",
-      "2022-10-03T00:00:00Z"
-    ]
-  },
   "description": "Damage Probability Derived from UCONN GERs Lab After Hurricane Ian.",
   "assets": {
     "thumbnail": {
