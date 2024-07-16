@@ -35,6 +35,17 @@
     ]
   },
   "description": "Damage Probability Derived from UCONN GERs Lab After Hurricane Ian.",
+  "assets": {
+    "thumbnail": {
+      "href": "https://thumbnails.openveda.cloud/HLS_Damage_Probability_Cover_Image_FL.jpg",
+      "type": "image/jpeg",
+      "roles": [
+        "thumbnail"
+      ],
+      "title": "Thumbnail",
+      "description": "Photo by [CONUS Disturbance Watcher](https://gers.users.earthengine.app/view/nrt-conus) (Satellite imagery over Florida showing damage probability (using Viridis color ramp, with yellow being high probability and purple being low probability) for Oct 3, 2023)"
+    }
+  },
   "item_assets": {
     "cog_default": {
       "type": "image/tiff; application=geotiff; profile=cloud-optimized",
