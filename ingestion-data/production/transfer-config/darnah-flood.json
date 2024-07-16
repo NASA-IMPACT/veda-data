@@ -1,0 +1,7 @@
+{
+    "origin_bucket": "veda-data-store-staging",
+    "origin_prefix": "darnah",
+    "target_bucket": "veda-data-store",
+    "collection": "darnah-flood",
+    "filename_regex": "^(.*)Darnah_HLS.*.tif$"
+}
