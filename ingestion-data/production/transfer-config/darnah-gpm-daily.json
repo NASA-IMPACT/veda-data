@@ -1,0 +1,7 @@
+{
+    "collection": "darnah-gpm-daily",
+    "filename_regex": "^(.*)Darnah_Flood_IMERG.*.tif$",
+    "origin_bucket": "veda-data-store-staging",
+    "origin_prefix": "darnah_gpm",
+    "target_bucket": "veda-data-store"
+}

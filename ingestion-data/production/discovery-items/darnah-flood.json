@@ -1,0 +1,8 @@
+{
+    "collection": "darnah-flood",
+    "prefix": "darnah-flood/",
+    "bucket": "veda-data-store",
+    "filename_regex": "^(.*)Darnah_HLS.*.tif$",
+    "discovery": "s3",
+    "datetime_range": "day"
+}

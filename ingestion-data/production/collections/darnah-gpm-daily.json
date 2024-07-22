@@ -1,0 +1,73 @@
+{
+  "id": "darnah-gpm-daily",
+  "type": "Collection",
+  "links": [],
+  "title": "GPM IMERG data of 2023 Medicane Daniel",
+  "assets": {
+    "thumbnail": {
+      "href": "https://thumbnails.openveda.cloud/darnah-flood-background.jpg",
+      "type": "image/jpeg",
+      "roles": [
+        "thumbnail"
+      ],
+      "title": "Thumbnail",
+      "description": "Photo by Marwan Alfaituri (Reuters)](https://abcnews.go.com/International/casualties-libya-floods-avoided-world-meteorological-organization-chief/story?id=103200104) (Satellite imagery over Florida showing damage probability (Aerial view over the Wadi Darnah River post-flood in Derna, Libya on September 14, 2023)"
+    }
+  },
+  "extent": {
+    "spatial": {
+      "bbox": [
+        [
+          -10.06113118213864, 14.912033716384059, 45.00559573438803,
+          48.50902534245416
+        ]
+      ]
+    },
+    "temporal": {
+      "interval": [["2023-09-04 00:00:00+00:00", "2023-09-16 00:00:00+00:00"]]
+    }
+  },
+  "license": "CC0-1.0",
+  "providers": [
+    {
+      "url": "https://www.earthdata.nasa.gov/dashboard/",
+      "name": "NASA VEDA",
+      "roles": [
+        "host"
+      ]
+    }
+  ],
+  "renders": {
+    "dashboard": {
+        "colormap_name": "inferno",
+        "nodata": 0,
+        "resampling": "bilinear",
+        "rescale": [
+          [0.1,500]
+        ],
+        "bidx": [
+            1
+        ],
+        "assets": [
+            "cog_default"
+        ],
+        "title": "VEDA Dashboard Render Parameters"
+    }
+  },
+  "description": " GPM IMERG data taken daily and aggregated throughout the life of 2023 Medicane Daniel ",
+  "item_assets": {
+    "cog_default": {
+      "type": "image/tiff; application=geotiff; profile=cloud-optimized",
+      "roles": ["data", "layer"],
+      "title": "Default COG Layer",
+      "description": "Cloud optimized default layer to display on map"
+    }
+  },
+  "stac_version": "1.0.0",
+  "stac_extensions": [
+    "https://stac-extensions.github.io/render/v1.0.0/schema.json",
+    "https://stac-extensions.github.io/item-assets/v1.0.0/schema.json"
+  ],
+  "dashboard:is_periodic": true,
+  "dashboard:time_density": "day"
+}

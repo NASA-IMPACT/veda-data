@@ -1,0 +1,8 @@
+{
+    "collection": "darnah-gpm-daily",
+    "prefix": "darnah-gpm-daily/",
+    "bucket": "veda-data-store",
+    "filename_regex": "^(.*)Darnah_Flood_IMERG.*.tif$",
+    "discovery": "s3",
+    "datetime_range": "day"
+}
