@@ -1,0 +1,76 @@
+{
+  "id": "hls-ndvi-difference",
+  "type": "Collection",
+  "links": [],
+  "title": "HLS-derived NDVI difference for Assessing Impacts from Hurricane Iann",
+  "extent": {
+    "spatial": {
+      "bbox": [
+        [-82.376311139036, 26.3117385950749, -81.9037040761012, 27.0358376646312]
+      ]
+    },
+    "temporal": {
+      "interval": [
+        [
+          "2022-09-30T00:00:00Z",
+          "2022-09-30T23:59:59Z"
+        ]
+      ]
+    }
+  },
+  "license": "CC0-1.0",
+  "providers": [
+    {
+        "name": "NASA VEDA",
+        "url": "https://www.earthdata.nasa.gov/dashboard/",
+        "roles": [
+            "host"
+        ]
+    }
+  ],
+  "description": "Difference in NDVI calculated from Harmonized Landsat and Sentinel-2 Data for September 5th and September 30th, 2022",
+  "item_assets": {
+    "cog_default": {
+      "type": "image/tiff; application=geotiff; profile=cloud-optimized",
+      "roles": [
+        "data",
+        "layer"
+      ],
+      "title": "Default COG Layer",
+      "description": "Cloud optimized default layer to display on map"
+    }
+  },
+  "stac_version": "1.0.0",
+  "renders": {
+    "dashboard": {
+        "colormap_name": "rdbu",
+        "rescale": [
+          [-1,1]
+        ],
+        "bidx": [
+            1
+        ],
+        "assets": [
+            "cog_default"
+        ],
+        "title": "VEDA Dashboard Render Parameters"
+    }
+  },
+  "stac_extensions": [
+    "https://stac-extensions.github.io/render/v1.0.0/schema.json",
+    "https://stac-extensions.github.io/item-assets/v1.0.0/schema.json"
+  ],
+  "dashboard:is_periodic": false,
+  "dashboard:time_density": "day",
+  "assets": {
+    "thumbnail": {
+      "href": "https://thumbnails.openveda.cloud/ian_goes_cover.jpg",
+      "type": "image/jpeg",
+      "roles": [
+        "thumbnail"
+      ],
+      "title": "Thumbnail",
+      "description": "Photo by [Joshua Stevens, using GOES 16 imagery courtesy of NESDIS](https://visibleearth.nasa.gov/images/150408/hurricane-ian-reaches-florida) (Hurricane Ian as seen from space as it makes landfall with the state of Florida. NASA Earth Observatory image.)"
+    }
+  }
+}

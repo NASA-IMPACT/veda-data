@@ -1,0 +1,7 @@
+{
+  "origin_bucket": "veda-data-store-staging",
+  "origin_prefix": "hls-ndvi",
+  "target_bucket": "veda-data-store",
+  "collection": "hls-ndvi-difference",
+  "filename_regex": "^(.*)ndvi_diff_ian_2022-09-30.tif$"
+}
