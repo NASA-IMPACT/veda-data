@@ -1,0 +1,8 @@
+{
+    "collection": "nldas2",
+    "prefix": "EIS/nldas2monthly/",
+    "bucket": "veda-data-store-staging",
+    "filename_regex": ".*_\\d{6}.tif$",
+    "discovery": "s3",
+    "datetime_range": "month"
+}
