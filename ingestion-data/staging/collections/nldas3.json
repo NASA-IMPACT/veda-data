@@ -97,8 +97,8 @@
     },
     "providers": [
         {
-            "name": "NLDAS-3 precipitation",
-            "url": "https://ldas.gsfc.nasa.gov/nldas/v3",
+            "name": "NLDAS",
+            "url": "https://ldas.gsfc.nasa.gov/nldas",
             "roles": [
                 "producer",
                 "processor",
