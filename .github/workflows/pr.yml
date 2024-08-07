@@ -1,0 +1,123 @@
+name: Publish collection to staging and create dataset config PR
+
+on:
+  pull_request:
+    branches:
+        - main
+    paths:
+        - ingestion-data/staging/dataset-config/*
+
+jobs:
+  publish:
+    permissions:
+      pull-requests: read
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Get updated files
+        id: changed-files
+        uses: tj-actions/changed-files@v44
+        with:
+          files: |
+             **.json
+
+      - name: Get auth token
+        id: get-token
+        run: |
+          response=$(curl -X POST \
+          https://${{ vars.STAGING_COGNITO_DOMAIN }}/oauth2/token \
+          -H "Content-Type: application/x-www-form-urlencoded" \
+          -d "grant_type=password" \
+          -d "client_id=${{ vars.STAGING_CLIENT_ID }}" \
+          -d "username=${{ vars.STAGING_USERNAME }}" \
+          -d "password=${{ vars.STAGING_PASSWORD }}")
+
+          # Extract tokens
+          access_token=$(echo "$response" | jq -r '.access_token')
+          echo "ACCESS_TOKEN=$access_token" >> $GITHUB_OUTPUT
+
+      - name: Publish all updated collections
+        id: publish-collections
+        env:
+          ALL_CHANGED_FILES: ${{ steps.changed-files.outputs.all_changed_files }}
+          WORKFLOWS_URL: ${{ vars.STAGING_WORKFLOWS_URL }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          AUTH_TOKEN: ${{ steps.get-token.outputs.ACCESS_TOKEN }}
+        run: |
+          # Ensure WORKFLOWS_URL is set
+          if [ -z "$WORKFLOWS_URL" ]; then
+            echo "WORKFLOWS_URL is not set"
+            exit 1
+          fi
+
+          publish_url="${WORKFLOWS_URL%/}/dataset/publish"
+
+          # Iterate over the list of changed files
+          for file in "$@"; do
+            if [ -f "$file" ]; then
+              # Read the JSON content of the file
+              dataset_config=$(jq '.' "$file")
+              
+              # Send a POST request with the JSON content
+              response=$(curl -s -w "%{http_code}" -o response.txt -X POST \
+                -H "Content-Type: application/json" \
+                -H "Authorization: Bearer $bearer_token" \
+                -d "$dataset_config" \
+                "$publish_url")              
+              
+              # Extract the status code from the response
+              status_code=$(tail -n1 <<< "$response")
+
+              if [ "$status_code" -ne 200 ] && [ "$status_code" -ne 201 ]; then
+                echo "Failed publishing $file because: $(cat response.txt)"
+                exit 1
+              fi
+            else
+              echo "File $file does not exist"
+              exit 1
+            fi
+          done
+
+          CURRENT_PR_NUMBER=${{ github.event.pull_request.number }}
+          COMMENT_ID=$(gh pr comment $CURRENT_PR_NUMBER --body "Collections published. You can view them at https://staging.openveda.cloud/api/stac/collections/<collection-id>. \n Items might take a while to show up.")
+          echo "COMMENT_ID=$COMMENT_ID" >> $GITHUB_OUTPUT
+
+
+      - name: Create dataset mdx for given collections
+        env:
+          ALL_CHANGED_FILES: ${{ steps.changed-files.outputs.all_changed_files }}
+        run: |
+          cd scripts
+          for file in "${ALL_CHANGED_FILES[@]}"
+          do
+            python3 process.py "$file"
+          done
+
+      - name: Set up Git
+        run: |
+          git config --global user.name "github-actions[bot]"
+          git config --global user.email "github-actions[bot]@users.noreply.github.com"
+  
+      - name: Clone veda-config
+        run: git clone https://github.com/NASA_IMPACT/veda-config.git target-repo
+  
+      - name: Create PR with changes
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          VEDA_CONFIG_GH_TOKEN: ${{ secrets.VEDA_CONFIG_GH_TOKEN }}
+          COMMENT_ID: ${{ steps.publish-collections.outputs.COMMENT_ID }}
+        run: |
+          NEW_BRANCH=`add-dataset-{date}-hash(ALL_CHANGED_FILES)`
+          cd veda-config
+          git checkout -b $NEW_BRANCH
+          cp -r ../datasets/* datasets/
+          git add .
+          git commit -m "Add dataset(s)"
+          git push origin $NEW_BRANCH
+          echo -e "Add datasets \nAutomatically created by Github action" > msg
+          PR_URL=$(GITHUB_TOKEN=$VEDA_CONFIG_GH_TOKEN gh pr create -H $NEW_BRANCH -B develop --title 'Add dataset [Automated workflow]' --body-file <(echo "Add datasets\nAutomatically created by Github action") --json url -q '.url')
+          
+          CURRENT_PR_NUMBER=${{ github.event.pull_request.number }}
+          gh pr comment $CURRENT_PR_NUMBER --edit $COMMENT_ID --body "$(gh pr comment $CURRENT_PR_NUMBER --json body -q '.body')\n\nA PR has been created to [veda-config](https://github.com/NASA-IMPACT/veda-config) with the provided datasets.\n: ⛙ $PR_URL"
