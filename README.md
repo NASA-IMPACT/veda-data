@@ -4,29 +4,32 @@
 
 This repository houses data used to define a VEDA dataset to load into the [VEDA catalog](https://nasa-impact.github.io/veda-docs/services/apis.html). Inclusion in the VEDA catalog is a prerequisite for displaying the dataset in the [VEDA Dashboard](https://www.earthdata.nasa.gov/dashboard/).
 
-The data provided here gets processed in the ingestion system [veda-data-airflow](https://github.com/NASA-IMPACT/veda-data-airflow), to which this repository is directly linked (as a Git submodule).
+The data provided here gets processed in the ingestion system [veda-data-airflow](https://github.com/NASA-IMPACT/veda-data-airflow), see [Dataset Submission Process](#dataset-submission-process) for details about submitting work to the ingestion system.
 
-## Dataset Submission Process
+### Publication
+![][veda-data-publication]
+To add data to VEDA you will 
+1. **Stage your files:** Upload files to the staging bucket (which you can do with a VEDA JupyterHub account--request access [here](https://nasa-impact.github.io/veda-docs/services/jupyterhub.html)) or a self-hosted bucket in s3.
+2. **Generate STAC metadata in the staging catalog:** Use the workflows/data/set/publish endpoint to generate STAC Collection metadata and generate Item records for the files you have uploaded. See detailed steps for the [dataset submission process](https://nasa-impact.github.io/veda-docs/contributing/dataset-ingestion/) in the contribuing section of [veda-docs](https://nasa-impact.github.io/veda-docs).
+3. **Acceptance testing:** Perform acceptance testing appropriate for your data (in most cases this will be opening a dataset PR in [veda-config](https://github.com/NASA-IMPACT/veda-config) to generate a dashboard preview of the data).
+4. **Promote to production!** Open a PR <ins>in this project</ins> with the dataset-config metadata you used to add your data to the staging catalog via the workflows dataset publish api (add your config to `ingestion-data/production/dataset-config`). When your PR is approved, this configuration will be used to generate records in the production VEDA catalog!
+5. **[Optional] Share your data :** Share your data in the [VEDA Dashboard](https://www.earthdata.nasa.gov/dashboard/) by submitting a PR to [veda-config](https://github.com/NASA-IMPACT/veda-config) and add jupyterhub hosted usage examples to [veda-docs/contributing/docs-and-notebooks](https://nasa-impact.github.io/veda-docs/contributing/docs-and-notebooks.html)
 
-The VEDA user docs explain the full [dataset submission process](https://nasa-impact.github.io/veda-docs/contributing/dataset-ingestion/).
+## Project ingestion data structure
 
-Ultimately, submission to the VEDA catalog requires that you [open an issue with the "new dataset" template](https://github.com/NASA-IMPACT/veda-data/issues/new?assignees=&labels=dataset&projects=&template=new-dataset.yaml&title=New+Dataset%3A+%3Cdataset+title%3E). This template will require, at minimum:
+When submitting STAC records to ingest, a pull request can be made with the data structured as described below. The ingestion-data directory contains artifacts of the ingestion configuration used to publish to the staging and production catalogs. 
 
-1. a description of the dataset
-2. the location of the data (in S3, CMR, etc.), and
-3. a point of contact for the VEDA team to collaborate with.
+> **Note**
+Various ingestion workflows are supported and documented below but only the configuration metadata used to publish to the VEDA catalog are stored in this repo. It is not expected that every ingestion will follow exactly the same pattern nor will each ingested collection have have all types of configuration metadata here.
 
-One or more notebooks showing how the data should be processed would be appreciated.
+### `<stage>/collections/`
 
-## Ingestion Data Structure
-
-When submitting STAC records to ingest, a pull request can be made with the data structured as described below.
-
-### `collections/`
-
-The `ingestion-data/collections/` directory holds json files representing the data for VEDA collection metadata (STAC).
+The `ingestion-data/collections/` directory holds json files representing the data for VEDA collection metadata (STAC). STAC Collection metadata can be generated from an id, title, description using Pystac. See this [veda-docs/contributing notebook example](https://nasa-impact.github.io/veda-docs/notebooks/veda-operations/stac-collection-creation.html) to get started.
 
 Should follow the following format:
+
+<details>
+  <summary><b>/collections/collection_id.json</b></summary>
 
 ```json
 {
@@ -104,18 +107,21 @@ Should follow the following format:
 }
 
 ```
+</details>
 
-### `discovery-items/`
+### `<stage>/discovery-items/`
 
 The `ingestion-data/discovery-items/` directory holds json files representing the step function inputs for initiating the discovery, ingest and publication workflows.
 Can either be a single input event or a list of input events.
 
 Should follow the following format:
 
+<details>
+  <summary><b>/discovery-items/collection_id.json</b></summary>
+
 ```json
 {
     "collection": "<collection-id>",
-    "discovery": "<s3/cmr>",
 
     ## for s3 discovery
     "prefix": "<s3-key-prefix>",
@@ -123,22 +129,18 @@ Should follow the following format:
     "filename_regex": "<filename-regex>",
     "datetime_range": "<month/day/year>",
 
-    ## for cmr discovery
-    "version": "<collection-version>",
-    "temporal": ["<start-date>", "<end-date>"],
-    "bounding_box": ["<bounding-box-as-comma-separated-LBRT>"],
-    "include": "<filename-pattern>",
-
     ### misc
-    "cogify": "<true/false>",
-    "upload": "<true/false>",
-    "dry_run": "<true/false>",
+    "dry_run": "<true/false>"
 }
 ```
+</details>
 
-### `dataset-config/`
+### `<stage>/dataset-config/`
 
-The `ingestion-data/dataset-config/` directory holds json files that can be used with the `dataset/publish` stac ingestor endpoint, combining both collection metadata and discovery items. For an example of this ingestion workflow, see this [jupyter notebook](./transformation-scripts/example-template/example-geoglam-ingest.ipynb).
+The `ingestion-data/dataset-config/` directory holds json files that can be used with the `dataset/publish` workflows endpoint, combining both collection metadata and discovery items. For an example of this ingestion workflow, see this [jupyter notebook](./transformation-scripts/example-template/example-geoglam-ingest.ipynb).
+
+<details>
+  <summary><b>/dataset-config/collection_id.json</b></summary>
 
 ```json
 {
@@ -171,10 +173,36 @@ The `ingestion-data/dataset-config/` directory holds json files that can be used
     ]
 }
 ```
+</details>
+
+### `production/transfer-config`
+
+This directory contains the configuration needed to execute a stand-alone airflow DAG that copies data from a specified staging bucket and prefix to a permanent location in `s3://veda-data-store` using the collection_id as a prefix.
+
+Should follow the following format:
+
+<details>
+  <summary><b>/production/transfer-config/collection_id.json</b></summary>
+
+```json
+{
+    "collection": "<collection-id>",
+
+    ## the location of the staged files
+    "origin_bucket": "<s3-bucket>",
+    "origin_prefix": "<s3-key-prefix>",
+    "bucket": "<s3-bucket>",
+    "filename_regex": "<filename-regex>",
+
+    ### misc
+    "dry_run": "<true/false>"
+}
+```
+</details>
 
 ## Validation
 
-This repository provides a script for validating all collections.
+This repository provides a script for validating all collections in the ingestion-data directory.
 First, install the requirements (preferably in a virtual environment):
 
 ```shell
@@ -212,3 +240,6 @@ pip-compile
 ```
 
 This will update `requirements.txt` with a complete, realized set of Python dependencies.
+
+
+[veda-data-publication]: ./docs/publishing-data.excalidraw.png
