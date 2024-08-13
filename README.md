@@ -6,12 +6,12 @@ This repository houses data used to define a VEDA dataset to load into the [VEDA
 
 The data provided here gets processed in the ingestion system [veda-data-airflow](https://github.com/NASA-IMPACT/veda-data-airflow), see [Dataset Submission Process](#dataset-submission-process) for details about submitting work to the ingestion system.
 
-### Publication
+### Dataset submission process
 ![][veda-data-publication]
 To add data to VEDA you will 
 1. **Stage your files:** Upload files to the staging bucket (which you can do with a VEDA JupyterHub account--request access [here](https://nasa-impact.github.io/veda-docs/services/jupyterhub.html)) or a self-hosted bucket in s3.
 2. **Generate STAC metadata in the staging catalog:** Use the workflows/data/set/publish endpoint to generate STAC Collection metadata and generate Item records for the files you have uploaded. See detailed steps for the [dataset submission process](https://nasa-impact.github.io/veda-docs/contributing/dataset-ingestion/) in the contribuing section of [veda-docs](https://nasa-impact.github.io/veda-docs).
-3. **Acceptance testing:** Perform acceptance testing appropriate for your data (in most cases this will be opening a dataset PR in [veda-config](https://github.com/NASA-IMPACT/veda-config) to generate a dashboard preview of the data).
+3. **Acceptance testing\*:** Perform acceptance testing appropriate for your data (\*in most cases this will be opening a dataset PR in [veda-config](https://github.com/NASA-IMPACT/veda-config) to generate a dashboard preview of the data).
 4. **Promote to production!** Open a PR <ins>in this project</ins> with the dataset-config metadata you used to add your data to the staging catalog via the workflows dataset publish api (add your config to `ingestion-data/production/dataset-config`). When your PR is approved, this configuration will be used to generate records in the production VEDA catalog!
 5. **[Optional] Share your data :** Share your data in the [VEDA Dashboard](https://www.earthdata.nasa.gov/dashboard/) by submitting a PR to [veda-config](https://github.com/NASA-IMPACT/veda-config) and add jupyterhub hosted usage examples to [veda-docs/contributing/docs-and-notebooks](https://nasa-impact.github.io/veda-docs/contributing/docs-and-notebooks.html)
 
