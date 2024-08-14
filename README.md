@@ -20,7 +20,7 @@ To add data to VEDA you will
 When submitting STAC records to ingest, a pull request can be made with the data structured as described below. The ingestion-data directory contains artifacts of the ingestion configuration used to publish to the staging and production catalogs. 
 
 > **Note**
-Various ingestion workflows are supported and documented below but only the configuration metadata used to publish to the VEDA catalog are stored in this repo. It is not expected that every ingestion will follow exactly the same pattern nor will each ingested collection have have all types of configuration metadata here.
+Various ingestion workflows are supported and documented below but only the configuration metadata used to publish to the VEDA catalog are stored in this repo. It is not expected that every ingestion will follow exactly the same pattern nor will each ingested collection have have all types of configuration metadata here. <ins>The primary method used to ingest is [**`dataset-config`**](#stagedataset-config)</ins>.
 
 ### `<stage>/collections/`
 
