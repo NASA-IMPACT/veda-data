@@ -1,0 +1,8 @@
+{
+    "collection": "modis-annual-lai-2003-2020",
+    "discovery": "s3",
+    "prefix": "modis-annual-lai-2003-2020/",
+    "bucket": "veda-data-store",
+    "filename_regex": "^(.*)MODIS_LAI_(.*)BD.cog.tif$",
+    "datetime_range": "year"
+}
