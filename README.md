@@ -213,7 +213,8 @@ pip-compile
 
 This will update `requirements.txt` with a complete, realized set of Python dependencies.
 
-# Workflow automation
+## Workflow automation
+
 The repository consists of an automated workflow for staging dataset publication and configuration.
 
 The workflow file can be found in [.github/workflows/pr.yml](.github/workflows/pr.yml).
@@ -234,20 +235,22 @@ The following table includes a description and role for each repository variable
 | Secret     | `secrets.STAGING_CLIENT_SECRET`  | The secret client key used in OAuth2 authentication, necessary for secure access to the API.         |
 | Secret     | `secrets.VEDA_CONFIG_GH_TOKEN`   | The GitHub token with access rights to the `veda-config` repository, used for creating pull requests.|
 
-
 ### `vars.ENV_FROM` and `vars.ENV_TO` usage
+
 These are used to overwrite the stac/raster URLs in the `.env` ile in `veda-config` repository
 
 Command used: `sed -i "s|${{ vars.ENV_FROM }}|${{ vars.ENV_TO }}|" .env`
- 
+
 #### Example
-```
+
+```bash
 vars.ENV_FROM = openveda
 vars.ENV_TO = staging.openveda
 ```
 
 `.env` before
-```
+
+```bash
 ...
 # Endpoint for the Tiler server. No trailing slash.
 API_RASTER_ENDPOINT='https://openveda.cloud/api/raster'
@@ -258,7 +261,8 @@ API_STAC_ENDPOINT='https://openveda.cloud/api/stac'
 ```
 
 `.env` after
-```
+
+```bash
 ...
 # Endpoint for the Tiler server. No trailing slash.
 API_RASTER_ENDPOINT='https://staging.openveda.cloud/api/raster'

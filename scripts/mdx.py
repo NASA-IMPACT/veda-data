@@ -1,3 +1,9 @@
+"""
+This file creates a minimal <collection>.data.mdx file
+from the input dataset config json file
+Dependency: `dataset.mdx` file
+"""
+
 import yaml
 import os
 import json
@@ -5,6 +11,9 @@ import sys
 
 
 def create_frontmatter(input_data):
+    """
+    Creates json based on input dataset config
+    """
     collection_id = input_data["collection"]
 
     json_data = {
@@ -21,7 +30,14 @@ def create_frontmatter(input_data):
             {"name": "Theme", "values": ["Greenhouse Gases"]},
             {"name": "Source", "values": ["NASA"]},
         ],
-        "infoDescription": "::markdown\n  - **Temporal Extent:** 2015 - 2100\n  - **Temporal Resolution:** Annual\n  - **Spatial Extent:** Global\n  - **Spatial Resolution:** 0.25 degrees x 0.25 degrees\n  - **Data Units:** Days (Days per year above 90°F or 110°F)\n  - **Data Type:** Research",
+        "infoDescription": """::markdown
+            - **Temporal Extent:** 2015 - 2100
+            - **Temporal Resolution:** Annual
+            - **Spatial Extent:** Global
+            - **Spatial Resolution:** 0.25 degrees x 0.25 degrees
+            - **Data Units:** Days (Days per year above 90°F or 110°F)
+            - **Data Type:** Research
+        """,
         "layers": [],
     }
 
@@ -43,7 +59,12 @@ def create_frontmatter(input_data):
             "compare": {
                 "datasetId": collection_id,
                 "layerId": asset_id,
-                "mapLabel": "::js ({ dateFns, datetime, compareDatetime }) => {if (dateFns && datetime && compareDatetime) return `${dateFns.format(datetime, 'yyyy')} VS ${dateFns.format(compareDatetime, 'yyyy')}`;}",
+                "mapLabel": (
+                    "::js ({ dateFns, datetime, compareDatetime }) "
+                    "=> {if (dateFns && datetime && compareDatetime)"
+                    "return `${dateFns.format(datetime, 'yyyy')} "
+                    "VS ${dateFns.format(compareDatetime, 'yyyy')}`;}"
+                ),
             },
             "analysis": {"exclude": False, "metrics": ["mean"]},
             "legend": {
@@ -68,6 +89,8 @@ def create_frontmatter(input_data):
             },
         }
         json_data["layers"].append(layer)
+
+    # Convert json to yaml for frontmatter
     yaml_data = yaml.dump(json_data, sort_keys=False)
 
     return yaml_data
