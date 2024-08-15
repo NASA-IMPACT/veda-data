@@ -212,3 +212,58 @@ pip-compile
 ```
 
 This will update `requirements.txt` with a complete, realized set of Python dependencies.
+
+# Workflow automation
+The repository consists of an automated workflow for staging dataset publication and configuration.
+
+The workflow file can be found in [.github/workflows/pr.yml](.github/workflows/pr.yml).
+
+This GitHub Actions workflow automates the process of publishing dataset collections to a staging environment and creating a pull request (PR) in the veda-config repository with the dataset configuration. It is triggered by a pull request to the main branch that modifies any files within the `ingestion-data/dataset-config/` directory. The status of the workflow run is automatically updated in a comment in the PR.
+
+The following table includes a description and role for each repository variable and secret needed by the workflow.
+
+| **Type**   | **Variable/Secret**              | **Description**                                                                                     |
+|------------|----------------------------------|-----------------------------------------------------------------------------------------------------|
+| Variable   | `vars.STAGING_COGNITO_DOMAIN`    | The domain used for Cognito OAuth2 authentication, where the authentication requests are sent.      |
+| Variable   | `vars.STAGING_CLIENT_ID`         | The client ID used in OAuth2 authentication to identify the application making the request.         |
+| Variable   | `vars.STAGING_WORKFLOWS_URL`     | The base URL for accessing the staging environment's workflows, where dataset publishing occurs.     |
+| Variable   | `vars.VEDA_CONFIG_REPO_ORG`      | The organization or user that owns the `veda-config` repository, used for repository cloning.        |
+| Variable   | `vars.VEDA_CONFIG_REPO_NAME`     | The name of the `veda-config` repository, which stores the dataset configuration.                    |
+| Variable   | `vars.ENV_FROM`                  | A substring of the the current raster/stac URLs in the .env file that's to be replaced by `vars.ENV_TO`. |
+| Variable   | `vars.ENV_TO`                    | A substring of the the current raster/stac URLs in the .env file that replaces `vars.ENV_FROM`.       |
+| Secret     | `secrets.STAGING_CLIENT_SECRET`  | The secret client key used in OAuth2 authentication, necessary for secure access to the API.         |
+| Secret     | `secrets.VEDA_CONFIG_GH_TOKEN`   | The GitHub token with access rights to the `veda-config` repository, used for creating pull requests.|
+
+
+### `vars.ENV_FROM` and `vars.ENV_TO` usage
+These are used to overwrite the stac/raster URLs in the `.env` ile in `veda-config` repository
+
+Command used: `sed -i "s|${{ vars.ENV_FROM }}|${{ vars.ENV_TO }}|" .env`
+ 
+#### Example
+```
+vars.ENV_FROM = openveda
+vars.ENV_TO = staging.openveda
+```
+
+`.env` before
+```
+...
+# Endpoint for the Tiler server. No trailing slash.
+API_RASTER_ENDPOINT='https://openveda.cloud/api/raster'
+
+# Endpoint for the STAC server. No trailing slash.
+API_STAC_ENDPOINT='https://openveda.cloud/api/stac'
+...
+```
+
+`.env` after
+```
+...
+# Endpoint for the Tiler server. No trailing slash.
+API_RASTER_ENDPOINT='https://staging.openveda.cloud/api/raster'
+
+# Endpoint for the STAC server. No trailing slash.
+API_STAC_ENDPOINT='https://staging.openveda.cloud/api/stac'
+...
+```
