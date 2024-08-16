@@ -14,7 +14,7 @@ To add data to VEDA you will:
 
 1. **Stage your files:** Upload files to the staging bucket `s3://veda-data-store-staging` (which you can do with a VEDA JupyterHub account--request access [here](https://nasa-impact.github.io/veda-docs/services/jupyterhub.html)) or a self-hosted bucket in s3 has shared read access to VEDA service.
 
-2. **Generate STAC metadata in the staging catalog:** Metadata must first be added to the Staging Catalog [staging.openveda.cloud/api/stac](https://staging.openveda.cloud/api/stac). You will need to create a dataset config file and submit it to the `/workflows/dataset/publish` endpoint to generate STAC Collection metadata and generate Item records for the files you have uploaded in Step 1. See detailed steps for the [dataset submission process](https://nasa-impact.github.io/veda-docs/contributing/dataset-ingestion/) in the contribuing section of [veda-docs](https://nasa-impact.github.io/veda-docs).
+2. **Generate STAC metadata in the staging catalog:** Metadata must first be added to the Staging Catalog [staging.openveda.cloud/api/stac](https://staging.openveda.cloud/api/stac). You will need to create a dataset config file and submit it to the `/workflows/dataset/publish` endpoint to generate STAC Collection metadata and generate Item records for the files you have uploaded in Step 1. See detailed steps for the [dataset submission process](https://nasa-impact.github.io/veda-docs/contributing/dataset-ingestion/) in the contribuing section of [veda-docs](https://nasa-impact.github.io/veda-docs) where you can also find this full ingestion workflow example [geoglam ingest notebook](https://nasa-impact.github.io/veda-docs/contributing/dataset-ingestion/example-template/example-geoglam-ingest.html)
 
 3. **Acceptance testing\*:** Perform acceptance testing appropriate for your data. \*In most cases this will be opening a dataset PR in [veda-config](https://github.com/NASA-IMPACT/veda-config) to generate a dashboard preview of the data. See [veda-docs/contributing/dashboard-configuration](https://nasa-impact.github.io/veda-docs/contributing/dashboard-configuration/dataset-configuration.html) for instructions on generating a dashboard preview).
 
@@ -146,7 +146,7 @@ Should follow the following format:
 
 ### `<stage>/dataset-config/`
 
-The `ingestion-data/dataset-config/` directory holds json files that can be used with the `dataset/publish` workflows endpoint, combining both collection metadata and discovery items. For an example of this ingestion workflow, see this [geoglam ingest notebook in nasa-impact.github.io/veda-docs/contributing/dataset-ingeston](https://nasa-impact.github.io/veda-docs/contributing/dataset-ingestion/transformation-scripts/example-template/example-geoglam-ingest.ipynb).
+The `ingestion-data/dataset-config/` directory holds json files that can be used with the `dataset/publish` workflows endpoint, combining both collection metadata and discovery items. For an example of this ingestion workflow, see this [geoglam ingest notebook in nasa-impact.github.io/veda-docs/contributing/dataset-ingeston](https://nasa-impact.github.io/veda-docs/contributing/dataset-ingestion/example-template/example-geoglam-ingest.html).
 
 <details>
   <summary><b>/dataset-config/collection_id.json</b></summary>
