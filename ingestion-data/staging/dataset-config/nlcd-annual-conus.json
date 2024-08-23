@@ -33,7 +33,7 @@
         "upload": false,
         "dry_run": false,
         "prefix": "NLCD/",
-        "bucket": "veda-data-store",
+        "bucket": "veda-data-store-staging",
         "filename_regex": "(.*)nlcd_(.*).tif$",
         "use_multithreading": false
       }
