@@ -1,0 +1,35 @@
+{
+  "collection": "nlcd-new-urbanization",
+  "title": "NLCD Urbanization",
+  "description": "National Land Cover Database Land Use Land Cover Classification new urbanization 2001-2021",
+  "license": "CC0-1.0",
+  "is_periodic": true,
+  "time_density": "year",
+  "spatial_extent": {
+    "xmin": -125,
+    "ymin": 24,
+    "xmax": -65,
+    "ymax": 50
+  },
+  "temporal_extent": {
+    "startdate": "2001-01-01T00:00:00Z",
+    "enddate": "2021-12-31T23:59:59Z"
+  },
+  "sample_files": [
+    "s3://veda-data-store-staging/NLCD/nlcd_urbanization_2001_2021_cog.tif"
+  ],
+  "discovery_items": [
+    {
+      "discovery": "s3",
+      "cogify": false,
+      "upload": false,
+      "dry_run": false,
+      "prefix": "NLCD/",
+      "bucket": "veda-data-store-staging",
+      "filename_regex": "(.*)nlcd_urbanization_2001_2021_cog.tif$",
+      "use_multithreading": false
+    }
+  ],
+  "data_type": "cog",
+  "datetime_range": "year"
+}

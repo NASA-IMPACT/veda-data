@@ -1,0 +1,162 @@
+{
+    "collection": "nlcd-annual-conus",
+    "title": "NLCD Land Use Land Cover Classifications",
+    "description": "National Land Cover Database Land Use Land Cover Classification datasets for CONUS 2000-2021",
+    "license": "CC0-1.0",
+    "is_periodic": true,
+    "time_density": "year",
+    "spatial_extent": {
+      "xmin": -125,
+      "ymin": 24,
+      "xmax": -65,
+      "ymax": 50
+    },
+    "temporal_extent": {
+      "startdate": "2001-01-01T00:00:00Z",
+      "enddate": "2021-12-31T00:00:00Z"
+    },
+    "sample_files": [
+      "s3://veda-data-store-staging/NLCD/nlcd_2001_cog.tif",
+      "s3://veda-data-store-staging/NLCD/nlcd_2004_cog.tif",
+      "s3://veda-data-store-staging/NLCD/nlcd_2006_cog.tif",
+      "s3://veda-data-store-staging/NLCD/nlcd_2008_cog.tif",
+      "s3://veda-data-store-staging/NLCD/nlcd_2011_cog.tif",
+      "s3://veda-data-store-staging/NLCD/nlcd_2013_cog.tif",
+      "s3://veda-data-store-staging/NLCD/nlcd_2016_cog.tif",
+      "s3://veda-data-store-staging/NLCD/nlcd_2019_cog.tif",
+      "s3://veda-data-store-staging/NLCD/nlcd_2021_cog.tif"
+    ],
+    "discovery_items": [
+      {
+        "discovery": "s3",
+        "cogify": false,
+        "upload": false,
+        "dry_run": false,
+        "prefix": "NLCD/",
+        "bucket": "veda-data-store-staging",
+        "filename_regex": "(.*)nlcd_(.*).tif$",
+        "use_multithreading": false
+      }
+    ],
+    "data_type": "cog",
+    "datetime_range": "year",
+    "stac_version": "1.0.0",
+    "stac_extensions": [
+      "https://stac-extensions.github.io/render/v1.0.0/schema.json",
+      "https://stac-extensions.github.io/item-assets/v1.0.0/schema.json"
+    ],
+    "providers": [
+      {
+        "name": "NASA VEDA",
+        "roles": [
+          "host"
+        ],
+        "url": "https://www.earthdata.nasa.gov/dashboard/"
+      }
+    ],
+    "renders": {
+      "dashboard": {
+        "assets": [
+          "landcover"
+        ],
+        "colormap": {
+          "0": "#00BFFF",
+          "11": "#486DA2",
+          "12": "#E7EFFC",
+          "21": "#E1CDCE",
+          "22": "#DC9881",
+          "23": "#F10100",
+          "24": "#AB0101",
+          "31": "#B3AFA4",
+          "41": "#6BA966",
+          "42": "#1D6533",
+          "43": "#BDCC93",
+          "51": "#B29C46",
+          "52": "#D1BB82",
+          "71": "#EDECCD",
+          "72": "#D0D181",
+          "73": "#A4CC51",
+          "74": "#82BA9D",
+          "81": "#DDD83E",
+          "82": "#AE7229",
+          "90": "#BBD7ED",
+          "95": "#71A4C1"
+        },
+        "nodata": 0,
+        "rescale": [
+          [
+            0,
+            255
+          ]
+        ]
+      },
+      "legend": {
+        "type": "categorical",
+        "min": "0",
+        "max": "255",
+        "stops": [
+          {
+            "color": "#E1CDCE",
+            "label": "Urban"
+          },
+          {
+            "color": "#DC9881"
+          },
+          {
+            "color": "#F10100"
+          },
+          {
+            "color": "#AB0101"
+          },
+          {
+            "color": "#6BA966",
+            "label": "Vegetation"
+          },
+          {
+            "color": "#1D6533"
+          },
+          {
+            "color": "#BDCC93"
+          },
+          {
+            "color": "#D1BB82"
+          },
+          {
+            "color": "#EDECCD"
+          },
+          {
+            "color": "#D0D181"
+          },
+          {
+            "color": "#A4CC51"
+          },
+          {
+            "color": "#AE7229",
+            "label": "Agriculture"
+          }
+        ]
+      }
+    },
+    "assets": {
+      "thumbnail": {
+        "description": "Photo of land cover patterns over the United States",
+        "href": "https://thumbnails.openveda.cloud/nlcd--dataset-cover.jpg",
+        "roles": [
+          "thumbnail"
+        ],
+        "title": "Thumbnail",
+        "type": "image/jpeg"
+      }
+    },
+    "item_assets": {
+      "landcover": {
+        "type": "image/tiff; application=geotiff; profile=cloud-optimized",
+        "roles": [
+          "data",
+          "layer"
+        ],
+        "title": "Land Cover",
+        "description": "National Land Cover Database (NLCD) annual land cover data for the United States."
+      }
+    }
+  }
