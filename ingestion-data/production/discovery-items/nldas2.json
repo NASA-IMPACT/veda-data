@@ -1,0 +1,9 @@
+{
+  "bucket": "veda-data-store",
+  "collection": "nldas2",
+  "datetime_range": "month",
+  "discovery": "s3",
+  "filename_regex": ".*_\\d{6}.tif$",
+  "id_template": "{}",
+  "prefix": "nldas2/"
+}

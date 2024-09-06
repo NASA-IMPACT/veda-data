@@ -1,0 +1,9 @@
+{
+  "collection": "nldas2",
+  "filename_regex": ".*_\\d{6}.tif$",
+  "origin_bucket": "veda-data-store-staging",
+  "origin_prefix": "EIS/nldas2monthly/",
+  "target_bucket": "veda-data-store",
+  "cogify": false,
+  "dry_run": false
+}
