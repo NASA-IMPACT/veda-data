@@ -29,6 +29,15 @@
         "https://stac-extensions.github.io/render/v1.0.0/schema.json",
         "https://stac-extensions.github.io/item-assets/v1.0.0/schema.json"
     ],
+    "assets": {
+        "thumbnail": {
+          "href": "https://thumbnails.openveda.cloud/nldas-cover.png",
+          "type": "image/jpeg",
+          "roles": ["thumbnail"],
+          "title": "Thumbnail",
+          "description": "Photo by [LDAS-NASA](https://eoimages.gsfc.nasa.gov/images/imagerecords/151000/151897/mississippi_oli_2023259_lrg.jpg) (Landsat 8 — OLI image of the Mississippi River below Memphis, Tennessee on September 16, 2023 at near record low water levels, limiting barge shipments, threatening drinking water supplies, agriculture, and ecosystems.)"
+        }
+    },
     "item_assets": {
         "cog_default": {
             "type": "image/tiff; application=geotiff; profile=cloud-optimized",
