@@ -1,0 +1,6 @@
+{
+  "collection": "nlcd-annual-conus",
+  "prefix": "nlcd-annual-conus/",
+  "bucket": "veda-data-store",
+  "filename_regex": "^(.*)nlcd_\\d{4}_cog.tif$"
+}
