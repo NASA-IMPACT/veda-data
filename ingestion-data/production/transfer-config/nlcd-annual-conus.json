@@ -1,0 +1,9 @@
+[
+    {
+        "origin_bucket": "veda-data-store-staging",
+        "origin_prefix": "NLCD/",
+        "target_bucket": "veda-data-store",
+        "collection": "nlcd-annual-conus",
+        "filename_regex": "^(.*)nlcd_\\d{4}_cog.tif$"
+    }
+]

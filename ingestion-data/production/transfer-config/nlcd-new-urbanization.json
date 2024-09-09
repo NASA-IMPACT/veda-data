@@ -1,0 +1,9 @@
+[
+    {
+        "origin_bucket": "veda-data-store-staging",
+        "origin_prefix": "NLCD/",
+        "target_bucket": "veda-data-store",
+        "collection": "nlcd-new-urbanization",
+        "filename_regex": "^(.*)nlcd_urbanization_2001_2021_cog.tif$"
+    }
+]
