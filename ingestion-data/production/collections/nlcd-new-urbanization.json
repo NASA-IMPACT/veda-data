@@ -21,20 +21,20 @@
     "license": "CC0-1.0",
     "description": "National Land Cover Database Land Use Land Cover Classification new urbanization 2001-2021",
     "item_assets": {
-      "cog_default": {
+      "landcover": {
         "type": "image/tiff; application=geotiff; profile=cloud-optimized",
         "roles": [
           "data",
           "layer"
         ],
-        "title": "Default COG Layer",
-        "description": "Cloud optimized default layer to display on map"
+        "title": "NLCD Urbanization",
+        "description": "National Land Cover Database newly classified urban land use between 2001-2021"
       }
     },
     "stac_version": "1.0.0",
     "datetime_range": "year",
     "dashboard:is_periodic": false,
-    "dashboard:time_density": "year",
+    "dashboard:time_density": null,
     "assets": {
         "thumbnail": {
             "title": "Thumbnail",
@@ -45,6 +45,7 @@
         }
     },
     "stac_extensions": [
+        "https://stac-extensions.github.io/render/v1.0.0/schema.json",
         "https://stac-extensions.github.io/item-assets/v1.0.0/schema.json"
     ],
     "providers": [

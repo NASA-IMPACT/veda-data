@@ -24,12 +24,19 @@
       "cogify": false,
       "upload": false,
       "dry_run": false,
-      "prefix": "NLCD/",
+      "prefix": "nlcd-new-urbanization/",
       "bucket": "veda-data-store",
       "filename_regex": "(.*)nlcd_urbanization_2001_2021_cog.tif$",
       "use_multithreading": false
     }
   ],
-  "data_type": "cog",
-  "datetime_range": "year"
+  "providers": [
+      {
+        "name": "NASA VEDA",
+        "roles": [
+          "host"
+        ],
+        "url": "https://www.earthdata.nasa.gov/dashboard/"
+      }
+    ]
 }

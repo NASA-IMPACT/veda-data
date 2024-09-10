@@ -2,5 +2,18 @@
   "collection": "nlcd-annual-conus",
   "prefix": "nlcd-annual-conus/",
   "bucket": "veda-data-store",
-  "filename_regex": "^(.*)nlcd_\\d{4}_cog.tif$"
+  "filename_regex": "^(.*).tif$",
+  "id_template": "{}",
+  "datetime_range": "year",
+  "discovery": "s3",
+  "assets": {
+    "landcover": {
+      "roles": [
+        "data",
+        "layer"
+      ],
+      "title": "Land Cover",
+      "description": "National Land Cover Database (NLCD) annual land cover data for the United States."
+    }
+  }
 }

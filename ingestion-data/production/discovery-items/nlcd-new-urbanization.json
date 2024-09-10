@@ -3,5 +3,16 @@
   "prefix": "nlcd-new-urbanization/",
   "bucket": "veda-data-store",
   "filename_regex": "^(.*)nlcd_urbanization_2001_2021_cog.tif$",
-  "dry_run": true
+  "id_template": "{}",
+  "discovery": "s3",
+  "assets": {
+    "landcover": {
+      "roles": [
+        "data",
+        "layer"
+      ],
+      "title": "NLCD Urbanization",
+      "description": "National Land Cover Database newly classified urban land use between 2001-2021"
+    }
+  }
 }

@@ -24,14 +24,14 @@
     "license": "CC0-1.0",
     "description": "National Land Cover Database Land Use Land Cover Classification datasets for CONUS 2001-2021",
     "item_assets": {
-      "cog_default": {
+      "landcover": {
         "type": "image/tiff; application=geotiff; profile=cloud-optimized",
         "roles": [
           "data",
           "layer"
         ],
-        "title": "Default COG Layer",
-        "description": "Cloud optimized default layer to display on map"
+        "title": "Land Cover",
+        "description": "National Land Cover Database (NLCD) annual land cover data for the United States."
       }
     },
     "stac_version": "1.0.0",
@@ -48,6 +48,7 @@
         }
     },
     "stac_extensions": [
+        "https://stac-extensions.github.io/render/v1.0.0/schema.json",
         "https://stac-extensions.github.io/item-assets/v1.0.0/schema.json"
     ],
     "providers": [
@@ -58,5 +59,47 @@
         ],
         "url": "https://www.earthdata.nasa.gov/dashboard/"
       }
-    ]
+    ],
+    "renders": {
+      "dashboard": {
+        "assets": [
+          "landcover"
+        ],
+        "colormap": {
+          "0": "#00BFFF",
+          "11": "#486DA2",
+          "12": "#E7EFFC",
+          "21": "#E1CDCE",
+          "22": "#DC9881",
+          "23": "#F10100",
+          "24": "#AB0101",
+          "31": "#B3AFA4",
+          "41": "#6BA966",
+          "42": "#1D6533",
+          "43": "#BDCC93",
+          "51": "#B29C46",
+          "52": "#D1BB82",
+          "71": "#EDECCD",
+          "72": "#D0D181",
+          "73": "#A4CC51",
+          "74": "#82BA9D",
+          "81": "#DDD83E",
+          "82": "#AE7229",
+          "90": "#BBD7ED",
+          "95": "#71A4C1"
+        },
+        "nodata": 0,
+        "rescale": [
+          [
+            0,
+            255
+          ]
+        ],
+        "bidx": [
+                1
+            ],
+        "title": "VEDA Dashboard Render Parameters",
+        "resampling": "nearest"
+      }
+    }
   }
