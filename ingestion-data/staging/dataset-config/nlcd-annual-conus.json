@@ -1,9 +1,9 @@
 {
-    "collection": "nlcd-annual-conus",
-    "title": "NLCD Land Use Land Cover Classifications",
+    "collection": "nlcd-annual-conus-v2",
+    "title": "NLCD Land Use Land Cover Classifications V2",
     "description": "National Land Cover Database Land Use Land Cover Classification datasets for CONUS 2000-2021",
     "license": "CC0-1.0",
-    "is_periodic": true,
+    "is_periodic": false,
     "time_density": "year",
     "spatial_extent": {
       "xmin": -125,
@@ -16,26 +16,26 @@
       "enddate": "2021-12-31T00:00:00Z"
     },
     "sample_files": [
-      "s3://veda-data-store-staging/NLCD/nlcd_2001_cog.tif",
-      "s3://veda-data-store-staging/NLCD/nlcd_2004_cog.tif",
-      "s3://veda-data-store-staging/NLCD/nlcd_2006_cog.tif",
-      "s3://veda-data-store-staging/NLCD/nlcd_2008_cog.tif",
-      "s3://veda-data-store-staging/NLCD/nlcd_2011_cog.tif",
-      "s3://veda-data-store-staging/NLCD/nlcd_2013_cog.tif",
-      "s3://veda-data-store-staging/NLCD/nlcd_2016_cog.tif",
-      "s3://veda-data-store-staging/NLCD/nlcd_2019_cog.tif",
-      "s3://veda-data-store-staging/NLCD/nlcd_2021_cog.tif"
+      "s3://veda-data-store-staging/NLCD_V2/nlcd_2001_cog_v2.tif",
+      "s3://veda-data-store-staging/NLCD_V2/nlcd_2004_cog_v2.tif"
     ],
     "discovery_items": [
       {
         "discovery": "s3",
-        "cogify": false,
-        "upload": false,
-        "dry_run": false,
-        "prefix": "NLCD/",
+        "prefix": "NLCD_V2/",
         "bucket": "veda-data-store-staging",
-        "filename_regex": "(.*)nlcd_(.*).tif$",
-        "use_multithreading": false
+        "filename_regex": "^(.*)nlcd_\\d{4}_cog_v2.tif$",
+        "id_template": "{}",
+        "assets": {
+          "landcover": {
+            "roles": [
+              "data",
+              "layer"
+            ],
+            "title": "Land Cover",
+            "description": "National Land Cover Database (NLCD) annual land cover data for the United States."
+          }
+        }
       }
     ],
     "data_type": "cog",
@@ -83,70 +83,21 @@
           "95": "#71A4C1"
         },
         "nodata": 0,
-        "rescale": [
-          [
-            0,
-            255
-          ]
-        ]
-      },
-      "legend": {
-        "type": "categorical",
-        "min": "0",
-        "max": "255",
-        "stops": [
-          {
-            "color": "#E1CDCE",
-            "label": "Urban"
-          },
-          {
-            "color": "#DC9881"
-          },
-          {
-            "color": "#F10100"
-          },
-          {
-            "color": "#AB0101"
-          },
-          {
-            "color": "#6BA966",
-            "label": "Vegetation"
-          },
-          {
-            "color": "#1D6533"
-          },
-          {
-            "color": "#BDCC93"
-          },
-          {
-            "color": "#D1BB82"
-          },
-          {
-            "color": "#EDECCD"
-          },
-          {
-            "color": "#D0D181"
-          },
-          {
-            "color": "#A4CC51"
-          },
-          {
-            "color": "#AE7229",
-            "label": "Agriculture"
-          }
-        ]
+        "bidx": [
+                1
+            ],
+        "title": "VEDA Dashboard Render Parameters",
+        "resampling": "nearest"
       }
     },
     "assets": {
-      "thumbnail": {
-        "description": "Photo of land cover patterns over the United States",
-        "href": "https://thumbnails.openveda.cloud/nlcd--dataset-cover.jpg",
-        "roles": [
-          "thumbnail"
-        ],
-        "title": "Thumbnail",
-        "type": "image/jpeg"
-      }
+        "thumbnail": {
+            "title": "Thumbnail",
+            "description": "Photo by [Eric Kilby](https://openverse.org/image/a9e174e6-d4e1-4377-81e2-6e71bf1a9602?q=skyline) (Boston, MA skyline)",
+            "href": "https://thumbnails.openveda.cloud/nlcd-cover.png",
+            "type": "image/jpeg",
+            "roles": ["thumbnail"]
+        }
     },
     "item_assets": {
       "landcover": {

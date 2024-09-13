@@ -1,8 +1,8 @@
 {
-    "id": "nlcd-new-urbanization",
+    "id": "nlcd-new-urbanization-v2",
     "type": "Collection",
     "links": [],
-    "title": "NLCD Urbanization",
+    "title": "NLCD Urbanization V2",
     "extent": {
       "spatial": {
         "bbox": [
@@ -56,5 +56,23 @@
         ],
         "url": "https://www.earthdata.nasa.gov/dashboard/"
       }
+    ],
+    "renders": {
+        "dashboard": {
+            "resampling": "cubic_spline",
+            "bidx": [
+                1
+            ],
+            "colormap_name": "reds",
+            "assets": [
+                "landcover"
+            ],
+            "title": "VEDA Dashboard Render Parameters"
+        }
+    },
+    "summaries": {
+    "datetime": [
+      "2001-01-01T00:00:00Z"
     ]
+  }
   }
