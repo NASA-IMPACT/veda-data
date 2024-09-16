@@ -1,7 +1,7 @@
 {
     "id": "nldas2",
     "type": "Collection",
-    "title": "NLDAS2 precipitation",
+    "title": "NLDAS-2 Precipitation Forcing Dataset",
     "links": [],
     "description": "NLDAS-2 provides a fine-scale (1 km) meteorological forcing (precipitation) in both retrospective and near real-time over North and Central America, including Alaska, Hawaii, and Puerto Rico, by leveraging high-quality gauge, satellite, and model datasets through advanced data assimilation methods. Read more: https://ldas.gsfc.nasa.gov/nldas/v2",
     "extent": {
@@ -31,11 +31,11 @@
     ],
     "assets": {
         "thumbnail": {
-          "href": "https://thumbnails.openveda.cloud/nldas-cover.png",
-          "type": "image/jpeg",
-          "roles": ["thumbnail"],
-          "title": "Thumbnail",
-          "description": "Photo by [LDAS-NASA](https://eoimages.gsfc.nasa.gov/images/imagerecords/151000/151897/mississippi_oli_2023259_lrg.jpg) (Landsat 8 — OLI image of the Mississippi River below Memphis, Tennessee on September 16, 2023 at near record low water levels, limiting barge shipments, threatening drinking water supplies, agriculture, and ecosystems.)"
+            "href": "https://thumbnails.openveda.cloud/nldas-cover.png",
+            "type": "image/jpeg",
+            "roles": [ "thumbnail" ],
+            "title": "Thumbnail",
+            "description": "Photo by [LDAS-NASA](https://eoimages.gsfc.nasa.gov/images/imagerecords/151000/151897/mississippi_oli_2023259_lrg.jpg) (Landsat 8 — OLI image of the Mississippi River below Memphis, Tennessee on September 16, 2023 at near record low water levels, limiting barge shipments, threatening drinking water supplies, agriculture, and ecosystems.)"
         }
     },
     "item_assets": {
@@ -49,59 +49,21 @@
             "description": "Cloud optimized default layer to display on map"
         }
     },
-    "dashboard:is_periodic": false,
+    "dashboard:is_periodic": true,
     "dashboard:time_density": "month",
     "stac_version": "1.0.0",
     "renders": {
         "dashboard": {
-            "colormap": {
-                "1": [
-                    120,
-                    120,
-                    120
-                ],
-                "2": [
-                    130,
-                    65,
-                    0
-                ],
-                "3": [
-                    66,
-                    207,
-                    56
-                ],
-                "4": [
-                    245,
-                    239,
-                    0
-                ],
-                "5": [
-                    241,
-                    89,
-                    32
-                ],
-                "6": [
-                    168,
-                    0,
-                    0
-                ],
-                "7": [
-                    0,
-                    143,
-                    201
-                ]
-            },
-            "bidx": [
-                1
-            ],
-            "unscale": false,
-            "resampling": "nearest",
-            "max_size": 1024,
-            "return_mask": true,
             "assets": [
                 "cog_default"
             ],
-            "title": "VEDA Dashboard Render Parameters"
+            "colormap_name": "magma",
+            "rescale": [
+                [
+                    0,
+                    200
+                ]
+            ]
         }
     },
     "providers": [
