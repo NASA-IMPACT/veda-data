@@ -1,0 +1,87 @@
+{
+    "id": "nldas3",
+    "type": "Collection",
+    "title": "NLDAS-3 Precipitation Forcing Dataset",
+    "links": [],
+    "description": "NLDAS-3 provides a fine-scale (1 km) meteorological forcing (precipitation) in both retrospective and near real-time over North and Central America, including Alaska, Hawaii, and Puerto Rico, by leveraging high-quality gauge, satellite, and model datasets through advanced data assimilation methods. Read more: https://ldas.gsfc.nasa.gov/nldas/v3",
+    "extent": {
+        "spatial": {
+            "bbox": [
+                [
+                    -41.2,
+                    -82.6,
+                    9.8,
+                    -59
+                ]
+            ]
+        },
+        "temporal": {
+            "interval": [
+                [
+                    "2001-01-01T00:00:00Z",
+                    "2023-06-01T00:00:00Z"
+                ]
+            ]
+        }
+    },
+    "license": "MIT",
+    "stac_extensions": [
+        "https://stac-extensions.github.io/render/v1.0.0/schema.json",
+        "https://stac-extensions.github.io/item-assets/v1.0.0/schema.json"
+    ],
+    "assets": {
+        "thumbnail": {
+          "href": "https://thumbnails.openveda.cloud/nldas-cover.png",
+          "type": "image/jpeg",
+          "roles": ["thumbnail"],
+          "title": "Thumbnail",
+          "description": "Photo by [LDAS-NASA](https://eoimages.gsfc.nasa.gov/images/imagerecords/151000/151897/mississippi_oli_2023259_lrg.jpg) (Landsat 8 — OLI image of the Mississippi River below Memphis, Tennessee on September 16, 2023 at near record low water levels, limiting barge shipments, threatening drinking water supplies, agriculture, and ecosystems.)"
+        }
+    },
+    "item_assets": {
+        "cog_default": {
+            "type": "image/tiff; application=geotiff; profile=cloud-optimized",
+            "roles": [
+                "data",
+                "layer"
+            ],
+            "title": "Default COG Layer",
+            "description": "Cloud optimized default layer to display on map"
+        }
+    },
+    "dashboard:is_periodic": true,
+    "dashboard:time_density": "month",
+    "stac_version": "1.0.0",
+    "renders": {
+        "dashboard": {
+            "assets": [
+                "cog_default"
+            ],
+            "colormap_name": "magma",
+            "rescale": [
+                [
+                    0,
+                    200
+                ]
+            ]
+        }
+    },
+    "providers": [
+        {
+            "name": "NLDAS",
+            "url": "https://ldas.gsfc.nasa.gov/nldas",
+            "roles": [
+                "producer",
+                "processor",
+                "licensor"
+            ]
+        },
+        {
+            "name": "NASA VEDA",
+            "url": "https://www.earthdata.nasa.gov/dashboard/",
+            "roles": [
+                "host"
+            ]
+        }
+    ]
+}
