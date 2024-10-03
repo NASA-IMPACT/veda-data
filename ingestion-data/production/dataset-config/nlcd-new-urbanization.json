@@ -1,0 +1,77 @@
+{
+  "collection": "nlcd-new-urbanization",
+  "title": "NLCD Urbanization",
+  "description": "National Land Cover Database Land Use Land Cover Classification new urbanization 2001-2021",
+  "license": "CC0-1.0",
+  "stac_version": "1.0.0",
+  "is_periodic": false,
+  "time_density": null,
+  "spatial_extent": {
+    "xmin": -125,
+    "ymin": 24,
+    "xmax": -65,
+    "ymax": 50
+  },
+  "temporal_extent": {
+    "startdate": "2001-01-01T00:00:00Z",
+    "enddate": "2021-12-31T23:59:59Z"
+  },
+  "sample_files": [
+    "s3://veda-data-store/nlcd-new-urbanization/nlcd_urbanization_2001_2021_cog_v2.tif"
+  ],
+  "assets": {
+        "thumbnail": {
+            "title": "Thumbnail",
+            "description": "Photo by [Eric Kilby](https://openverse.org/image/a9e174e6-d4e1-4377-81e2-6e71bf1a9602?q=skyline) (Boston, MA skyline)",
+            "href": "https://thumbnails.openveda.cloud/nlcd-cover.png",
+            "type": "image/jpeg",
+            "roles": ["thumbnail"]
+        }
+    },
+    "stac_extensions": [
+        "https://stac-extensions.github.io/render/v1.0.0/schema.json",
+        "https://stac-extensions.github.io/item-assets/v1.0.0/schema.json"
+    ],
+    "providers": [
+      {
+        "name": "NASA VEDA",
+        "roles": [
+          "host"
+        ],
+        "url": "https://www.earthdata.nasa.gov/dashboard/"
+      }
+    ],
+    "renders": {
+        "dashboard": {
+            "resampling": "cubic_spline",
+            "bidx": [
+                1
+            ],
+            "colormap_name": "reds",
+            "assets": [
+                "landcover"
+            ],
+            "title": "VEDA Dashboard Render Parameters"
+        }
+    },
+  "discovery_items": [
+    {
+      "prefix": "nlcd-new-urbanization/",
+      "bucket": "veda-data-store",
+      "filename_regex": "^(.*)nlcd_urbanization_2001_2021_cog_v2.tif$",
+      "id_template": "{}",
+      "discovery": "s3",
+      "assets": {
+        "landcover": {
+          "roles": [
+            "data",
+            "layer"
+          ],
+          "title": "NLCD Urbanization",
+          "description": "National Land Cover Database newly classified urban land use between 2001-2021"
+        }
+      }
+    }
+  ],
+  "data_type": "cog"
+}
