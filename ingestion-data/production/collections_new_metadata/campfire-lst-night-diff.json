@@ -1,0 +1,72 @@
+{
+    "id": "campfire-lst-night-diff",
+    "type": "Collection",
+    "title": "Camp Fire Domain: MODIS LST Night Difference",
+    "links": [],
+    "description": "3-year average difference (2018-2022) - (2015-2018) MODIS-derived LST Night over the 2018 Camp Fire burn scar domain. \n\n ### Technical Details \n\n In order to examine how the fire event affected the changes in surface properties, we utilized the MODIS-derived Normalized Difference Vegetation Index (NDVI), albedo, and land surface temperature (LST) products for a six-year period centered on the Camp Fire event (2015-2022). We used these products which are available at 16-day intervals to compute monthly averaged spatial maps of NDVI, albedo, and LST. The monthly average spatial maps were then averaged over the areas affected by the Camp Fire to compute monthly mean values. This dataset is the LST Night difference portion of that analysis.",
+    "extent": {
+        "spatial": {
+            "bbox": [
+                [
+                    -121.78460307847297,
+                    39.59483467430542,
+                    -121.35341172149457,
+                    39.89994756059251
+                ]
+            ]
+        },
+        "temporal": {
+            "interval": [
+                [
+                    "2015-01-01T00:00:00Z",
+                    "2022-01-01T00:00:00Z"
+                ]
+            ]
+        }
+    },
+    "license": "CC0-1.0",
+    "stac_extensions": [
+        "https://stac-extensions.github.io/item-assets/v1.0.0/schema.json"
+    ],
+    "item_assets": {
+        "cog_default": {
+            "type": "image/tiff; application=geotiff; profile=cloud-optimized",
+            "roles": [
+                "data",
+                "layer"
+            ],
+            "title": "Default COG Layer",
+            "description": "Cloud optimized default layer to display on map"
+        }
+    },
+    "dashboard:is_periodic": false,
+    "dashboard:time_density": "year",
+    "stac_version": "1.0.0",
+    "providers": [
+        {
+            "name": "NASA VEDA",
+            "url": "https://www.earthdata.nasa.gov/dashboard/",
+            "roles": [
+                "host"
+            ]
+        },
+        {
+            "name": "NASA",
+            "url": null,
+            "roles": [
+                "producer"
+            ]
+        }
+    ],
+    "assets": {
+        "thumbnail": {
+            "title": "Thumbnail",
+            "description": "Photo by [Mike Newbry](https://unsplash.com/photos/DwtX9mMHBJ0) (Engulfed hillside in California, 2021)",
+            "href": "https://thumbnails.openveda.cloud/camp-fire-background.jpg",
+            "type": "image/jpeg",
+            "roles": [
+                "thumbnail"
+            ]
+        }
+    }
+}

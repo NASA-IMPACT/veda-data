@@ -1,0 +1,92 @@
+{
+    "id": "lis-global-da-qsb",
+    "type": "Collection",
+    "title": "Subsurface Runoff - LIS 10km Global DA",
+    "links": [],
+    "description": "Gridded subsurface runoff (in kg m-2 s-1) from 10km global LIS with assimilation \n\n ### Technical Details \n\n The reanalysis product is created using the [NASA Land Information System](https://lis.gsfc.nasa.gov/) modeling framework to merge land surface model simulations with observations from satellites through data assimilation. The team uses the Noah-MP land surface model and assimilates soil moisture from the European Space Agency’s Climate Change Initiative Program (ESA CCI), leaf area index from the Moderate Resolution Imaging Spectroradiometer (MODIS), and terrestrial water storage anomalies from the Gravity Recovery and Climate Experiment and the follow-on missions (GRACE/GRACE-FO).",
+    "extent": {
+        "spatial": {
+            "bbox": [
+                [
+                    -179.9500000157243,
+                    -59.98224871364589,
+                    179.9973980503783,
+                    89.9999999874719
+                ]
+            ]
+        },
+        "temporal": {
+            "interval": [
+                [
+                    "2002-08-02T00:00:00Z",
+                    "2021-12-01T00:00:00Z"
+                ]
+            ]
+        }
+    },
+    "license": "CC0-1.0",
+    "stac_extensions": [
+        "https://stac-extensions.github.io/render/v1.0.0/schema.json",
+        "https://stac-extensions.github.io/item-assets/v1.0.0/schema.json"
+    ],
+    "item_assets": {
+        "cog_default": {
+            "type": "image/tiff; application=geotiff; profile=cloud-optimized",
+            "roles": [
+                "data",
+                "layer"
+            ],
+            "title": "Default COG Layer",
+            "description": "Cloud optimized default layer to display on map"
+        }
+    },
+    "dashboard:is_periodic": true,
+    "dashboard:time_density": "day",
+    "stac_version": "1.0.0",
+    "renders": {
+        "dashboard": {
+            "resampling": "bilinear",
+            "bidx": [
+                1
+            ],
+            "colormap_name": "viridis",
+            "rescale": [
+                [
+                    0,
+                    0.0001
+                ]
+            ],
+            "assets": [
+                "cog_default"
+            ],
+            "title": "VEDA Dashboard Render Parameters"
+        }
+    },
+    "providers": [
+        {
+            "name": "NASA VEDA",
+            "url": "https://www.earthdata.nasa.gov/dashboard/",
+            "roles": [
+                "host"
+            ]
+        },
+        {
+            "name": "NASA",
+            "url": null,
+            "roles": [
+                "producer"
+            ]
+        }
+    ],
+    "assets": {
+        "thumbnail": {
+            "title": "Thumbnail",
+            "description": "Photo by NASA LIS (One day of terrestrial water storage from LIS outputs)",
+            "href": "https://thumbnails.openveda.cloud/global_tws_blackbg_v2.png",
+            "type": "image/png",
+            "roles": [
+                "thumbnail"
+            ]
+        }
+    }
+}

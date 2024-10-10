@@ -1,0 +1,92 @@
+{
+    "id": "lis-tws-trend",
+    "type": "Collection",
+    "title": "Trend in Terrestrial Water Storage (TWS) Anomalies",
+    "links": [],
+    "description": "Trends in TWS anomalies from LIS outputs \n\n ### Technical Details \n\n Terrestrial water storage (TWS) is defined as the summation of all water on the land surface and in the subsurface. It includes surface soil moisture, root zone soil moisture, groundwater, snow, ice, water stored in the vegetation, river and lake water.",
+    "extent": {
+        "spatial": {
+            "bbox": [
+                [
+                    -179.95000001572427,
+                    -59.98224871364587,
+                    179.99739805037828,
+                    89.99999998747188
+                ]
+            ]
+        },
+        "temporal": {
+            "interval": [
+                [
+                    "2001-01-01T00:00:00Z",
+                    "2021-12-31T23:59:59Z"
+                ]
+            ]
+        }
+    },
+    "license": "MIT",
+    "stac_extensions": [
+        "https://stac-extensions.github.io/render/v1.0.0/schema.json",
+        "https://stac-extensions.github.io/item-assets/v1.0.0/schema.json"
+    ],
+    "item_assets": {
+        "cog_default": {
+            "type": "image/tiff; application=geotiff; profile=cloud-optimized",
+            "roles": [
+                "data",
+                "layer"
+            ],
+            "title": "Default COG Layer",
+            "description": "Cloud optimized default layer to display on map"
+        }
+    },
+    "dashboard:is_periodic": false,
+    "dashboard:time_density": null,
+    "stac_version": "1.0.0",
+    "renders": {
+        "dashboard": {
+            "bidx": [
+                1
+            ],
+            "colormap_name": "rdylbu",
+            "rescale": [
+                [
+                    -1,
+                    1
+                ]
+            ],
+            "nodata": -9999,
+            "assets": [
+                "cog_default"
+            ],
+            "title": "VEDA Dashboard Render Parameters"
+        }
+    },
+    "providers": [
+        {
+            "name": "NASA VEDA",
+            "url": "https://www.earthdata.nasa.gov/dashboard/",
+            "roles": [
+                "host"
+            ]
+        },
+        {
+            "name": "NASA",
+            "url": null,
+            "roles": [
+                "producer"
+            ]
+        }
+    ],
+    "assets": {
+        "thumbnail": {
+            "title": "Thumbnail",
+            "description": "Photo by NASA LIS (TWS trend of anomalies from LIS outputs)",
+            "href": "https://thumbnails.openveda.cloud/twsanomaly-globe.png",
+            "type": "image/png",
+            "roles": [
+                "thumbnail"
+            ]
+        }
+    }
+}

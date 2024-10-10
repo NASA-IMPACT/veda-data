@@ -1,0 +1,72 @@
+{
+    "id": "campfire-nlcd",
+    "type": "Collection",
+    "title": "Camp Fire Domain: Land Cover",
+    "links": [],
+    "description": "30 meter LULC classification provided by the NLCD. \n\n ### Technical Details \n\n We utilized the National Land Cover Database (NLCD), which provides a classification of land cover categories at 30m spatial resolution over geographical locations within the Continental United States (CONUS). The NLCD is derived from Landsat satellite sensors data and is available at approximately three-year time intervals. We used the NLCD maps for the years 2016 and 2019 to examine changes in land cover type resulting from the Camp Fire event, to examine LULC before and after the Camp Fire. This analysis shows that the dominant vegetation cover type that was present within the region per-wildfire are evergreen forest and shrub/scrub cover, while post-wildfire are grasslands and herbaceous vegetation.",
+    "extent": {
+        "spatial": {
+            "bbox": [
+                [
+                    -123.01078638251661,
+                    38.70177659870423,
+                    -120.1714851176425,
+                    40.83029239162325
+                ]
+            ]
+        },
+        "temporal": {
+            "interval": [
+                [
+                    "2016-01-01T00:00:00Z",
+                    "2019-12-31T00:00:00Z"
+                ]
+            ]
+        }
+    },
+    "license": "CC0-1.0",
+    "stac_extensions": [
+        "https://stac-extensions.github.io/item-assets/v1.0.0/schema.json"
+    ],
+    "item_assets": {
+        "cog_default": {
+            "type": "image/tiff; application=geotiff; profile=cloud-optimized",
+            "roles": [
+                "data",
+                "layer"
+            ],
+            "title": "Default COG Layer",
+            "description": "Cloud optimized default layer to display on map"
+        }
+    },
+    "dashboard:is_periodic": false,
+    "dashboard:time_density": "year",
+    "stac_version": "1.0.0",
+    "providers": [
+        {
+            "name": "NASA VEDA",
+            "url": "https://www.earthdata.nasa.gov/dashboard/",
+            "roles": [
+                "host"
+            ]
+        },
+        {
+            "name": "NASA",
+            "url": null,
+            "roles": [
+                "producer"
+            ]
+        }
+    ],
+    "assets": {
+        "thumbnail": {
+            "title": "Thumbnail",
+            "description": "Photo by [Mike Newbry](https://unsplash.com/photos/DwtX9mMHBJ0) (Engulfed hillside in California, 2021)",
+            "href": "https://thumbnails.openveda.cloud/camp-fire-background.jpg",
+            "type": "image/jpeg",
+            "roles": [
+                "thumbnail"
+            ]
+        }
+    }
+}

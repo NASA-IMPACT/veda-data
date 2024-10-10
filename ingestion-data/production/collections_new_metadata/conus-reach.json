@@ -1,0 +1,96 @@
+{
+    "id": "conus-reach",
+    "type": "Collection",
+    "title": "Stream network across the Contiguous United States",
+    "links": [],
+    "description": "This dataset describes the Stream network across the Contiguous United States delineated using Soil and Water Assessment Tool \n\n ### Technical Details \n\n This dataset describes the Stream network across the Contiguous United States delineated using Soil and Water Assessment Tool",
+    "extent": {
+        "spatial": {
+            "bbox": [
+                [
+                    -124.70647662199997,
+                    25.341586347000028,
+                    -67.14524092289997,
+                    49.32899588910003
+                ]
+            ]
+        },
+        "temporal": {
+            "interval": [
+                [
+                    "2020-01-01T00:00:00Z",
+                    "2020-12-31T00:00:00Z"
+                ]
+            ]
+        }
+    },
+    "license": "CC0-1.0",
+    "stac_extensions": [
+        "https://stac-extensions.github.io/render/v1.0.0/schema.json",
+        "https://stac-extensions.github.io/item-assets/v1.0.0/schema.json"
+    ],
+    "item_assets": {
+        "cog_default": {
+            "type": "image/tiff; application=geotiff; profile=cloud-optimized",
+            "roles": [
+                "data",
+                "layer"
+            ],
+            "title": "Default COG Layer",
+            "description": "Cloud optimized default layer to display on map"
+        }
+    },
+    "dashboard:is_periodic": false,
+    "dashboard:time_density": null,
+    "stac_version": "1.0.0",
+    "renders": {
+        "dashboard": {
+            "colormap_name": "gnbu_r",
+            "rescale": [
+                [
+                    1,
+                    1
+                ]
+            ],
+            "nodata": 65535,
+            "assets": [
+                "cog_default"
+            ],
+            "title": "VEDA Dashboard Render Parameters"
+        }
+    },
+    "providers": [
+        {
+            "name": "NASA VEDA",
+            "url": "https://www.earthdata.nasa.gov/dashboard/",
+            "roles": [
+                "host"
+            ]
+        },
+        {
+            "name": "NASA VEDA",
+            "url": "https://www.earthdata.nasa.gov/dashboard/",
+            "roles": [
+                "processor"
+            ]
+        },
+        {
+            "name": "NASA",
+            "url": null,
+            "roles": [
+                "producer"
+            ]
+        }
+    ],
+    "assets": {
+        "thumbnail": {
+            "title": "Thumbnail",
+            "description": "Photo by [NASA](https://www.nasa.gov) (A map showing nitrate loads in the rivers of the United States on 07/01/2018)",
+            "href": "https://thumbnails.openveda.cloud/CONUS_Nitrate_07012018.png",
+            "type": "image/png",
+            "roles": [
+                "thumbnail"
+            ]
+        }
+    }
+}

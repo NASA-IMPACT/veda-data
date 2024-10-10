@@ -1,0 +1,102 @@
+{
+    "id": "caldor-fire-burn-severity",
+    "type": "Collection",
+    "title": "Caldor Fire Burn Severity",
+    "links": [],
+    "description": "Soil burn severity (SBS) conditions. \n\n ### Technical Details \n\n This dataset describes the progression and active fire behavior of the 2021 Caldor Fire in California, as recorded by the algorithm detailed in https://www.nature.com/articles/s41597-022-01343-0. It includes an extra layer detailing the soil burn severity (SBS) conditions provided by the [Burned Area Emergency Response](https://burnseverity.cr.usgs.gov/baer/) team.",
+    "extent": {
+        "spatial": {
+            "bbox": [
+                [
+                    -120.61338752166166,
+                    38.549319926107025,
+                    -119.91919400099995,
+                    38.90577651328637
+                ]
+            ]
+        },
+        "temporal": {
+            "interval": [
+                [
+                    "2021-08-15T00:00:00Z",
+                    "2021-10-21T12:00:00Z"
+                ]
+            ]
+        }
+    },
+    "license": "CC0-1.0",
+    "stac_extensions": [
+        "https://stac-extensions.github.io/render/v1.0.0/schema.json",
+        "https://stac-extensions.github.io/item-assets/v1.0.0/schema.json"
+    ],
+    "item_assets": {
+        "cog_default": {
+            "type": "image/tiff; application=geotiff; profile=cloud-optimized",
+            "roles": [
+                "data",
+                "layer"
+            ],
+            "title": "Default COG Layer",
+            "description": "Cloud optimized default layer to display on map"
+        }
+    },
+    "dashboard:is_periodic": false,
+    "dashboard:time_density": null,
+    "stac_version": "1.0.0",
+    "renders": {
+        "dashboard": {
+            "colormap_name": "inferno_r",
+            "rescale": [
+                [
+                    0,
+                    5
+                ]
+            ],
+            "assets": [
+                "cog_default"
+            ],
+            "title": "VEDA Dashboard Render Parameters"
+        }
+    },
+    "providers": [
+        {
+            "name": "USGS Burnt Area Emergency Response (BAER)",
+            "url": "https://burnseverity.cr.usgs.gov/products/baer",
+            "roles": [
+                "producer"
+            ]
+        },
+        {
+            "name": "NASA VEDA",
+            "url": "https://www.earthdata.nasa.gov/dashboard/",
+            "roles": [
+                "host"
+            ]
+        },
+        {
+            "name": "NASA VEDA",
+            "url": "https://www.earthdata.nasa.gov/dashboard/",
+            "roles": [
+                "processor"
+            ]
+        },
+        {
+            "name": "NASA",
+            "url": null,
+            "roles": [
+                "producer"
+            ]
+        }
+    ],
+    "assets": {
+        "thumbnail": {
+            "title": "Thumbnail",
+            "description": "Photo by [Marek Piwnicki](https://unsplash.com/photos/WiZOyYqzUss) (Hillside engulfed by a wildfire)",
+            "href": "https://thumbnails.openveda.cloud/caldor-fire--dataset-cover.jpg",
+            "type": "image/jpeg",
+            "roles": [
+                "thumbnail"
+            ]
+        }
+    }
+}

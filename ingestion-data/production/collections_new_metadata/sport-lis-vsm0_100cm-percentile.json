@@ -1,0 +1,93 @@
+{
+    "id": "sport-lis-vsm0_100cm-percentile",
+    "type": "Collection",
+    "title": "0-100 cm Volumetric Soil Moisture (%)",
+    "links": [],
+    "description": "The NASA Short-term Prediction Research and Transition (SPoRT) Center has developed a Real-Time Land Information System (LIS). The Volumetric Soil Moisture product represents the actual moisture in a soil column from 0-100cm in depth. \n\n ### Technical Details \n\n The NASA Land Information System (LIS) is a high-performance land surface modeling and data assimilation system used to characterize land surface states and fluxes by integrating satellite-derived datasets, ground-based observations, and model re-analyses. The NASA SPoRT Center at MSFC developed a real-time configuration of the LIS (“SPoRT-LIS”), which is designed for use in experimental operations by domestic and international users. SPoRT-LIS is an observations-driven, historical and real-time modeling setup that runs the Noah land surface model over a full CONUS domain. It provides soil moisture estimates at approximately 3-km horizontal grid spacing over a 2-meter-deep soil column and has been validated for regional applications.",
+    "extent": {
+        "spatial": {
+            "bbox": [
+                [
+                    -124.94000000000003,
+                    25.060000000000006,
+                    -67.07000000000005,
+                    52.92999999999999
+                ]
+            ]
+        },
+        "temporal": {
+            "interval": [
+                [
+                    "2016-09-06T00:00:00Z",
+                    "2016-11-29T00:00:00Z"
+                ]
+            ]
+        }
+    },
+    "license": "CC0-1.0",
+    "stac_extensions": [
+        "https://stac-extensions.github.io/render/v1.0.0/schema.json",
+        "https://stac-extensions.github.io/item-assets/v1.0.0/schema.json"
+    ],
+    "item_assets": {
+        "cog_default": {
+            "type": "image/tiff; application=geotiff; profile=cloud-optimized",
+            "roles": [
+                "data",
+                "layer"
+            ],
+            "title": "Default COG Layer",
+            "description": "Cloud optimized default layer to display on map"
+        }
+    },
+    "dashboard:is_periodic": false,
+    "dashboard:time_density": "day",
+    "stac_version": "1.0.0",
+    "renders": {
+        "dashboard": {
+            "resampling": "bilinear",
+            "bidx": [
+                1
+            ],
+            "colormap_name": "rdylbu",
+            "rescale": [
+                [
+                    0,
+                    100
+                ]
+            ],
+            "nodata": 9999.0,
+            "assets": [
+                "cog_default"
+            ],
+            "title": "VEDA Dashboard Render Parameters"
+        }
+    },
+    "providers": [
+        {
+            "name": "NASA VEDA",
+            "url": "https://www.earthdata.nasa.gov/dashboard/",
+            "roles": [
+                "host"
+            ]
+        },
+        {
+            "name": "NASA",
+            "url": null,
+            "roles": [
+                "producer"
+            ]
+        }
+    ],
+    "assets": {
+        "thumbnail": {
+            "title": "Thumbnail",
+            "description": "Photo by [Clay Banks](https://unsplash.com/photos/EdscD_R28bM) (Dry Clay Wall with Cracks)",
+            "href": "https://thumbnails.openveda.cloud/soil-moisture-main.jpg",
+            "type": "image/jpeg",
+            "roles": [
+                "thumbnail"
+            ]
+        }
+    }
+}

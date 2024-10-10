@@ -1,0 +1,97 @@
+{
+    "id": "IS2SITMOGR4-cog",
+    "type": "Collection",
+    "title": "ICESat-2 L4 Monthly Gridded Sea Ice Thickness (COGs)",
+    "links": [],
+    "description": "Sea Ice thickness in meters \n\n ### Technical Details \n\n This data set reports monthly, gridded winter sea ice thickness across the Arctic Ocean. Sea ice thickness is estimated using ATLAS/ICESat-2 L3A Sea Ice Freeboard (ATL10), Version 5 data and NASA Eulerian Snow On Sea Ice Model (NESOSIM) snow loading.",
+    "extent": {
+        "spatial": {
+            "bbox": [
+                [
+                    -180,
+                    31.269270721494188,
+                    179.7061752664782,
+                    85.18898561151076
+                ]
+            ]
+        },
+        "temporal": {
+            "interval": [
+                [
+                    "2018-11-01T00:00:00Z",
+                    "2021-04-30T00:00:00Z"
+                ]
+            ]
+        }
+    },
+    "license": "MIT",
+    "stac_extensions": [
+        "https://stac-extensions.github.io/render/v1.0.0/schema.json",
+        "https://stac-extensions.github.io/item-assets/v1.0.0/schema.json"
+    ],
+    "item_assets": {
+        "cog_default": {
+            "type": "image/tiff; application=geotiff; profile=cloud-optimized",
+            "roles": [
+                "data",
+                "layer"
+            ],
+            "title": "Default COG Layer",
+            "description": "Cloud optimized default layer to display on map"
+        }
+    },
+    "dashboard:is_periodic": false,
+    "dashboard:time_density": "month",
+    "stac_version": "1.0.0",
+    "renders": {
+        "dashboard": {
+            "colormap_name": "plasma",
+            "rescale": [
+                [
+                    0,
+                    16
+                ]
+            ],
+            "assets": [
+                "cog_default"
+            ],
+            "title": "VEDA Dashboard Render Parameters"
+        }
+    },
+    "providers": [
+        {
+            "name": "National Snow And Ice Data Center (NSIDC)",
+            "url": "https://nsidc.org/data/explore-data",
+            "roles": [
+                "producer",
+                "processor",
+                "licensor"
+            ]
+        },
+        {
+            "name": "NASA VEDA",
+            "url": "https://www.earthdata.nasa.gov/dashboard/",
+            "roles": [
+                "host"
+            ]
+        },
+        {
+            "name": "NASA",
+            "url": null,
+            "roles": [
+                "producer"
+            ]
+        }
+    ],
+    "assets": {
+        "thumbnail": {
+            "title": "Thumbnail",
+            "description": "Photo by [Matt Broch](https://unsplash.com/photos/bwD3GLrV4pY) (Huge chunk of ice calving into the sea below)",
+            "href": "https://thumbnails.openveda.cloud/sea-ice-thick--dataset-cover.jpg",
+            "type": "image/jpeg",
+            "roles": [
+                "thumbnail"
+            ]
+        }
+    }
+}

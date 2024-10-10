@@ -1,0 +1,84 @@
+{
+    "id": "damage_probability_2022-10-03",
+    "type": "Collection",
+    "links": [],
+    "title": "Damage Probability Derived from UCONN GERs Lab After Hurricane Ian",
+    "extent": {
+        "spatial": {
+            "bbox": [
+                [
+                    -82.376311139036,
+                    26.3117385950749,
+                    -81.5589711806718,
+                    27.0376515475538
+                ]
+            ]
+        },
+        "temporal": {
+            "interval": [
+                [
+                    "2022-10-03T00:00:00+00:00",
+                    "2022-10-03T23:59:59+00:00"
+                ]
+            ]
+        }
+    },
+    "license": "CC0-1.0",
+    "providers": [
+        {
+            "url": "https://www.earthdata.nasa.gov/dashboard/",
+            "name": "NASA VEDA",
+            "roles": [
+                "host"
+            ]
+        }
+    ],
+    "description": "DPI values from 0 to 99. 0: no damage; 99: damage mostly likely \n\n ### Technical Details \n\n Maximum Fire Radiative Power recorded by the Suomi NPP VIIRS sensor per 12hr fire line segment for the Thomas Fire of 2017",
+    "assets": {
+        "thumbnail": {
+            "href": "https://thumbnails.openveda.cloud/HLS_Damage_Probability_Cover_Image_FL.jpg",
+            "type": "image/jpeg",
+            "roles": [
+                "thumbnail"
+            ],
+            "title": "Thumbnail",
+            "description": "Photo by [CONUS Disturbance Watcher](https://gers.users.earthengine.app/view/nrt-conus) (Satellite imagery over Florida showing damage probability (using Viridis color ramp, with yellow being high probability and purple being low probability) for Oct 3, 2023)"
+        }
+    },
+    "item_assets": {
+        "cog_default": {
+            "type": "image/tiff; application=geotiff; profile=cloud-optimized",
+            "roles": [
+                "data",
+                "layer"
+            ],
+            "title": "Default COG Layer",
+            "description": "Cloud optimized default layer to display on map"
+        }
+    },
+    "stac_version": "1.0.0",
+    "renders": {
+        "dashboard": {
+            "colormap_name": "magma",
+            "rescale": [
+                [
+                    0,
+                    99
+                ]
+            ],
+            "bidx": [
+                1
+            ],
+            "assets": [
+                "cog_default"
+            ],
+            "title": "VEDA Dashboard Render Parameters"
+        }
+    },
+    "stac_extensions": [
+        "https://stac-extensions.github.io/render/v1.0.0/schema.json",
+        "https://stac-extensions.github.io/item-assets/v1.0.0/schema.json"
+    ],
+    "dashboard:is_periodic": true,
+    "dashboard:time_density": "day"
+}

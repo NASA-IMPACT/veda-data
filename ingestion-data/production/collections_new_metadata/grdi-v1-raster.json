@@ -1,0 +1,97 @@
+{
+    "id": "grdi-v1-raster",
+    "type": "Collection",
+    "title": "GRDI V1 raster",
+    "links": [],
+    "description": "Global Gridded Relative Deprivation Index (GRDI), V1 raster \n\n ### Technical Details \n\n The Global Gridded Relative Deprivation Index (GRDI), Version 1 (GRDIv1) dataset characterizes the relative levels of multidimensional deprivation and poverty in each 30 arc-second (~1 km) pixel, where a value of 100 represents the highest level of deprivation and a value of 0 the lowest. GRDIv1 is built from sociodemographic and satellite data inputs that were spatially harmonized, indexed, and weighted into six main components to produce the final index raster. Inputs were selected from the best-available data that either continuously vary across space or have at least administrative level 1 (provincial/state) resolution, and which have global spatial coverage.",
+    "extent": {
+        "spatial": {
+            "bbox": [
+                [
+                    -179.99999999990004,
+                    -55.983333333466476,
+                    179.81666666676645,
+                    82.18333333320012
+                ]
+            ]
+        },
+        "temporal": {
+            "interval": [
+                [
+                    "2010-01-01T00:00:00Z",
+                    "2021-12-31T00:00:00Z"
+                ]
+            ]
+        }
+    },
+    "license": "MIT",
+    "stac_extensions": [
+        "https://stac-extensions.github.io/render/v1.0.0/schema.json",
+        "https://stac-extensions.github.io/item-assets/v1.0.0/schema.json"
+    ],
+    "item_assets": {
+        "cog_default": {
+            "type": "image/tiff; application=geotiff; profile=cloud-optimized",
+            "roles": [
+                "data",
+                "layer"
+            ],
+            "title": "Default COG Layer",
+            "description": "Cloud optimized default layer to display on map"
+        }
+    },
+    "dashboard:is_periodic": false,
+    "dashboard:time_density": null,
+    "stac_version": "1.0.0",
+    "renders": {
+        "dashboard": {
+            "colormap_name": "viridis",
+            "rescale": [
+                [
+                    0,
+                    100
+                ]
+            ],
+            "assets": [
+                "cog_default"
+            ],
+            "title": "VEDA Dashboard Render Parameters"
+        }
+    },
+    "providers": [
+        {
+            "name": "NASA CIESIN",
+            "url": "https://sedac.ciesin.columbia.edu/data/set/povmap-grdi-v1",
+            "roles": [
+                "producer",
+                "processor",
+                "licensor"
+            ]
+        },
+        {
+            "name": "NASA VEDA",
+            "url": "https://www.earthdata.nasa.gov/dashboard/",
+            "roles": [
+                "host"
+            ]
+        },
+        {
+            "name": "NASA CIESIN",
+            "url": null,
+            "roles": [
+                "producer"
+            ]
+        }
+    ],
+    "assets": {
+        "thumbnail": {
+            "title": "Thumbnail",
+            "description": "Photo by [Jordan Opel](https://unsplash.com/photos/3VLHF9b9Plg) (Shacks along a river almost collapsing)",
+            "href": "https://thumbnails.openveda.cloud/grdi--dataset-cover.jpg",
+            "type": "image/jpeg",
+            "roles": [
+                "thumbnail"
+            ]
+        }
+    }
+}

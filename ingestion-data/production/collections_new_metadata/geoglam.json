@@ -1,0 +1,134 @@
+{
+    "id": "geoglam",
+    "type": "Collection",
+    "title": "GEOGLAM Crop Monitor",
+    "links": [],
+    "description": "Combined crop conditions across both the Crop Monitor for AMIS and Crop Monitor for Early Warning \n\n ### Technical Details \n\n The Group on Earth Observation's Global Agricultural Monitoring Initiative (GEOGLAM) Global Crop Monitor uses remote sensing data like global precipitation and soil moisture measurements to help reduce uncertainty, promote market transparency, and provide early warning for crop failures through multi-agency collaboration.",
+    "extent": {
+        "spatial": {
+            "bbox": [
+                [
+                    -180.004464285715,
+                    -90,
+                    180.00611292773385,
+                    90
+                ]
+            ]
+        },
+        "temporal": {
+            "interval": [
+                [
+                    "2020-01-01T00:00:00Z",
+                    "2023-06-01T00:00:00Z"
+                ]
+            ]
+        }
+    },
+    "license": "MIT",
+    "stac_extensions": [
+        "https://stac-extensions.github.io/render/v1.0.0/schema.json",
+        "https://stac-extensions.github.io/item-assets/v1.0.0/schema.json"
+    ],
+    "item_assets": {
+        "cog_default": {
+            "type": "image/tiff; application=geotiff; profile=cloud-optimized",
+            "roles": [
+                "data",
+                "layer"
+            ],
+            "title": "Default COG Layer",
+            "description": "Cloud optimized default layer to display on map"
+        }
+    },
+    "dashboard:is_periodic": false,
+    "dashboard:time_density": "month",
+    "stac_version": "1.0.0",
+    "renders": {
+        "dashboard": {
+            "colormap": {
+                "1": [
+                    120,
+                    120,
+                    120
+                ],
+                "2": [
+                    130,
+                    65,
+                    0
+                ],
+                "3": [
+                    66,
+                    207,
+                    56
+                ],
+                "4": [
+                    245,
+                    239,
+                    0
+                ],
+                "5": [
+                    241,
+                    89,
+                    32
+                ],
+                "6": [
+                    168,
+                    0,
+                    0
+                ],
+                "7": [
+                    0,
+                    143,
+                    201
+                ]
+            },
+            "bidx": [
+                1
+            ],
+            "unscale": false,
+            "resampling": "nearest",
+            "max_size": 1024,
+            "return_mask": true,
+            "assets": [
+                "cog_default"
+            ],
+            "title": "VEDA Dashboard Render Parameters"
+        }
+    },
+    "providers": [
+        {
+            "name": "USDA & Global Crop Monitor Group partners",
+            "url": "https://data.nal.usda.gov/dataset/geoglam-geo-global-agricultural-monitoring-crop-assessment-tool#:~:text=The%20GEOGLAM%20crop%20calendars%20are,USDA%20FAS%2C%20and%20USDA%20NASS.",
+            "roles": [
+                "producer",
+                "processor",
+                "licensor"
+            ]
+        },
+        {
+            "name": "NASA VEDA",
+            "url": "https://www.earthdata.nasa.gov/dashboard/",
+            "roles": [
+                "host"
+            ]
+        },
+        {
+            "name": "GEOGLAM",
+            "url": null,
+            "roles": [
+                "producer"
+            ]
+        }
+    ],
+    "assets": {
+        "thumbnail": {
+            "title": "Thumbnail",
+            "description": "Photo by [Jean Wimmerlin](https://unsplash.com/photos/RUj5b4YXaHE) (Bird's eye view of fields)",
+            "href": "https://thumbnails.openveda.cloud/geoglam--dataset-cover.jpg",
+            "type": "image/jpeg",
+            "roles": [
+                "thumbnail"
+            ]
+        }
+    }
+}

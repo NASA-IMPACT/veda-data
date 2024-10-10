@@ -1,0 +1,106 @@
+{
+    "id": "houston-lst-day",
+    "type": "Collection",
+    "title": "Houston land surface temperature during daytime - decadal average",
+    "links": [],
+    "description": "The Land Surface Temperature (LST) data is MODIS-derived daily data, measured at 1 km spatial resolution. \n\n ### Technical Details \n\n Terra MODIS has been instrumental in capturing LST data. This platform, orbiting Earth, scans our planet in multiple spectral bands, allowing for a detailed analysis of LST values. The data periods 2000-20009 and 2010-2019 form this satellite have been particularly enlightening, revealing distinct shifts in Houston’s urban heat profile.",
+    "extent": {
+        "spatial": {
+            "bbox": [
+                [
+                    -97.00008437922591,
+                    27.992675617599986,
+                    -93.99971133026672,
+                    31.009709499642028
+                ]
+            ]
+        },
+        "temporal": {
+            "interval": [
+                [
+                    "2000-01-01T00:00:00Z",
+                    "2019-01-01T00:00:00Z"
+                ]
+            ]
+        }
+    },
+    "license": "CC0-1.0",
+    "stac_extensions": [
+        "https://stac-extensions.github.io/render/v1.0.0/schema.json",
+        "https://stac-extensions.github.io/item-assets/v1.0.0/schema.json"
+    ],
+    "item_assets": {
+        "cog_default": {
+            "type": "image/tiff; application=geotiff; profile=cloud-optimized",
+            "roles": [
+                "data",
+                "layer"
+            ],
+            "title": "Default COG Layer",
+            "description": "Cloud optimized default layer to display on map"
+        }
+    },
+    "dashboard:is_periodic": false,
+    "dashboard:time_density": null,
+    "stac_version": "1.0.0",
+    "renders": {
+        "dashboard": {
+            "resampling": "bilinear",
+            "bidx": [
+                1
+            ],
+            "colormap_name": "jet",
+            "rescale": [
+                [
+                    14600,
+                    15300
+                ]
+            ],
+            "assets": [
+                "cog_default"
+            ],
+            "title": "VEDA Dashboard Render Parameters"
+        }
+    },
+    "providers": [
+        {
+            "name": "USGS",
+            "url": "https://lpdaac.usgs.gov/product_search/",
+            "roles": [
+                "producer"
+            ]
+        },
+        {
+            "name": "NASA VEDA",
+            "url": "https://www.earthdata.nasa.gov/dashboard/",
+            "roles": [
+                "host"
+            ]
+        },
+        {
+            "name": "NASA VEDA",
+            "url": "https://www.earthdata.nasa.gov/dashboard/",
+            "roles": [
+                "processor"
+            ]
+        },
+        {
+            "name": "NASA",
+            "url": null,
+            "roles": [
+                "producer"
+            ]
+        }
+    ],
+    "assets": {
+        "thumbnail": {
+            "title": "Thumbnail",
+            "description": "Photo by [Arto Marttinen](https://unsplash.com/photos/6xh7H5tWj9c) (Sunset over Tokyo)",
+            "href": "https://thumbnails.openveda.cloud/urban-heat.jpg",
+            "type": "image/jpeg",
+            "roles": [
+                "thumbnail"
+            ]
+        }
+    }
+}

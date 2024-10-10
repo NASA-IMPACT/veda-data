@@ -1,0 +1,65 @@
+{
+    "id": "hls-ndvi",
+    "type": "Collection",
+    "title": "Normalized difference vegetation index from HLS",
+    "links": [],
+    "description": "NDVI: 0 to 1; 0 = little to no vegetation; 1 = heavy vegetation \n\n ### Technical Details \n\n Terrestrial water storage (TWS) is defined as the summation of all water on the land surface and in the subsurface. It includes surface soil moisture, root zone soil moisture, groundwater, snow, ice, water stored in the vegetation, river and lake water.",
+    "extent": {
+        "spatial": {
+            "bbox": [
+                [
+                    -82.37631113903603,
+                    26.31173859507485,
+                    -81.9037040761012,
+                    27.035837664631245
+                ]
+            ]
+        },
+        "temporal": {
+            "interval": [
+                [
+                    "2022-09-05T00:00:00Z",
+                    "2022-09-05T00:00:00Z"
+                ]
+            ]
+        }
+    },
+    "license": "CC0-1.0",
+    "stac_extensions": [
+        "https://stac-extensions.github.io/item-assets/v1.0.0/schema.json"
+    ],
+    "item_assets": {
+        "cog_default": {
+            "type": "image/tiff; application=geotiff; profile=cloud-optimized",
+            "roles": [
+                "data",
+                "layer"
+            ],
+            "title": "Default COG Layer",
+            "description": "Cloud optimized default layer to display on map"
+        }
+    },
+    "dashboard:is_periodic": false,
+    "dashboard:time_density": "day",
+    "stac_version": "1.0.0",
+    "providers": [
+        {
+            "name": "NASA VEDA",
+            "url": "https://www.earthdata.nasa.gov/dashboard/",
+            "roles": [
+                "host"
+            ]
+        }
+    ],
+    "assets": {
+        "thumbnail": {
+            "title": "Thumbnail",
+            "description": "Photo by NASA (Screenshot of harmonized landsat normalized difference vegetation index from September 2022)",
+            "href": "https://thumbnails.openveda.cloud/hls-ndvi.png",
+            "type": "image/png",
+            "roles": [
+                "thumbnail"
+            ]
+        }
+    }
+}

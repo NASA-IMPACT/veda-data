@@ -1,0 +1,88 @@
+{
+    "id": "co2-mean",
+    "type": "Collection",
+    "title": "CO₂ (Avg)",
+    "links": [],
+    "description": "The average background concentration of carbon dioxide (CO₂) in our atmosphere. \n\n ### Technical Details \n\n The Impact of the COVID-19 Pandemic on Atmospheric CO2",
+    "extent": {
+        "spatial": {
+            "bbox": [
+                [
+                    -180.3125,
+                    -90.25,
+                    179.6875,
+                    90.25
+                ]
+            ]
+        },
+        "temporal": {
+            "interval": [
+                [
+                    "2015-01-01T00:00:00Z",
+                    "2022-02-13T00:00:00Z"
+                ]
+            ]
+        }
+    },
+    "license": "MIT",
+    "stac_extensions": [
+        "https://stac-extensions.github.io/render/v1.0.0/schema.json",
+        "https://stac-extensions.github.io/item-assets/v1.0.0/schema.json"
+    ],
+    "item_assets": {
+        "cog_default": {
+            "type": "image/tiff; application=geotiff; profile=cloud-optimized",
+            "roles": [
+                "data",
+                "layer"
+            ],
+            "title": "Default COG Layer",
+            "description": "Cloud optimized default layer to display on map"
+        }
+    },
+    "dashboard:is_periodic": true,
+    "dashboard:time_density": "day",
+    "stac_version": "1.0.0",
+    "renders": {
+        "dashboard": {
+            "colormap_name": "rdylbu_r",
+            "rescale": [
+                [
+                    0.000408,
+                    0.000419
+                ]
+            ],
+            "assets": [
+                "cog_default"
+            ],
+            "title": "VEDA Dashboard Render Parameters"
+        }
+    },
+    "providers": [
+        {
+            "name": "NASA VEDA",
+            "url": "https://www.earthdata.nasa.gov/dashboard/",
+            "roles": [
+                "host"
+            ]
+        },
+        {
+            "name": "NASA",
+            "url": null,
+            "roles": [
+                "producer"
+            ]
+        }
+    ],
+    "assets": {
+        "thumbnail": {
+            "title": "Thumbnail",
+            "description": "Photo by [Marek Piwnicki](https://unsplash.com/photos/WiZOyYqzUss) (Power plant shooting steam at the sky)",
+            "href": "https://thumbnails.openveda.cloud/co2--dataset-cover.jpg",
+            "type": "image/jpeg",
+            "roles": [
+                "thumbnail"
+            ]
+        }
+    }
+}

@@ -1,0 +1,132 @@
+{
+    "id": "bangladesh-landcover-2001-2020",
+    "type": "Collection",
+    "title": "Annual land cover maps for 2001 and 2020",
+    "links": [],
+    "description": "Annual land cover maps for 2001 and 2020 (Bangladesh) \n\n ### Technical Details \n\n The annual land cover maps of 2001 and 2021 were captured using combined Moderate Resolution Imaging Spectroradiometer (MODIS) Annual Land Cover Type dataset (MCD12Q1 V6, dataset link: [https://lpdaac.usgs.gov/products/mcd12q1v006/](https://lpdaac.usgs.gov/products/mcd12q1v006/)).  The actual data product provides global land cover types at yearly intervals (2001-2020) at 500 meters with six different types of land cover classification. Among six different schemes, The International Geosphere–Biosphere Programme (IGBP) land cover classification selected and further simplified to dominant land cover classes (water, urban, cropland, native vegetation) for two different years to illustrate the changes in land use and land cover of the country.",
+    "extent": {
+        "spatial": {
+            "bbox": [
+                [
+                    88.02591469087191,
+                    20.742099910319755,
+                    92.68367943903164,
+                    26.63504817414382
+                ]
+            ]
+        },
+        "temporal": {
+            "interval": [
+                [
+                    "2001-01-01T00:00:00Z",
+                    "2020-12-31T23:59:59Z"
+                ]
+            ]
+        }
+    },
+    "license": "CC0-1.0",
+    "stac_extensions": [
+        "https://stac-extensions.github.io/render/v1.0.0/schema.json",
+        "https://stac-extensions.github.io/item-assets/v1.0.0/schema.json"
+    ],
+    "item_assets": {
+        "cog_default": {
+            "type": "image/tiff; application=geotiff; profile=cloud-optimized",
+            "roles": [
+                "data",
+                "layer"
+            ],
+            "title": "Default COG Layer",
+            "description": "Cloud optimized default layer to display on map"
+        }
+    },
+    "dashboard:is_periodic": false,
+    "dashboard:datetime_density": "year",
+    "stac_version": "1.0.0",
+    "renders": {
+        "dashboard": {
+            "resampling": "nearest",
+            "colormap": {
+                "0": [
+                    0,
+                    0,
+                    0,
+                    128
+                ],
+                "100": [
+                    0,
+                    130,
+                    0,
+                    255
+                ],
+                "200": [
+                    17,
+                    131,
+                    226,
+                    255
+                ],
+                "300": [
+                    199,
+                    43,
+                    32,
+                    255
+                ],
+                "400": [
+                    98,
+                    234,
+                    37,
+                    255
+                ]
+            },
+            "bidx": [
+                1
+            ],
+            "return_mask": true,
+            "assets": [
+                "cog_default"
+            ],
+            "title": "VEDA Dashboard Render Parameters"
+        }
+    },
+    "providers": [
+        {
+            "name": "USGS",
+            "url": "https://lpdaac.usgs.gov/product_search/",
+            "roles": [
+                "producer"
+            ]
+        },
+        {
+            "name": "NASA VEDA",
+            "url": "https://www.earthdata.nasa.gov/dashboard/",
+            "roles": [
+                "host"
+            ]
+        },
+        {
+            "name": "NASA VEDA",
+            "url": "https://www.earthdata.nasa.gov/dashboard/",
+            "roles": [
+                "processor"
+            ]
+        },
+        {
+            "name": "NASA",
+            "url": null,
+            "roles": [
+                "producer"
+            ]
+        }
+    ],
+    "assets": {
+        "thumbnail": {
+            "title": "Thumbnail",
+            "description": "Photo by [USGS](https://unsplash.com/photos/d59NHNtT_Ss) (Annual land cover maps for 2001 and 2020 (Bangladesh))",
+            "href": "https://thumbnails.openveda.cloud/bangladesh-landcover-2001-2020--dataset-cover.jpg",
+            "type": "image/jpeg",
+            "roles": [
+                "thumbnail"
+            ]
+        }
+    }
+}

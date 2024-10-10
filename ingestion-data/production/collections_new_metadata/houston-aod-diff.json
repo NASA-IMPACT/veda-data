@@ -1,0 +1,103 @@
+{
+    "id": "houston-aod-diff",
+    "type": "Collection",
+    "title": "Houston AOD: Difference Between 2000-2009 & 2010-2019",
+    "links": [],
+    "description": "This figure shows the difference in AOD in the form of a raster when subtracting the two decades from the original AOD Dataset \n\n ### Technical Details \n\n This dataset comes from the two decadal COGs that displayed mean Aerosol Optical Depth for 2000-2009 and for 2010-2019. Those tiffs were subtracted to display the differences between the two decades.",
+    "extent": {
+        "spatial": {
+            "bbox": [
+                [
+                    -97.00906753206712,
+                    27.992675617599986,
+                    -93.99072817742552,
+                    31.017446580357053
+                ]
+            ]
+        },
+        "temporal": {
+            "interval": [
+                [
+                    "2000-01-01T00:00:00Z",
+                    "2019-01-01T00:00:00Z"
+                ]
+            ]
+        }
+    },
+    "license": "CC0-1.0",
+    "stac_extensions": [
+        "https://stac-extensions.github.io/render/v1.0.0/schema.json",
+        "https://stac-extensions.github.io/item-assets/v1.0.0/schema.json"
+    ],
+    "item_assets": {
+        "cog_default": {
+            "type": "image/tiff; application=geotiff; profile=cloud-optimized",
+            "roles": [
+                "data",
+                "layer"
+            ],
+            "title": "Default COG Layer",
+            "description": "Cloud optimized default layer to display on map"
+        }
+    },
+    "dashboard:is_periodic": false,
+    "dashboard:time_density": "year",
+    "stac_version": "1.0.0",
+    "renders": {
+        "dashboard": {
+            "colormap_name": "bwr",
+            "rescale": [
+                [
+                    -0.1,
+                    0.1
+                ]
+            ],
+            "nodata": 0,
+            "assets": [
+                "cog_default"
+            ],
+            "title": "VEDA Dashboard Render Parameters"
+        }
+    },
+    "providers": [
+        {
+            "name": "USGS",
+            "url": "https://lpdaac.usgs.gov/product_search/",
+            "roles": [
+                "producer"
+            ]
+        },
+        {
+            "name": "NASA VEDA",
+            "url": "https://www.earthdata.nasa.gov/dashboard/",
+            "roles": [
+                "host"
+            ]
+        },
+        {
+            "name": "NASA VEDA",
+            "url": "https://www.earthdata.nasa.gov/dashboard/",
+            "roles": [
+                "processor"
+            ]
+        },
+        {
+            "name": "NASA",
+            "url": null,
+            "roles": [
+                "producer"
+            ]
+        }
+    ],
+    "assets": {
+        "thumbnail": {
+            "title": "Thumbnail",
+            "description": "Photo by [Nick van den Berg](https://unsplash.com/photos/2vb-_3t6YCM) (Smog Located In City)",
+            "href": "https://thumbnails.openveda.cloud/smog-city.png",
+            "type": "image/jpeg",
+            "roles": [
+                "thumbnail"
+            ]
+        }
+    }
+}
