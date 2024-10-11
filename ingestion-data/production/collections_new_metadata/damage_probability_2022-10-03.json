@@ -26,8 +26,15 @@
     "license": "CC0-1.0",
     "providers": [
         {
-            "url": "https://www.earthdata.nasa.gov/dashboard/",
+            "name": "UCONN NRE",
+            "url": "https://nre.uconn.edu/",
+            "roles": [
+                "producer"
+            ]
+        },
+        {
             "name": "NASA VEDA",
+            "url": "https://www.earthdata.nasa.gov/dashboard/",
             "roles": [
                 "host"
             ]

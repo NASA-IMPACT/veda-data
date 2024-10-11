@@ -80,13 +80,6 @@
             "roles": [
                 "processor"
             ]
-        },
-        {
-            "name": "NASA",
-            "url": null,
-            "roles": [
-                "producer"
-            ]
         }
     ],
     "assets": {

@@ -61,6 +61,13 @@
     },
     "providers": [
         {
+            "name": "NASA EIS",
+            "url": "https://www.earthdata.nasa.gov/eis/",
+            "roles": [
+                "producer"
+            ]
+        },
+        {
             "name": "NASA VEDA",
             "url": "https://www.earthdata.nasa.gov/dashboard/",
             "roles": [
@@ -72,13 +79,6 @@
             "url": "https://www.earthdata.nasa.gov/dashboard/",
             "roles": [
                 "processor"
-            ]
-        },
-        {
-            "name": "NASA",
-            "url": null,
-            "roles": [
-                "producer"
             ]
         }
     ],

@@ -114,14 +114,14 @@
             "name": "NASA VEDA",
             "url": "https://www.earthdata.nasa.gov/dashboard/",
             "roles": [
-                "host"
+                "producer"
             ]
         },
         {
-            "name": "NASA",
-            "url": null,
+            "name": "NASA VEDA",
+            "url": "https://www.earthdata.nasa.gov/dashboard/",
             "roles": [
-                "producer"
+                "host"
             ]
         }
     ]
