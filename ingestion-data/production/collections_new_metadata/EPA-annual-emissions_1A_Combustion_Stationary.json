@@ -75,13 +75,6 @@
             "roles": [
                 "host"
             ]
-        },
-        {
-            "name": "EPA",
-            "url": null,
-            "roles": [
-                "producer"
-            ]
         }
     ],
     "assets": {

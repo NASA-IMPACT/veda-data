@@ -78,13 +78,6 @@
             "roles": [
                 "host"
             ]
-        },
-        {
-            "name": "NASA",
-            "url": null,
-            "roles": [
-                "producer"
-            ]
         }
     ],
     "assets": {

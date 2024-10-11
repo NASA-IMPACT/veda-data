@@ -64,17 +64,17 @@
     },
     "providers": [
         {
+            "name": "NASA Land Information System (LIS)",
+            "url": "https://lis.gsfc.nasa.gov/",
+            "roles": [
+                "producer"
+            ]
+        },
+        {
             "name": "NASA VEDA",
             "url": "https://www.earthdata.nasa.gov/dashboard/",
             "roles": [
                 "host"
-            ]
-        },
-        {
-            "name": "NASA",
-            "url": null,
-            "roles": [
-                "producer"
             ]
         }
     ],

@@ -85,13 +85,6 @@
             "roles": [
                 "host"
             ]
-        },
-        {
-            "name": "Meta",
-            "url": null,
-            "roles": [
-                "producer"
-            ]
         }
     ],
     "assets": {

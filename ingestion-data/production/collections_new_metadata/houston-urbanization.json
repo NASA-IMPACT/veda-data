@@ -80,13 +80,6 @@
             "roles": [
                 "processor"
             ]
-        },
-        {
-            "name": "EROS",
-            "url": null,
-            "roles": [
-                "producer"
-            ]
         }
     ],
     "assets": {

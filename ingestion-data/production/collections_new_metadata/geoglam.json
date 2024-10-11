@@ -111,13 +111,6 @@
             "roles": [
                 "host"
             ]
-        },
-        {
-            "name": "GEOGLAM",
-            "url": null,
-            "roles": [
-                "producer"
-            ]
         }
     ],
     "assets": {

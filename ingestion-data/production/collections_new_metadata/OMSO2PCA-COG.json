@@ -64,17 +64,17 @@
     },
     "providers": [
         {
+            "name": "NASA",
+            "url": "https://aura.gsfc.nasa.gov/omi.html",
+            "roles": [
+                "producer"
+            ]
+        },
+        {
             "name": "NASA VEDA",
             "url": "https://www.earthdata.nasa.gov/dashboard/",
             "roles": [
                 "host"
-            ]
-        },
-        {
-            "name": "NASA",
-            "url": null,
-            "roles": [
-                "producer"
             ]
         }
     ],

@@ -74,13 +74,6 @@
             "roles": [
                 "host"
             ]
-        },
-        {
-            "name": "NASA CIESIN",
-            "url": null,
-            "roles": [
-                "producer"
-            ]
         }
     ],
     "assets": {

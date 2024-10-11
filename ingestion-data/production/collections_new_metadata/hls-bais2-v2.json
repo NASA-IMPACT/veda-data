@@ -44,17 +44,24 @@
     "stac_version": "1.0.0",
     "providers": [
         {
-            "name": "NASA VEDA",
-            "url": "https://www.earthdata.nasa.gov/dashboard/",
+            "name": "USGS",
+            "url": "https://lpdaac.usgs.gov/product_search/",
             "roles": [
-                "host"
+                "producer"
             ]
         },
         {
             "name": "NASA",
-            "url": null,
+            "url": "https://hls.gsfc.nasa.gov/",
             "roles": [
                 "producer"
+            ]
+        },
+        {
+            "name": "NASA VEDA",
+            "url": "https://www.earthdata.nasa.gov/dashboard/",
+            "roles": [
+                "host"
             ]
         }
     ],

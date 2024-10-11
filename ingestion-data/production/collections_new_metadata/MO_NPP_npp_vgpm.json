@@ -60,17 +60,17 @@
     },
     "providers": [
         {
+            "name": "Oregon State University",
+            "url": "https://sites.science.oregonstate.edu/ocean.productivity",
+            "roles": [
+                "producer"
+            ]
+        },
+        {
             "name": "NASA VEDA",
             "url": "https://www.earthdata.nasa.gov/dashboard/",
             "roles": [
                 "host"
-            ]
-        },
-        {
-            "name": "Oregon State University",
-            "url": null,
-            "roles": [
-                "producer"
             ]
         }
     ],

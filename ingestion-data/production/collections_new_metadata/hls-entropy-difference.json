@@ -26,6 +26,20 @@
     "license": "CC0-1.0",
     "providers": [
         {
+            "name": "USGS",
+            "url": "https://lpdaac.usgs.gov/product_search/",
+            "roles": [
+                "producer"
+            ]
+        },
+        {
+            "name": "NASA",
+            "url": "https://hls.gsfc.nasa.gov/",
+            "roles": [
+                "producer"
+            ]
+        },
+        {
             "name": "NASA VEDA",
             "url": "https://www.earthdata.nasa.gov/dashboard/",
             "roles": [

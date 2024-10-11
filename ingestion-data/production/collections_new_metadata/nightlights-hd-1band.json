@@ -63,7 +63,7 @@
     },
     "providers": [
         {
-            "name": "NASA Black Marble",
+            "name": "NASA",
             "url": "https://blackmarble.gsfc.nasa.gov/",
             "roles": [
                 "producer",
@@ -71,17 +71,17 @@
             ]
         },
         {
+            "name": "NOAA",
+            "url": "https://www.noaa.gov",
+            "roles": [
+                "producer"
+            ]
+        },
+        {
             "name": "NASA VEDA",
             "url": "https://www.earthdata.nasa.gov/dashboard/",
             "roles": [
                 "host"
-            ]
-        },
-        {
-            "name": "NOAA & NASA",
-            "url": null,
-            "roles": [
-                "producer"
             ]
         }
     ],

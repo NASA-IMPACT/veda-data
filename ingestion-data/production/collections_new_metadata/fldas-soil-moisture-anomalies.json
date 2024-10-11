@@ -66,9 +66,16 @@
     "providers": [
         {
             "name": "NASA",
-            "url": null,
+            "url": "https://nasa.gov",
             "roles": [
                 "producer"
+            ]
+        },
+        {
+            "name": "NASA VEDA",
+            "url": "https://www.earthdata.nasa.gov/dashboard/",
+            "roles": [
+                "host"
             ]
         }
     ],

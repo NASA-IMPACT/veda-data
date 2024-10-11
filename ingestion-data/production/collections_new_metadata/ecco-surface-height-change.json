@@ -70,21 +70,8 @@
             "name": "NASA VEDA",
             "url": "https://www.earthdata.nasa.gov/dashboard/",
             "roles": [
-                "host"
-            ]
-        },
-        {
-            "name": "NASA VEDA",
-            "url": "https://www.earthdata.nasa.gov/dashboard/",
-            "roles": [
+                "host",
                 "processor"
-            ]
-        },
-        {
-            "name": "NASA",
-            "url": null,
-            "roles": [
-                "producer"
             ]
         }
     ],
