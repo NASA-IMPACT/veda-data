@@ -34,7 +34,6 @@
   ],
   "renders": {
     "dashboard": {
-        "colormap_name": "inferno_r",
         "colormap": {
           "0": "#add8e6",
           "1": "#90ee90",
@@ -51,6 +50,15 @@
           "cog_default"
       ],
       "title": "VEDA Dashboard Render Parameters"
+    }
+  },
+  "assets": {
+    "thumbnail": {
+        "title": "Thumbnail",
+        "description": "Wedge tornado passing southeast of Wapakoneta, Ohio on March 14, 2024",
+        "href": "https://thumbnails.openveda.cloud/tornado-2024-cover.png",
+        "type": "image/jpeg",
+        "roles": ["thumbnail"]
     }
   },
   "discovery_items": [
