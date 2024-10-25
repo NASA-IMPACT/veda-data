@@ -1,0 +1,7 @@
+{
+    "collection": "soil-texture",
+    "origin_prefix": "soil/",
+    "origin_bucket": "veda-data-store-staging",
+    "filename_regex": ".*_250m_cog_2017.tif$",
+    "target_bucket": "veda-data-store"
+}
