@@ -1,8 +1,8 @@
 {
-    "id": "nlcd-new-urbanization-v2",
+    "id": "nlcd-new-urbanization",
     "type": "Collection",
     "links": [],
-    "title": "NLCD Urbanization V2",
+    "title": "NLCD Urbanization",
     "extent": {
       "spatial": {
         "bbox": [
