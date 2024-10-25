@@ -1,6 +1,6 @@
 {
-    "collection": "nlcd-annual-conus-v2",
-    "title": "NLCD Land Use Land Cover Classifications V2",
+    "collection": "nlcd-annual-conus",
+    "title": "NLCD Land Use Land Cover Classifications",
     "description": "National Land Cover Database Land Use Land Cover Classification datasets for CONUS 2000-2021",
     "license": "CC0-1.0",
     "is_periodic": false,

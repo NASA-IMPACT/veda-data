@@ -1,6 +1,6 @@
 {
-  "collection": "nlcd-new-urbanization-v2",
-  "title": "NLCD Urbanization V2",
+  "collection": "nlcd-new-urbanization",
+  "title": "NLCD Urbanization",
   "description": "National Land Cover Database Land Use Land Cover Classification new urbanization 2001-2021",
   "license": "CC0-1.0",
   "stac_version": "1.0.0",
