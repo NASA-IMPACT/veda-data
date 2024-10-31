@@ -1,15 +1,12 @@
 # This GitHub Actions workflow automates the process of
 # publishing dataset collections to a staging environment
-# and creating a pull request (PR) in the veda-config repository
-# with the dataset configuration.
 # It is triggered by a pull request to the main branch
 # that modifies any files within the ingestion-data/dataset-config/ directory
 # The workflow includes steps to
 #   - publish the datasets,
-#   - create a PR in veda-config repository,
 #   - constantly updates the status of the workflow in the PR comment
 
-name: Publish collection to staging and create dataset config PR
+name: Publish collection to staging
 
 on:
   pull_request:
@@ -168,18 +165,18 @@ jobs:
           $status_message"
           gh api -X PATCH -H "Authorization: token $GITHUB_TOKEN" /repos/${{ github.repository }}/issues/comments/$COMMENT_ID -f body="$UPDATED_BODY"
 
-      # Update PR comment
-      - name: Update PR comment for PR creation
-        if: success()
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          COMMENT_ID: ${{ steps.init-comment.outputs.COMMENT_ID }}
-        run: |
-          CURRENT_BODY=$(gh api -H "Authorization: token $GITHUB_TOKEN" /repos/${{ github.repository }}/issues/comments/$COMMENT_ID --jq '.body')
-          UPDATED_BODY="$CURRENT_BODY
+      # # Update PR comment
+      # - name: Update PR comment for PR creation
+      #   if: success()
+      #   env:
+      #     GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      #     COMMENT_ID: ${{ steps.init-comment.outputs.COMMENT_ID }}
+      #   run: |
+      #     CURRENT_BODY=$(gh api -H "Authorization: token $GITHUB_TOKEN" /repos/${{ github.repository }}/issues/comments/$COMMENT_ID --jq '.body')
+      #     UPDATED_BODY="$CURRENT_BODY
 
-          **Creating a PR in veda-config...**"
-          gh api -X PATCH -H "Authorization: token $GITHUB_TOKEN" /repos/${{ github.repository }}/issues/comments/$COMMENT_ID -f body="$UPDATED_BODY"
+      #     **Creating a PR in veda-config...**"
+      #     gh api -X PATCH -H "Authorization: token $GITHUB_TOKEN" /repos/${{ github.repository }}/issues/comments/$COMMENT_ID -f body="$UPDATED_BODY"
 
       - name: Set up Python
         uses: actions/setup-python@v5
@@ -198,85 +195,85 @@ jobs:
             python3 scripts/mdx.py "$file"
           done
 
-      - name: Set up Git
-        run: |
-          git config --global user.name "github-actions[bot]"
-          git config --global user.email "github-actions[bot]@users.noreply.github.com"
+      # - name: Set up Git
+      #   run: |
+      #     git config --global user.name "github-actions[bot]"
+      #     git config --global user.email "github-actions[bot]@users.noreply.github.com"
 
-      - name: Clone `veda-config`
-        env:
-          VEDA_CONFIG_GH_TOKEN: ${{ secrets.VEDA_CONFIG_GH_TOKEN }}
-        run: git clone https://${{ env.VEDA_CONFIG_GH_TOKEN }}@github.com/${{ vars.VEDA_CONFIG_REPO_ORG }}/${{ vars.VEDA_CONFIG_REPO_NAME }}.git
+      # - name: Clone `veda-config`
+      #   env:
+      #     VEDA_CONFIG_GH_TOKEN: ${{ secrets.VEDA_CONFIG_GH_TOKEN }}
+      #   run: git clone https://${{ env.VEDA_CONFIG_GH_TOKEN }}@github.com/${{ vars.VEDA_CONFIG_REPO_ORG }}/${{ vars.VEDA_CONFIG_REPO_NAME }}.git
 
-      # Creates a PR in veda-config with the following changes:
-      # 1. the mdx files for all published collections
-      # 2. updates the stac/raster urls in .env file
-      # This step needs a GH_TOKEN that has permissions to create a PR in veda-config
-      - name: Create PR with changes
-        id: create-pr
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          VEDA_CONFIG_GH_TOKEN: ${{ secrets.VEDA_CONFIG_GH_TOKEN }}
-          COMMENT_ID: ${{ steps.publish-collections.outputs.COMMENT_ID }}
-          PUBLISHED_COLLECTION_FILES: ${{ steps.publish-collections.outputs.success_collections }}
-        run: |
-          files_string=$(IFS=$'\n'; echo "${PUBLISHED_COLLECTION_FILES[*]}")
-          hash=$(echo -n "$files_string" | md5sum | cut -d ' ' -f 1)
-          NEW_BRANCH="add-dataset-$hash"
-          cd ${{ vars.VEDA_CONFIG_REPO_NAME }}
-          git fetch origin
-          if git ls-remote --exit-code --heads origin $NEW_BRANCH; then
-            git push origin --delete $NEW_BRANCH
-          fi
-          git checkout -b $NEW_BRANCH
+      # # Creates a PR in veda-config with the following changes:
+      # # 1. the mdx files for all published collections
+      # # 2. updates the stac/raster urls in .env file
+      # # This step needs a GH_TOKEN that has permissions to create a PR in veda-config
+      # - name: Create PR with changes
+      #   id: create-pr
+      #   env:
+      #     GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      #     VEDA_CONFIG_GH_TOKEN: ${{ secrets.VEDA_CONFIG_GH_TOKEN }}
+      #     COMMENT_ID: ${{ steps.publish-collections.outputs.COMMENT_ID }}
+      #     PUBLISHED_COLLECTION_FILES: ${{ steps.publish-collections.outputs.success_collections }}
+      #   run: |
+      #     files_string=$(IFS=$'\n'; echo "${PUBLISHED_COLLECTION_FILES[*]}")
+      #     hash=$(echo -n "$files_string" | md5sum | cut -d ' ' -f 1)
+      #     NEW_BRANCH="add-dataset-$hash"
+      #     cd ${{ vars.VEDA_CONFIG_REPO_NAME }}
+      #     git fetch origin
+      #     if git ls-remote --exit-code --heads origin $NEW_BRANCH; then
+      #       git push origin --delete $NEW_BRANCH
+      #     fi
+      #     git checkout -b $NEW_BRANCH
 
-          # Update the env vars to staging based on env vars
-          sed -i "s|${{ vars.ENV_FROM }}|${{ vars.ENV_TO }}|g" .env
-          cp -r ../datasets/* datasets/
-          git add .
-          git commit -m "Add dataset(s)"
-          git push origin $NEW_BRANCH
-          PR_URL=$(GITHUB_TOKEN=$VEDA_CONFIG_GH_TOKEN gh pr create -H $NEW_BRANCH -B develop --title 'Add dataset [Automated workflow]' --body-file <(echo "Add datasets (Automatically created by Github action)"))
+      #     # Update the env vars to staging based on env vars
+      #     sed -i "s|${{ vars.ENV_FROM }}|${{ vars.ENV_TO }}|g" .env
+      #     cp -r ../datasets/* datasets/
+      #     git add .
+      #     git commit -m "Add dataset(s)"
+      #     git push origin $NEW_BRANCH
+      #     PR_URL=$(GITHUB_TOKEN=$VEDA_CONFIG_GH_TOKEN gh pr create -H $NEW_BRANCH -B develop --title 'Add dataset [Automated workflow]' --body-file <(echo "Add datasets (Automatically created by Github action)"))
 
-          echo "PR_URL=$PR_URL" >> $GITHUB_OUTPUT
-          echo "PR creation succeeded"
+      #     echo "PR_URL=$PR_URL" >> $GITHUB_OUTPUT
+      #     echo "PR creation succeeded"
 
-      # Updates the comment with a link to the above PR
-      - name: Update PR comment with PR creation result
-        if: success()
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          COMMENT_ID: ${{ steps.init-comment.outputs.COMMENT_ID }}
-        run: |
-          PR_URL=${{ steps.create-pr.outputs.PR_URL }}
-          CURRENT_BODY=$(gh api -H "Authorization: token $GITHUB_TOKEN" /repos/${{ github.repository }}/issues/comments/$COMMENT_ID --jq '.body')
-          UPDATED_BODY="$CURRENT_BODY
+      # # Updates the comment with a link to the above PR
+      # - name: Update PR comment with PR creation result
+      #   if: success()
+      #   env:
+      #     GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      #     COMMENT_ID: ${{ steps.init-comment.outputs.COMMENT_ID }}
+      #   run: |
+      #     PR_URL=${{ steps.create-pr.outputs.PR_URL }}
+      #     CURRENT_BODY=$(gh api -H "Authorization: token $GITHUB_TOKEN" /repos/${{ github.repository }}/issues/comments/$COMMENT_ID --jq '.body')
+      #     UPDATED_BODY="$CURRENT_BODY
 
-          **A PR has been created with the dataset configuration: 🗺️ [PR link]($PR_URL)**"
-          gh api -X PATCH -H "Authorization: token $GITHUB_TOKEN" /repos/${{ github.repository }}/issues/comments/$COMMENT_ID -f body="$UPDATED_BODY"
+      #     **A PR has been created with the dataset configuration: 🗺️ [PR link]($PR_URL)**"
+      #     gh api -X PATCH -H "Authorization: token $GITHUB_TOKEN" /repos/${{ github.repository }}/issues/comments/$COMMENT_ID -f body="$UPDATED_BODY"
 
-      - name: Update PR comment on PR creation failure
-        if: failure() && steps.create-pr.outcome == 'failure'
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          COMMENT_ID: ${{ steps.init-comment.outputs.COMMENT_ID }}
-        run: |
-          CURRENT_BODY=$(gh api -H "Authorization: token $GITHUB_TOKEN" /repos/${{ github.repository }}/issues/comments/$COMMENT_ID --jq '.body')
-          UPDATED_BODY="$CURRENT_BODY
+      # - name: Update PR comment on PR creation failure
+      #   if: failure() && steps.create-pr.outcome == 'failure'
+      #   env:
+      #     GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      #     COMMENT_ID: ${{ steps.init-comment.outputs.COMMENT_ID }}
+      #   run: |
+      #     CURRENT_BODY=$(gh api -H "Authorization: token $GITHUB_TOKEN" /repos/${{ github.repository }}/issues/comments/$COMMENT_ID --jq '.body')
+      #     UPDATED_BODY="$CURRENT_BODY
 
-          **Failed ❌ to create a PR with the dataset configuration. 😔 **"
-          gh api -X PATCH -H "Authorization: token $GITHUB_TOKEN" /repos/${{ github.repository }}/issues/comments/$COMMENT_ID -f body="$UPDATED_BODY"
+      #     **Failed ❌ to create a PR with the dataset configuration. 😔 **"
+      #     gh api -X PATCH -H "Authorization: token $GITHUB_TOKEN" /repos/${{ github.repository }}/issues/comments/$COMMENT_ID -f body="$UPDATED_BODY"
 
-      # If the workflow fails at any point, the PR comment will be updated
-      - name: Update PR comment on overall workflow failure
-        if: failure() && steps.create-pr.outcome != 'failure'
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          COMMENT_ID: ${{ steps.init-comment.outputs.COMMENT_ID }}
-        run: |
-          WORKFLOW_URL="${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}"
-          CURRENT_BODY=$(gh api -H "Authorization: token $GITHUB_TOKEN" /repos/${{ github.repository }}/issues/comments/$COMMENT_ID --jq '.body')
-          UPDATED_BODY="$CURRENT_BODY
+      # # If the workflow fails at any point, the PR comment will be updated
+      # - name: Update PR comment on overall workflow failure
+      #   if: failure() && steps.create-pr.outcome != 'failure'
+      #   env:
+      #     GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      #     COMMENT_ID: ${{ steps.init-comment.outputs.COMMENT_ID }}
+      #   run: |
+      #     WORKFLOW_URL="${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}"
+      #     CURRENT_BODY=$(gh api -H "Authorization: token $GITHUB_TOKEN" /repos/${{ github.repository }}/issues/comments/$COMMENT_ID --jq '.body')
+      #     UPDATED_BODY="$CURRENT_BODY
 
-          ** ❌ The workflow run failed. [See logs here]($WORKFLOW_URL)**"
-          gh api -X PATCH -H "Authorization: token $GITHUB_TOKEN" /repos/${{ github.repository }}/issues/comments/$COMMENT_ID -f body="$UPDATED_BODY"
+      #     ** ❌ The workflow run failed. [See logs here]($WORKFLOW_URL)**"
+      #     gh api -X PATCH -H "Authorization: token $GITHUB_TOKEN" /repos/${{ github.repository }}/issues/comments/$COMMENT_ID -f body="$UPDATED_BODY"
