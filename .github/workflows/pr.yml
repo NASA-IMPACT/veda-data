@@ -14,7 +14,7 @@ on:
       - main
     paths:
       # Run the workflow only if files inside this path are updated
-      - ingestion-data/dataset-config/*
+      - ingestion-data/staging/dataset-config/*
 
 jobs:
   dataset-publication-and-configuration:
