@@ -1,0 +1,40 @@
+{
+    "collection": "bangladesh-landcover-2001-2020-test",
+    "title": "Annual land cover maps for 2001 and 2020",
+    "description": "The annual land cover maps of 2001 and 2021 were captured using combined Moderate Resolution Imaging Spectroradiometer (MODIS) Annual Land Cover Type dataset (MCD12Q1 V6, dataset link: https://lpdaac.usgs.gov/products/mcd12q1v006/). The actual data product provides global land cover types at yearly intervals (2001-2020) at 500 meters with six different types of land cover classification. Among six different schemes, The International Geosphere–Biosphere Programme (IGBP) land cover classification selected and further simplified to dominant land cover classes (water, urban, cropland, native vegetation) for two different years to illustrate the changes in land use and land cover of the country.",
+    "type": "cog",
+    "spatial_extent": {
+        "xmin": 88.02591469087191,
+        "ymin": 20.742099910319755,
+        "xmax": 92.68367943903164,
+        "ymax": 26.63504817414382
+    },
+    "temporal_extent": {
+        "startdate": "2001-01-01T00:00:00Z",
+        "enddate": "2020-12-31T23:59:59Z"
+    },
+    "license": "CC0-1.0",
+    "is_periodic": false,
+    "time_density": "year",
+    "stac_version": "1.0.0",
+    "discovery_items": [
+        {
+            "prefix": "EIS/COG/coastal-flooding-and-slr/",
+            "bucket": "veda-data-store-staging",
+            "filename_regex": "^(.*)MODIS_LC_2001_BD_v2.cog.tif$",
+            "discovery": "s3",
+            "start_datetime": "2001-01-01T00:00:00Z",
+            "end_datetime": "2001-12-31T23:59:59Z",
+            "upload": false
+        },
+        {
+            "prefix": "EIS/COG/coastal-flooding-and-slr/",
+            "bucket": "veda-data-store-staging",
+            "filename_regex": "^(.*)MODIS_LC_2020_BD.cog.tif$",
+            "discovery": "s3",
+            "start_datetime": "2020-01-01T00:00:00Z",
+            "end_datetime": "2020-12-31T23:59:59Z",
+            "upload": false
+        }
+    ]
+}
