@@ -1,40 +1,31 @@
 {
-    "collection": "bangladesh-landcover-2001-2020-test",
-    "title": "Annual land cover maps for 2001 and 2020",
-    "description": "The annual land cover maps of 2001 and 2021 were captured using combined Moderate Resolution Imaging Spectroradiometer (MODIS) Annual Land Cover Type dataset (MCD12Q1 V6, dataset link: https://lpdaac.usgs.gov/products/mcd12q1v006/). The actual data product provides global land cover types at yearly intervals (2001-2020) at 500 meters with six different types of land cover classification. Among six different schemes, The International Geosphere–Biosphere Programme (IGBP) land cover classification selected and further simplified to dominant land cover classes (water, urban, cropland, native vegetation) for two different years to illustrate the changes in land use and land cover of the country.",
-    "type": "cog",
+    "collection": "hls-swir-falsecolor-composite-TEST",
+    "title": "HLS SWIR FalseColor Composite",
     "spatial_extent": {
-        "xmin": 88.02591469087191,
-        "ymin": 20.742099910319755,
-        "xmax": 92.68367943903164,
-        "ymax": 26.63504817414382
+        "xmin": -156.75,
+        "ymin": 20.80,
+        "xmax": -156.55,
+        "ymax": 20.94
     },
     "temporal_extent": {
-        "startdate": "2001-01-01T00:00:00Z",
-        "enddate": "2020-12-31T23:59:59Z"
+        "startdate": "2023-08-08T00:00:00Z",
+        "enddate": "2023-08-08T23:59:59Z"
     },
+    "data_type": "cog",
     "license": "CC0-1.0",
+    "description": "HLS falsecolor composite imagery using Bands 12, 8A, and 4.",
     "is_periodic": false,
-    "time_density": "year",
-    "stac_version": "1.0.0",
+    "time_density": "day",
+    "sample_files": [
+        "s3://veda-data-store-staging/maui-fire/Lahaina_HLS_2023-08-08_SWIR_falsecolor_cog.tif",
+        "s3://veda-data-store-staging/maui-fire/Lahaina_HLS_2023-08-13_SWIR_falsecolor_cog.tif"
+    ],
     "discovery_items": [
         {
-            "prefix": "EIS/COG/coastal-flooding-and-slr/",
-            "bucket": "veda-data-store-staging",
-            "filename_regex": "^(.*)MODIS_LC_2001_BD_v2.cog.tif$",
             "discovery": "s3",
-            "start_datetime": "2001-01-01T00:00:00Z",
-            "end_datetime": "2001-12-31T23:59:59Z",
-            "upload": false
-        },
-        {
-            "prefix": "EIS/COG/coastal-flooding-and-slr/",
+            "prefix": "maui-fire/",
             "bucket": "veda-data-store-staging",
-            "filename_regex": "^(.*)MODIS_LC_2020_BD.cog.tif$",
-            "discovery": "s3",
-            "start_datetime": "2020-01-01T00:00:00Z",
-            "end_datetime": "2020-12-31T23:59:59Z",
-            "upload": false
+            "filename_regex": "(.*)SWIR_falsecolor(.*).tif$"
         }
     ]
 }
