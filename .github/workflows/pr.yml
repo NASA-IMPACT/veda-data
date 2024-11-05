@@ -35,9 +35,9 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
           WORKFLOW_URL="${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}"
-          body='### Workflow Status
-          **Starting workflow...** [View action run]($WORKFLOW_URL)
-          '
+          body="### Workflow Status
+          **Starting workflow...** [View action run]($WORKFLOW_URL)"
+          echo "Body content: $body"
 
           # Get the PR number
           PR_NUMBER=${{ github.event.pull_request.number }}
