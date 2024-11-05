@@ -38,7 +38,6 @@ jobs:
           WORKFLOW_URL="${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}"
           body="### Workflow Status
           **Starting workflow...** [View action run]($WORKFLOW_URL)"
-          echo "Body content: $body"
 
           # Get the PR number
           PR_NUMBER=${{ github.event.pull_request.number }}
@@ -132,7 +131,6 @@ jobs:
               )
 
               status_code=$(tail -n1 <<< "$response")
-              echo "Status code is: $status_code"
 
               # Update status message based on response code
               if [ "$status_code" -eq 200 ] || [ "$status_code" -eq 201 ]; then
@@ -143,7 +141,7 @@ jobs:
                 all_failed=false
               else
                 echo "$collection_id failed to publish ❌"
-                status_message+="- **$collection_id**: Failed to publish ❌
+                status_message+="- **$collection_id**: Failed to publish. Error code $status_code. ❌
                 "
               fi
             else
