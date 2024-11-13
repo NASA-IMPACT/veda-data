@@ -68,6 +68,14 @@ jobs:
           files: |
             **.json
 
+      - name: List all newly added files
+        env:
+          ADDED_FILES: ${{ steps.changed-files.outputs.added_files }}
+        run: |
+          for file in ${ADDED_FILES}; do
+            echo "$file was added"
+          done
+
       # Uses service client creds to get token
       # No username/password needed
       - name: Get auth token
