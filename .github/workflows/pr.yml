@@ -58,12 +58,12 @@ jobs:
 
           echo "COMMENT_ID=$COMMENT_ID" >> $GITHUB_OUTPUT
 
-      # Find only the updated files (file that differ from base)
+      # Find only the newly added files
       # Only .json files
       # The files are outputted to GITHUB_OUTPUT, which can be used in subsequent steps
       - name: Get updated files
         id: changed-files
-        uses: tj-actions/changed-files@v44
+        uses: tj-actions/changed-files@v45
         with:
           files: |
             **.json
@@ -93,7 +93,7 @@ jobs:
       - name: Publish all updated collections
         id: publish-collections
         env:
-          ALL_CHANGED_FILES: ${{ steps.changed-files.outputs.all_changed_files }}
+          ADDED_FILES: ${{ steps.changed-files.outputs.added_files }}
           WORKFLOWS_URL: ${{ vars.STAGING_WORKFLOWS_URL }}
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           AUTH_TOKEN: ${{ steps.get-token.outputs.ACCESS_TOKEN }}
@@ -118,7 +118,7 @@ jobs:
           status_message='### Collection Publication Status
           '
 
-          for file in "${ALL_CHANGED_FILES[@]}"; do
+          for file in "${ADDED_FILES[@]}"; do
             echo $file
             if [ -f "$file" ]; then
               dataset_config=$(jq '.' "$file")
