@@ -61,7 +61,7 @@ jobs:
       # Find only the newly added files
       # Only .json files
       # The files are outputted to GITHUB_OUTPUT, which can be used in subsequent steps
-      - name: Get updated files
+      - name: Get newly added files
         id: changed-files
         uses: tj-actions/changed-files@v45
         with:
