@@ -98,7 +98,7 @@ jobs:
       # Used by other steps
       # If none of the requests are successful, workflow fails
       # Updates the PR comment with status of collection publication
-      - name: Publish all updated collections
+      - name: Publish all newly added collections
         id: publish-collections
         env:
           ADDED_FILES: ${{ steps.changed-files.outputs.added_files }}
