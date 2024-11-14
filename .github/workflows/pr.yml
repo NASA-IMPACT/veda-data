@@ -225,9 +225,6 @@ jobs:
   open-veda-config-pr-notification:
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout code
-        uses: actions/checkout@v4
-
       - name: Notify user to open a new PR
         run: |
           echo "The action is complete. Please open a new Pull Request in veda-config for the changes."
