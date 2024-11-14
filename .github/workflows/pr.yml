@@ -222,6 +222,16 @@ jobs:
         #     python3 scripts/mdx.py "$file"
         #   done
 
+  open-veda-config-pr-notification:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Notify user to open a new PR
+        run: |
+          echo "The action is complete. Please open a new Pull Request in veda-config for the changes."
+
   publish-to-prod-on-pr-merge:
     if: ${{ github.event_name == 'pull_request' && github.event.action == 'closed' && github.event.pull_request.merged == true }}
     runs-on: ubuntu-latest
