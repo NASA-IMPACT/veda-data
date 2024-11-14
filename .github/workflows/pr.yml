@@ -224,6 +224,7 @@ jobs:
 
   open-veda-config-pr-notification:
     runs-on: ubuntu-latest
+    needs: create-mdx-files
     steps:
       - name: Notify user to open a new PR
         run: |
