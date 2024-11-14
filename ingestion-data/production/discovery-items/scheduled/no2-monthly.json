@@ -1,7 +1,7 @@
 {
-  "collection": "no2-monthly-diff",
-  "prefix": "no2-monthly-diff/",
-  "bucket": "veda-data-store-staging",
+  "collection": "no2-monthly",
+  "prefix": "no2-monthly/",
+  "bucket": "veda-data-store",
   "filename_regex": "^(.*).tif$",
   "discovery": "s3",
   "datetime_range": "month",

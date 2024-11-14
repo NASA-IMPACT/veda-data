@@ -1,10 +1,11 @@
 {
-  "collection": "no2-monthly-diff",
-  "prefix": "no2-monthly-diff/",
-  "bucket": "veda-data-store-staging",
+  "collection": "geoglam",
+  "prefix": "geoglam/",
+  "bucket": "veda-data-store",
   "filename_regex": "^(.*).tif$",
   "discovery": "s3",
   "datetime_range": "month",
   "schedule": "0 0 * * 0",
   "upload": false
 }
+
