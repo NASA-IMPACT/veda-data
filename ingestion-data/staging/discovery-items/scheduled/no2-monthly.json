@@ -1,9 +1,22 @@
-{
-  "collection": "no2-monthly",
-  "prefix": "no2-monthly/",
-  "bucket": "veda-data-store-staging",
-  "filename_regex": "^(.*).tif$",
-  "discovery": "s3",
-  "datetime_range": "month",
-  "schedule": "00 * * * *"
-}
+[
+  {
+    "collection": "no2-monthly",
+    "prefix": "no2-monthly/",
+    "bucket": "veda-data-store-staging",
+    "filename_regex": "^(.*).tif$",
+    "discovery": "s3",
+    "datetime_range": "month",
+    "schedule": "0 0 * * 0",
+    "upload": false
+  },
+  {
+    "collection": "no2-monthly",
+    "prefix": "no2-monthly/",
+    "bucket": "veda-data-store",
+    "filename_regex": "^(.*).tif$",
+    "discovery": "s3",
+    "datetime_range": "month",
+    "schedule": "0 0 * * 0",
+    "upload": false
+  }
+]
