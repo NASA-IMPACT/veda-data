@@ -6,17 +6,17 @@
     "is_periodic": true,
     "time_density": "day",
     "spatial_extent": {
-      "xmin": -130,
-      "ymin": 17.6,
-      "xmax": -57,
-      "ymax": 52.5
-    },
+      "xmin": -104,
+      "ymin": 18.5,
+      "xmax": -67,
+      "ymax": 47
+    },	
     "temporal_extent": {
       "startdate": "2024-03-01T00:00:00Z",
       "enddate": "2024-05-31T00:00:00Z"
     },
     "sample_files": [
-      "s3://veda-data-store-staging/2024tornadoes/Tornado_Tracks_2024-05-31_cog_retiled.tif"
+      "s3://veda-data-store-staging/2024tornadoes/Tornado_Tracks_cog_2024-05-31.tif"
     ],
     "providers": [
         {
@@ -27,19 +27,27 @@
             ]
         }
     ],
-    "renders": {
-        "dashboard": {
-            "colormap_name": "reds",
-            "bidx": [
-                1
-            ],
-            "nodata": 25,
-            "assets": [
-                "cog_default"
-            ],
-            "title": "VEDA Dashboard Render Parameters"
-        }
-    },
+  "renders": {
+	"dashboard": {
+		"colormap": {
+		  "-1": "#b3bcc9",
+		  "0": "#add8e6",
+		  "1": "#90ee90",
+		  "2": "#ffe71f",
+		  "3": "#ffa500",
+		  "4": "#ff0000",
+		  "5": "#ff00ff"
+	  },
+	  "bidx": [
+		  1
+	  ],
+	  "nodata": 999,
+	  "assets": [
+		  "cog_default"
+	  ],
+	  "title": "VEDA Dashboard Render Parameters"
+	}
+  },
     "assets": {
         "thumbnail": {
             "title": "Thumbnail",
@@ -57,7 +65,7 @@
         "dry_run": false,
         "prefix": "2024tornadoes/",
         "bucket": "veda-data-store-staging",
-        "filename_regex": "(.*)Tornado_Tracks_(.*).tif$"
+        "filename_regex": "(.*)Tornado_Tracks_cog_(.*).tif$"
       }
     ],
     "data_type": "cog"
