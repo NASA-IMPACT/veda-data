@@ -229,7 +229,7 @@ jobs:
     runs-on: ubuntu-latest
     needs: create-mdx-files
     steps:
-      - name: Notify user to open a new PR
+      - name: Open veda-config PR
         run: |
           echo "The action is complete. Please open a new Pull Request in veda-config for the changes."
 
