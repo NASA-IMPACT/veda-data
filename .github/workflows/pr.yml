@@ -231,7 +231,7 @@ jobs:
     steps:
       - name: Open veda-config PR
         run: |
-          echo "The action is complete. Please open a new Pull Request in veda-config for the changes."
+          echo "NO-OP. Placeholder for future job that will open a Pull Request in veda-config for a dashboard preview for the new/changed datasets."
 
   publish-to-prod-on-pr-merge:
     if: ${{ github.event_name == 'pull_request' && github.event.action == 'closed' && github.event.pull_request.merged == true }}
