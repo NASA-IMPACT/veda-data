@@ -1,0 +1,244 @@
+# This GitHub Actions workflow automates the process of
+# publishing dataset collections to a staging environment
+# It is triggered by a pull request to the main branch
+# that modifies any files within the ingestion-data/dataset-config/ directory
+# The workflow includes steps to
+#   - publish the datasets,
+#   - constantly updates the status of the workflow in the PR comment
+
+name: Publish collection to staging
+
+on:
+  pull_request:
+    branches: ['main']
+    paths:
+      # Run the workflow only if files inside this path are updated
+      # - ingestion-data/staging/dataset-config/*
+      - ingestion-data/testing/dataset-config/*
+
+  push:
+    branches:
+      - main
+
+permissions:
+  pull-requests: write
+  contents: read
+
+jobs:
+  publish-new-datasets:
+    if: ${{ github.event_name == 'pull_request' && (github.event.action == 'synchronize' || github.event.action == 'opened') }}
+    runs-on: ubuntu-latest
+    environment: staging
+    outputs:
+      publishedCollections: ${{ steps.publish-collections.outputs.success_collections }}
+    steps:
+      - uses: actions/checkout@v4
+
+      # Initializes the PR comment
+      # Edits existing or creates new comment
+      # Why? - Cleanliness!
+      - name: Initialize PR comment with workflow start
+        id: init-comment
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          WORKFLOW_URL="${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}"
+          body="### Workflow Status
+          **Starting workflow...** [View action run]($WORKFLOW_URL)"
+
+          # Get the PR number
+          PR_NUMBER=${{ github.event.pull_request.number }}
+
+          # Fetch existing comments
+          COMMENTS=$(gh api repos/${{ github.repository }}/issues/${PR_NUMBER}/comments --jq '.[] | select(.body | contains("### Workflow Status")) | {id: .id, body: .body}')
+
+          # Check if a comment already exists
+          COMMENT_ID=$(echo "$COMMENTS" | jq -r '.id' | head -n 1)
+
+          if [ -z "$COMMENT_ID" ]; then
+            # No existing comment, create a new one
+            COMMENT_ID=$(gh api repos/${{ github.repository }}/issues/${PR_NUMBER}/comments -f body="$body" --jq '.id')
+          else
+            # Comment exists, overwrite the existing comment
+            gh api repos/${{ github.repository }}/issues/comments/$COMMENT_ID -X PATCH -f body="$body"
+          fi
+
+          echo "COMMENT_ID=$COMMENT_ID" >> $GITHUB_OUTPUT
+
+      # Find only the newly added files
+      # Only .json files
+      # The files are outputted to GITHUB_OUTPUT, which can be used in subsequent steps
+      - name: Get newly added files
+        id: changed-files
+        uses: tj-actions/changed-files@v45
+        with:
+          files: |
+            **.json
+
+      - name: List all newly added files
+        env:
+          ADDED_FILES: ${{ steps.changed-files.outputs.added_files }}
+        run: |
+          for file in ${ADDED_FILES}; do
+            echo "$file was added"
+          done
+
+      # Uses service client creds to get token
+      # No username/password needed
+      - name: Get auth token
+        id: get-token
+        run: |
+          echo "Vars: $vars"
+          response=$(curl -X POST \
+            ${{ vars.STAGING_COGNITO_DOMAIN }}/oauth2/token \
+            -H "Content-Type: application/x-www-form-urlencoded" \
+            -d "grant_type=client_credentials" \
+            -d "client_id=${{ vars.STAGING_CLIENT_ID }}" \
+            -d "client_secret=${{ secrets.STAGING_CLIENT_SECRET }}"
+          )
+
+          access_token=$(echo "$response" | jq -r '.access_token')
+          echo "ACCESS_TOKEN=$access_token" >> $GITHUB_OUTPUT
+
+      # Makes request to /dataset/publish endpoint
+      # Outputs only files that were successfully published
+      # Used by other steps
+      # If none of the requests are successful, workflow fails
+      # Updates the PR comment with status of collection publication
+      - name: Publish all newly added collections to staging
+        id: publish-collections
+        env:
+          ADDED_FILES: ${{ steps.changed-files.outputs.added_files }}
+          WORKFLOWS_URL: ${{ vars.STAGING_WORKFLOWS_URL }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          AUTH_TOKEN: ${{ steps.get-token.outputs.ACCESS_TOKEN }}
+          COMMENT_ID: ${{ steps.init-comment.outputs.COMMENT_ID }}
+        run: |
+          if [ -z "$WORKFLOWS_URL" ]; then
+            echo "WORKFLOWS_URL is not set"
+            exit 1
+          fi
+
+          if [ -z "$AUTH_TOKEN" ]; then
+            echo "AUTH_TOKEN is not set"
+            exit 1
+          fi
+
+          publish_url="${WORKFLOWS_URL%/}/dataset/publish"
+          bearer_token=$AUTH_TOKEN
+
+          # Track successful publications
+          all_failed=true
+          success_collections=()
+          status_message='### Collection Publication Status
+          '
+
+          for file in "${ADDED_FILES[@]}"; do
+            echo $file
+            if [ -f "$file" ]; then
+              dataset_config=$(jq '.' "$file")
+              collection_id=$(jq -r '.collection' "$file")
+
+              response=$(curl -s -w "%{http_code}" -o response.txt -X POST "$publish_url" \
+                -H "Content-Type: application/json" \
+                -H "Authorization: Bearer $AUTH_TOKEN" \
+                -d "$dataset_config"
+              )
+
+              status_code=$(tail -n1 <<< "$response")
+
+              # Update status message based on response code
+              if [ "$status_code" -eq 200 ] || [ "$status_code" -eq 201 ]; then
+                echo "$collection_id successfully published ✅"
+                status_message+="- **$collection_id**: Successfully published ✅
+                "
+                success_collections+=("$file")
+                all_failed=false
+              else
+                echo "$collection_id failed to publish ❌"
+                status_message+="- **$collection_id**: Failed to publish. Error code $status_code. ❌
+                "
+              fi
+            else
+              echo "File $file does not exist"
+              exit 1
+            fi
+          done
+
+          # Exit workflow if all the requests fail
+          if [ "$all_failed" = true ]; then
+            echo "All collections failed to publish."
+            exit 1
+          fi
+
+          # Output only successful collections to be used in subsequent steps
+          echo "success_collections=$(IFS=','; echo "${success_collections[*]}")" >> $GITHUB_OUTPUT
+
+          # Update PR comment
+          CURRENT_BODY=$(gh api -H "Authorization: token $GITHUB_TOKEN" /repos/${{ github.repository }}/issues/comments/$COMMENT_ID --jq '.body')
+          UPDATED_BODY="$CURRENT_BODY
+
+          $status_message"
+          gh api -X PATCH -H "Authorization: token $GITHUB_TOKEN" /repos/${{ github.repository }}/issues/comments/$COMMENT_ID -f body="$UPDATED_BODY"
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.9'
+      - uses: actions/cache@v4
+        with:
+          path: ${{ env.pythonLocation }}
+          key: ${{ env.pythonLocation }}-pip-${{ hashFiles('requirements.txt') }}
+
+      # If the workflow fails at any point, the PR comment will be updated
+      - name: Update PR comment on overall workflow failure
+        if: failure()
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          COMMENT_ID: ${{ steps.init-comment.outputs.COMMENT_ID }}
+        run: |
+          WORKFLOW_URL="${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}"
+          CURRENT_BODY=$(gh api -H "Authorization: token $GITHUB_TOKEN" /repos/${{ github.repository }}/issues/comments/$COMMENT_ID --jq '.body')
+          UPDATED_BODY="$CURRENT_BODY
+
+          ** ❌ The workflow run failed. [See logs here]($WORKFLOW_URL)**"
+          gh api -X PATCH -H "Authorization: token $GITHUB_TOKEN" /repos/${{ github.repository }}/issues/comments/$COMMENT_ID -f body="$UPDATED_BODY"
+
+  create-mdx-files:
+    runs-on: ubuntu-latest
+    needs: publish-new-datasets
+    steps:
+      - name: Use output from dataset-publication-and-configuration
+
+        run: |
+          echo "The output from the previous step is: ${{ needs.dataset-publication-and-configuration.outputs.publishedCollections }}"
+
+      # Creates a slim dataset mdx file for each collection based on the dataset config json
+      - name: Create dataset mdx for given collections
+        env:
+          PUBLISHED_COLLECTION_FILES: ${{ needs.dataset-publication-and-configuration.outputs.publishedCollections }}
+        run: echo "NO-OP step"
+        # run: |
+        #   pip install -r scripts/requirements.txt
+        #   for file in "${PUBLISHED_COLLECTION_FILES[@]}"
+        #   do
+        #     python3 scripts/mdx.py "$file"
+        #   done
+
+  open-veda-config-pr:
+    runs-on: ubuntu-latest
+    needs: create-mdx-files
+    steps:
+      - name: Open veda-config PR
+        run: |
+          echo "NO-OP. Placeholder for future job that will open a Pull Request in veda-config for a dashboard preview for the new/changed datasets."
+
+  publish-to-prod-on-pr-merge:
+    if: ${{ github.event_name == 'pull_request' && github.event.action == 'closed' && github.event.pull_request.merged == true }}
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Publish to production on PR merge
+        run: echo "NO-OP. This step runs when a PR is merged."
