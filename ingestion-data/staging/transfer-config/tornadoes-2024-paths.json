@@ -3,5 +3,5 @@
     "origin_prefix": "2024tornadoes/",
     "target_bucket": "veda-data-store",
     "collection": "tornadoes-2024-paths",
-    "filename_regex": "(.*)Tornado_Tracks_(.*).tif$"
+    "filename_regex": "(.*)Tornado_Tracks_cog(.*).tif$"
 }
