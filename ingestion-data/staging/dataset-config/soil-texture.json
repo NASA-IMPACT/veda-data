@@ -1,0 +1,173 @@
+{
+    "collection": "soil-texture",
+    "title": "ISRIC World Soil Texture Classification",
+    "description": "ISRIC World Soil Texture Classification at the surface level. Broken into 12 classes of 1:Cl, 2:SiCl, 3:SaCl, 4:ClLo, 5:SiClLo, 6:SaClLo, 7:Lo, 8:SiLo, 9:SaLo, 10:Si, 11:LoSa, 12:Sa.",
+    "license": "CC0-1.0",
+    "providers": [
+        {
+        "name": "NASA VEDA",
+        "roles": [
+            "host"
+        ],
+        "url": "https://www.earthdata.nasa.gov/dashboard/"
+        }
+    ],
+    "stac_version": "1.0.0",
+    "stac_extensions": [
+        "https://stac-extensions.github.io/render/v1.0.0/schema.json",
+        "https://stac-extensions.github.io/item-assets/v1.0.0/schema.json"
+    ],
+    "is_periodic": true,
+    "time_density": "year",
+    "spatial_extent": {
+      "xmin": -180,
+      "ymin": -90,
+      "xmax": 180,
+      "ymax": 90
+    },
+    "temporal_extent": {
+      "startdate": "2017-01-01T00:00:00Z",
+      "enddate": "2017-12-31T23:59:59Z"
+    },
+    "sample_files": [
+      "s3://veda-data-store-staging/soil/soil_texture_0cm_250m_cog_2017.tif" 
+    ],
+    "assets": {
+        "thumbnail": {
+            "title": "Thumbnail",
+            "description": "Photo by [Soil Sensor](https://soilsensor.com/articles/soil-textures/) (Examples of two different soil types)",
+            "href": "https://thumbnails.openveda.cloud/soil-texture-background.jpeg",
+            "type": "image/jpeg",
+            "roles": ["thumbnail"]
+        }
+    },
+    "item_assets": {
+        "soil_texture_0cm_250m": {
+            "type": "image/tiff; application=geotiff; profile=cloud-optimized",
+            "roles": [
+                "data",
+                "layer"
+            ],
+            "title": "Soil Texture Class (0 cm)",
+            "description": "ISRIC World Soil Texture Classification (0 cm)"
+        },
+        "soil_texture_5cm_250m": {
+            "type": "image/tiff; application=geotiff; profile=cloud-optimized",
+            "roles": [
+                "data",
+                "layer"
+            ],
+            "title": "Soil Texture Class (5 cm)",
+            "description": "ISRIC World Soil Texture Classification (5 cm)"
+        },
+        "soil_texture_15cm_250m": {
+            "type": "image/tiff; application=geotiff; profile=cloud-optimized",
+            "roles": [
+                "data",
+                "layer"
+            ],
+            "title": "Soil Texture Class (15cm)",
+            "description": "ISRIC World Soil Texture Classification (15 cm)"
+        },
+        "soil_texture_30cm_250m": {
+            "type": "image/tiff; application=geotiff; profile=cloud-optimized",
+            "roles": [
+                "data",
+                "layer"
+            ],
+            "title": "Soil Texture Class (30 cm)",
+            "description": "ISRIC World Soil Texture Classification (30 cm)"
+        },
+        "soil_texture_60cm_250m": {
+            "type": "image/tiff; application=geotiff; profile=cloud-optimized",
+            "roles": [
+                "data",
+                "layer"
+            ],
+            "title": "Soil Texture Class (60 cm)",
+            "description": "ISRIC World Soil Texture Classification (60 cm)"
+        },
+        "soil_texture_100cm_250m": {
+            "type": "image/tiff; application=geotiff; profile=cloud-optimized",
+            "roles": [
+                "data",
+                "layer"
+            ],
+            "title": "Soil Texture Class (100 cm)",
+            "description": "ISRIC World Soil Texture Classification (100 cm)"
+        },
+        "soil_texture_200cm_250m": {
+            "type": "image/tiff; application=geotiff; profile=cloud-optimized",
+            "roles": [
+                "data",
+                "layer"
+            ],
+            "title": "Soil Texture Class (200 cm)",
+            "description": "ISRIC World Soil Texture Classification (200 cm)"
+        }
+    },    
+    "discovery_items": [
+      {
+        "discovery": "s3",
+        "prefix": "soil/",
+        "bucket": "veda-data-store-staging",
+        "filename_regex": ".*_250m_cog_2017.tif$",
+        "id_regex": ".*_250m_cog_2017.tif$",
+        "id_template": "soil_texture_Xcm_250m_cog_2017",
+        "assets": {
+            "soil_texture_0cm_250m": {
+                "title": "Soil Texture Class (0 cm)",
+                "description": "ISRIC World Soil Texture Classification (0 cm)",
+                "regex": ".*_0cm_250m_cog_2017.tif$"
+            },
+            "soil_texture_5cm_250m": {
+                "title": "Soil Texture Class (5 cm)",
+                "description": "ISRIC World Soil Texture Classification (5 cm)",
+                "regex": ".*_5cm_250m_cog_2017.tif$"
+            },
+            "soil_texture_15cm_250m": {
+                "title": "Soil Texture Class (15 cm)",
+                "description": "ISRIC World Soil Texture Classification (15 cm)",
+                "regex": ".*_15cm_250m_cog_2017.tif$"
+            },
+            "soil_texture_30cm_250m": {
+                "title": "Soil Texture Class (30 cm)",
+                "description": "ISRIC World Soil Texture Classification (30 cm)",
+                "regex": ".*_30cm_250m_cog_2017.tif$"
+            },
+            "soil_texture_60cm_250m": {
+                "title": "Soil Texture Class (60 cm)",
+                "description": "ISRIC World Soil Texture Classification (60 cm)",
+                "regex": ".*_60cm_250m_cog_2017.tif$"
+            },
+            "soil_texture_100cm_250m": {
+                "title": "Soil Texture Class (100 cm)",
+                "description": "ISRIC World Soil Texture Classification (100 cm)",
+                "regex": ".*_100cm_250m_cog_2017.tif$"
+            },
+            "soil_texture_200cm_250m": {
+                "title": "Soil Texture Class (200 cm)",
+                "description": "ISRIC World Soil Texture Classification (200 cm)",
+                "regex": ".*_0cm_250m_cog_2017.tif$"
+            }
+        }
+      }
+    ],
+    "data_type": "cog",
+    "datetime_range": "year",
+    "renders": {
+        "dashboard": {
+            "resampling": "nearest",
+            "nodata": 255,
+            "colormap_name": "soil_texture",
+            "bidx": [
+                1
+            ],
+            "return_mask": true,
+            "assets": [
+                "soil_texture_0cm_250m"
+            ],
+            "title": "VEDA Dashboard Render Parameters"
+        }
+    }
+  }
