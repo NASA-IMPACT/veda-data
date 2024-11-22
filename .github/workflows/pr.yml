@@ -208,6 +208,9 @@ jobs:
     runs-on: ubuntu-latest
     needs: publish-new-datasets
     steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
       - name: Print current directory
         run: pwd
 
@@ -254,7 +257,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout code
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
 
       - name: Publish to production on PR merge
         run: echo "NO-OP. This step runs when a PR is merged."
