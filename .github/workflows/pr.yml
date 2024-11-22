@@ -217,13 +217,12 @@ jobs:
       - name: Create dataset mdx for given collections
         env:
           PUBLISHED_COLLECTION_FILES: ${{ needs.dataset-publication-and-configuration.outputs.publishedCollections }}
-        run: echo "NO-OP step"
-        # run: |
-        #   pip install -r scripts/requirements.txt
-        #   for file in "${PUBLISHED_COLLECTION_FILES[@]}"
-        #   do
-        #     python3 scripts/mdx.py "$file"
-        #   done
+        run: |
+          pip install -r scripts/requirements.txt
+          for file in "${PUBLISHED_COLLECTION_FILES[@]}"
+          do
+            python3 scripts/mdx.py "$file"
+          done
 
   open-veda-config-pr:
     runs-on: ubuntu-latest
