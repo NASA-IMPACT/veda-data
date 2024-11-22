@@ -1,0 +1,30 @@
+{
+    "collection": "modis-ndvi-diff-2015-2022-TEST",
+    "title": "Camp Fire Domain: MODIS NDVI Difference",
+    "spatial_extent": {
+        "xmin": -122.21,
+        "ymin": 39.33,
+        "xmax": -120.91,
+        "ymax": 40.22
+    },
+    "temporal_extent": {
+        "startdate": "2022-12-31T00:00:00Z",
+        "enddate": "2022-12-31T23:59:59Z"
+    },
+    "data_type": "cog",
+    "license": "CC0-1.0",
+    "description": "MODIS NDVI difference from a three-year average of 2015 to 2018 subtracted from a three-year average of 2019-2022. These tri-annual averages represent periods before and after the fire.",
+    "is_periodic": true,
+    "time_density": "year",
+    "sample_files": [
+        "s3://veda-data-store-staging/modis-ndvi-diff-2015-2022/campfire_ndvi_difference_2015_2022.tif"
+    ],
+    "discovery_items": [
+        {
+            "discovery": "s3",
+            "prefix": "modis-ndvi-diff-2015-2022/",
+            "bucket": "veda-data-store-staging",
+            "filename_regex": "(.*)campfire_ndvi_difference_2015_2022.tif$"
+        }
+    ]
+}
