@@ -238,6 +238,7 @@ jobs:
         env:
           PUBLISHED_COLLECTION_FILES: ${{ needs.dataset-publication-and-configuration.outputs.publishedCollections }}
         run: |
+          echo $PUBLISHED_COLLECTION_FILES
           pip install -r ./scripts/requirements.txt
           for file in "${PUBLISHED_COLLECTION_FILES[@]}"
           do
