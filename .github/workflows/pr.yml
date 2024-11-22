@@ -224,10 +224,10 @@ jobs:
         env:
           PUBLISHED_COLLECTION_FILES: ${{ needs.dataset-publication-and-configuration.outputs.publishedCollections }}
         run: |
-          pip install -r scripts/requirements.txt
+          pip install -r ./scripts/requirements.txt
           for file in "${PUBLISHED_COLLECTION_FILES[@]}"
           do
-            python3 scripts/generate-mdx.py "$file"
+            python3 ./scripts/generate-mdx.py "$file"
           done
 
   open-veda-config-pr:
