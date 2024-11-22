@@ -61,7 +61,7 @@
             "assets": [
                 "cog_default"
             ],
-            "rescale": "55,250",
+            "rescale": [55, 250],
             "title": "VEDA Dashboard Render Parameters"
         }
     },
