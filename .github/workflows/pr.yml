@@ -208,6 +208,10 @@ jobs:
     runs-on: ubuntu-latest
     needs: publish-new-datasets
     steps:
+      - name: Print current directory and print contents
+        run: pwd
+         ls -al
+
       - name: Use output from dataset-publication-and-configuration
 
         run: |
