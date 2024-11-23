@@ -30,8 +30,8 @@
     "assets": {
         "thumbnail": {
             "title": "Thumbnail",
-            "description": "Photo by [ {AUTHOR OR ORGANIZATION NAME mdx: media.author} ]( {LINK TO AUTHOR mdx: media.url} ) ( {ALT TEXT MDX media.alt} )",
-            "href": "https://thumbnails.openveda.cloud/{THUMBNAIL_FILENAME.EXT}",
+            "description": "Photo by [Jonny Glessner](https://x.com/JonnyGlessner/status/1768424574855610777/photo/4) (Wedge tornado passing southeast of Wapakoneta, Ohio on March 14, 2024)",
+            "href": "https://thumbnails.openveda.cloud/tornado-2024-cover.png",
             "type": "image/jpeg",
             "roles": ["thumbnail"]
         }
