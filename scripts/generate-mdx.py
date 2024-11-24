@@ -120,7 +120,8 @@ if __name__ == "__main__":
 
     # Write the combined content back to the file
     output_filepath = os.path.join(
-        curr_directory, f"../datasets/{input_data['collection']}.data.mdx"
+        curr_directory,
+        f"../ingestion-data/dataset-mdx/{input_data['collection']}.data.mdx",
     )
     with safe_open_w(output_filepath) as ofile:
         ofile.write(new_content)
