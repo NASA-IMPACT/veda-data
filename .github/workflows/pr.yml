@@ -231,12 +231,12 @@ jobs:
 
       - name: Use output from dataset-publication-and-configuration
         run: |
-          echo "The output from the previous step is: ${{ needs.dataset-publication-and-configuration.outputs.publishedCollections }}"
+          echo "The output from the previous step is: ${{ needs.publish-new-datasets.outputs.publishedCollections }}"
 
       # Creates a slim dataset mdx file for each collection based on the dataset config json
       - name: Create dataset mdx for given collections
         env:
-          PUBLISHED_COLLECTION_FILES: ${{ needs.dataset-publication-and-configuration.outputs.publishedCollections }}
+          PUBLISHED_COLLECTION_FILES: ${{ needs.publish-new-datasets.outputs.publishedCollections }}
         run: |
           echo $PUBLISHED_COLLECTION_FILES
           pip install -r ./scripts/requirements.txt
