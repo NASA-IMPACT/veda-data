@@ -33,25 +33,18 @@
     }
   ],
   "renders": {
-    "dashboard": {
-        "colormap": {
-          "0": "#add8e6",
-          "1": "#90ee90",
-          "2": "#ffe71f",
-          "3": "#ffa500",
-          "4": "#ff0000",
-          "5": "#ff00ff"
-      },
-      "bidx": [
+      "dashboard": {
+        "colormap_name": "tornado_ef_scale",
+        "bidx": [
           1
-      ],
-      "nodata": -999,
-      "assets": [
+        ],
+        "nodata": 255,
+        "assets": [
           "cog_default"
-      ],
-      "title": "VEDA Dashboard Render Parameters"
-    }
-  },
+        ],
+        "title": "VEDA Dashboard Render Parameters"
+      }
+    },
   "assets": {
     "thumbnail": {
         "title": "Thumbnail",
