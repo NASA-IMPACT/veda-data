@@ -51,8 +51,8 @@
     "stac_version": "1.0.0",
     "providers": [
         {
-            "name": "NASA National Oceanic and Atmospheric Administration",
-            "url": "https://www.nasa.gov/directorates/smd/joint-agency-satellite-division/noaa/",
+            "name": "NOAA",
+            "url": "https://www.noaa.gov",
             "roles": [
                 "producer"
             ]
