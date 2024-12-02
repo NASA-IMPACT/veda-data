@@ -211,15 +211,6 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v4
 
-      - name: Print current directory
-        run: pwd
-
-      - name: Print contents
-        run: |
-          ls -al
-          ls
-          ls ../
-
       - name: Check `scripts` directory
         run: |
           if [ -d "./scripts" ]; then
