@@ -1,0 +1,83 @@
+{
+    "collection": "greenville-nightlights-tornadoes-2024",
+    "title": "Black Marble Night Lights– 2024 Spring Tornadoes Damage (Greenville, OH)",
+    "description": "NASA Black Marble Night Lights shows the path of a tornado through Greenville, Ohio on May 7th, 2024, revealing where power loss occurred due to this tornado strike on the city.",
+    "license": "CC0-1.0",
+    "is_periodic": true,
+    "time_density": "day",
+    "spatial_extent": {
+    "xmin": -125,
+    "ymin": 24,
+    "xmax": -65,
+    "ymax": 50
+    },
+    "temporal_extent": {
+      "startdate": "2024-05-07T00:00:00Z",
+      "enddate": "2024-05-08T23:59:59Z"
+    },
+    "sample_files": [
+      "s3://veda-data-store-staging/2024tornadoes_NightLights/nightlights_GreenvilleOH_cog_2024-05-07.tif",
+      "s3://veda-data-store-staging/2024tornadoes_NightLights/nightlights_GreenvilleOH_cog_2024-05-08.tif"
+    ],
+    "discovery_items": [
+      {
+        "discovery": "s3",
+        "cogify": false,
+        "upload": false,
+        "dry_run": false,
+        "prefix": "2024tornadoes_NightLights/",
+        "bucket": "veda-data-store-staging",
+        "filename_regex": ".*Greenville.*.tif$",
+        "use_multithreading": false
+      }
+    ],
+    "data_type": "cog",
+    "datetime_range": "day",
+    "providers": [
+      {
+        "name": "NASA VEDA",
+        "roles": [
+          "host"
+        ],
+        "url": "https://www.earthdata.nasa.gov/dashboard/"
+      }
+    ],
+    "assets": {
+        "thumbnail": {
+            "title": "Thumbnail",
+            "description": "Photo by [ {AUTHOR OR ORGANIZATION NAME mdx: media.author} ]( {LINK TO AUTHOR mdx: media.url} ) ( {ALT TEXT MDX media.alt} )",
+            "href": "https://thumbnails.openveda.cloud/{THUMBNAIL_FILENAME.EXT}",
+            "type": "image/jpeg",
+            "roles": ["thumbnail"]
+        }
+    },
+    "stac_version": "1.0.0",
+    "stac_extensions": [
+        "https://stac-extensions.github.io/render/v1.0.0/schema.json",
+        "https://stac-extensions.github.io/item-assets/v1.0.0/schema.json"
+    ],
+    "item_assets": {
+        "cog_default": {
+            "type": "image/tiff; application=geotiff; profile=cloud-optimized",
+            "roles": [
+                "data",
+                "layer"
+            ],
+            "title": "Default COG Layer",
+            "description": "Cloud optimized default layer to display on map"
+        }
+    },
+    "renders": {
+        "dashboard": {
+            "resampling": "{nearest CHANGE ME}",
+            "bidx": [1],
+            "colormap_name": "{CHANGE ME}",
+            "nodata": "{CHANGE ME}",
+            "assets": [
+                "{cog_default CHANGE ME}"
+            ],
+            "rescale": ["CHANGE ME MIN", "CHANGE ME MAX"],
+            "title": "VEDA Dashboard Render Parameters"
+        }
+    }
+  }
