@@ -16,7 +16,7 @@
         "enddate": "2024-05-21T23:59:59Z"
     },
     "sample_files": [
-        "s3://veda-data-store-staging/2024tornadoes/DOW_Vmax_Greenfield_mph_cog_2024-05-21.tif"
+        "s3://veda-data-store/tornadoes-2024-dow-vmax-greenfield/DOW_Vmax_Greenfield_mph_cog_2024-05-21.tif"
     ],
     "providers": [
         {
@@ -42,8 +42,8 @@
             "cogify": false,
             "upload": false,
             "dry_run": false,
-            "prefix": "2024tornadoes/",
-            "bucket": "veda-data-store-staging",
+            "prefix": "tornadoes-2024-dow-vmax-greenfield/",
+            "bucket": "veda-data-store",
             "filename_regex": "(.*)DOW_Vmax_Greenfield_mph_cog_(.*).tif$"
         }
     ],
