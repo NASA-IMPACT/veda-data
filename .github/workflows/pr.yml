@@ -211,15 +211,6 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v4
 
-      - name: Check `scripts` directory
-        run: |
-          if [ -d "./scripts" ]; then
-            echo "scripts directory exists!"
-            ls -al ./scripts
-          else
-            echo "scripts directory not found."
-          fi
-
       - name: Use output from dataset-publication-and-configuration
         run: |
           echo "The output from the previous step is: ${{ needs.publish-new-datasets.outputs.publishedCollections }}"
