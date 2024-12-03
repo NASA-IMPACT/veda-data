@@ -16,7 +16,7 @@
       "enddate": "2024-05-22T23:59:59Z"
     },
     "sample_files": [
-      "s3://veda-data-store-staging/2024tornadoes_Planet/Planet_Greenfield_After_cog_2024-05-22.tif"
+      "s3://veda-data-store/ps-greenfield-post-tornadoes-2024/Planet_Greenfield_After_cog_2024-05-22.tif"
     ],
     "discovery_items": [
       {
@@ -24,8 +24,8 @@
         "cogify": false,
         "upload": false,
         "dry_run": false,
-        "prefix": "2024tornadoes_Planet/",
-        "bucket": "veda-data-store-staging",
+        "prefix": "ps-greenfield-post-tornadoes-2024/",
+        "bucket": "veda-data-store",
         "filename_regex": ".*Planet_.*_cog_.*05-22.tif$",
         "use_multithreading": false
       }
