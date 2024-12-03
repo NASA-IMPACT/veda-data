@@ -69,7 +69,7 @@
     "renders": {
         "dashboard": {
             "resampling": "bilinear",
-            "bidx": [1,2,3],
+            "bidx": [3,2,1],
             "assets": [
                 "cog_default"
             ],
