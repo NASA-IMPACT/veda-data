@@ -1,7 +1,7 @@
 {
     "collection": "ps-tornadoes-2024-difference",
-    "title": "Planet Imagery – 2024 Spring Tornadoes Damage False Color Difference",
-    "description": "Commercial SmallSat PlanetScope Satellite Visible Imagery three band difference over Greenfield, Iowa showing changes before vs. after the tornado strike on the town.",
+    "title": "Planet TrueColor Satellite Imagery Difference (Greenfield IA Tornado Damage)",
+    "description": "Commercial SmallSat Planet Satellite Imagery difference of tornado damage at Greenfield, Iowa in the spring 2024 tornado season.",
     "license": "CC0-1.0",
     "is_periodic": true,
     "time_density": "day",
@@ -43,12 +43,12 @@
     ],
     "assets": {
         "thumbnail": {
-            "title": "Thumbnail",
-            "description": "Photo by [ {AUTHOR OR ORGANIZATION NAME mdx: media.author} ]( {LINK TO AUTHOR mdx: media.url} ) ( {ALT TEXT MDX media.alt} )",
-            "href": "https://thumbnails.openveda.cloud/{THUMBNAIL_FILENAME.EXT}",
-            "type": "image/jpeg",
-            "roles": ["thumbnail"]
-        }
+          "title": "Thumbnail",
+          "description": "Photo by [Jonny Glessner](https://x.com/JonnyGlessner/status/1768424574855610777/photo/4) (Wedge tornado passing southeast of Wapakoneta, Ohio on March 14, 2024)",
+          "href": "https://thumbnails.openveda.cloud/tornado-2024-cover.png",
+          "type": "image/jpeg",
+          "roles": ["thumbnail"]
+      }
     },
     "stac_version": "1.0.0",
     "stac_extensions": [
@@ -68,14 +68,12 @@
     },
     "renders": {
         "dashboard": {
-            "resampling": "{nearest CHANGE ME}",
-            "bidx": [1],
-            "colormap_name": "{CHANGE ME}",
-            "nodata": "{CHANGE ME}",
+            "resampling": "bilinear",
+            "bidx": [4,3,2],
             "assets": [
-                "{cog_default CHANGE ME}"
+                "cog_default"
             ],
-            "rescale": ["CHANGE ME MIN", "CHANGE ME MAX"],
+            "rescale": [[0,255]],
             "title": "VEDA Dashboard Render Parameters"
         }
     }
