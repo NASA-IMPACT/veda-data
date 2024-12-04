@@ -30,8 +30,8 @@
     "assets": {
         "thumbnail": {
             "title": "Thumbnail",
-            "description": "Wedge tornado passing southeast of Wapakoneta, Ohio on March 14, 2024",
-            "href": "https://thumbnails.openveda.cloud/tornado-2024-cover.png",
+            "description": "Photo by [Ryan McGinnis](https://static.wikia.nocookie.net/stormchasers/images/1/1b/DOW.jpg/revision/latest?cb=20100115235828) (DOW6 parked in front of a tornadic mesocyclone in the Plains)",
+            "href": "https://thumbnails.openveda.cloud/tornadoes-2024-dow-background.jpg",
             "type": "image/jpeg",
             "roles": ["thumbnail"]
         }
