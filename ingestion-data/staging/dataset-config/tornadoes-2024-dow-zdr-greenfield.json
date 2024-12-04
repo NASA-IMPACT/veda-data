@@ -16,7 +16,7 @@
         "enddate": "2024-05-21T23:59:59Z"
     },
     "sample_files": [
-        "s3://veda-data-store-staging/2024tornadoes/DOW_Greenfield_ZDR_cog_2024-05-21.tif"
+        "s3://veda-data-store-staging/2024tornadoes/DOW_Greenfield_ZDR_cog_v2_2024-05-21.tif"
     ],
     "providers": [
         {
@@ -44,7 +44,7 @@
             "dry_run": false,
             "prefix": "2024tornadoes/",
             "bucket": "veda-data-store-staging",
-            "filename_regex": "(.*)DOW_Greenfield_ZDR_cog_(.*).tif$"
+            "filename_regex": "(.*)DOW_Greenfield_ZDR_cog_v2(.*).tif$"
         }
     ],
     "data_type": "cog",
@@ -72,7 +72,7 @@
             "assets": [
                 "cog_default"
             ],
-            "rescale": [-5, 7],
+            "rescale": [[-5, 7]],
             "title": "VEDA Dashboard Render Parameters"
         }
     }
