@@ -72,7 +72,7 @@
             "assets": [
                 "cog_default"
             ],
-            "rescale": [0, 1],
+            "rescale": [[0, 1]],
             "title": "VEDA Dashboard Render Parameters"
         }
     }
