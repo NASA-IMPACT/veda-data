@@ -16,7 +16,7 @@
         "enddate": "2024-04-26T23:59:59Z"
     },
     "sample_files": [
-        "s3://veda-data-store-staging/2024tornadoes/DOW_Harlan_RHOHV_cog_2024-04-26.tif"
+        "s3://veda-data-store-staging/2024tornadoes/DOW_Harlan_RHOHV_cog_version2_2024-04-26.tif"
     ],
     "providers": [
         {
@@ -44,7 +44,7 @@
             "dry_run": false,
             "prefix": "2024tornadoes/",
             "bucket": "veda-data-store-staging",
-            "filename_regex": "(.*)DOW_Harlan_RHOHV_cog_(.*).tif$"
+            "filename_regex": "(.*)DOW_Harlan_RHOHV_cog_version2_(.*).tif$"
         }
     ],
     "data_type": "cog",
