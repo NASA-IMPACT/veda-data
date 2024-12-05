@@ -16,7 +16,7 @@
         "enddate": "2024-05-21T23:59:59Z"
     },
     "sample_files": [
-        "s3://veda-data-store-staging/2024tornadoes/DOW_Greenfield_RHOHV_cog_v2_2024-05-21.tif"
+        "s3://veda-data-store/tornadoes-2024-dow-rhohv-greenfield/DOW_Greenfield_RHOHV_cog_v2_2024-05-21.tif"
     ],
     "providers": [
         {
@@ -70,8 +70,8 @@
             "cogify": false,
             "upload": false,
             "dry_run": false,
-            "prefix": "2024tornadoes/",
-            "bucket": "veda-data-store-staging",
+            "prefix": "tornadoes-2024-dow-rhohv-greenfield/",
+            "bucket": "veda-data-store",
             "filename_regex": "(.*)DOW_Greenfield_RHOHV_cog_v2_(.*).tif$"
         }
     ],
