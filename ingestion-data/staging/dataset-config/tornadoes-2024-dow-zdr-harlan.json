@@ -16,7 +16,7 @@
         "enddate": "2024-04-26T23:59:59Z"
     },
     "sample_files": [
-        "s3://veda-data-store-staging/2024tornadoes/DOW_Harlan_ZDR_cog_2024-04-26.tif"
+        "s3://veda-data-store-staging/2024tornadoes/DOW_Harlan_ZDR_cog_version2_2024-04-26.tif"
     ],
     "providers": [
         {
