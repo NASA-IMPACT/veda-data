@@ -1,7 +1,7 @@
 {
     "collection": "tornadoes-2024-dow-v-harlan",
     "title": "DOW7 Velocity (Ground; Harlan, IA)",
-    "description": "Velocity values (m/s) collected by DOW7 from the Harlan, Iowa EF-3 tornado on April 26, 2024 at 23:08:12.",
+    "description": "Velocities (m/s) of the EF-3 Harlan, IA tornado on April 26, 2024 collected by DOW7. Scan taken at 23:08:12..",
     "license": "CC0-1.0",
     "is_periodic": true,
     "time_density": "day",
