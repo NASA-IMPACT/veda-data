@@ -1,7 +1,7 @@
 {
     "collection": "tornadoes-2024-dow-sw-harlan",
     "title": "DOW7 Spectrum Width (Harlan, IA)",
-    "description": "Spectrum Width values collected by DOW7 from the Harlan, Iowa EF-3 tornado on April 26, 2024 at 23:08:12.",
+    "description": "Spectrum Width values (m/s) from the EF-3 Harlan, IA tornado on April 26, 2024 collected by DOW7. Scan taken at 23:08:12.",
     "license": "CC0-1.0",
     "is_periodic": true,
     "time_density": "day",
