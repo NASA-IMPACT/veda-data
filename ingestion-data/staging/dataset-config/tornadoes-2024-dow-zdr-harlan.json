@@ -44,7 +44,7 @@
             "dry_run": false,
             "prefix": "2024tornadoes/",
             "bucket": "veda-data-store-staging",
-            "filename_regex": "(.*)DOW_Harlan_ZDR_cog_(.*).tif$"
+            "filename_regex": "(.*)DOW_Harlan_ZDR_cog_version2(.*).tif$"
         }
     ],
     "data_type": "cog",
