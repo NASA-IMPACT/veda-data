@@ -1,0 +1,69 @@
+{
+  "collection": "tornadoes-2024-polygons",
+  "title": "NWS Tornado Tracks from MAM 2024",
+  "description": "Official NWS surveyed tornado tracks from March to May of 2024",
+  "license": "CC0-1.0",
+  "stac_extensions": [
+    "https://stac-extensions.github.io/render/v1.0.0/schema.json",
+    "https://stac-extensions.github.io/item-assets/v1.0.0/schema.json"
+  ],
+  "is_periodic": true,
+  "time_density": "day",
+  "stac_version": "1.0.0",
+  "spatial_extent": {
+    "xmin": -130,
+    "ymin": 17.6,
+    "xmax": -57,
+    "ymax": 52.5
+  },
+  "temporal_extent": {
+    "startdate": "2024-03-01T00:00:00Z",
+    "enddate": "2024-05-31T00:00:00Z"
+  },
+  "sample_files": [
+    "s3://veda-data-store-staging/2024tornadoes/Tornado_Polygons_2024-05-31_cog.tif"
+  ],
+  "providers": [
+    {
+        "name": "NASA VEDA",
+        "url": "https://www.earthdata.nasa.gov/dashboard/",
+        "roles": [
+            "host"
+        ]
+    }
+  ],
+  "renders": {
+    "dashboard": {
+      "colormap_name": "tornado_ef_scale",
+      "bidx": [
+          1
+      ],
+      "nodata": 255,
+      "assets": [
+          "cog_default"
+      ],
+      "title": "VEDA Dashboard Render Parameters"
+    }
+  },
+  "assets": {
+    "thumbnail": {
+        "title": "Thumbnail",
+        "description": "Wedge tornado passing southeast of Wapakoneta, Ohio on March 14, 2024",
+        "href": "https://thumbnails.openveda.cloud/tornado-2024-cover.png",
+        "type": "image/jpeg",
+        "roles": ["thumbnail"]
+    }
+  },
+  "discovery_items": [
+    {
+      "discovery": "s3",
+      "cogify": false,
+      "upload": false,
+      "dry_run": false,
+      "prefix": "2024tornadoes/",
+      "bucket": "veda-data-store-staging",
+      "filename_regex": "(.*)Tornado_Polygons_(.*).tif$"
+    }
+  ],
+  "data_type": "cog"
+}
