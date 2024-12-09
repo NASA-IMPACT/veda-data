@@ -1,0 +1,85 @@
+{
+    "id": "darnah-flood",
+    "type": "Collection",
+    "links": [],
+    "title": "False Color Pre and Post Flood",
+    "assets": {
+        "thumbnail": {
+            "href": "https://thumbnails.openveda.cloud/darnah-flood-background.jpg",
+            "type": "image/jpeg",
+            "roles": [
+                "thumbnail"
+            ],
+            "title": "Thumbnail",
+            "description": "Photo by Marwan Alfaituri (Reuters)](https://abcnews.go.com/International/casualties-libya-floods-avoided-world-meteorological-organization-chief/story?id=103200104) (Satellite imagery over Florida showing damage probability (Aerial view over the Wadi Darnah River post-flood in Derna, Libya on September 14, 2023)"
+        }
+    },
+    "extent": {
+        "spatial": {
+            "bbox": [
+                [
+                    22.063841231299286,
+                    32.42935916114897,
+                    23.256368419576482,
+                    33.43490918842431
+                ]
+            ]
+        },
+        "temporal": {
+            "interval": [
+                [
+                    "2023-09-07 00:00:00+00:00",
+                    "2023-09-22 23:59:59+00:00"
+                ]
+            ]
+        }
+    },
+    "license": "CC0-1.0",
+    "providers": [
+        {
+            "url": "https://www.earthdata.nasa.gov/dashboard/",
+            "name": "NASA VEDA",
+            "roles": [
+                "host"
+            ]
+        }
+    ],
+    "renders": {
+        "dashboard": {
+            "colormap_name": "magma",
+            "resampling": "bilinear",
+            "rescale": [
+                [
+                    0,
+                    5000
+                ]
+            ],
+            "bidx": [
+                1
+            ],
+            "assets": [
+                "cog_default"
+            ],
+            "title": "VEDA Dashboard Render Parameters"
+        }
+    },
+    "description": "HLS falsecolor composite imagery using S30 Bands 12, 8A, and 4, over Darnah, Libya. \n\n ### Technical Details \n\n In order to examine how the fire event affected the changes in surface properties, we utilized the MODIS-derived Normalized Difference Vegetation Index (NDVI), albedo, and land surface temperature (LST) products for a six-year period centered on the Camp Fire event (2015-2022). We used these products which are available at 16-day intervals to compute monthly averaged spatial maps of NDVI, albedo, and LST. The monthly average spatial maps were then averaged over the areas affected by the Camp Fire to compute monthly mean values. This dataset is the LST Day difference portion of that analysis.",
+    "item_assets": {
+        "cog_default": {
+            "type": "image/tiff; application=geotiff; profile=cloud-optimized",
+            "roles": [
+                "data",
+                "layer"
+            ],
+            "title": "Default COG Layer",
+            "description": "Cloud optimized default layer to display on map"
+        }
+    },
+    "stac_version": "1.0.0",
+    "stac_extensions": [
+        "https://stac-extensions.github.io/render/v1.0.0/schema.json",
+        "https://stac-extensions.github.io/item-assets/v1.0.0/schema.json"
+    ],
+    "dashboard:is_periodic": true,
+    "dashboard:time_density": "day"
+}
