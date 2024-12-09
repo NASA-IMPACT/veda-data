@@ -208,22 +208,24 @@ jobs:
     runs-on: ubuntu-latest
     needs: publish-new-datasets
     steps:
-      - name: Use output from dataset-publication-and-configuration
+      - name: Checkout code
+        uses: actions/checkout@v4
 
+      - name: Use output from dataset-publication-and-configuration
         run: |
-          echo "The output from the previous step is: ${{ needs.dataset-publication-and-configuration.outputs.publishedCollections }}"
+          echo "The output from the previous step is: ${{ needs.publish-new-datasets.outputs.publishedCollections }}"
 
       # Creates a slim dataset mdx file for each collection based on the dataset config json
       - name: Create dataset mdx for given collections
         env:
-          PUBLISHED_COLLECTION_FILES: ${{ needs.dataset-publication-and-configuration.outputs.publishedCollections }}
-        run: echo "NO-OP step"
-        # run: |
-        #   pip install -r scripts/requirements.txt
-        #   for file in "${PUBLISHED_COLLECTION_FILES[@]}"
-        #   do
-        #     python3 scripts/mdx.py "$file"
-        #   done
+          PUBLISHED_COLLECTION_FILES: ${{ needs.publish-new-datasets.outputs.publishedCollections }}
+        run: |
+          echo $PUBLISHED_COLLECTION_FILES
+          pip install -r ./scripts/requirements.txt
+          for file in "${PUBLISHED_COLLECTION_FILES[@]}"
+          do
+            python3 ./scripts/generate-mdx.py "$file"
+          done
 
   open-veda-config-pr:
     runs-on: ubuntu-latest
@@ -238,7 +240,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout code
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
 
       - name: Publish to production on PR merge
         run: echo "NO-OP. This step runs when a PR is merged."
