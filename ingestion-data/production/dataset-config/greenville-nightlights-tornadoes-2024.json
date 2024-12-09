@@ -1,0 +1,81 @@
+{
+    "collection": "greenville-nightlights-tornadoes-2024",
+    "title": "Black Marble Night Lights (Greenville OH Tornado Damage)",
+    "description": "Black Marble night lights imagery of tornado damage at Greenville, Ohio in the spring 2024 tornado season.",
+    "license": "CC0-1.0",
+    "is_periodic": true,
+    "time_density": "day",
+    "spatial_extent": {
+    "xmin": -125,
+    "ymin": 24,
+    "xmax": -65,
+    "ymax": 50
+    },
+    "temporal_extent": {
+      "startdate": "2024-05-07T00:00:00Z",
+      "enddate": "2024-05-08T23:59:59Z"
+    },
+    "sample_files": [
+      "s3://veda-data-store/greenville-nightlights-tornadoes-2024/nightlights_GreenvilleOH_cog_2024-05-07.tif",
+      "s3://veda-data-store/greenville-nightlights-tornadoes-2024/nightlights_GreenvilleOH_cog_2024-05-08.tif"
+    ],
+    "discovery_items": [
+      {
+        "discovery": "s3",
+        "cogify": false,
+        "upload": false,
+        "dry_run": false,
+        "prefix": "greenville-nightlights-tornadoes-2024/",
+        "bucket": "veda-data-store",
+        "filename_regex": ".*Greenville.*.tif$",
+        "use_multithreading": false
+      }
+    ],
+    "data_type": "cog",
+    "datetime_range": "day",
+    "providers": [
+      {
+        "name": "NASA VEDA",
+        "roles": [
+          "host"
+        ],
+        "url": "https://www.earthdata.nasa.gov/dashboard/"
+      }
+    ],
+    "assets": {
+      "thumbnail": {
+          "title": "Thumbnail",
+          "description": "Photo by [Jonny Glessner](https://x.com/JonnyGlessner/status/1768424574855610777/photo/4) (Wedge tornado passing southeast of Wapakoneta, Ohio on March 14, 2024)",
+          "href": "https://thumbnails.openveda.cloud/tornado-2024-cover.png",
+          "type": "image/jpeg",
+          "roles": ["thumbnail"]
+      }
+    },
+    "stac_version": "1.0.0",
+    "stac_extensions": [
+        "https://stac-extensions.github.io/render/v1.0.0/schema.json",
+        "https://stac-extensions.github.io/item-assets/v1.0.0/schema.json"
+    ],
+    "item_assets": {
+        "cog_default": {
+            "type": "image/tiff; application=geotiff; profile=cloud-optimized",
+            "roles": [
+                "data",
+                "layer"
+            ],
+            "title": "Default COG Layer",
+            "description": "Cloud optimized default layer to display on map"
+        }
+    },
+    "renders": {
+        "dashboard": {
+            "resampling": "bilinear",
+            "bidx": [1,2,3],
+            "assets": [
+                "cog_default"
+            ],
+            "rescale": [[0,255]],
+            "title": "VEDA Dashboard Render Parameters"
+        }
+    }
+  }

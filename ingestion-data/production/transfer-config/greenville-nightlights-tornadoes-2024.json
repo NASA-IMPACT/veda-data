@@ -1,0 +1,7 @@
+{
+    "origin_bucket": "veda-data-store-staging",
+    "origin_prefix": "2024tornadoes_NightLights/",
+    "target_bucket": "veda-data-store",
+    "collection": "greenville-nightlights-tornadoes-2024",
+    "filename_regex": ".*Greenville.*.tif$"
+}
