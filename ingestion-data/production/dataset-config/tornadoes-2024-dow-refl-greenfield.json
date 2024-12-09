@@ -1,7 +1,7 @@
 {
     "collection": "tornadoes-2024-dow-refl-greenfield",
     "title": "DOW7 Reflectivity (Greenfield, IA)",
-    "description": "Horizontal Reflectivity values (dBZ) collected by DOW7 from the Greenfield, Iowa EF-4 tornado on May 21, 2024 at 20:41:08.",
+    "description": "Horizontal reflectivity values (dBZ) from the EF-4 Greenfield, IA tornado on May 21, 2024 collected by DOW7. Scan taken at 20:41:08.",
     "license": "CC0-1.0",
     "is_periodic": true,
     "time_density": "day",
