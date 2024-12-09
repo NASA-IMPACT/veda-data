@@ -1,0 +1,9 @@
+[
+    {
+        "origin_bucket": "veda-data-store-staging",
+        "origin_prefix": "2024tornadoes/",
+        "target_bucket": "veda-data-store",
+        "collection": "tornadoes-2024-dow-zdr-greenfield",
+        "filename_regex": "(.*)DOW_Greenfield_ZDR_cog_v2(.*).tif$"
+    }
+]
