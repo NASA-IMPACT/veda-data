@@ -1,0 +1,79 @@
+{
+    "collection": "tornadoes-2024-dow-zdr-greenfield",
+    "title": "DOW7 Differential Reflectivity (Greenfield, IA)",
+    "description": "Differential Reflectivity (dB) collected by DOW7 from the Greenfield, Iowa EF-4 tornado on May 21, 2024 at 20:41:08.",
+    "license": "CC0-1.0",
+    "is_periodic": true,
+    "time_density": "day",
+    "spatial_extent": {
+        "xmin": -94.5,
+        "ymin": 41.275,
+        "xmax": -94.4,
+        "ymax": 41.325
+    },
+    "temporal_extent": {
+        "startdate": "2024-05-21T00:00:00Z",
+        "enddate": "2024-05-21T23:59:59Z"
+    },
+    "sample_files": [
+        "s3://veda-data-store/tornadoes-2024-dow-zdr-greenfield/DOW_Greenfield_ZDR_cog_v2_2024-05-21.tif"
+    ],
+    "providers": [
+        {
+            "name": "NASA VEDA",
+            "url": "https://www.earthdata.nasa.gov/dashboard/",
+            "roles": [
+                "host"
+            ]
+        }
+    ],
+    "assets": {
+        "thumbnail": {
+            "title": "Thumbnail",
+            "description": "Photo by [Ryan McGinnis](https://static.wikia.nocookie.net/stormchasers/images/1/1b/DOW.jpg/revision/latest?cb=20100115235828) (DOW6 parked in front of a tornadic mesocyclone in the Plains)",
+            "href": "https://thumbnails.openveda.cloud/tornadoes-2024-dow-background.jpg",
+            "type": "image/jpeg",
+            "roles": ["thumbnail"]
+        }
+    },
+    "discovery_items": [
+        {
+            "discovery": "s3",
+            "cogify": false,
+            "upload": false,
+            "dry_run": false,
+            "prefix": "tornadoes-2024-dow-zdr-greenfield/",
+            "bucket": "veda-data-store",
+            "filename_regex": "(.*)DOW_Greenfield_ZDR_cog_v2(.*).tif$"
+        }
+    ],
+    "data_type": "cog",
+    "stac_version": "1.0.0",
+    "stac_extensions": [
+        "https://stac-extensions.github.io/render/v1.0.0/schema.json",
+        "https://stac-extensions.github.io/item-assets/v1.0.0/schema.json"
+    ],
+    "item_assets": {
+        "cog_default": {
+            "type": "image/tiff; application=geotiff; profile=cloud-optimized",
+            "roles": [
+                "data",
+                "layer"
+            ],
+            "title": "Default COG Layer",
+            "description": "Cloud optimized default layer to display on map"
+        }
+    },
+    "renders": {
+        "dashboard": {
+            "bidx": [1],
+            "colormap_name": "nipy_spectral",
+            "nodata": -32768,
+            "assets": [
+                "cog_default"
+            ],
+            "rescale": [[-5, 7]],
+            "title": "VEDA Dashboard Render Parameters"
+        }
+    }
+}
