@@ -1,0 +1,68 @@
+{
+    "collection": "tornadoes-2024-dow-refl-greenfield",
+    "title": "DOW7 Reflectivity (Greenfield, IA)",
+    "description": "Horizontal reflectivity values (dBZ) from the EF-4 Greenfield, IA tornado on May 21, 2024 collected by DOW7. Scan taken at 20:41:08.",
+    "license": "CC0-1.0",
+    "is_periodic": true,
+    "time_density": "day",
+    "spatial_extent": {
+        "xmin": -94.5,
+        "ymin": 41.275,
+        "xmax": -94.4,
+        "ymax": 41.325
+    },
+    "temporal_extent": {
+        "startdate": "2024-05-21T00:00:00Z",
+        "enddate": "2024-05-21T23:59:59Z"
+    },
+    "sample_files": [
+        "s3://veda-data-store/tornadoes-2024-dow-refl-greenfield/DOW_Greenfield_REFL_cog_v2_2024-05-21.tif"
+    ],
+    "providers": [
+        {
+            "name": "NASA VEDA",
+            "url": "https://www.earthdata.nasa.gov/dashboard/",
+            "roles": [
+                "host"
+            ]
+        }
+    ],
+    "assets": {
+        "thumbnail": {
+            "title": "Thumbnail",
+            "description": "Photo by [Ryan McGinnis](https://static.wikia.nocookie.net/stormchasers/images/1/1b/DOW.jpg/revision/latest?cb=20100115235828) (DOW6 parked in front of a tornadic mesocyclone in the Plains)",
+            "href": "https://thumbnails.openveda.cloud/tornadoes-2024-dow-background.jpg",
+            "type": "image/jpeg",
+            "roles": ["thumbnail"]
+        }
+    },
+    "discovery_items": [
+        {
+            "discovery": "s3",
+            "cogify": false,
+            "upload": false,
+            "dry_run": false,
+            "prefix": "tornadoes-2024-dow-refl-greenfield/",
+            "bucket": "veda-data-store",
+            "filename_regex": "(.*)DOW_Greenfield_REFL_cog_v2_(.*).tif$"
+        }
+    ],
+    "data_type": "cog",
+    "stac_version": "1.0.0",
+    "stac_extensions": [
+        "https://stac-extensions.github.io/render/v1.0.0/schema.json",
+        "https://stac-extensions.github.io/item-assets/v1.0.0/schema.json"
+    ],
+    "renders": {
+        "dashboard": {
+            "resampling": "nearest",
+            "bidx": [1],
+            "colormap_name": "turbo",
+            "assets": [
+                "cog_default"
+            ],
+            "rescale": [[-10, 50]],
+            "title": "VEDA Dashboard Render Parameters"
+        }
+    }
+}
