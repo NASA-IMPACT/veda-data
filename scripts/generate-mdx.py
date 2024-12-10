@@ -1,3 +1,4 @@
+#! /usr/bin/env python
 """
 This file creates a minimal <collection>.data.mdx file
 from the input dataset config json file
