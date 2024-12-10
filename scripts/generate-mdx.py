@@ -28,7 +28,6 @@ def create_frontmatter(input_data):
             "author": {"name": "Media author", "url": ""},
         },
         "taxonomy": [
-            {"name": "Theme", "values": ["Greenhouse Gases"]},
             {"name": "Source", "values": ["NASA"]},
         ],
         "infoDescription": """::markdown
