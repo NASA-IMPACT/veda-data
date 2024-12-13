@@ -1,0 +1,10 @@
+{
+  "collection": "geoglam",
+  "prefix": "geoglam/",
+  "bucket": "veda-data-store-staging",
+  "filename_regex": "^(.*).tif$",
+  "discovery": "s3",
+  "datetime_range": "month",
+  "schedule": "0 0 * * 0",
+  "upload": false
+}
