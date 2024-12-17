@@ -235,6 +235,11 @@ jobs:
           git config --global user.name "github-actions[bot]"
           git config --global user.email "github-actions[bot]@users.noreply.github.com"
 
+      - name: Debug Variables
+        run: |
+          echo "CONFIG_REPO_ORG: ${{ vars.VEDA_CONFIG_REPO_ORG }}"
+          echo "CONFIG_REPO_NAME: ${{ vars.VEDA_CONFIG_REPO_NAME }}"
+
       - name: Clone `veda-config`
         env:
           VEDA_CONFIG_REPO_ACCESS_TOKEN: ${{ secrets.VEDA_CONFIG_REPO_ACCESS_TOKEN }}
