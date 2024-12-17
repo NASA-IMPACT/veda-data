@@ -225,7 +225,12 @@ jobs:
           do
             python3 ./scripts/generate-mdx.py "$file"
           done
-          ls
+
+      - name: List files in workspace
+        run: |
+          echo "Listing all files to verify .mdx file generation:"
+          ls -la
+          ls ./scripts/
 
   open-veda-config-pr:
     runs-on: ubuntu-latest
