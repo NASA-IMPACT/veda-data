@@ -232,11 +232,6 @@ jobs:
           ls -la
           ls ./ingestion-data/dataset-mdx/
 
-  open-veda-config-pr:
-    runs-on: ubuntu-latest
-    needs: create-mdx-files
-    environment: staging
-    steps:
       - name: Set up Git
         run: |
           git config --global user.name "github-actions[bot]"
