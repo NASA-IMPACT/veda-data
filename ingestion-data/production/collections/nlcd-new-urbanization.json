@@ -1,0 +1,78 @@
+{
+    "id": "nlcd-new-urbanization",
+    "type": "Collection",
+    "links": [],
+    "title": "NLCD Urbanization",
+    "extent": {
+      "spatial": {
+        "bbox": [
+          [-125, 24, -65, 50]
+        ]
+      },
+      "temporal": {
+        "interval": [
+          [
+            "2001-01-01T00:00:00+00:00",
+            "2021-12-31T23:59:59+00:00"
+          ]
+        ]
+      }
+    },
+    "license": "CC0-1.0",
+    "description": "National Land Cover Database Land Use Land Cover Classification new urbanization 2001-2021",
+    "item_assets": {
+      "landcover": {
+        "type": "image/tiff; application=geotiff; profile=cloud-optimized",
+        "roles": [
+          "data",
+          "layer"
+        ],
+        "title": "NLCD Urbanization",
+        "description": "National Land Cover Database newly classified urban land use between 2001-2021"
+      }
+    },
+    "stac_version": "1.0.0",
+    "datetime_range": "year",
+    "dashboard:is_periodic": false,
+    "dashboard:time_density": null,
+    "assets": {
+        "thumbnail": {
+            "title": "Thumbnail",
+            "description": "Photo by [Eric Kilby](https://openverse.org/image/a9e174e6-d4e1-4377-81e2-6e71bf1a9602?q=skyline) (Boston, MA skyline)",
+            "href": "https://thumbnails.openveda.cloud/nlcd-cover.png",
+            "type": "image/jpeg",
+            "roles": ["thumbnail"]
+        }
+    },
+    "stac_extensions": [
+        "https://stac-extensions.github.io/render/v1.0.0/schema.json",
+        "https://stac-extensions.github.io/item-assets/v1.0.0/schema.json"
+    ],
+    "providers": [
+      {
+        "name": "NASA VEDA",
+        "roles": [
+          "host"
+        ],
+        "url": "https://www.earthdata.nasa.gov/dashboard/"
+      }
+    ],
+    "renders": {
+        "dashboard": {
+            "resampling": "cubic_spline",
+            "bidx": [
+                1
+            ],
+            "colormap_name": "reds",
+            "assets": [
+                "landcover"
+            ],
+            "title": "VEDA Dashboard Render Parameters"
+        }
+    },
+    "summaries": {
+    "datetime": [
+      "2001-01-01T00:00:00Z"
+    ]
+  }
+  }
