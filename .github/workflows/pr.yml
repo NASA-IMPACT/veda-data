@@ -271,6 +271,9 @@ jobs:
           # Update the env vars to staging based on env vars
           #sed -i "s|${{ vars.ENV_FROM }}|${{ vars.ENV_TO }}|g" .env
           cat .env
+          ls
+          echo "Checking directory below"
+          ls ..
           cp -r ../datasets/* datasets/
           # git add .
           # git commit -m "Add dataset(s)"
