@@ -310,8 +310,13 @@ jobs:
           CURRENT_BODY=$(gh api -H "Authorization: token $GITHUB_TOKEN" /repos/${{ github.repository }}/issues/comments/$COMMENT_ID --jq '.body')
           UPDATED_BODY="$CURRENT_BODY
 
+          # Output WORKFLOW_URL to logs for verification
+          echo "Workflow URL: $WORKFLOW_URL"
+
           ** ❌ The workflow run failed. [See logs here]($WORKFLOW_URL)**"
           gh api -X PATCH -H "Authorization: token $GITHUB_TOKEN" /repos/${{ github.repository }}/issues/comments/$COMMENT_ID -f body="$UPDATED_BODY"
+
+          echo "Updated Comment Body: $UPDATED_BODY"
 
   publish-to-prod-on-pr-merge:
     if: ${{ github.event_name == 'pull_request' && github.event.action == 'closed' && github.event.pull_request.merged == true }}
