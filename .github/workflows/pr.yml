@@ -225,6 +225,7 @@ jobs:
           do
             python3 ./scripts/generate-mdx.py "$file"
           done
+          ls
 
   open-veda-config-pr:
     runs-on: ubuntu-latest
