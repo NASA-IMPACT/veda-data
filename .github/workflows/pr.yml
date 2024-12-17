@@ -230,7 +230,7 @@ jobs:
         run: |
           echo "Listing all files to verify .mdx file generation:"
           ls -la
-          ls ./scripts/
+          ls ./ingestion-data/dataset-mdx/
 
   open-veda-config-pr:
     runs-on: ubuntu-latest
