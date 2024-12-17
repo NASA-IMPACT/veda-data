@@ -205,6 +205,7 @@ jobs:
 
   create-mdx-files:
     runs-on: ubuntu-latest
+    environment: staging
     needs: publish-new-datasets
     steps:
       - name: Checkout code
