@@ -257,7 +257,7 @@ jobs:
       - name: Copy MDX file to veda-config
         run: |
           echo "Copying .mdx file to veda-config repository"
-          ls ./ingestion-data/dataset-mdx/*
+          ls ./ingestion-data/dataset-mdx/
           git status
           # cp ./ingestion-data/dataset-mdx/* datasets/
           ls -la datasets
