@@ -269,15 +269,16 @@ jobs:
           git checkout -b $NEW_BRANCH
 
           # Update the env vars to staging based on env vars
-          sed -i "s|${{ vars.ENV_FROM }}|${{ vars.ENV_TO }}|g" .env
+          #sed -i "s|${{ vars.ENV_FROM }}|${{ vars.ENV_TO }}|g" .env
+          cat .env
           cp -r ../datasets/* datasets/
-          git add .
-          git commit -m "Add dataset(s)"
-          git push origin $NEW_BRANCH
-          PR_URL=$(GITHUB_TOKEN=$VEDA_CONFIG_REPO_ACCESS_TOKEN gh pr create -H $NEW_BRANCH -B develop --title 'Add dataset [Automated workflow]' --body-file <(echo "Add datasets (Automatically created by Github action)"))
+          # git add .
+          # git commit -m "Add dataset(s)"
+          # git push origin $NEW_BRANCH
+          # PR_URL=$(GITHUB_TOKEN=$VEDA_CONFIG_REPO_ACCESS_TOKEN gh pr create -H $NEW_BRANCH -B develop --title 'Add dataset [Automated workflow]' --body-file <(echo "Add datasets (Automatically created by Github action)"))
 
-          echo "PR_URL=$PR_URL" >> $GITHUB_OUTPUT
-          echo "PR creation succeeded"
+          # echo "PR_URL=$PR_URL" >> $GITHUB_OUTPUT
+          # echo "PR creation succeeded"
 
       # Updates the comment with a link to the above PR
       - name: Update PR comment with PR creation result
