@@ -287,10 +287,10 @@ jobs:
 
           # Update the env vars to staging based on env vars
           #sed -i "s|${{ vars.ENV_FROM }}|${{ vars.ENV_TO }}|g" .env
-          cp -r datasets/* veda-config/datasets/
           ls veda-config/datasets
           git status
-          # git add .
+          git add .
+          echo "Added file for tracking"
           # git commit -m "Add dataset(s)"
           # git push origin $NEW_BRANCH
           # PR_URL=$(GITHUB_TOKEN=$VEDA_CONFIG_REPO_ACCESS_TOKEN gh pr create -H $NEW_BRANCH -B develop --title 'Add dataset [Automated workflow]' --body-file <(echo "Add datasets (Automatically created by Github action)"))
