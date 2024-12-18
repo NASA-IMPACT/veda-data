@@ -265,6 +265,7 @@ jobs:
           cd veda-config
           git config --global user.name "github-actions[bot]"
           git config --global user.email "github-actions[bot]@users.noreply.github.com"
+          git remote set-url origin https://${{ secrets.VEDA_CONFIG_REPO_ACCESS_TOKEN }}@github.com/${{ env.VEDA_CONFIG_REPO }}
           echo "Working directory $(pwd)"
 
           files_string=$(IFS=$'\n'; echo "${PUBLISHED_COLLECTION_FILES[*]}")
