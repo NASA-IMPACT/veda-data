@@ -132,17 +132,18 @@ jobs:
           status_message='### Collection Publication Status
           '
 
-          for file in "${ADDED_FILES[@]}"; do
+          for file in ${ADDED_FILES}; do
             echo $file
             if [ -f "$file" ]; then
               dataset_config=$(jq '.' "$file")
               collection_id=$(jq -r '.collection' "$file")
-
-              response=$(curl -s -w "%{http_code}" -o response.txt -X POST "$publish_url" \
-                -H "Content-Type: application/json" \
-                -H "Authorization: Bearer $AUTH_TOKEN" \
-                -d "$dataset_config"
-              )
+              echo $dataset_config
+              echo $collection_id
+              # response=$(curl -s -w "%{http_code}" -o response.txt -X POST "$publish_url" \
+              #   -H "Content-Type: application/json" \
+              #   -H "Authorization: Bearer $AUTH_TOKEN" \
+              #   -d "$dataset_config"
+              # )
 
               status_code=$(tail -n1 <<< "$response")
 
