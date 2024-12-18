@@ -257,6 +257,12 @@ jobs:
           curl -H "Authorization: token ${{ secrets.VEDA_CONFIG_REPO_ACCESS_TOKEN }}" \
           https://api.github.com/repos/${{ env.VEDA_CONFIG_REPO }}
 
+      - name: Verify Target Repository
+        run: |
+          echo "Current Directory: $(pwd)"
+          git remote -v
+          git branch
+
       - name: Copy untracked mdx file to veda-config
         run: |
           echo "Copying .mdx file to veda-config repository"
