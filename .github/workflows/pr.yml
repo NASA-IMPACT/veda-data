@@ -246,15 +246,10 @@ jobs:
 
       - name: Clone the Target Repository
         run: |
-            git clone https://github.com/${{ env.VEDA_CONFIG_REPO }}.git
-            ls
-            cd ${{ vars.VEDA_CONFIG_REPO_NAME }}
-
-      - name: Verify Target Repository
-        run: |
+          git clone https://github.com/${{ env.VEDA_CONFIG_REPO }}.git
+          ls
+          cd ${{ vars.VEDA_CONFIG_REPO_NAME }}
           echo "Current Directory: $(pwd)"
-          git remote -v
-          git branch
 
       - name: Copy untracked mdx file to veda-config
         run: |
