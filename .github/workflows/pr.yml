@@ -247,7 +247,7 @@ jobs:
       - name: Clone the Target Repository
         run: |
             git clone https://github.com/${{ env.VEDA_CONFIG_REPO }}.git
-            cd datasets
+            ls
 
       - name: Verify Target Repository
         run: |
@@ -258,8 +258,6 @@ jobs:
       - name: Copy untracked mdx file to veda-config
         run: |
           echo "Copying .mdx file to veda-config repository"
-          git remote -v
-          git branch
           mkdir -p datasets
           ls ./ingestion-data/dataset-mdx/
           git status
@@ -269,7 +267,6 @@ jobs:
             ls
             cp "$file" "datasets/"
           done
-          git status
 
       # Creates a PR in veda-config with the following changes:
       # 1. the mdx files for all published collections
