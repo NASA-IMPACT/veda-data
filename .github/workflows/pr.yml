@@ -222,7 +222,7 @@ jobs:
         run: |
           echo $PUBLISHED_COLLECTION_FILES
           pip install -r ./scripts/requirements.txt
-          for file in "${PUBLISHED_COLLECTION_FILES[@]}"
+          for file in ${PUBLISHED_COLLECTION_FILES}
           do
             python3 ./scripts/generate-mdx.py "$file"
           done
