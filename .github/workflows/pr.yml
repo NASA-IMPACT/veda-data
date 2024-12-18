@@ -253,6 +253,7 @@ jobs:
       - name: Copy untracked mdx file to veda-config
         run: |
           echo "Copying .mdx file to veda-config repository"
+          mkdir -p datasets
           ls ./ingestion-data/dataset-mdx/
           git status
           git ls-files --others --exclude-standard | while read file; do
