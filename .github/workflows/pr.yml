@@ -255,8 +255,8 @@ jobs:
           echo "Copying .mdx file to veda-config repository"
           ls ./ingestion-data/dataset-mdx/
           git status
-          # cp ./ingestion-data/dataset-mdx/* datasets/
-          ls -la datasets
+          cp ingestion-data/dataset-mdx/ datasets/
+          git status
 
       # Creates a PR in veda-config with the following changes:
       # 1. the mdx files for all published collections
@@ -273,7 +273,6 @@ jobs:
           files_string=$(IFS=$'\n'; echo "${PUBLISHED_COLLECTION_FILES[*]}")
           hash=$(echo -n "$files_string" | md5sum | cut -d ' ' -f 1)
           NEW_BRANCH="add-dataset-$hash"
-          cd ${{ vars.VEDA_CONFIG_REPO_NAME }}
           git fetch origin
           if git ls-remote --exit-code --heads origin $NEW_BRANCH; then
             git push origin --delete $NEW_BRANCH
