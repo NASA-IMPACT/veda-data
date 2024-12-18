@@ -246,7 +246,7 @@ jobs:
 
       - name: Clone the Target Repository
         run: |
-            git clone https://github.com/${{ env.VEDA_CONFIG_REPO }}.git datasets
+            git clone https://github.com/${{ env.VEDA_CONFIG_REPO }}.git
             git checkout develop
             cd datasets
 
