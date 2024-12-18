@@ -253,12 +253,6 @@ jobs:
           echo "Contents of the datasets directory after copying:"
           ls veda-config/datasets/
 
-      - name: Set up Git
-        run: |
-          cd veda-config
-          git config --global user.name "github-actions[bot]"
-          git config --global user.email "github-actions[bot]@users.noreply.github.com"
-
 
       # Creates a PR in veda-config with the following changes:
       # 1. the mdx files for all published collections
@@ -271,6 +265,9 @@ jobs:
           COMMENT_ID: ${{ steps.publish-collections.outputs.COMMENT_ID }}
           PUBLISHED_COLLECTION_FILES: ${{ steps.publish-collections.outputs.success_collections }}
         run: |
+          cd veda-config
+          git config --global user.name "github-actions[bot]"
+          git config --global user.email "github-actions[bot]@users.noreply.github.com"
           echo "Working directory $(pwd)"
 
           files_string=$(IFS=$'\n'; echo "${PUBLISHED_COLLECTION_FILES[*]}")
