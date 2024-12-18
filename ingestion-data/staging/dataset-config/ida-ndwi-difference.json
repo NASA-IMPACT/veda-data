@@ -24,7 +24,7 @@
         "cogify": false,
         "upload": false,
         "dry_run": false,
-        "prefix": "planet-indices/",
+        "prefix": "planet-indices-v2/",
         "bucket": "veda-data-store-staging",
         "filename_regex": "(.*)NDWI_Difference_Hurricane_cog.tif$"
       }
