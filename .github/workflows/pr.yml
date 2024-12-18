@@ -248,21 +248,16 @@ jobs:
         run: |
           git clone https://github.com/${{ env.VEDA_CONFIG_REPO }}.git
           ls
-          cd ${{ vars.VEDA_CONFIG_REPO_NAME }}
-          echo "Current Directory: $(pwd)"
 
       - name: Copy untracked mdx file to veda-config
         run: |
           echo "Copying .mdx file to veda-config repository"
-          mkdir -p datasets
+          ls
           ls ./ingestion-data/dataset-mdx/
-          git status
-          git ls-files --others --exclude-standard | while read file; do
-            echo "Copying $file to datasets directory"
-            mkdir -p "datasets"
-            ls
-            cp "$file" "datasets/"
-          done
+          mkdir -p datasets
+          find ingestion-data/dataset-mdx/ -name '*.mdx' -exec cp {} veda-config/datasets/ \;
+          echo "Contents of the datasets directory after copying:"
+          ls veda-config-/datasets/
 
       # Creates a PR in veda-config with the following changes:
       # 1. the mdx files for all published collections
