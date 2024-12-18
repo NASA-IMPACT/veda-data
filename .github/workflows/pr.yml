@@ -271,6 +271,7 @@ jobs:
           COMMENT_ID: ${{ steps.publish-collections.outputs.COMMENT_ID }}
           PUBLISHED_COLLECTION_FILES: ${{ steps.publish-collections.outputs.success_collections }}
         run: |
+          echo "Working directory $(pwd)"
 
           files_string=$(IFS=$'\n'; echo "${PUBLISHED_COLLECTION_FILES[*]}")
           hash=$(echo -n "$files_string" | md5sum | cut -d ' ' -f 1)
@@ -288,10 +289,9 @@ jobs:
           git remote -v
           git branch
           git status
-          git add .
-          echo "**DEBUG**-Added file for tracking"
-          git commit -m "Add dataset(s)"
-          git push origin $NEW_BRANCH
+          # git add .
+          # git commit -m "Add dataset(s)"
+          # git push origin $NEW_BRANCH
           echo "**DEBUG**-Committed and pushed file"
           PR_URL=$(GITHUB_TOKEN=${{ secrets.VEDA_CONFIG_REPO_ACCESS_TOKEN }} gh pr create -R ${{ env.VEDA_CONFIG_REPO }} -H $NEW_BRANCH -B develop --title 'Add dataset [Automated workflow]' --body-file <(echo "Add datasets (Automatically created by Github action)"))
 
