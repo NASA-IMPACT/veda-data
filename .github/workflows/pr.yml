@@ -257,8 +257,9 @@ jobs:
           ls ./ingestion-data/dataset-mdx/
           git status
           git ls-files --others --exclude-standard | while read file; do
-            echo "Copying $file to veda-config/datasets"
-            cp --parents "$file" /datasets/
+            echo "Copying $file to datasets directory"
+            mkdir -p "datasets/$(dirname "$file")"
+            cp "$file" "/datasets/$file"
           done
           git status
 
