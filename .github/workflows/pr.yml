@@ -250,9 +250,6 @@ jobs:
           ls ./ingestion-data/dataset-mdx/
           mkdir -p datasets
           find ingestion-data/dataset-mdx/ -name '*.mdx' -exec cp {} veda-config/datasets/ \;
-          echo "Contents of the datasets directory after copying:"
-          ls veda-config/datasets/
-
 
       # Creates a PR in veda-config with the following changes:
       # 1. the mdx files for all published collections
@@ -284,9 +281,10 @@ jobs:
           #sed -i "s|${{ vars.ENV_FROM }}|${{ vars.ENV_TO }}|g" .env
           git status
           git add .
-          git commit -m "Add dataset(s)"
+          git commit -m "feat: add MDX files for dataset(s) [Automated workflow]"
+          echo "**DEBUG**-Committed file"
           git push origin $NEW_BRANCH
-          echo "**DEBUG**-Committed and pushed file"
+          echo "**DEBUG**-Pushed file"
           PR_URL=$(GITHUB_TOKEN=${{ secrets.VEDA_CONFIG_REPO_ACCESS_TOKEN }} gh pr create -R ${{ env.VEDA_CONFIG_REPO }} -H $NEW_BRANCH -B develop --title 'Add dataset [Automated workflow]' --body-file <(echo "Add datasets (Automatically created by Github action)"))
 
           echo "PR_URL=$PR_URL" >> $GITHUB_OUTPUT
