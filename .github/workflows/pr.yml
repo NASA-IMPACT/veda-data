@@ -247,13 +247,7 @@ jobs:
       - name: Clone the Target Repository
         run: |
             git clone https://github.com/${{ env.VEDA_CONFIG_REPO }}.git
-            git checkout develop
             cd datasets
-
-      - name: Debug Token Access
-        run: |
-          curl -H "Authorization: token ${{ secrets.VEDA_CONFIG_REPO_ACCESS_TOKEN }}" \
-          https://api.github.com/repos/${{ env.VEDA_CONFIG_REPO }}
 
       - name: Verify Target Repository
         run: |
