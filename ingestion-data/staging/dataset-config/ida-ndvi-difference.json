@@ -1,7 +1,7 @@
 {
-    "collection": "ida-ndvi",
-    "title": "NDVI for Pre and Post-Hurricane Ida from PlanetScope",
-    "description": "Normalized Difference Vegetation Index before and after Hurricane Ida in southern Louisiana.",
+    "collection": "ida-ndvi-difference",
+    "title": "NDVI Difference for Pre and Post-Hurricane Ida from PlanetScope",
+    "description": "Normalized Difference Vegetation Index Difference of before and after Hurricane Ida in southern Louisiana.",
     "license": "CC0-1.0",
     "is_periodic": true,
     "time_density": "day",
@@ -16,8 +16,7 @@
       "enddate": "2021-09-09T23:59:59Z"
     },
     "sample_files": [
-      "s3://veda-data-store-staging/planet-indices-v2/NDVI_Pre_Hurricane_cog_2021-08-23.tif",
-      "s3://veda-data-store-staging/planet-indices-v2/NDVI_Post_Hurricane_cog_2021-09-09.tif"
+      "s3://veda-data-store-staging/planet-indices/NDVI_Difference_Hurricane_cog.tif"
     ],
     "discovery_items": [
       {
@@ -25,9 +24,9 @@
         "cogify": false,
         "upload": false,
         "dry_run": false,
-        "prefix": "planet-indices-v2/",
+        "prefix": "planet-indices/",
         "bucket": "veda-data-store-staging",
-        "filename_regex": "NDVI_(.*)_Hurricane_cog_(.*).tif$"
+        "filename_regex": "(.*)NDVI_Difference_Hurricane_cog.tif$"
       }
     ],
     "data_type": "cog",
@@ -60,8 +59,7 @@
         "dashboard": {
             "resampling": "nearest",
             "bidx": [1],
-            "colormap_name": "rdylgn",
-            "nodata": -999,
+            "colormap_name": "rdbu",
             "assets": [
                 "cog_default"
             ],
