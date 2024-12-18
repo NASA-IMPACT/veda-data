@@ -258,8 +258,8 @@ jobs:
           git status
           git ls-files --others --exclude-standard | while read file; do
             echo "Copying $file to datasets directory"
-            mkdir -p "datasets/$(dirname "$file")"
-            cp "$file" "/datasets/$file"
+            mkdir -p "datasets"
+            cp "$file" "/datasets/"
           done
           git status
 
