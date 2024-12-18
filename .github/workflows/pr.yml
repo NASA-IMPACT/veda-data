@@ -288,7 +288,7 @@ jobs:
         if: success()
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          COMMENT_ID: ${{ steps.init-comment.outputs.COMMENT_ID }}
+          COMMENT_ID: ${{ steps.publish-collections.outputs.COMMENT_ID }}
         run: |
          echo "COMMENT_ID: $COMMENT_ID"
          echo "${{ github.repository }}"
@@ -303,7 +303,7 @@ jobs:
         if: failure() && steps.create-pr.outcome == 'failure'
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          COMMENT_ID: ${{ steps.init-comment.outputs.COMMENT_ID }}
+          COMMENT_ID: ${{ steps.publish-collections.outputs.COMMENT_ID }}
         run: |
           CURRENT_BODY=$(gh api -H "Authorization: token $GITHUB_TOKEN" /repos/${{ github.repository }}/issues/comments/$COMMENT_ID --jq '.body')
           UPDATED_BODY="$CURRENT_BODY
@@ -316,7 +316,7 @@ jobs:
         if: failure() && steps.create-pr.outcome != 'failure'
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          COMMENT_ID: ${{ steps.init-comment.outputs.COMMENT_ID }}
+          COMMENT_ID: ${{ steps.publish-collections.outputs.COMMENT_ID }}
         run: |
           WORKFLOW_URL="${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}"
           CURRENT_BODY=$(gh api -H "Authorization: token $GITHUB_TOKEN" /repos/${{ github.repository }}/issues/comments/$COMMENT_ID --jq '.body')
