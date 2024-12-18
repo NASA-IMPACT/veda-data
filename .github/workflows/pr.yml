@@ -287,7 +287,7 @@ jobs:
 
           # Update the env vars to staging based on env vars
           #sed -i "s|${{ vars.ENV_FROM }}|${{ vars.ENV_TO }}|g" .env
-          ls veda-config/datasets
+          ls
           git status
           git add .
           echo "Added file for tracking"
