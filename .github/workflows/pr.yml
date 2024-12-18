@@ -244,13 +244,11 @@ jobs:
           echo "CONFIG_REPO_NAME: ${{ vars.VEDA_CONFIG_REPO_NAME }}"
           echo "VEDA_CONFIG_REPO=${{ vars.VEDA_CONFIG_REPO_ORG }}/${{ vars.VEDA_CONFIG_REPO_NAME }}" >> $GITHUB_ENV
 
-      - name: Checkout veda-config repo
-        uses: actions/checkout@v4
-        with:
-          repository: ${{ env.VEDA_CONFIG_REPO }}
-          token: ${{ secrets.VEDA_CONFIG_REPO_ACCESS_TOKEN }}
-          ref: develop
-          path: datasets
+      - name: Clone the Target Repository
+        run: |
+            git clone https://github.com/${{ env.VEDA_CONFIG_REPO }}.git datasets
+            git checkout develop
+            cd datasets
 
       - name: Debug Token Access
         run: |
