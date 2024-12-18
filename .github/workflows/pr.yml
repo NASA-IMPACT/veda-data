@@ -269,9 +269,12 @@ jobs:
           COMMENT_ID: ${{ steps.publish-collections.outputs.COMMENT_ID }}
           PUBLISHED_COLLECTION_FILES: ${{ steps.publish-collections.outputs.success_collections }}
         run: |
+          cd veda-config
+
           files_string=$(IFS=$'\n'; echo "${PUBLISHED_COLLECTION_FILES[*]}")
           hash=$(echo -n "$files_string" | md5sum | cut -d ' ' -f 1)
           NEW_BRANCH="add-dataset-$hash"
+
           git fetch origin
           if git ls-remote --exit-code --heads origin $NEW_BRANCH; then
             git push origin --delete $NEW_BRANCH
