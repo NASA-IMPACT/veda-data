@@ -172,7 +172,7 @@ jobs:
           fi
 
           # Output only successful collections to be used in subsequent steps
-          echo "success_collections=$(IFS=','; echo "${success_collections[*]}")" >> $GITHUB_OUTPUT
+          # echo "success_collections=$(IFS=','; echo "${success_collections[*]}")" >> $GITHUB_OUTPUT
 
           # Update PR comment
           CURRENT_BODY=$(gh api -H "Authorization: token $GITHUB_TOKEN" /repos/${{ github.repository }}/issues/comments/$COMMENT_ID --jq '.body')
