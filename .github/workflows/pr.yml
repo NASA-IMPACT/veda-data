@@ -233,11 +233,6 @@ jobs:
           ls -la
           ls ./ingestion-data/dataset-mdx/
 
-      - name: Set up Git
-        run: |
-          git config --global user.name "github-actions[bot]"
-          git config --global user.email "github-actions[bot]@users.noreply.github.com"
-
       - name: Set up Variables
         run: |
           echo "CONFIG_REPO_ORG: ${{ vars.VEDA_CONFIG_REPO_ORG }}"
@@ -258,6 +253,13 @@ jobs:
           echo "Contents of the datasets directory after copying:"
           ls veda-config/datasets/
 
+      - name: Set up Git
+        run: |
+          cd veda-config
+          git config --global user.name "github-actions[bot]"
+          git config --global user.email "github-actions[bot]@users.noreply.github.com"
+
+
       # Creates a PR in veda-config with the following changes:
       # 1. the mdx files for all published collections
       # 2. updates the stac/raster urls in .env file
@@ -269,7 +271,6 @@ jobs:
           COMMENT_ID: ${{ steps.publish-collections.outputs.COMMENT_ID }}
           PUBLISHED_COLLECTION_FILES: ${{ steps.publish-collections.outputs.success_collections }}
         run: |
-          cd veda-config
 
           files_string=$(IFS=$'\n'; echo "${PUBLISHED_COLLECTION_FILES[*]}")
           hash=$(echo -n "$files_string" | md5sum | cut -d ' ' -f 1)
