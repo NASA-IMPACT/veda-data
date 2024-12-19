@@ -289,7 +289,8 @@ jobs:
           body="### Add dataset(s) - [Automated PR by ${{ github.actor }}]\n $collection_bullet_points\n"
 
           echo "$body"
-          PR_URL=$(GITHUB_TOKEN=${{ secrets.VEDA_CONFIG_REPO_ACCESS_TOKEN }} gh pr create -R ${{ env.VEDA_CONFIG_REPO }} -H $NEW_BRANCH -B develop --title 'Add dataset(s) $(echo '${{ env.collection_ids }}' | jq '.[0]') [Automated PR by ${{ github.actor }}]' --body $body"))
+          PR_URL=$(GITHUB_TOKEN=${{ secrets.VEDA_CONFIG_REPO_ACCESS_TOKEN }} gh pr create -R ${{ env.VEDA_CONFIG_REPO }} -H $NEW_BRANCH -B develop --title "Add dataset(s) $(echo '${{ env.collection_ids }}' | jq '.[0]') [Automated PR by ${{ github.actor }}]" --body "$body")
+
 
           echo "PR_URL=$PR_URL" >> $GITHUB_OUTPUT
           echo "PR creation succeeded!"
