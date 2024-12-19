@@ -172,7 +172,6 @@ jobs:
           fi
 
           # Output only successful collections to be used in subsequent steps
-          # echo "success_collections=$(IFS=','; echo "${success_collections[*]}")" >> $GITHUB_OUTPUT
           echo "success_collections=${success_collections[*]}" >> $GITHUB_OUTPUT
 
           # Update PR comment
