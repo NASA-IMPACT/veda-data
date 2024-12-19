@@ -30,6 +30,7 @@ jobs:
     environment: staging
     outputs:
       publishedCollections: ${{ steps.publish-collections.outputs.success_collections }}
+      commentId: ${{ steps.init-comment.outputs.COMMENT_ID }}
     steps:
       - uses: actions/checkout@v4
 
@@ -128,16 +129,17 @@ jobs:
 
           # Track successful publications
           all_failed=true
-          success_collections=()
+          declare -a success_collections=()
           status_message='### Collection Publication Status
           '
 
-          for file in "${ADDED_FILES[@]}"; do
+          for file in ${ADDED_FILES}; do
             echo $file
             if [ -f "$file" ]; then
               dataset_config=$(jq '.' "$file")
               collection_id=$(jq -r '.collection' "$file")
 
+              echo "Publishing $collection_id"
               response=$(curl -s -w "%{http_code}" -o response.txt -X POST "$publish_url" \
                 -H "Content-Type: application/json" \
                 -H "Authorization: Bearer $AUTH_TOKEN" \
@@ -171,7 +173,7 @@ jobs:
           fi
 
           # Output only successful collections to be used in subsequent steps
-          echo "success_collections=$(IFS=','; echo "${success_collections[*]}")" >> $GITHUB_OUTPUT
+          echo "success_collections=${success_collections[*]}" >> $GITHUB_OUTPUT
 
           # Update PR comment
           CURRENT_BODY=$(gh api -H "Authorization: token $GITHUB_TOKEN" /repos/${{ github.repository }}/issues/comments/$COMMENT_ID --jq '.body')
@@ -205,12 +207,13 @@ jobs:
 
   create-mdx-files:
     runs-on: ubuntu-latest
+    environment: staging
     needs: publish-new-datasets
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
 
-      - name: Use output from dataset-publication-and-configuration
+      - name: Use output from publish-new-datasets
         run: |
           echo "The output from the previous step is: ${{ needs.publish-new-datasets.outputs.publishedCollections }}"
 
@@ -221,18 +224,101 @@ jobs:
         run: |
           echo $PUBLISHED_COLLECTION_FILES
           pip install -r ./scripts/requirements.txt
-          for file in "${PUBLISHED_COLLECTION_FILES[@]}"
-          do
+          for file in ${PUBLISHED_COLLECTION_FILES}; do
             python3 ./scripts/generate-mdx.py "$file"
           done
 
-  open-veda-config-pr:
-    runs-on: ubuntu-latest
-    needs: create-mdx-files
-    steps:
-      - name: Open veda-config PR
+      - name: Set up Variables
         run: |
-          echo "NO-OP. Placeholder for future job that will open a Pull Request in veda-config for a dashboard preview for the new/changed datasets."
+          echo "VEDA_CONFIG_REPO=${{ vars.VEDA_CONFIG_REPO_ORG }}/${{ vars.VEDA_CONFIG_REPO_NAME }}" >> $GITHUB_ENV
+
+      - name: Clone veda-config repository
+        run: |
+          git clone https://github.com/${{ env.VEDA_CONFIG_REPO }}.git
+          ls
+
+      - name: Copy untracked mdx files to veda-config
+        run: |
+          echo "Copying untracked .mdx files to veda-config repository"
+          ls ./ingestion-data/dataset-mdx/
+          mkdir -p datasets
+          find ingestion-data/dataset-mdx/ -name '*.mdx' -exec cp {} veda-config/datasets/ \;
+
+      - name: Create veda-config PR with changes
+        id: create-pr
+        env:
+          GITHUB_TOKEN: ${{ secrets.VEDA_CONFIG_REPO_ACCESS_TOKEN }}
+          COMMENT_ID: ${{ needs.publish-new-datasets.outputs.commentId }}
+          PUBLISHED_COLLECTION_FILES: ${{ steps.publish-collections.outputs.success_collections }}
+        run: |
+          cd veda-config
+          git config --global user.name "github-actions[bot]"
+          git config --global user.email "github-actions[bot]@users.noreply.github.com"
+          git remote set-url origin https://${{ secrets.VEDA_CONFIG_REPO_ACCESS_TOKEN }}@github.com/${{ env.VEDA_CONFIG_REPO }}
+
+          files_string=$(IFS=$'\n'; echo "${PUBLISHED_COLLECTION_FILES[*]}")
+          hash=$(echo -n "$files_string" | md5sum | cut -d ' ' -f 1)
+          NEW_BRANCH="add-dataset-$hash"
+
+          git fetch origin
+          if git ls-remote --exit-code --heads origin $NEW_BRANCH; then
+            git push origin --delete $NEW_BRANCH
+          fi
+          git checkout -b $NEW_BRANCH
+
+          git status
+          git add .
+          git commit -m "feat: add MDX files for dataset(s) [Automated workflow]"
+          git push origin $NEW_BRANCH
+          PR_URL=$(GITHUB_TOKEN=${{ secrets.VEDA_CONFIG_REPO_ACCESS_TOKEN }} gh pr create -R ${{ env.VEDA_CONFIG_REPO }} -H $NEW_BRANCH -B develop --title 'Add dataset(s) [Automated workflow]' --body-file <(echo "Add datasets (Automatically created by Github action)"))
+
+          echo "PR_URL=$PR_URL" >> $GITHUB_OUTPUT
+          echo "PR creation succeeded!"
+
+      # Updates the comment with a link to the above PR
+      - name: Update PR comment with PR creation result
+        if: success()
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          COMMENT_ID: ${{ needs.publish-new-datasets.outputs.commentId }}
+        run: |
+         PR_URL=${{ steps.create-pr.outputs.PR_URL }}
+          CURRENT_BODY=$(gh api -H "Authorization: token $GITHUB_TOKEN" /repos/${{ github.repository }}/issues/comments/$COMMENT_ID --jq '.body')
+          UPDATED_BODY="$CURRENT_BODY
+
+          **A PR has been created with the dataset configuration: 🗺️ [PR link]($PR_URL)**"
+          gh api -X PATCH -H "Authorization: token $GITHUB_TOKEN" /repos/${{ github.repository }}/issues/comments/$COMMENT_ID -f body="$UPDATED_BODY"
+
+      - name: Update PR comment on PR creation failure
+        if: failure() && steps.create-pr.outcome == 'failure'
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          COMMENT_ID: ${{ needs.publish-new-datasets.outputs.commentId }}
+        run: |
+          CURRENT_BODY=$(gh api -H "Authorization: token $GITHUB_TOKEN" /repos/${{ github.repository }}/issues/comments/$COMMENT_ID --jq '.body')
+          UPDATED_BODY="$CURRENT_BODY
+
+          **Failed ❌ to create a PR with the dataset configuration. 😔 **"
+          gh api -X PATCH -H "Authorization: token $GITHUB_TOKEN" /repos/${{ github.repository }}/issues/comments/$COMMENT_ID -f body="$UPDATED_BODY"
+
+      # If the workflow fails at any point, the PR comment will be updated
+      - name: Update PR comment on overall workflow failure
+        if: failure() && steps.create-pr.outcome != 'failure'
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          COMMENT_ID: ${{ needs.publish-new-datasets.outputs.commentId }}
+        run: |
+          WORKFLOW_URL="${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}"
+          CURRENT_BODY=$(gh api -H "Authorization: token $GITHUB_TOKEN" /repos/${{ github.repository }}/issues/comments/$COMMENT_ID --jq '.body')
+          UPDATED_BODY="$CURRENT_BODY
+
+          # Output WORKFLOW_URL to logs for verification
+          echo "Workflow URL: $WORKFLOW_URL"
+
+          ** ❌ The workflow run failed. [See logs here]($WORKFLOW_URL)**"
+          gh api -X PATCH -H "Authorization: token $GITHUB_TOKEN" /repos/${{ github.repository }}/issues/comments/$COMMENT_ID -f body="$UPDATED_BODY"
+
+          echo "Updated Comment Body: $UPDATED_BODY"
 
   publish-to-prod-on-pr-merge:
     if: ${{ github.event_name == 'pull_request' && github.event.action == 'closed' && github.event.pull_request.merged == true }}
