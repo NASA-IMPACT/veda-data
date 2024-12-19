@@ -223,16 +223,18 @@ jobs:
           PUBLISHED_COLLECTION_FILES: ${{ needs.publish-new-datasets.outputs.publishedCollections }}
         run: |
           echo $PUBLISHED_COLLECTION_FILES
+          collection_ids="[]"
           pip install -r ./scripts/requirements.txt
           for file in ${PUBLISHED_COLLECTION_FILES}; do
             collection_id=$(python3 ./scripts/generate-mdx.py "$file")
-             echo "collection_id=$collection_id" >> $GITHUB_ENV
+            collection_ids=$(echo $collection_ids | jq --arg id "$collection_id" '. + [$id]')
           done
+
+          echo "collection_ids=${collection_ids}" >> $GITHUB_ENV
 
       - name: Set up Variables
         run: |
           echo "VEDA_CONFIG_REPO=${{ vars.VEDA_CONFIG_REPO_ORG }}/${{ vars.VEDA_CONFIG_REPO_NAME }}" >> $GITHUB_ENV
-          echo "collection_id=${{ env.collection_id }}"
 
       - name: Clone veda-config repository
         run: |
@@ -252,6 +254,7 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.VEDA_CONFIG_REPO_ACCESS_TOKEN }}
           COMMENT_ID: ${{ needs.publish-new-datasets.outputs.commentId }}
           PUBLISHED_COLLECTION_FILES: ${{ steps.publish-collections.outputs.success_collections }}
+          COLLECTION_IDS: ${{ env.collection_ids }}
         run: |
           cd veda-config
           git config --global user.name "github-actions[bot]"
@@ -272,7 +275,13 @@ jobs:
           git add .
           git commit -m "feat: add MDX files for dataset(s) [Automated workflow]"
           git push origin $NEW_BRANCH
-          PR_URL=$(GITHUB_TOKEN=${{ secrets.VEDA_CONFIG_REPO_ACCESS_TOKEN }} gh pr create -R ${{ env.VEDA_CONFIG_REPO }} -H $NEW_BRANCH -B develop --title 'Add dataset(s) ${{ env.collection_id }} [Automated PR by ${{ github.actor }}]' --body-file <(echo "Add datasets (Automatically created by Github action, triggered by ${{ github.actor}} )"))
+          body="### Add dataset(s) - [Automated PR by ${{ github.actor }}]\n\n"
+          for id in $COLLECTION_IDS; do
+            body="$body- $id\n"
+          done
+
+          echo "$body"
+          PR_URL=$(GITHUB_TOKEN=${{ secrets.VEDA_CONFIG_REPO_ACCESS_TOKEN }} gh pr create -R ${{ env.VEDA_CONFIG_REPO }} -H $NEW_BRANCH -B develop --title 'Add dataset(s) $(echo '${{ env.collection_ids }}' | jq '.[0]') [Automated PR by ${{ github.actor }}]' --body $body"))
 
           echo "PR_URL=$PR_URL" >> $GITHUB_OUTPUT
           echo "PR creation succeeded!"
