@@ -232,6 +232,8 @@ jobs:
             collection_ids=$(echo $collection_ids | jq --arg id "$collection_id" '. + [$id]')
           done
 
+          collection_ids=$(echo "$collection_ids" | sed 's/^[[:space:]]*//;s/[[:space:]]*$//')
+          echo "Final collection_ids: $collection_ids"
           echo "collection_ids=${collection_ids}" >> $GITHUB_ENV
 
       - name: Set up Variables
