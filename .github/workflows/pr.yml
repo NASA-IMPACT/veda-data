@@ -216,7 +216,6 @@ jobs:
       - name: Use output from publish-new-datasets
         run: |
           echo "The output from the previous step is: ${{ needs.publish-new-datasets.outputs.publishedCollections }}"
-          echo "The comment_id output from the previous step is: ${{ needs.publish-new-datasets.outputs.commentId }}"
 
       # Creates a slim dataset mdx file for each collection based on the dataset config json
       - name: Create dataset mdx for given collections
@@ -229,16 +228,8 @@ jobs:
             python3 ./scripts/generate-mdx.py "$file"
           done
 
-      - name: List files in workspace
-        run: |
-          echo "Listing all files to verify .mdx file generation:"
-          ls -la
-          ls ./ingestion-data/dataset-mdx/
-
       - name: Set up Variables
         run: |
-          echo "CONFIG_REPO_ORG: ${{ vars.VEDA_CONFIG_REPO_ORG }}"
-          echo "CONFIG_REPO_NAME: ${{ vars.VEDA_CONFIG_REPO_NAME }}"
           echo "VEDA_CONFIG_REPO=${{ vars.VEDA_CONFIG_REPO_ORG }}/${{ vars.VEDA_CONFIG_REPO_NAME }}" >> $GITHUB_ENV
 
       - name: Clone the Target Repository
@@ -264,7 +255,6 @@ jobs:
           git config --global user.name "github-actions[bot]"
           git config --global user.email "github-actions[bot]@users.noreply.github.com"
           git remote set-url origin https://${{ secrets.VEDA_CONFIG_REPO_ACCESS_TOKEN }}@github.com/${{ env.VEDA_CONFIG_REPO }}
-          echo "Working directory $(pwd)"
 
           files_string=$(IFS=$'\n'; echo "${PUBLISHED_COLLECTION_FILES[*]}")
           hash=$(echo -n "$files_string" | md5sum | cut -d ' ' -f 1)
@@ -283,7 +273,7 @@ jobs:
           PR_URL=$(GITHUB_TOKEN=${{ secrets.VEDA_CONFIG_REPO_ACCESS_TOKEN }} gh pr create -R ${{ env.VEDA_CONFIG_REPO }} -H $NEW_BRANCH -B develop --title 'Add dataset(s) [Automated workflow]' --body-file <(echo "Add datasets (Automatically created by Github action)"))
 
           echo "PR_URL=$PR_URL" >> $GITHUB_OUTPUT
-          echo "PR creation succeeded"
+          echo "PR creation succeeded!"
 
       # Updates the comment with a link to the above PR
       - name: Update PR comment with PR creation result
@@ -292,8 +282,6 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           COMMENT_ID: ${{ needs.publish-new-datasets.outputs.commentId }}
         run: |
-         echo "COMMENT_ID: $COMMENT_ID"
-         echo "${{ github.repository }}"
          PR_URL=${{ steps.create-pr.outputs.PR_URL }}
           CURRENT_BODY=$(gh api -H "Authorization: token $GITHUB_TOKEN" /repos/${{ github.repository }}/issues/comments/$COMMENT_ID --jq '.body')
           UPDATED_BODY="$CURRENT_BODY
