@@ -227,7 +227,9 @@ jobs:
           pip install -r ./scripts/requirements.txt
           for file in ${PUBLISHED_COLLECTION_FILES}; do
             collection_id=$(python3 ./scripts/generate-mdx.py "$file")
-            collection_ids=$(echo $collection_ids | jq --arg id "$(echo $collection_id | sed 's/"/\\"/g')" '. + [$id]')
+            collection_id=$(echo "$collection_id" | sed 's/^["\s]*//;s/["\s]*$//')
+            echo "Processed collection ID: $collection_id"
+            collection_ids=$(echo $collection_ids | jq --arg id "$collection_id" '. + [$id]')
           done
 
           echo "collection_ids=${collection_ids}" >> $GITHUB_ENV
