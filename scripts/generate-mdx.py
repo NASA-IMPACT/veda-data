@@ -125,3 +125,6 @@ if __name__ == "__main__":
     )
     with safe_open_w(output_filepath) as ofile:
         ofile.write(new_content)
+
+    collection_id = input_data["collection"]
+    print(collection_id)
