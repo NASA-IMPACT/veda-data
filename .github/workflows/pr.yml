@@ -128,16 +128,17 @@ jobs:
 
           # Track successful publications
           all_failed=true
-          success_collections=()
+          declare -a success_collections=()
           status_message='### Collection Publication Status
           '
 
-          for file in "${ADDED_FILES[@]}"; do
+          for file in "${ADDED_FILES}"; do
             echo $file
             if [ -f "$file" ]; then
               dataset_config=$(jq '.' "$file")
               collection_id=$(jq -r '.collection' "$file")
 
+              echo "Publishing $collection_id"
               response=$(curl -s -w "%{http_code}" -o response.txt -X POST "$publish_url" \
                 -H "Content-Type: application/json" \
                 -H "Authorization: Bearer $AUTH_TOKEN" \
@@ -171,7 +172,7 @@ jobs:
           fi
 
           # Output only successful collections to be used in subsequent steps
-          echo "success_collections=$(IFS=','; echo "${success_collections[*]}")" >> $GITHUB_OUTPUT
+          echo "success_collections=${success_collections[*]}" >> $GITHUB_OUTPUT
 
           # Update PR comment
           CURRENT_BODY=$(gh api -H "Authorization: token $GITHUB_TOKEN" /repos/${{ github.repository }}/issues/comments/$COMMENT_ID --jq '.body')
@@ -221,8 +222,7 @@ jobs:
         run: |
           echo $PUBLISHED_COLLECTION_FILES
           pip install -r ./scripts/requirements.txt
-          for file in "${PUBLISHED_COLLECTION_FILES[@]}"
-          do
+          for file in ${PUBLISHED_COLLECTION_FILES}; do
             python3 ./scripts/generate-mdx.py "$file"
           done
 
