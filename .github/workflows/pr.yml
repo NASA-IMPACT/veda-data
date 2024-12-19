@@ -232,7 +232,7 @@ jobs:
         run: |
           echo "VEDA_CONFIG_REPO=${{ vars.VEDA_CONFIG_REPO_ORG }}/${{ vars.VEDA_CONFIG_REPO_NAME }}" >> $GITHUB_ENV
 
-      - name: Clone the Target Repository
+      - name: Clone veda-config repository
         run: |
           git clone https://github.com/${{ env.VEDA_CONFIG_REPO }}.git
           ls
