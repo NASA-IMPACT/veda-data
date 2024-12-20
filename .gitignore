@@ -163,3 +163,6 @@ reformat.py
 Test.ipynb
 create_collections.py
 datasets
+
+# Mac-only metadata files
+*.DS_Store
