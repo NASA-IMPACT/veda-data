@@ -16,7 +16,7 @@
       "cogify": false,
       "dry_run": false,
       "filename_regex": "[\\s\\S]*",
-      "use_multithreading": "false",
+      "use_multithreading": true,
       "prefix": "test",
       "bucket": "test"
     }
@@ -57,5 +57,5 @@
   "collection": "test",
   "title": "test",
   "license": "test",
-  "description": "test"
+  "description": "test update"
 }
