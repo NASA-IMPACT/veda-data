@@ -12,6 +12,11 @@
   },
   "discovery_items": [
     {
+      "upload": false,
+      "cogify": false,
+      "dry_run": false,
+      "filename_regex": "[\\s\\S]*",
+      "use_multithreading": false,
       "prefix": "test",
       "bucket": "test"
     }
@@ -21,8 +26,31 @@
   ],
   "data_type": "cog",
   "stac_extensions": [],
+  "item_assets": {
+    "cog_default": {
+      "type": "image/tiff; application=geotiff; profile=cloud-optimized",
+      "roles": [
+        "data",
+        "layer"
+      ],
+      "title": "Default COG Layer",
+      "description": "Cloud optimized default layer to display on map"
+    }
+  },
+  "providers": [],
+  "assets": {
+    "thumbnail": {
+      "roles": [
+        "test"
+      ],
+      "title": "test",
+      "description": "test",
+      "href": "test",
+      "type": "test"
+    }
+  },
   "collection": "deployed UI Test",
   "title": "test",
   "license": "test",
-  "description": "test"
+  "description": "updated description"
 }
