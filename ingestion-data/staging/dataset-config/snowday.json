@@ -1,0 +1,62 @@
+{
+  "links": [],
+  "spatial_extent": {
+    "xmin": -999,
+    "ymin": -99.99,
+    "xmax": 99,
+    "ymax": 99999
+  },
+  "temporal_extent": {
+    "startdate": "2025-01-01",
+    "enddate": "2025-01-06"
+  },
+  "discovery_items": [
+    {
+      "upload": false,
+      "cogify": true,
+      "dry_run": false,
+      "filename_regex": "[\\s\\S]*",
+      "use_multithreading": false,
+      "discovery": "s3",
+      "prefix": "test",
+      "bucket": "test"
+    }
+  ],
+  "sample_files": [
+    "test"
+  ],
+  "data_type": "cog",
+  "stac_extensions": [],
+  "item_assets": {
+    "cog_default": {
+      "type": "image/tiff; application=geotiff; profile=cloud-optimized",
+      "roles": [
+        "data",
+        "layer"
+      ],
+      "title": "Default COG Layer",
+      "description": "Cloud optimized default layer to display on map"
+    }
+  },
+  "providers": [
+    {
+      "roles": [],
+      "name": "test"
+    }
+  ],
+  "assets": {
+    "thumbnail": {
+      "roles": [
+        "tester"
+      ],
+      "title": "test",
+      "href": "test.com",
+      "type": "test",
+      "description": "test"
+    }
+  },
+  "collection": "snow day",
+  "title": "test",
+  "license": "tst",
+  "description": "test description"
+}
