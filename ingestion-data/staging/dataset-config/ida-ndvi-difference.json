@@ -16,7 +16,7 @@
       "enddate": "2021-09-09T23:59:59Z"
     },
     "sample_files": [
-      "s3://veda-data-store-staging/planet-indices/NDVI_Difference_Hurricane_cog.tif"
+      "s3://veda-data-store-staging/planet-indices-v2/NDVI_Difference_2021-08-23_2021-09-09.tif"
     ],
     "discovery_items": [
       {
@@ -24,9 +24,9 @@
         "cogify": false,
         "upload": false,
         "dry_run": false,
-        "prefix": "planet-indices/",
+        "prefix": "planet-indices-v2/",
         "bucket": "veda-data-store-staging",
-        "filename_regex": "(.*)NDVI_Difference_Hurricane_cog.tif$"
+        "filename_regex": "(.*)NDVI_Difference_(.*).tif$"
       }
     ],
     "data_type": "cog",
