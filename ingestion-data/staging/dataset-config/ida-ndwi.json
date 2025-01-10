@@ -1,7 +1,7 @@
 {
     "collection": "ida-ndwi",
     "title": "NDWI for Pre and Post-Hurricane Ida from PlanetScope",
-    "description": "Normalized Difference Water Index before and after Hurricane Ida in southern Louisiana.",
+    "description": "Normalized Difference Water Index before and after Hurricane Ida in Southern Louisiana.",
     "license": "CC0-1.0",
     "is_periodic": true,
     "time_density": "day",
@@ -27,7 +27,7 @@
         "dry_run": false,
         "prefix": "planet-indices-v2/",
         "bucket": "veda-data-store-staging",
-        "filename_regex": "NDWI_(.*)_Hurricane_cog_(.*).tif$"
+        "filename_regex": "(.*)NDWI_(.*)_Hurricane_cog_(.*).tif$"
       }
     ],
     "data_type": "cog",

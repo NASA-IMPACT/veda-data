@@ -1,7 +1,7 @@
 {
     "collection": "ida-ndvi-difference",
     "title": "NDVI Difference for Pre and Post-Hurricane Ida from PlanetScope",
-    "description": "Normalized Difference Vegetation Index Difference of before and after Hurricane Ida in southern Louisiana.",
+    "description": "Normalized Difference Vegetation Index Difference of before and after Hurricane Ida in Southern Louisiana.",
     "license": "CC0-1.0",
     "is_periodic": true,
     "time_density": "day",
