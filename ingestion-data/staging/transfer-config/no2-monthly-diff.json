@@ -5,5 +5,12 @@
         "target_bucket": "veda-data-store",
         "collection": "no2-monthly-diff",
         "filename_regex": "^(.*).tif$"
+    },
+    {
+        "origin_bucket": "covid-eo-data",
+        "origin_prefix": "OMNO2d_HRMDifference/",
+        "target_bucket": "veda-data-store-staging",
+        "collection": "no2-monthly-diff",
+        "filename_regex": "^(.*).tif$"
     }
 ]
