@@ -240,6 +240,31 @@ jobs:
         run: |
           echo "VEDA_CONFIG_REPO=${{ vars.VEDA_CONFIG_REPO_ORG }}/${{ vars.VEDA_CONFIG_REPO_NAME }}" >> $GITHUB_ENV
 
+
+      - name: Get Installation ID
+        id: get-installation-id
+        run: |
+          echo "${{ secrets.APP_PEM }}" > app.pem
+
+          APP_ID="${{ vars.VEDA_CONFIG_APP_ID }}"
+
+          # Generate JWT
+          HEADER='{"alg":"RS256","typ":"JWT"}'
+          PAYLOAD='{"iat":'$(date +%s)',"exp":'$(($(date +%s)+540))',"iss":"'"$APP_ID"'"}'
+          BASE64_HEADER=$(echo -n $HEADER | openssl base64 -A | tr -d '\n=' | tr '/+' '_-')
+          BASE64_PAYLOAD=$(echo -n $PAYLOAD | openssl base64 -A | tr -d '\n=' | tr '/+' '_-')
+          JWT_HEADER_PAYLOAD="${BASE64_HEADER}.${BASE64_PAYLOAD}"
+          JWT=$(echo -n "$JWT_HEADER_PAYLOAD" | openssl dgst -sha256 -sign app.pem | openssl base64 -A | tr -d '\n=' | tr '/+' '_-')
+
+          # Get installation ID
+          RESPONSE=$(curl -s -X GET \
+            -H "Authorization: Bearer $JWT" \
+            -H "Accept: application/vnd.github+json" \
+            https://api.github.com/app/installations)
+
+          INSTALLATION_ID=$(echo $RESPONSE | jq -r '.[0].id')
+          echo "installation_id=$INSTALLATION_ID" >> $GITHUB_ENV
+
       - name: Clone veda-config repository
         run: |
           git clone https://github.com/${{ env.VEDA_CONFIG_REPO }}.git
