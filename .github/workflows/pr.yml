@@ -78,10 +78,12 @@ jobs:
       - name: List all newly added files
         env:
           ADDED_FILES: ${{ steps.changed-files.outputs.added_files }}
+          ADDED_FILES_COUNT: $${{ steps.changed-files.outputs.added_files_count}}
         run: |
           for file in ${ADDED_FILES}; do
             echo "$file was added"
           done
+          echo "added_files_count: ${ADDED_FILES_COUNT}"
 
       # Uses service client creds to get token
       # No username/password needed
