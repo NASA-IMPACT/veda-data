@@ -250,6 +250,18 @@ jobs:
 
           APP_ID="${{ vars.VEDA_CONFIG_APP_ID }}"
 
+          # Ensure APP_ID is set
+          if [ -z "$APP_ID" ]; then
+          echo "Error: APP_ID is not set!"
+          exit 1
+          fi
+
+          # Ensure private key exists
+          if [ ! -f app.pem ]; then
+          echo "Error: Private key (app.pem) not found!"
+          exit 1
+          fi
+
           # Generate JWT
           HEADER='{"alg":"RS256","typ":"JWT"}'
           PAYLOAD='{"iat":'$(date +%s)',"exp":'$(($(date +%s)+540))',"iss":"'"$APP_ID"'"}'
@@ -257,6 +269,9 @@ jobs:
           BASE64_PAYLOAD=$(echo -n $PAYLOAD | openssl base64 -A | tr -d '\n=' | tr '/+' '_-')
           JWT_HEADER_PAYLOAD="${BASE64_HEADER}.${BASE64_PAYLOAD}"
           JWT=$(echo -n "$JWT_HEADER_PAYLOAD" | openssl dgst -sha256 -sign app.pem | openssl base64 -A | tr -d '\n=' | tr '/+' '_-')
+
+          echo "Decoded JWT Header: $(echo $JWT | cut -d '.' -f1 | base64 -d)"
+          echo "Decoded JWT Payload: $(echo $JWT | cut -d '.' -f2 | base64 -d)"
 
           # Get installation ID
           RESPONSE=$(curl -s -X GET \
