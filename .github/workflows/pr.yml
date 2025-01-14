@@ -265,10 +265,30 @@ jobs:
           # Generate JWT
           HEADER='{"alg":"RS256","typ":"JWT"}'
           PAYLOAD='{"iat":'$(date +%s)',"exp":'$(($(date +%s)+540))',"iss":"'"$APP_ID"'"}'
-          BASE64_HEADER=$(echo -n $HEADER | openssl base64 -A | tr -d '\n=' | tr '/+' '_-')
-          BASE64_PAYLOAD=$(echo -n $PAYLOAD | openssl base64 -A | tr -d '\n=' | tr '/+' '_-')
+          # Debug: Validate JSON
+          echo "Validating Header and Payload JSON..."
+          echo $HEADER | jq . || { echo "Invalid Header JSON"; exit 1; }
+          echo $PAYLOAD | jq . || { echo "Invalid Payload JSON"; exit 1; }
+
+          # Base64 URL-safe encode header and payload
+          BASE64_HEADER=$(printf '%s' "$HEADER" | openssl base64 -A | tr -d '=' | tr '/+' '_-')
+          BASE64_PAYLOAD=$(printf '%s' "$PAYLOAD" | openssl base64 -A | tr -d '=' | tr '/+' '_-')
+
+          # Debug: Log Base64 Header and Payload
+          echo "Base64 Header: $BASE64_HEADER"
+          echo "Base64 Payload: $BASE64_PAYLOAD"
+
+          # Combine Header and Payload
           JWT_HEADER_PAYLOAD="${BASE64_HEADER}.${BASE64_PAYLOAD}"
-          JWT=$(echo -n "$JWT_HEADER_PAYLOAD" | openssl dgst -sha256 -sign app.pem | openssl base64 -A | tr -d '\n=' | tr '/+' '_-')
+          echo "Header.Payload: $JWT_HEADER_PAYLOAD"
+
+          JWT=$(printf '%s' "$JWT_HEADER_PAYLOAD" | openssl dgst -sha256 -sign app.pem | openssl base64 -A | tr -d '=' | tr '/+' '_-')
+          # Debug: Check if JWT was created
+          if [ -z "$JWT" ]; then
+              echo "Error: Failed to create JWT!"
+              exit 1
+          fi
+
           echo "::add-mask::$JWT"
 
           echo "Decoded JWT Header: $(echo "$JWT" | cut -d '.' -f1 | base64 -d || echo "Invalid header")"
