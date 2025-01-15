@@ -282,12 +282,13 @@ jobs:
           JWT_HEADER_PAYLOAD="${BASE64_HEADER}.${BASE64_PAYLOAD}"
           echo "Header.Payload: $JWT_HEADER_PAYLOAD"
 
-          JWT=$(printf '%s' "$JWT_HEADER_PAYLOAD" | openssl dgst -sha256 -sign app.pem | openssl base64 -A | tr -d '=' | tr '/+' '_-')
+          JWT_SIGNATURE=$(printf '%s' "$JWT_HEADER_PAYLOAD" | openssl dgst -sha256 -sign app.pem | openssl base64 -A | tr -d '=' | tr '/+' '_-')
           # Debug: Check if JWT was created
           if [ -z "$JWT" ]; then
               echo "Error: Failed to create JWT!"
               exit 1
           fi
+          JWT="$JWT_HEADER_PAYLOAD.$JWT_SIGNATURE"
 
           echo "::add-mask::$JWT"
 
