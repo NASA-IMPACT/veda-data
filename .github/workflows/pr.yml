@@ -299,12 +299,12 @@ jobs:
             -H "Accept: application/vnd.github+json" \
             https://api.github.com/app/installations/$INSTALLATION_ID/access_tokens)
 
-          TOKEN=$(echo $TOKEN_RESPONSE | jq -r '.token')
-          echo "token=$TOKEN" >> $GITHUB_ENV
+          INSTALLATION_TOKEN=$(echo $TOKEN_RESPONSE | jq -r '.token')
+          echo "installation_token=$INSTALLATION_TOKEN" >> $GITHUB_ENV
 
       - name: Clone veda-config repository
         run: |
-          git clone https://x-access-token:${{ env.token }}@github.com/${{ env.VEDA_CONFIG_REPO}}.git
+          git clone https://x-access-token:${{ env.installation_token }}@github.com/${{ env.VEDA_CONFIG_REPO}}.git
           ls
 
       - name: Copy untracked mdx files to veda-config
@@ -314,6 +314,9 @@ jobs:
           mkdir -p datasets
           find ingestion-data/dataset-mdx/ -name '*.mdx' -exec cp {} veda-config/datasets/ \;
 
+      - name: Authenticate with GitHub App
+        run: echo "${{ env.installation_token }}" | gh auth login --with-token
+
       - name: Create veda-config PR with changes
         id: create-pr
         env:
@@ -322,9 +325,6 @@ jobs:
           PUBLISHED_COLLECTION_FILES: ${{ steps.publish-collections.outputs.success_collections }}
         run: |
           cd veda-config
-          git config --global user.name "github-actions[bot]"
-          git config --global user.email "github-actions[bot]@users.noreply.github.com"
-          git remote set-url origin https://${{ secrets.VEDA_CONFIG_REPO_ACCESS_TOKEN }}@github.com/${{ env.VEDA_CONFIG_REPO }}
 
           files_string=$(IFS=$'\n'; echo "${PUBLISHED_COLLECTION_FILES[*]}")
           hash=$(echo -n "$files_string" | md5sum | cut -d ' ' -f 1)
