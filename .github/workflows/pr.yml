@@ -325,6 +325,8 @@ jobs:
           PUBLISHED_COLLECTION_FILES: ${{ steps.publish-collections.outputs.success_collections }}
         run: |
           cd veda-config
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
 
           files_string=$(IFS=$'\n'; echo "${PUBLISHED_COLLECTION_FILES[*]}")
           hash=$(echo -n "$files_string" | md5sum | cut -d ' ' -f 1)
