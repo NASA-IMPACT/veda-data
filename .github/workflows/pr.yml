@@ -306,8 +306,9 @@ jobs:
       - name: Authenticate with GitHub App
         run: |
           echo "${{ env.installation_token }}" | gh auth login --with-token
-          git config user.name "github-actions[bot]"
-          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git config --global user.name "VEDA-Github-Actor[bot]]"
+          git config --global user.email 192275278+VEDA-Github-Actor[bot]@users.noreply.github.com
+
 
       - name: Copy untracked mdx files to veda-config
         run: |
