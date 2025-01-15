@@ -264,7 +264,7 @@ jobs:
 
           # Generate JWT
           HEADER='{"alg":"RS256","typ":"JWT"}'
-          PAYLOAD='{"iat":'$(date +%s)',"exp":'$(($(date +%s)+540))',"iss":"'"$APP_ID"'"}'
+          PAYLOAD='{"iat":'$(date +%s)',"exp":'$(($(date +%s)+540))',"iss":'"$APP_ID"'}'
           # Debug: Validate JSON
           echo "Validating Header and Payload JSON..."
           echo $HEADER | jq . || { echo "Invalid Header JSON"; exit 1; }
