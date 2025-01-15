@@ -286,27 +286,21 @@ jobs:
           fi
           JWT="$JWT_HEADER_PAYLOAD.$JWT_SIGNATURE"
 
-          echo "::add-mask::$JWT"
-
-          echo "Decoded JWT Header: $(echo "$JWT" | cut -d '.' -f1 | base64 -d || echo "Invalid header")"
-          echo "Decoded JWT Payload: $(echo $JWT | cut -d '.' -f2 | base64 -d || echo "Invalid payload")"
-
           # Get installation ID
           RESPONSE=$(curl -s -X GET \
             -H "Authorization: Bearer $JWT" \
             -H "Accept: application/vnd.github+json" \
             https://api.github.com/app/installations)
 
-          echo $RESPONSE
-          # INSTALLATION_ID=$(echo $RESPONSE | jq -r '.[0].id')
-          # echo "installation_id=$INSTALLATION_ID" >> $GITHUB_ENV
-          # TOKEN_RESPONSE=$(curl -s -X POST \
-          #   -H "Authorization: Bearer $JWT" \
-          #   -H "Accept: application/vnd.github+json" \
-          #   https://api.github.com/app/installations/$INSTALLATION_ID/access_tokens)
+          INSTALLATION_ID=$(echo $RESPONSE | jq -r '.[0].id')
+          echo "installation_id=$INSTALLATION_ID" >> $GITHUB_ENV
+          TOKEN_RESPONSE=$(curl -s -X POST \
+            -H "Authorization: Bearer $JWT" \
+            -H "Accept: application/vnd.github+json" \
+            https://api.github.com/app/installations/$INSTALLATION_ID/access_tokens)
 
-          # TOKEN=$(echo $TOKEN_RESPONSE | jq -r '.token')
-          # echo "token=$TOKEN" >> $GITHUB_ENV
+          TOKEN=$(echo $TOKEN_RESPONSE | jq -r '.token')
+          echo "token=$TOKEN" >> $GITHUB_ENV
 
       - name: Clone veda-config repository
         run: |
