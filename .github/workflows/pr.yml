@@ -270,10 +270,6 @@ jobs:
           BASE64_HEADER=$(printf '%s' "$HEADER" | openssl base64 -A | tr -d '=' | tr '/+' '_-')
           BASE64_PAYLOAD=$(printf '%s' "$PAYLOAD" | openssl base64 -A | tr -d '=' | tr '/+' '_-')
 
-          # Debug: Log Base64 Header and Payload
-          echo "Base64 Header: $BASE64_HEADER"
-          echo "Base64 Payload: $BASE64_PAYLOAD"
-
           # Combine Header and Payload
           JWT_HEADER_PAYLOAD="${BASE64_HEADER}.${BASE64_PAYLOAD}"
           echo "Header.Payload: $JWT_HEADER_PAYLOAD"
@@ -307,6 +303,12 @@ jobs:
           git clone https://x-access-token:${{ env.installation_token }}@github.com/${{ env.VEDA_CONFIG_REPO}}.git
           ls
 
+      - name: Authenticate with GitHub App
+        run: |
+          echo "${{ env.installation_token }}" | gh auth login --with-token
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+
       - name: Copy untracked mdx files to veda-config
         run: |
           echo "Copying untracked .mdx files to veda-config repository"
@@ -314,19 +316,18 @@ jobs:
           mkdir -p datasets
           find ingestion-data/dataset-mdx/ -name '*.mdx' -exec cp {} veda-config/datasets/ \;
 
-      - name: Authenticate with GitHub App
-        run: echo "${{ env.installation_token }}" | gh auth login --with-token
+      - name: Debug authentication
+        run: |
+          git config --get user.name
+          git config --get user.email
 
       - name: Create veda-config PR with changes
         id: create-pr
         env:
-          GITHUB_TOKEN: ${{ secrets.VEDA_CONFIG_REPO_ACCESS_TOKEN }}
           COMMENT_ID: ${{ needs.publish-new-datasets.outputs.commentId }}
           PUBLISHED_COLLECTION_FILES: ${{ steps.publish-collections.outputs.success_collections }}
         run: |
           cd veda-config
-          git config user.name "github-actions[bot]"
-          git config user.email "github-actions[bot]@users.noreply.github.com"
 
           files_string=$(IFS=$'\n'; echo "${PUBLISHED_COLLECTION_FILES[*]}")
           hash=$(echo -n "$files_string" | md5sum | cut -d ' ' -f 1)
