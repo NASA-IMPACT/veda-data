@@ -226,7 +226,7 @@ jobs:
           collection_ids=""
           pip install -r ./scripts/requirements.txt
           for file in ${PUBLISHED_COLLECTION_FILES}; do
-            collection_id=$(python3 ./scripts/generate-mdx.py "$file")
+            collection_id=$(python3 ./scripts/generate_mdx.py "$file")
             collection_id=$(echo "$collection_id" | sed 's/^["\s]*//;s/["\s]*$//')
             echo "Processed collection ID: $collection_id"
             collection_ids="$collection_ids$collection_id,"
@@ -351,4 +351,19 @@ jobs:
         uses: actions/checkout@v4
 
       - name: Publish to production on PR merge
-        run: echo "NO-OP. This step runs when a PR is merged."
+        env:
+          PUBLISHED_COLLECTION_FILES: ${{ needs.publish-new-datasets.outputs.publishedCollections }}
+          SM2A_DEV_BASIC_AUTH_SECRET: ${{ secrets.SM2A_DEV_BASIC_AUTH_SECRET }}
+          SM2A_API_URL: ${{ vars.SM2A_API_URL }}
+          PROMOTION_DAG: ${{ vars.PROMOTION_DAG_NAME }}
+
+        run: |
+          echo $PUBLISHED_COLLECTION_FILES
+          collection_ids=""
+          pip install -r ./scripts/requirements.txt
+          for file in ${PUBLISHED_COLLECTION_FILES}; do
+            collection_id=$(python3 ./scripts/promote_to_production.py "$file")
+            collection_id=$(echo "$collection_id" | sed 's/^["\s]*//;s/["\s]*$//')
+            echo "Processed collection ID: $collection_id"
+            collection_ids="$collection_ids$collection_id,"
+          done
