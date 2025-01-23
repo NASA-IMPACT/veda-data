@@ -16,10 +16,10 @@ def validate_discovery_item_config(item: Dict[str, Any]) -> Dict[str, Any]:
         raise MissingFieldError(
             "Missing required field 'bucket' in discovery item: {item}"
         )
-    if "datetime_range" not in item:
-        raise MissingFieldError(
-            "Missing required field 'datetime_range' in discovery item: {item}"
-        )
+    # if "datetime_range" not in item:
+    #     raise MissingFieldError(
+    #         "Missing required field 'datetime_range' in discovery item: {item}"
+    #     )
     if "discovery" not in item:
         raise MissingFieldError(
             "Missing required field 'discovery' in discovery item: {item}"
