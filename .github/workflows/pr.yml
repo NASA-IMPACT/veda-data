@@ -351,6 +351,10 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v4
 
+      - name: Use output from publish-new-datasets
+        run: |
+          echo "The output from the previous step is: ${{ needs.publish-new-datasets.outputs.publishedCollections }}"
+
       - name: Publish to production on PR merge
         env:
           PUBLISHED_COLLECTION_FILES: ${{ needs.publish-new-datasets.outputs.publishedCollections }}
