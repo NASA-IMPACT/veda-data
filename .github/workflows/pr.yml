@@ -347,6 +347,7 @@ jobs:
     # TEMPORARILY COMMENTED OUT TO TEST API REQUEST
     # if: ${{ github.event_name == 'pull_request' && github.event.action == 'closed' && github.event.pull_request.merged == true }}
     runs-on: ubuntu-latest
+    needs: [publish-new-datasets, create-mdx-files-and-open-pr]
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
