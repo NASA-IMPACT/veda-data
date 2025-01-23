@@ -16,10 +16,6 @@ def validate_discovery_item_config(item: Dict[str, Any]) -> Dict[str, Any]:
         raise MissingFieldError(
             "Missing required field 'bucket' in discovery item: {item}"
         )
-    # if "datetime_range" not in item:
-    #     raise MissingFieldError(
-    #         "Missing required field 'datetime_range' in discovery item: {item}"
-    #     )
     if "discovery" not in item:
         raise MissingFieldError(
             "Missing required field 'discovery' in discovery item: {item}"
@@ -35,14 +31,14 @@ def validate_discovery_item_config(item: Dict[str, Any]) -> Dict[str, Any]:
     return item
 
 
-def promote_to_production(dag_input):
+def promote_to_production(payload):
     base_api_url = os.getenv("SM2A_API_URL", "")
     promotion_dag = os.getenv("PROMOTION_DAG_NAME", "veda_promotion_pipeline")
     path = urljoin("api/v1/dags/", promotion_dag)
-    full_api_url = urljoin(base_api_url, path)
+    dag_run = urljoin(path, "dagRuns")
+    full_api_url = urljoin(base_api_url, dag_run)
 
     api_token = os.getenv("SM2A_DEV_BASIC_AUTH_SECRET")
-    print(f"DAG INPUT: ${dag_input}")
 
     if not full_api_url or not api_token:
         raise ValueError(
@@ -50,15 +46,15 @@ def promote_to_production(dag_input):
             + "set in the environment variables."
         )
 
-    print(f"FULL API URL ${full_api_url}")
-
     curl_command = [
         "curl",
         "-X",
-        "GET",
+        "POST",
         "-H",
         f"Authorization: Basic {api_token}",
         full_api_url,
+        "-d",
+        payload,
     ]
 
     try:
@@ -86,12 +82,14 @@ if __name__ == "__main__":
                 "data_type": input.get("data_type"),
                 "description": input.get("description"),
                 "discovery_items": validated_discovery_items,
-                "is_periodic": input.get("is_periodic", "true"),
+                "is_periodic": str(input.get("is_periodic", "true")),
                 "time_density": input.get("time_density"),
                 "title": input.get("title"),
                 "transfer": input.get("transfer", "false"),
             }
-            promote_to_production(dag_input)
+
+            dag_payload = {"conf": dag_input}
+            promote_to_production(dag_payload)
 
     except json.JSONDecodeError:
         raise ValueError(f"Invalid JSON content in file {sys.argv[1]}")
