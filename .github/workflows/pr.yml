@@ -363,8 +363,6 @@ jobs:
           collection_ids=""
           pip install -r ./scripts/requirements.txt
           for file in ${PUBLISHED_COLLECTION_FILES}; do
-            collection_id=$(python3 ./scripts/promote_to_production.py "$file")
-            collection_id=$(echo "$collection_id" | sed 's/^["\s]*//;s/["\s]*$//')
-            echo "Processed collection ID: $collection_id"
-            collection_ids="$collection_ids$collection_id,"
+            python3 ./scripts/promote_to_production.py "$file"
+            echo "Processed file: $file"
           done
