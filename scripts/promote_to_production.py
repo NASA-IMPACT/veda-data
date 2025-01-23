@@ -50,7 +50,7 @@ def promote_to_production(payload):
         "Content-Type": "application/json",
         "Authorization": "Basic ${api_token}",
     }
-    response = requests.post(full_api_url, headers, json=payload)
+    response = requests.post(url=full_api_url, data=payload, headers=headers)
     print("SM2A API Response:", response.text)
 
 
