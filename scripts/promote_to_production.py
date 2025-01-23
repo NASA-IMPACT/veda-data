@@ -1,10 +1,10 @@
 from typing import Dict, Any
 from urllib.parse import urljoin
 
+import requests
 import json
 import sys
 import os
-import subprocess
 
 
 class MissingFieldError(Exception):
@@ -46,26 +46,12 @@ def promote_to_production(payload):
             + "set in the environment variables."
         )
 
-    curl_command = [
-        "curl",
-        "-X",
-        "POST",
-        "-H",
-        f"Authorization: Basic {api_token}",
-        full_api_url,
-        "-d",
-        payload,
-    ]
-
-    try:
-        result = subprocess.run(
-            curl_command, capture_output=True, text=True, check=True
-        )
-        print("SM2A API Response:", result.stdout)
-    except subprocess.CalledProcessError as e:
-        print("Error during SM2A API request")
-        print(e.stderr)
-        raise
+    headers = {
+        "Content-Type": "application/json",
+        "Authorization": "Basic ${api_token}",
+    }
+    response = requests.post(full_api_url, headers, json=payload)
+    print("SM2A API Response:", response)
 
 
 if __name__ == "__main__":
