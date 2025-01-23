@@ -50,6 +50,8 @@ def promote_to_production(dag_input):
             + "set in the environment variables."
         )
 
+    print(f"FULL API URL ${full_api_url}")
+
     curl_command = [
         "curl",
         "-X",
