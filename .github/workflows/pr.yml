@@ -344,7 +344,8 @@ jobs:
           echo "Updated Comment Body: $UPDATED_BODY"
 
   publish-to-prod-on-pr-merge:
-    if: ${{ github.event_name == 'pull_request' && github.event.action == 'closed' && github.event.pull_request.merged == true }}
+    # TEMPORARILY COMMENTED OUT TO TEST API REQUEST
+    # if: ${{ github.event_name == 'pull_request' && github.event.action == 'closed' && github.event.pull_request.merged == true }}
     runs-on: ubuntu-latest
     steps:
       - name: Checkout code
