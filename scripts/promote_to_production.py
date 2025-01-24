@@ -79,17 +79,6 @@ if __name__ == "__main__":
                 validate_discovery_item_config(item) for item in discovery_items
             ]
 
-            dag_input = {
-                "collection": input.get("collection"),
-                "data_type": input.get("data_type"),
-                "description": input.get("description"),
-                "discovery_items": validated_discovery_items,
-                "is_periodic": str(input.get("is_periodic", "true")),
-                "time_density": input.get("time_density"),
-                "title": input.get("title"),
-                "transfer": input.get("transfer", "false"),
-            }
-
             dag_payload = {"conf": input}
             promote_to_production(dag_payload)
 
