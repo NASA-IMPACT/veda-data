@@ -360,7 +360,8 @@ jobs:
       - name: Publish to production on PR merge
         env:
           PUBLISHED_COLLECTION_FILES: ${{ needs.publish-new-datasets.outputs.publishedCollections }}
-          SM2A_DEV_BASIC_AUTH_SECRET: ${{ secrets.SM2A_DEV_BASIC_AUTH_SECRET }}
+          SM2A_ADMIN_USERNAME: ${{ secrets.SM2A_ADMIN_USERNAME }}
+          SM2A_ADMIN_PASSWORD: ${{ secrets.SM2A_ADMIN_PASSWORD }}
           SM2A_API_URL: ${{ vars.SM2A_API_URL }}
           PROMOTION_DAG: ${{ vars.PROMOTION_DAG_NAME }}
 

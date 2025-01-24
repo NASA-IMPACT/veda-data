@@ -1,10 +1,11 @@
 from typing import Dict, Any
-from urllib.parse import urljoin
 
-import requests
+import http.client
 import json
 import sys
 import os
+import uuid
+from base64 import b64encode
 
 
 class MissingFieldError(Exception):
@@ -32,26 +33,41 @@ def validate_discovery_item_config(item: Dict[str, Any]) -> Dict[str, Any]:
 
 
 def promote_to_production(payload):
-    base_api_url = os.getenv("SM2A_API_URL", "")
+    base_api_url = os.getenv("SM2A_API_URL")
     promotion_dag = os.getenv("PROMOTION_DAG_NAME", "veda_promotion_pipeline")
-    path = urljoin("api/v1/dags/", promotion_dag)
-    dag_run = urljoin(path, "dagRuns")
-    full_api_url = urljoin(base_api_url, dag_run)
+    username = os.getenv("SM2A_ADMIN_USERNAME")
+    password = os.getenv("SM2A_ADMIN_PASSWORD")
 
-    api_token = os.getenv("SM2A_DEV_BASIC_AUTH_SECRET")
+    api_token = b64encode(f"{username}:{password}".encode()).decode()
+    print(password)
+    print(api_token)
 
-    if not full_api_url or not api_token:
+    if not base_api_url or not api_token:
         raise ValueError(
-            "SM2A_API_URL or SM2A_DEV_BASIC_AUTH_SECRET is not"
-            + "set in the environment variables."
+            "SM2A_API_URL or SM2A_ADMIN_USERNAME or SM2A_ADMIN_PASSWORD is not"
+            + " set in the environment variables."
         )
 
     headers = {
         "Content-Type": "application/json",
-        "Authorization": "Basic ${api_token}",
+        "Authorization": "Basic " + api_token,
     }
-    response = requests.post(url=full_api_url, data=payload, headers=headers)
-    print("SM2A API Response:", response.text)
+
+    body = {
+        **payload,
+        "dag_run_id": f"{promotion_dag}-{uuid.uuid4()}",
+        "note": "Run from GitHub Actions veda-data",
+    }
+    http_conn = http.client.HTTPSConnection(base_api_url)
+    response = http_conn.request(
+        "POST", f"/api/v1/dags/{promotion_dag}/dagRuns", json.dumps(body), headers
+    )
+    response = http_conn.getresponse()
+    response_data = response.read()
+    print(f"Response: ${response_data}")
+    http_conn.close()
+
+    return {"statusCode": response.status, "body": response_data.decode()}
 
 
 if __name__ == "__main__":
