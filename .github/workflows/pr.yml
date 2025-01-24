@@ -272,7 +272,6 @@ jobs:
 
           # Combine Header and Payload
           JWT_HEADER_PAYLOAD="${BASE64_HEADER}.${BASE64_PAYLOAD}"
-          echo "Header.Payload: $JWT_HEADER_PAYLOAD"
 
           JWT_SIGNATURE=$(printf '%s' "$JWT_HEADER_PAYLOAD" | openssl dgst -sha256 -sign app.pem | openssl base64 -A | tr -d '=' | tr '/+' '_-')
 
