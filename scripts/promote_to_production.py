@@ -90,7 +90,7 @@ if __name__ == "__main__":
                 "transfer": input.get("transfer", "false"),
             }
 
-            dag_payload = {"conf": dag_input}
+            dag_payload = {"conf": input}
             promote_to_production(dag_payload)
 
     except json.JSONDecodeError:
