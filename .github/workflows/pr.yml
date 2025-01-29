@@ -345,7 +345,7 @@ jobs:
 
   publish-to-prod-on-pr-merge:
     # TEMPORARILY COMMENTED OUT TO TEST API REQUEST
-    # if: ${{ github.event_name == 'pull_request' && github.event.action == 'closed' && github.event.pull_request.merged == true }}
+    if: ${{ github.event_name == 'pull_request' && github.event.action == 'closed' && github.event.pull_request.merged == true }}
     runs-on: ubuntu-latest
     environment: staging
     needs: [publish-new-datasets, create-mdx-files-and-open-pr]
