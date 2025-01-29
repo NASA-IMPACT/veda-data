@@ -1,0 +1,39 @@
+name: Publish collection to production
+
+permissions:
+  id-token: write
+  contents: read
+
+on:
+  push:
+    branches:
+    - main
+
+jobs:
+  publish-to-prod-on-pr-merge:
+    runs-on: ubuntu-latest
+    environment: production
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Download artifacts
+        uses: actions/download-artifact@v4
+        with:
+            name: collections-to-promote
+            path: downloaded-files
+
+      - name: Publish to production on PR merge
+        env:
+          SM2A_ADMIN_USERNAME: ${{ secrets.SM2A_ADMIN_USERNAME }}
+          SM2A_ADMIN_PASSWORD: ${{ secrets.SM2A_ADMIN_PASSWORD }}
+          SM2A_API_URL: ${{ vars.SM2A_API_URL }}
+          PROMOTION_DAG: ${{ vars.PROMOTION_DAG_NAME }}
+
+        run: |
+          cat dataset-config.json
+          pip install -r ./scripts/requirements.txt
+          for file in downloaded-files/**/*.json; do
+            python3 ./scripts/promote_to_production.py "$file"
+            echo "Processed file: $file"
+          done
