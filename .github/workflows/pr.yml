@@ -78,10 +78,12 @@ jobs:
       - name: List all newly added files
         env:
           ADDED_FILES: ${{ steps.changed-files.outputs.added_files }}
+          ADDED_FILES_COUNT: $${{ steps.changed-files.outputs.added_files_count}}
         run: |
           for file in ${ADDED_FILES}; do
             echo "$file was added"
           done
+          echo "added_files_count: ${ADDED_FILES_COUNT}"
 
       # Uses service client creds to get token
       # No username/password needed
@@ -226,7 +228,7 @@ jobs:
           collection_ids=""
           pip install -r ./scripts/requirements.txt
           for file in ${PUBLISHED_COLLECTION_FILES}; do
-            collection_id=$(python3 ./scripts/generate-mdx.py "$file")
+            collection_id=$(python3 ./scripts/generate_mdx.py "$file")
             collection_id=$(echo "$collection_id" | sed 's/^["\s]*//;s/["\s]*$//')
             echo "Processed collection ID: $collection_id"
             collection_ids="$collection_ids$collection_id,"
@@ -240,10 +242,72 @@ jobs:
         run: |
           echo "VEDA_CONFIG_REPO=${{ vars.VEDA_CONFIG_REPO_ORG }}/${{ vars.VEDA_CONFIG_REPO_NAME }}" >> $GITHUB_ENV
 
+
+      - name: Get Installation ID
+        id: get-installation-id
+        run: |
+          echo "${{ secrets.APP_PEM }}" > app.pem
+
+          APP_ID="${{ vars.VEDA_CONFIG_APP_ID }}"
+
+          # Ensure APP_ID is set
+          if [ -z "$APP_ID" ]; then
+          echo "Error: APP_ID is not set!"
+          exit 1
+          fi
+
+          # Ensure private key exists
+          if [ ! -f app.pem ]; then
+          echo "Error: Private key (app.pem) not found!"
+          exit 1
+          fi
+
+          # Generate JWT
+          HEADER='{"alg":"RS256","typ":"JWT"}'
+          PAYLOAD='{"iat":'$(date +%s)',"exp":'$(($(date +%s)+540))',"iss":'"$APP_ID"'}'
+
+          # Base64 URL-safe encode header and payload
+          BASE64_HEADER=$(printf '%s' "$HEADER" | openssl base64 -A | tr -d '=' | tr '/+' '_-')
+          BASE64_PAYLOAD=$(printf '%s' "$PAYLOAD" | openssl base64 -A | tr -d '=' | tr '/+' '_-')
+
+          # Combine Header and Payload
+          JWT_HEADER_PAYLOAD="${BASE64_HEADER}.${BASE64_PAYLOAD}"
+
+          JWT_SIGNATURE=$(printf '%s' "$JWT_HEADER_PAYLOAD" | openssl dgst -sha256 -sign app.pem | openssl base64 -A | tr -d '=' | tr '/+' '_-')
+
+          if [ -z "$JWT_SIGNATURE" ]; then
+              echo "Error: Failed to create JWT_SIGNATURE!"
+              exit 1
+          fi
+          JWT="$JWT_HEADER_PAYLOAD.$JWT_SIGNATURE"
+
+          # Get installation ID
+          RESPONSE=$(curl -s -X GET \
+            -H "Authorization: Bearer $JWT" \
+            -H "Accept: application/vnd.github+json" \
+            https://api.github.com/app/installations)
+
+          INSTALLATION_ID=$(echo $RESPONSE | jq -r '.[0].id')
+          echo "installation_id=$INSTALLATION_ID" >> $GITHUB_ENV
+          TOKEN_RESPONSE=$(curl -s -X POST \
+            -H "Authorization: Bearer $JWT" \
+            -H "Accept: application/vnd.github+json" \
+            https://api.github.com/app/installations/$INSTALLATION_ID/access_tokens)
+
+          INSTALLATION_TOKEN=$(echo $TOKEN_RESPONSE | jq -r '.token')
+          echo "installation_token=$INSTALLATION_TOKEN" >> $GITHUB_ENV
+
       - name: Clone veda-config repository
         run: |
-          git clone https://github.com/${{ env.VEDA_CONFIG_REPO }}.git
+          git clone https://x-access-token:${{ env.installation_token }}@github.com/${{ env.VEDA_CONFIG_REPO}}.git
           ls
+
+      - name: Authenticate with GitHub App
+        run: |
+          echo "${{ env.installation_token }}" | gh auth login --with-token
+          git config --global user.name "VEDA-Github-Actor[bot]]"
+          git config --global user.email ${{ vars.GH_ACTOR_EMAIL }}
+
 
       - name: Copy untracked mdx files to veda-config
         run: |
@@ -255,14 +319,10 @@ jobs:
       - name: Create veda-config PR with changes
         id: create-pr
         env:
-          GITHUB_TOKEN: ${{ secrets.VEDA_CONFIG_REPO_ACCESS_TOKEN }}
           COMMENT_ID: ${{ needs.publish-new-datasets.outputs.commentId }}
           PUBLISHED_COLLECTION_FILES: ${{ steps.publish-collections.outputs.success_collections }}
         run: |
           cd veda-config
-          git config --global user.name "github-actions[bot]"
-          git config --global user.email "github-actions[bot]@users.noreply.github.com"
-          git remote set-url origin https://${{ secrets.VEDA_CONFIG_REPO_ACCESS_TOKEN }}@github.com/${{ env.VEDA_CONFIG_REPO }}
 
           files_string=$(IFS=$'\n'; echo "${PUBLISHED_COLLECTION_FILES[*]}")
           hash=$(echo -n "$files_string" | md5sum | cut -d ' ' -f 1)
@@ -293,7 +353,7 @@ jobs:
           body="### Add dataset(s) - $first_collection_id [Automated PR by ${{ github.actor }}]\n\n$collection_bullet_points"
 
           echo "$body"
-          PR_URL=$(GITHUB_TOKEN=${{ secrets.VEDA_CONFIG_REPO_ACCESS_TOKEN }} gh pr create -R ${{ env.VEDA_CONFIG_REPO }} -H $NEW_BRANCH -B develop --title "$pr_title" --body "$(echo -e "$body")")
+          PR_URL=$(gh pr create -R ${{ env.VEDA_CONFIG_REPO }} -H $NEW_BRANCH -B develop --title "$pr_title" --body "$(echo -e "$body")")
 
           echo "PR_URL=$PR_URL" >> $GITHUB_OUTPUT
           echo "PR creation succeeded!"
@@ -344,11 +404,32 @@ jobs:
           echo "Updated Comment Body: $UPDATED_BODY"
 
   publish-to-prod-on-pr-merge:
+    # TEMPORARILY COMMENTED OUT TO TEST API REQUEST
     if: ${{ github.event_name == 'pull_request' && github.event.action == 'closed' && github.event.pull_request.merged == true }}
     runs-on: ubuntu-latest
+    environment: staging
+    needs: [publish-new-datasets, create-mdx-files-and-open-pr]
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
 
+      - name: Use output from publish-new-datasets
+        run: |
+          echo "The output from the previous step is: ${{ needs.publish-new-datasets.outputs.publishedCollections }}"
+
       - name: Publish to production on PR merge
-        run: echo "NO-OP. This step runs when a PR is merged."
+        env:
+          PUBLISHED_COLLECTION_FILES: ${{ needs.publish-new-datasets.outputs.publishedCollections }}
+          SM2A_ADMIN_USERNAME: ${{ secrets.SM2A_ADMIN_USERNAME }}
+          SM2A_ADMIN_PASSWORD: ${{ secrets.SM2A_ADMIN_PASSWORD }}
+          SM2A_API_URL: ${{ vars.SM2A_API_URL }}
+          PROMOTION_DAG: ${{ vars.PROMOTION_DAG_NAME }}
+
+        run: |
+          echo $PUBLISHED_COLLECTION_FILES
+          collection_ids=""
+          pip install -r ./scripts/requirements.txt
+          for file in ${PUBLISHED_COLLECTION_FILES}; do
+            python3 ./scripts/promote_to_production.py "$file"
+            echo "Processed file: $file"
+          done
