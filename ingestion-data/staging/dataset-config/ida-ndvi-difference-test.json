@@ -67,7 +67,16 @@
   "description": "Normalized Difference Vegetation Index Difference of before and after Hurricane Ida in Southern Louisiana.",
   "dashboard:is_periodic": true,
   "dashboard:time_density": "day",
-  "renders": {
-    "renders_object": "{\n        \"dashboard\": {\n            \"resampling\": \"nearest\",\n            \"bidx\": [1],\n            \"colormap_name\": \"rdbu\",\n            \"assets\": [\n                \"cog_default\"\n            ],\n            \"rescale\": [[-1, 1]],\n            \"title\": \"VEDA Dashboard Render Parameters\"\n        }\n   }"
-  }
+    "renders": {
+        "dashboard": {
+            "resampling": "nearest",
+            "bidx": [1],
+            "colormap_name": "rdbu",
+            "assets": [
+                "cog_default"
+            ],
+            "rescale": [[-1, 1]],
+            "title": "VEDA Dashboard Render Parameters"
+        }
+    }
 }
