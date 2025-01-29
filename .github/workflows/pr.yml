@@ -228,7 +228,7 @@ jobs:
           collection_ids=""
           pip install -r ./scripts/requirements.txt
           for file in ${PUBLISHED_COLLECTION_FILES}; do
-            collection_id=$(python3 ./scripts/generate-mdx.py "$file")
+            collection_id=$(python3 ./scripts/generate_mdx.py "$file")
             collection_id=$(echo "$collection_id" | sed 's/^["\s]*//;s/["\s]*$//')
             echo "Processed collection ID: $collection_id"
             collection_ids="$collection_ids$collection_id,"
@@ -404,11 +404,32 @@ jobs:
           echo "Updated Comment Body: $UPDATED_BODY"
 
   publish-to-prod-on-pr-merge:
+    # TEMPORARILY COMMENTED OUT TO TEST API REQUEST
     if: ${{ github.event_name == 'pull_request' && github.event.action == 'closed' && github.event.pull_request.merged == true }}
     runs-on: ubuntu-latest
+    environment: staging
+    needs: [publish-new-datasets, create-mdx-files-and-open-pr]
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
 
+      - name: Use output from publish-new-datasets
+        run: |
+          echo "The output from the previous step is: ${{ needs.publish-new-datasets.outputs.publishedCollections }}"
+
       - name: Publish to production on PR merge
-        run: echo "NO-OP. This step runs when a PR is merged."
+        env:
+          PUBLISHED_COLLECTION_FILES: ${{ needs.publish-new-datasets.outputs.publishedCollections }}
+          SM2A_ADMIN_USERNAME: ${{ secrets.SM2A_ADMIN_USERNAME }}
+          SM2A_ADMIN_PASSWORD: ${{ secrets.SM2A_ADMIN_PASSWORD }}
+          SM2A_API_URL: ${{ vars.SM2A_API_URL }}
+          PROMOTION_DAG: ${{ vars.PROMOTION_DAG_NAME }}
+
+        run: |
+          echo $PUBLISHED_COLLECTION_FILES
+          collection_ids=""
+          pip install -r ./scripts/requirements.txt
+          for file in ${PUBLISHED_COLLECTION_FILES}; do
+            python3 ./scripts/promote_to_production.py "$file"
+            echo "Processed file: $file"
+          done
