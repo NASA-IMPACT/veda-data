@@ -242,11 +242,24 @@ jobs:
         uses: actions/upload-artifact@v4
         env:
           PUBLISHED_COLLECTION_FILES: ${{ needs.publish-new-datasets.outputs.publishedCollections }}
+          ARTIFACT_RETENTION_DAYS: ${{ vars.ARTIFACT_RETENTION_DAYS }}
         with:
           name: collections-to-promote
           path: ${{ env.PUBLISHED_COLLECTION_FILES }}
-          retention-days: 10
+          retention-days: ${{ env.ARTIFACT_RETENTION_DAYS }}
 
+      - name: Debug - Download artifacts
+        uses: actions/download-artifact@v4
+        with:
+            name: collections-to-promote
+            path: downloaded-files
+
+      - name: Debug - Print files to promote
+        run: |
+          cat dataset-config.json
+          for file in downloaded-files/**/*.json; do
+            echo "File to promote: $file"
+          done
 
       - name: Set up Variables
         run: |
