@@ -408,6 +408,7 @@ jobs:
         run: |
           echo "Files: $PUBLISHED_COLLECTION_FILES"
           echo "Files with env: ${{ env.PUBLISHED_COLLECTION_FILES }}"
+          echo "Files: ${PUBLISHED_COLLECTION_FILES}"
           ls -l $PUBLISHED_COLLECTION_FILES
 
       - name: Upload published collections files as directory artifact
