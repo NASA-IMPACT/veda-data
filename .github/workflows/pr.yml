@@ -240,7 +240,7 @@ jobs:
 
       - name: Debug files and validate paths
         env:
-          PUBLISHED_COLLECTION_FILES: ${{ steps.publish-collections.outputs.success_collections }}
+          PUBLISHED_COLLECTION_FILES: ${{ needs.publish-new-datasets.outputs.publishedCollections }}
         run: |
           echo "Files: $PUBLISHED_COLLECTION_FILES"
           echo "Files with env: ${{ env.PUBLISHED_COLLECTION_FILES }}"
