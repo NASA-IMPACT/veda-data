@@ -402,6 +402,14 @@ jobs:
 
           echo "Updated Comment Body: $UPDATED_BODY"
 
+      - name: Debug files and validate paths
+        env:
+          PUBLISHED_COLLECTION_FILES: ${{ steps.publish-collections.outputs.success_collections }}
+        run: |
+          echo "Files: $PUBLISHED_COLLECTION_FILES"
+          echo "Files with env: ${{ env.PUBLISHED_COLLECTION_FILES }}"
+          ls -l $PUBLISHED_COLLECTION_FILES
+
       - name: Upload published collections files as directory artifact
         uses: actions/upload-artifact@v4
         env:
