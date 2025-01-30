@@ -238,6 +238,25 @@ jobs:
           echo "Final collection_ids: $collection_ids"
           echo "collection_ids=${collection_ids}" >> $GITHUB_ENV
 
+      - name: Debug files and validate paths
+        env:
+          PUBLISHED_COLLECTION_FILES: ${{ steps.publish-collections.outputs.success_collections }}
+        run: |
+          echo "Files: $PUBLISHED_COLLECTION_FILES"
+          echo "Files with env: ${{ env.PUBLISHED_COLLECTION_FILES }}"
+          echo "Files: ${PUBLISHED_COLLECTION_FILES}"
+          ls -l $PUBLISHED_COLLECTION_FILES
+
+      - name: Upload published collections files as directory artifact
+        uses: actions/upload-artifact@v4
+        env:
+          PUBLISHED_COLLECTION_FILES: ${{ steps.publish-collections.outputs.success_collections }}
+        with:
+          name: collections-to-promote
+          path: ${{ env.PUBLISHED_COLLECTION_FILES }}
+          retention-days: 10
+
+
       - name: Set up Variables
         run: |
           echo "VEDA_CONFIG_REPO=${{ vars.VEDA_CONFIG_REPO_ORG }}/${{ vars.VEDA_CONFIG_REPO_NAME }}" >> $GITHUB_ENV
@@ -401,21 +420,3 @@ jobs:
           gh api -X PATCH -H "Authorization: token $GITHUB_TOKEN" /repos/${{ github.repository }}/issues/comments/$COMMENT_ID -f body="$UPDATED_BODY"
 
           echo "Updated Comment Body: $UPDATED_BODY"
-
-      - name: Debug files and validate paths
-        env:
-          PUBLISHED_COLLECTION_FILES: ${{ steps.publish-collections.outputs.success_collections }}
-        run: |
-          echo "Files: $PUBLISHED_COLLECTION_FILES"
-          echo "Files with env: ${{ env.PUBLISHED_COLLECTION_FILES }}"
-          echo "Files: ${PUBLISHED_COLLECTION_FILES}"
-          ls -l $PUBLISHED_COLLECTION_FILES
-
-      - name: Upload published collections files as directory artifact
-        uses: actions/upload-artifact@v4
-        env:
-          PUBLISHED_COLLECTION_FILES: ${{ steps.publish-collections.outputs.success_collections }}
-        with:
-          name: collections-to-promote
-          path: ${{ env.PUBLISHED_COLLECTION_FILES }}
-          retention-days: 10
