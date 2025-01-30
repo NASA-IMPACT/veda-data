@@ -256,6 +256,7 @@ jobs:
 
       - name: Debug - Print files to promote
         run: |
+          ls
           cat dataset-config.json
           for file in downloaded-files/**/*.json; do
             echo "File to promote: $file"
