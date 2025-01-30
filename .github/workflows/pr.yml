@@ -408,5 +408,5 @@ jobs:
           PUBLISHED_COLLECTION_FILES: ${{ steps.publish-collections.outputs.success_collections }}
         with:
           name: collections-to-promote
-          path: $PUBLISHED_COLLECTION_FILES
+          path: ${{ env.PUBLISHED_COLLECTION_FILES }}
           retention-days: 10
