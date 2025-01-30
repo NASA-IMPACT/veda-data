@@ -257,7 +257,7 @@ jobs:
       - name: Debug - Print files to promote
         run: |
           ls downloaded-files
-          for file in downloaded-files/**/*.json; do
+          for file in downloaded-files/*.json; do
             echo "File to promote: $file"
           done
 
