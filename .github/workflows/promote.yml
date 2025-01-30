@@ -31,9 +31,8 @@ jobs:
           PROMOTION_DAG: ${{ vars.PROMOTION_DAG_NAME }}
 
         run: |
-          cat dataset-config.json
           pip install -r ./scripts/requirements.txt
-          for file in downloaded-files/**/*.json; do
+          for file in downloaded-files/*.json; do
             python3 ./scripts/promote_to_production.py "$file"
             echo "Processed file: $file"
           done
