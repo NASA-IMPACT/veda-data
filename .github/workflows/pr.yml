@@ -238,19 +238,10 @@ jobs:
           echo "Final collection_ids: $collection_ids"
           echo "collection_ids=${collection_ids}" >> $GITHUB_ENV
 
-      - name: Debug files and validate paths
-        env:
-          PUBLISHED_COLLECTION_FILES: ${{ needs.publish-new-datasets.outputs.publishedCollections }}
-        run: |
-          echo "Files: $PUBLISHED_COLLECTION_FILES"
-          echo "Files with env: ${{ env.PUBLISHED_COLLECTION_FILES }}"
-          echo "Files: ${PUBLISHED_COLLECTION_FILES}"
-          ls -l $PUBLISHED_COLLECTION_FILES
-
       - name: Upload published collections files as directory artifact
         uses: actions/upload-artifact@v4
         env:
-          PUBLISHED_COLLECTION_FILES: ${{ steps.publish-collections.outputs.success_collections }}
+          PUBLISHED_COLLECTION_FILES: ${{ needs.publish-new-datasets.outputs.publishedCollections }}
         with:
           name: collections-to-promote
           path: ${{ env.PUBLISHED_COLLECTION_FILES }}
