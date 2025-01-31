@@ -5,9 +5,10 @@ permissions:
   contents: read
 
 on:
-  push:
-    branches:
-    - main
+  workflow_run:
+    workflows: ["Publish collection to staging"]
+    types:
+      - completed
 
 jobs:
   publish-to-prod-on-pr-merge:
@@ -17,10 +18,13 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v4
 
+      - name: Determine artifact name
+        run: echo "ARTIFACT_NAME=collections-to-promote-from-${{ github.event.pull_request.number }}" >> $GITHUB_ENV
+
       - name: Download artifacts
         uses: actions/download-artifact@v4
         with:
-            name: collections-to-promote
+            name: ${{ env.ARTIFACT_NAME }}
             path: downloaded-files
 
       - name: Publish to production on PR merge

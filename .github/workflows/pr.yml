@@ -244,14 +244,14 @@ jobs:
           PUBLISHED_COLLECTION_FILES: ${{ needs.publish-new-datasets.outputs.publishedCollections }}
           ARTIFACT_RETENTION_DAYS: ${{ vars.ARTIFACT_RETENTION_DAYS }}
         with:
-          name: collections-to-promote
+          name: collections-to-promote-from-${{ github.event.pull_request.number }}
           path: ${{ env.PUBLISHED_COLLECTION_FILES }}
           retention-days: ${{ env.ARTIFACT_RETENTION_DAYS }}
 
       - name: Debug - Download artifacts
         uses: actions/download-artifact@v4
         with:
-            name: collections-to-promote
+            name: collections-to-promote-from-${{ github.event.pull_request.number }}
             path: downloaded-files
 
       - name: Debug - Print files to promote
