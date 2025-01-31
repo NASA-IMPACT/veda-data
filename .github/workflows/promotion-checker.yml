@@ -1,0 +1,40 @@
+name: Promotion checker
+
+on:
+  workflow_run:
+    workflows: ["Publish collection to staging"]
+    types:
+      - completed
+
+jobs:
+  check-pr-approval:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Get PR number
+        id: get_pr
+        run: |
+          PR_NUMBER=$(gh pr list --base main --state merged -0json number --jq '.[0].number')
+          echo "PR_NUMBER=$PR_NUMBER" >> $GITHUB_ENV
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Check for PR approval
+        run: |
+          APPROVALS=$(gh pr reviews $PR_NUMBER --json state --jq '[.[] | select(.state=="APPROVED")] | length')
+
+          if [ "$APPROVALS" -gt 0 ]; then
+            echo "PR was approved. Running promotion workflow."
+            echo "APPROVED=true" >> $GITHUB_ENV
+          else
+            echo "PR was NOT approved. Exiting."
+            exit 1
+          fi
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Trigger Promotion workflow
+        if: env.APPROVED == 'true'
+        run: |
+          gh workflow run promote.yml -f trigger_token=${{ secrets.WORKFLOW_TRIGGER_TOKEN }}
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

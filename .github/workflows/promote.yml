@@ -5,13 +5,31 @@ permissions:
   contents: read
 
 on:
+  workflow_dispatch:
+    inputs:
+      trigger_token:
+        description: "Security token for internal workflow calls"
+        required: true
   workflow_run:
-    workflows: ["Publish collection to staging"]
+    workflows: ["Promotion checker"]
     types:
       - completed
 
 jobs:
+  validate-trigger-token:
+    runs-on: ubuntu-atest
+    steps:
+      - name: Verify token
+        run: |
+          if [ "${{ github.event.inputs.trigger_token }}" != "${{ secrets.WORKFLOW_TRIGGER_TOKEN }}" ]; then
+            echo "Invalid trigger token. Exiting..."
+            exit 1
+          fi
+        env:
+          WORKFLOW_TRIGGER_TOKEN: ${{ secrets.WORKFLOW_TRIGGER_TOKEN }}
+
   publish-to-prod-on-pr-merge:
+    needs: validate-trigger-token
     runs-on: ubuntu-latest
     environment: production
     steps:
