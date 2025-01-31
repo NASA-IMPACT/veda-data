@@ -13,7 +13,7 @@ jobs:
       - name: Get PR number
         id: get_pr
         run: |
-          PR_NUMBER=$(gh pr list --base main --state merged -0json number --jq '.[0].number')
+          PR_NUMBER=$(gh pr list --base main --state merged --json number --jq '.[0].number')
           echo "PR_NUMBER=$PR_NUMBER" >> $GITHUB_ENV
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
