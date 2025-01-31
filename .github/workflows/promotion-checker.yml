@@ -2,9 +2,14 @@ name: Promotion checker
 
 on:
   workflow_run:
-    workflows: [Publish collection to staging]
+    workflows: ["Publish collection to staging"]
     types:
       - completed
+
+permissions:
+    actions: read
+    contents: read
+
 
 jobs:
   check-pr-approval:
