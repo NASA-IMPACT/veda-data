@@ -1,6 +1,16 @@
 name: Promotion checker
 
 on:
+  workflow_dispatch:
+    inputs:
+        pr_number:
+            description: "Pull Request Number"
+            required: true
+            type: string
+        trigger_token:
+            description: "Security token for internal workflow calls"
+            required: true
+
   workflow_run:
     workflows: ["Publish collection to staging"]
     types:
@@ -11,16 +21,24 @@ permissions:
     contents: read
 
 jobs:
+  validate-trigger-token:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Verify token
+        run: |
+          if [ "${{ github.event.inputs.trigger_token }}" != "${{ secrets.WORKFLOW_TRIGGER_TOKEN }}" ]; then
+            echo "Invalid trigger token. Request unauthorized. Exiting..."
+            exit 1
+          fi
+        env:
+          WORKFLOW_TRIGGER_TOKEN: ${{ secrets.WORKFLOW_TRIGGER_TOKEN }}
   check-pr-approval:
     runs-on: ubuntu-latest
     steps:
-      - name: Get PR number
-        id: get_pr
+      - name: Print PR number
         run: |
-          PR_NUMBER=$(gh pr list --base main --state merged --json number --jq '.[0].number')
-          echo "PR_NUMBER=$PR_NUMBER" >> $GITHUB_ENV
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          echo "Processing PR \#${{ github.event.inputs.pr_number }}"
+          echo "PR_NUMBER=${{ github.event.inputs.pr_number }}" >> $GITHUB_ENV
 
       - name: Check for PR approval
         run: |

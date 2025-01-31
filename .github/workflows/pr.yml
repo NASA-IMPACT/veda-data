@@ -424,3 +424,9 @@ jobs:
           gh api -X PATCH -H "Authorization: token $GITHUB_TOKEN" /repos/${{ github.repository }}/issues/comments/$COMMENT_ID -f body="$UPDATED_BODY"
 
           echo "Updated Comment Body: $UPDATED_BODY"
+
+      - name: Trigger Promotion checker workflow
+        run: |
+          gh workflow run promotion-checker.yml -f pr_number=${{ github.event.pull_request.number }} trigger_token=${{ secrets.WORKFLOW_TRIGGER_TOKEN }}
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

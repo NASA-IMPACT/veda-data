@@ -22,7 +22,7 @@ jobs:
       - name: Verify token
         run: |
           if [ "${{ github.event.inputs.trigger_token }}" != "${{ secrets.WORKFLOW_TRIGGER_TOKEN }}" ]; then
-            echo "Invalid trigger token. Exiting..."
+            echo "Invalid trigger token. Request unauthorized. Exiting..."
             exit 1
           fi
         env:
