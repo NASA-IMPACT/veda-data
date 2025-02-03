@@ -211,8 +211,6 @@ jobs:
     runs-on: ubuntu-latest
     environment: staging
     needs: publish-new-datasets
-    permissions:
-      actions: write
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
@@ -427,6 +425,14 @@ jobs:
 
           echo "Updated Comment Body: $UPDATED_BODY"
 
+  trigger-promotion-checker:
+    runs-on: ubuntu-latest
+    environment: staging
+    needs: create-mdx-files-and-open-pr
+    permissions:
+      actions: write
+
+    steps:
       - name: Trigger Promotion checker workflow
         run: |
           gh workflow list
