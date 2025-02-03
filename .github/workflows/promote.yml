@@ -5,22 +5,44 @@ permissions:
   contents: read
 
 on:
-  push:
-    branches:
-    - main
+  workflow_dispatch:
+    inputs:
+      trigger_token:
+        description: "Security token for internal workflow calls"
+        required: true
+  workflow_run:
+    workflows: ["Promotion checker"]
+    types:
+      - completed
 
 jobs:
+  validate-trigger-token:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Verify token
+        run: |
+          if [ "${{ github.event.inputs.trigger_token }}" != "${{ secrets.WORKFLOW_TRIGGER_TOKEN }}" ]; then
+            echo "Invalid trigger token. Request unauthorized. Exiting..."
+            exit 1
+          fi
+        env:
+          WORKFLOW_TRIGGER_TOKEN: ${{ secrets.WORKFLOW_TRIGGER_TOKEN }}
+
   publish-to-prod-on-pr-merge:
+    needs: validate-trigger-token
     runs-on: ubuntu-latest
     environment: production
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
 
+      - name: Determine artifact name
+        run: echo "ARTIFACT_NAME=collections-to-promote-from-${{ github.event.pull_request.number }}" >> $GITHUB_ENV
+
       - name: Download artifacts
         uses: actions/download-artifact@v4
         with:
-            name: collections-to-promote
+            name: ${{ env.ARTIFACT_NAME }}
             path: downloaded-files
 
       - name: Publish to production on PR merge

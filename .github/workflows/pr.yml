@@ -244,14 +244,14 @@ jobs:
           PUBLISHED_COLLECTION_FILES: ${{ needs.publish-new-datasets.outputs.publishedCollections }}
           ARTIFACT_RETENTION_DAYS: ${{ vars.ARTIFACT_RETENTION_DAYS }}
         with:
-          name: collections-to-promote
+          name: collections-to-promote-from-${{ github.event.pull_request.number }}
           path: ${{ env.PUBLISHED_COLLECTION_FILES }}
           retention-days: ${{ env.ARTIFACT_RETENTION_DAYS }}
 
       - name: Debug - Download artifacts
         uses: actions/download-artifact@v4
         with:
-            name: collections-to-promote
+            name: collections-to-promote-from-${{ github.event.pull_request.number }}
             path: downloaded-files
 
       - name: Debug - Print files to promote
@@ -424,3 +424,11 @@ jobs:
           gh api -X PATCH -H "Authorization: token $GITHUB_TOKEN" /repos/${{ github.repository }}/issues/comments/$COMMENT_ID -f body="$UPDATED_BODY"
 
           echo "Updated Comment Body: $UPDATED_BODY"
+
+      - name: Trigger Promotion checker workflow
+        run: |
+          gh workflow list
+          # TODO: Uncomment after the workflow is merged since workflow won't exist until then
+          # gh workflow run promotion-checker.yml -f pr_number=${{ github.event.pull_request.number }} trigger_token=${{ secrets.WORKFLOW_TRIGGER_TOKEN }}
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
