@@ -436,6 +436,10 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v4
 
+      - name: Check if WORKFLOW_TRIGGER_TOKEN is set
+        run: |
+          echo "WORKFLOW_TRIGGER_TOKEN is set: ${{ secrets.WORKFLOW_TRIGGER_TOKEN != ''}}"
+
       - name: Trigger Promotion checker workflow
         run: |
           gh workflow list
