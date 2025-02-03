@@ -433,6 +433,9 @@ jobs:
       actions: write
 
     steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
       - name: Trigger Promotion checker workflow
         run: |
           gh workflow list
