@@ -427,6 +427,6 @@ jobs:
 
       - name: Trigger Promotion checker workflow
         run: |
-          gh workflow run promotion-checker.yml -f pr_number=${{ github.event.pull_request.number }} trigger_token=${{ secrets.WORKFLOW_TRIGGER_TOKEN }}
+          gh workflow run promotion-checker.yml -f pr_number=${{ github.event.pull_request.number }} trigger_token=${{ secrets.WORKFLOW_TRIGGER_TOKEN }} --ref ${{ github.head_ref || github.ref_name }}
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
