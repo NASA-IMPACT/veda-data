@@ -211,6 +211,8 @@ jobs:
     runs-on: ubuntu-latest
     environment: staging
     needs: publish-new-datasets
+    permissions:
+      actions: write
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
