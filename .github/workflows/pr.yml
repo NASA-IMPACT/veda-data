@@ -425,10 +425,25 @@ jobs:
 
           echo "Updated Comment Body: $UPDATED_BODY"
 
+  trigger-promotion-checker:
+    runs-on: ubuntu-latest
+    environment: staging
+    needs: create-mdx-files-and-open-pr
+    permissions:
+      actions: write
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Check if WORKFLOW_TRIGGER_TOKEN is set
+        run: |
+          echo "WORKFLOW_TRIGGER_TOKEN is set: ${{ secrets.WORKFLOW_TRIGGER_TOKEN != ''}}"
+
       - name: Trigger Promotion checker workflow
         run: |
           gh workflow list
-          # TODO: Uncomment after the workflow is merged since workflow won't exist until then
-          # gh workflow run promotion-checker.yml -f pr_number=${{ github.event.pull_request.number }} trigger_token=${{ secrets.WORKFLOW_TRIGGER_TOKEN }}
+          gh workflow run promotion-checker.yml -f pr_number=${{ github.event.pull_request.number }} -f trigger_token=${{ secrets.WORKFLOW_TRIGGER_TOKEN }}
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          WORKFLOW_TRIGGER_TOKEN : ${{ secrets.WORKFLOW_TRIGGER_TOKEN }}
