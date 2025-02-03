@@ -443,7 +443,7 @@ jobs:
       - name: Trigger Promotion checker workflow
         run: |
           gh workflow list
-          gh workflow run promotion-checker.yml -f pr_number=${{ github.event.pull_request.number }} trigger_token=${{ secrets.WORKFLOW_TRIGGER_TOKEN }}
+          gh workflow run promotion-checker.yml -f pr_number=${{ github.event.pull_request.number }} -f trigger_token=${{ secrets.WORKFLOW_TRIGGER_TOKEN }}
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           WORKFLOW_TRIGGER_TOKEN : ${{ secrets.WORKFLOW_TRIGGER_TOKEN }}
