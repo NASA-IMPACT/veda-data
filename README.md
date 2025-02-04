@@ -10,23 +10,41 @@ The config data provided here gets processed in the [veda-data-airflow](https://
 
 ![veda-data-publication][veda-data-publication]
 
+(See `/docs/publishing-data-annotated` for the technical details of how this automated process is being developed and implemented.)
+
 To add data to VEDA you will:
 
-1. **Stage your files:** Upload files to the staging bucket `s3://veda-data-store-staging` (which you can do with a VEDA JupyterHub account--request access [here](https://nasa-impact.github.io/veda-docs/services/jupyterhub.html)) or a self-hosted bucket in s3 has shared read access to VEDA service.
+### Step 1: Stage your files
 
-2. **Generate STAC metadata in the staging catalog:** Metadata must first be added to the Staging Catalog [staging.openveda.cloud/api/stac](https://staging.openveda.cloud/api/stac). You will need to create a dataset config file using the veda-ingest-ui and submit it to the `/workflows/dataset/publish` endpoint to generate STAC Collection metadata and generate Item records for the files you have uploaded in Step 1.
-  - Use the veda-ingest-ui form to generate a dataset config and open a veda-data PR
-  - OR manually generate a dataset-config JSON and open a veda-data PR
-  - When a veda-data PR is opened, a github action will automatically (1) POST the config to airflow and stage the collection and items in the staging catalog instance and (2) open a veda-config dashboard preview for the dataset.
-    >  See detailed steps for the [dataset submission process](https://nasa-impact.github.io/veda-docs/contributing/dataset-ingestion/) in the contribuing section of [veda-docs](https://nasa-impact.github.io/veda-docs) where you can also find this full ingestion workflow example [geoglam ingest notebook](https://nasa-impact.github.io/veda-docs/contributing/dataset-ingestion/example-template/example-geoglam-ingest.html)
+Upload files to the staging bucket `s3://veda-data-store-staging` (which you can do with a VEDA JupyterHub account--request access [here](https://nasa-impact.github.io/veda-docs/services/jupyterhub.html)) or a self-hosted bucket in s3 has shared read access to VEDA service.
 
-3. **Acceptance testing:** Perform acceptance testing appropriate for your data. This should include reviewing the [staging.openveda.cloud STAC browser](https://staging.openveda.cloud) and reviewing the corresponding veda-config PR dashboard preview.
-    > See [veda-docs/instance-management/adding-content/dashboard-configuration](https://docs.openveda.cloud/instance-management/adding-content/dashboard-configuration/dataset-configuration.html) for more information about configuring a dashboard preview).
+### Step 2: Generate STAC metadata in the staging catalog
 
-4. **Promote to production!** After acceptance testing, request approval--when your PR is merged, the dataset config JSON will be used to generate records in the production VEDA catalog!
-    > To manually running the dataset promotion pipeline instead of an ingestion tool or the automated github actions in this repo, please open a PR to add the promotion configuration to `ingestion-data/production/promotion-config`. The promotion configuration can be created from a copy of the staging dataset config with an added field `transfer` which should be true if s3 objects need to be transferred to the produciton data store.
+Metadata must first be added to the Staging Catalog [staging.openveda.cloud/api/stac](https://staging.openveda.cloud/api/stac). You will need to create a dataset config file using the veda-ingest-ui and submit it to the `/workflows/dataset/publish` endpoint to generate STAC Collection metadata and generate Item records for the files you have uploaded in Step 1.
 
-5. **[Optional] Share your data :** Share your data in the [VEDA Dashboard](https://www.earthdata.nasa.gov/dashboard/) by submitting a PR to [veda-config](https://github.com/NASA-IMPACT/veda-config) ([see veda-docs/contributing/dashboard-configuration](https://nasa-impact.github.io/veda-docs/contributing/dashboard-configuration/dataset-configuration.html)) and add jupyterhub hosted usage examples to [veda-docs/contributing/docs-and-notebooks](https://nasa-impact.github.io/veda-docs/contributing/docs-and-notebooks.html)
+- Use the veda-ingest-ui form to generate a dataset config and open a veda-data PR
+
+- OR manually generate a dataset-config JSON and open a veda-data PR
+
+- When a veda-data PR is opened, a github action will automatically (1) POST the config to airflow and stage the collection and items in the staging catalog instance and (2) open a veda-config dashboard preview for the dataset.
+
+> See detailed steps for the [dataset submission process](https://nasa-impact.github.io/veda-docs/contributing/dataset-ingestion/) in the contribuing section of [veda-docs](https://nasa-impact.github.io/veda-docs) where you can also find this full ingestion workflow example [geoglam ingest notebook](https://nasa-impact.github.io/veda-docs/contributing/dataset-ingestion/example-template/example-geoglam-ingest.html)
+
+### Step 3: Acceptance testing
+
+Perform acceptance testing appropriate for your data. This should include reviewing the [staging.openveda.cloud STAC browser](https://staging.openveda.cloud) and reviewing the corresponding veda-config PR dashboard preview.
+
+> See [veda-docs/instance-management/adding-content/dashboard-configuration](https://docs.openveda.cloud/instance-management/adding-content/dashboard-configuration/dataset-configuration.html) for more information about configuring a dashboard preview).
+
+### Step 4: Promote to production
+
+After acceptance testing, request approval--when your PR is merged, the dataset config JSON will be used to generate records in the production VEDA catalog!
+
+> You can manually run the dataset promotion pipeline instead of using an ingestion tool or the automated github actions in this repo. The promotion configuration can be created from a copy of the staging dataset config with an added field `transfer` which should be true if s3 objects need to be transferred to the produciton data store. Please open a PR to add the promotion configuration to `ingestion-data/production/promotion-config`.
+
+### Step 5 [Optional]: Share your data
+
+Share your data in the [VEDA Dashboard](https://www.earthdata.nasa.gov/dashboard/) by submitting a PR to [veda-config](https://github.com/NASA-IMPACT/veda-config) ([see veda-docs/contributing/dashboard-configuration](https://nasa-impact.github.io/veda-docs/contributing/dashboard-configuration/dataset-configuration.html)) and add jupyterhub hosted usage examples to [veda-docs/contributing/docs-and-notebooks](https://nasa-impact.github.io/veda-docs/contributing/docs-and-notebooks.html)
 
 ## Project ingestion data structure
 
