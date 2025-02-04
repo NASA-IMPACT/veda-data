@@ -38,7 +38,7 @@ jobs:
 
       - name: Check for PR approval
         run: |
-          APPROVALS=$(gh pr reviews $PR_NUMBER | grep -c "APPROVED")
+          APPROVALS=$(gh pr review $PR_NUMBER | grep -c "APPROVED")
 
           if [ "$APPROVALS" -gt 0 ]; then
             echo "PR was approved. Running promotion workflow."
