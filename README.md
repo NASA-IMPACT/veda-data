@@ -16,7 +16,7 @@ To add data to VEDA you will:
 
 ### Step 1: Stage your files
 
-Upload files to the staging bucket `s3://veda-data-store-staging` (which you can do with a VEDA JupyterHub account--request access [here](https://nasa-impact.github.io/veda-docs/services/jupyterhub.html)) or a self-hosted bucket in s3 has shared read access to VEDA service. [Docs.openveda.cloud provides additional details on preparing files](https://docs.openveda.cloud/instance-management/adding-content/dataset-ingestion/file-preparation.html)
+Upload files to the staging bucket `s3://veda-data-store-staging` (which you can do with a VEDA JupyterHub account--request access [here](https://docs.openveda.cloud/nasa-veda-platform/scientific-computing/#veda-sponsored-jupyterhub-service)) or a self-hosted bucket in s3 has shared read access to VEDA service. [See docs.openveda.cloud for additional details on preparing files.](https://docs.openveda.cloud/instance-management/adding-content/dataset-ingestion/file-preparation.html)
 
 ### Step 2: Generate STAC metadata in the staging catalog
 
