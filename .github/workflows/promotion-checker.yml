@@ -16,12 +16,12 @@ jobs:
     steps:
       - name: Print PR number
         run: |
-          echo "Processing PR \#${{ github.event.inputs.pr_number }}"
-          echo "PR_NUMBER=${{ github.event.inputs.pr_number }}" >> $GITHUB_ENV
+          echo "Processing PR #${{ github.event.pull_request.number }}"
+          echo "PR_NUMBER=${{ github.event.pull_request.number }}" >> $GITHUB_ENV
 
       - name: Check for PR approval
         run: |
-          APPROVALS=$(gh api repos/${{ github.repository}}/pulls/$PR_NUMBER/reviews --jq '[.[] | select(.state == "APPROVED")] | length')
+          APPROVALS=$(gh api repos/${{ github.repository }}/pulls/$PR_NUMBER/reviews --jq '[.[] | select(.state == "APPROVED")] | length')
 
           if [ "$APPROVALS" -gt 0 ]; then
             echo "PR was approved. Running promotion workflow."
@@ -36,7 +36,7 @@ jobs:
       - name: Check if pr.yml succeeded
         id: check_pr_workflow
         run: |
-          WORKFLOW_STATUS=$(gh run list --repo ${{ github.repository }} --branch ${{ github.event.pull_request.head.ref }} --workflow "pr.yml" --json status --jq '[0].status')
+          WORKFLOW_STATUS=$(gh run list --repo ${{ github.repository }} --branch ${{ github.event.pull_request.head.ref }} --workflow "pr.yml" --json status --jq '.[0].status // "not found"')
           echo "Previous workflow (pr.yml) status: $WORKFLOW_STATUS"
           if [ "$WORKFLOW_STATUS" != "completed" ]; then
             echo "Previous workflow (pr.yml) did not complete successfully. Exiting..."
@@ -53,6 +53,6 @@ jobs:
       - name: Trigger Promotion workflow
         run: |
           gh workflow list
-          gh workflow run promote.yml --repo ${{ github.repository }} -f trigger_token=${{ secrets.WORKFLOW_TRIGGER_TOKEN }}
+          gh workflow run promote.yml --repo ${{ github.repository }} -f trigger_token=${{ secrets.WORKFLOW_TRIGGER_TOKEN }} -f pr_number=$PR_NUMBER
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
