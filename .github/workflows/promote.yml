@@ -11,10 +11,6 @@ on:
         description: "Security token for internal workflow calls"
         required: true
         type: string
-  workflow_run:
-    workflows: ["Promotion checker"]
-    types:
-      - completed
 
 jobs:
   validate-trigger-token:
