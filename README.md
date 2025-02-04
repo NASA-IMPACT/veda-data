@@ -16,7 +16,7 @@ To add data to VEDA you will:
 
 ### Step 1: Stage your files
 
-Upload files to the staging bucket `s3://veda-data-store-staging` (which you can do with a VEDA JupyterHub account--request access [here](https://nasa-impact.github.io/veda-docs/services/jupyterhub.html)) or a self-hosted bucket in s3 has shared read access to VEDA service.
+Upload files to the staging bucket `s3://veda-data-store-staging` (which you can do with a VEDA JupyterHub account--request access [here](https://nasa-impact.github.io/veda-docs/services/jupyterhub.html)) or a self-hosted bucket in s3 has shared read access to VEDA service. [Docs.openveda.cloud provides additional details on preparing files](https://docs.openveda.cloud/instance-management/adding-content/dataset-ingestion/file-preparation.html)
 
 ### Step 2: Generate STAC metadata in the staging catalog
 
@@ -28,7 +28,7 @@ Metadata must first be added to the Staging Catalog [staging.openveda.cloud/api/
 
 - When a veda-data PR is opened, a github action will automatically (1) POST the config to airflow and stage the collection and items in the staging catalog instance and (2) open a veda-config dashboard preview for the dataset.
 
-> See detailed steps for the [dataset submission process](https://nasa-impact.github.io/veda-docs/contributing/dataset-ingestion/) in the contribuing section of [veda-docs](https://nasa-impact.github.io/veda-docs) where you can also find this full ingestion workflow example [geoglam ingest notebook](https://nasa-impact.github.io/veda-docs/contributing/dataset-ingestion/example-template/example-geoglam-ingest.html)
+> See detailed steps for the [dataset submission process](https://docs.openveda.cloud/instance-management/adding-content/dataset-ingestion/) in the contribuing section of [veda-docs](https://nasa-impact.github.io/veda-docs) where you can also find this full ingestion workflow example [geoglam ingest notebook](https://docs.openveda.cloud/instance-management/adding-content/dataset-ingestion/example-template/example-geoglam-ingest.html)
 
 ### Step 3: Acceptance testing
 
@@ -40,7 +40,7 @@ Perform acceptance testing appropriate for your data. This should include review
 
 After acceptance testing, request approval--when your PR is merged, the dataset config JSON will be used to generate records in the production VEDA catalog!
 
-> You can manually run the dataset promotion pipeline instead of using an ingestion tool or the automated github actions in this repo. The promotion configuration can be created from a copy of the staging dataset config with an added field `transfer` which should be true if s3 objects need to be transferred to the produciton data store. Please open a PR to add the promotion configuration to `ingestion-data/production/promotion-config`.
+> You can manually run the dataset promotion pipeline instead of using an ingestion tool or the automated github actions in this repo. The promotion configuration can be created from a copy of the staging dataset config with an additional field `transfer` which should be true if s3 objects need to be transferred to the produciton data store. Please open a PR to add the promotion configuration to [`ingestion-data/production/promotion-config`](#productionpromotion-config).
 
 ### Step 5 [Optional]: Share your data
 
@@ -239,6 +239,45 @@ Should follow the following format:
 ### `production/promotion-config`
 
 This directory contains the configuration needed to execute a stand-alone airflow DAG that transfers assets to production and generates production metadata. The promotion-config json uses the same schema and values from the [staging/dataset-config JSON](#stagedataset-config) with an additional `transfer` field which should be set to true when S3 objects need to be transferred from a staging location to the production data store. The veda data promotion pipeline copies data from a specified staging bucket and prefix to a permanent location in `s3://veda-data-store` using the collection_id as a prefix and publishes STAC metadata to the produciton catalog.
+
+<details>
+  <summary><b>production/promotion-config/collection_id.json</b></summary>
+
+```json
+{
+    "transfer": true,
+    "collection": "<collection-id>",
+    "title": "<collection-title>",
+    "description": "<collection-description>",
+    "type": "cog",
+    "spatial_extent": {
+        "xmin": -180,
+        "ymin": 90,
+        "xmax": -90,
+        "ymax": 180
+    },
+    "temporal_extent": {
+        "startdate": "<start-date>",
+        "enddate": "<end-date>"
+    },
+    "license": "CC0-1.0",
+    "is_periodic": false,
+    "time_density": null,
+    "stac_version": "1.0.0",
+    "discovery_items": [
+        {
+            "prefix": "<prefix>",
+            "bucket": "<bucket>",
+            "filename_regex": "<regexß>",
+            "discovery": "s3",
+            "upload": false
+        }
+    ]
+}
+
+```
+
+</details>
 
 ## Validation
 
