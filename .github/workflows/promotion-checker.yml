@@ -14,9 +14,6 @@ jobs:
     runs-on: ubuntu-latest
     if: github.event.pull_request.merged == true
     steps:
-      - name: Checkout Repository
-        uses: actions/checkout@v4
-
       - name: Print PR number
         run: |
           echo "Processing PR \#${{ github.event.inputs.pr_number }}"
@@ -45,6 +42,13 @@ jobs:
             echo "Previous workflow (pr.yml) did not complete successfully. Exiting..."
             exit 1
           fi
+
+  trigger-promotion-workflow:
+    runs-on: ubuntu-latest
+    needs: check-conditions
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v4
 
       - name: Trigger Promotion workflow
         run: |
