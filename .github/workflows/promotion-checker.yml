@@ -1,35 +1,18 @@
-name: Promotion checker
+name: Post-Approval and Post-Merge Collection Promotion Checker
 
 on:
-  workflow_dispatch:
-    inputs:
-        pr_number:
-            description: "Pull Request Number"
-            required: true
-            type: string
-        trigger_token:
-            description: "Security token for internal workflow calls"
-            required: true
-            type: string
+  pull_request:
+    types:
+      - closed
 
 permissions:
     actions: write
     contents: read
 
 jobs:
-  validate-trigger-token:
+  check-conditions:
     runs-on: ubuntu-latest
-    steps:
-      - name: Verify token
-        run: |
-          if [ "${{ github.event.inputs.trigger_token }}" != "${{ secrets.WORKFLOW_TRIGGER_TOKEN }}" ]; then
-            echo "Invalid trigger token. Request unauthorized. Exiting..."
-            exit 1
-          fi
-        env:
-          WORKFLOW_TRIGGER_TOKEN: ${{ secrets.WORKFLOW_TRIGGER_TOKEN }}
-  check-pr-approval:
-    runs-on: ubuntu-latest
+    if: github.event.pull_request.merged == true
     steps:
       - name: Print PR number
         run: |
@@ -50,10 +33,26 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
+      - name: Check if pr.yml succeeded
+        id: check_pr_workflow
+        run: |
+          WORKFLOW_STATUS=$(gh run list --repo ${{ github.repository }} --branch ${{ github.event.pull_request.head.ref }} --workflow "pr.yml" --json status --jq '[0].status')
+          echo "Previous workflow (pr.yml) status: $WORKFLOW_STATUS"
+          if [ "$WORKFLOW_STATUS" != "completed" ]; then
+            echo "Previous workflow (pr.yml) did not complete successfully. Exiting..."
+            exit 1
+          fi
+
+  trigger-promotion-workflow:
+    runs-on: ubuntu-latest
+    needs: check-conditions
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+
       - name: Trigger Promotion workflow
-        if: env.APPROVED == 'true'
         run: |
           gh workflow list
-          gh workflow run promote.yml -f trigger_token=${{ secrets.WORKFLOW_TRIGGER_TOKEN }}
+          gh workflow run promote.yml --repo ${{ github.repository }} -f trigger_token=${{ secrets.WORKFLOW_TRIGGER_TOKEN }}
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
