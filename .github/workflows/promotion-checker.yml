@@ -45,10 +45,11 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Get Workflow Run ID Artifact
-        uses: actions/download-artifact@v4
-        with:
-          name: run-id-${{ github.event.pull_request.number }}
-          path: ./
+        run: |
+          gh run download \
+            --repo ${{ github.repository }} \
+            --name run-id-${{ github.event.pull_request.number }} \
+            --dir ./
 
       - name: Read Run ID
         id: read-run-id
