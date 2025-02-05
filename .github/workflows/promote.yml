@@ -11,10 +11,10 @@ on:
         description: "Security token for internal workflow calls"
         required: true
         type: string
-  workflow_run:
-    workflows: ["Promotion checker"]
-    types:
-      - completed
+      pr_number:
+        description: "PR Number to promote"
+        required: true
+        type: string
 
 jobs:
   validate-trigger-token:
@@ -38,7 +38,7 @@ jobs:
         uses: actions/checkout@v4
 
       - name: Determine artifact name
-        run: echo "ARTIFACT_NAME=collections-to-promote-from-${{ github.event.pull_request.number }}" >> $GITHUB_ENV
+        run: echo "ARTIFACT_NAME=collections-to-promote-from-${{ github.event.input.pr_number }}" >> $GITHUB_ENV
 
       - name: Download artifacts
         uses: actions/download-artifact@v4
