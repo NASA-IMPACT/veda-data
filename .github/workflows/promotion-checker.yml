@@ -50,6 +50,8 @@ jobs:
             --repo ${{ github.repository }} \
             --name run-id-${{ github.event.pull_request.number }} \
             --dir ./
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Read Run ID
         id: read-run-id
