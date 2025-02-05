@@ -85,5 +85,6 @@
       ],
       "title": "VEDA Dashboard Render Parameters"
     }
-  }
+  },
+  "dashboard:time_density": "day"
 }
