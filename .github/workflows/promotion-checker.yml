@@ -17,7 +17,6 @@ jobs:
       - name: Print PR number
         run: |
           echo "Processing PR #${{ github.event.pull_request.number }}"
-          echo "PR_NUMBER=${{ github.event.pull_request.number }}" >> $GITHUB_ENV
 
       - name: Check for PR approval
         run: |
@@ -55,6 +54,6 @@ jobs:
       - name: Trigger Promotion workflow
         run: |
           gh workflow list
-          gh workflow run promote.yml --repo ${{ github.repository }} -f trigger_token=${{ secrets.WORKFLOW_TRIGGER_TOKEN }} -f pr_number=$PR_NUMBER
+          gh workflow run promote.yml --repo ${{ github.repository }} -f trigger_token=${{ secrets.WORKFLOW_TRIGGER_TOKEN }} -f pr_number=${{ github.event.pull_request.number }}
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
