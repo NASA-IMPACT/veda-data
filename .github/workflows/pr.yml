@@ -267,7 +267,7 @@ jobs:
         run: |
           gh run download ${{ github.run_id }} \
             --repo ${{ github.repository }} \
-            --name collections-to-promote-from-${{ github.event.pull_request.number }}
+            --name collections-to-promote-from-${{ github.event.pull_request.number }} \
             --dir ./artifacts/downloaded-files
 
       - name: Debug - Print files to promote
