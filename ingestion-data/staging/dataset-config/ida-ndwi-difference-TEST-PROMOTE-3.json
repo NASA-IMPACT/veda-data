@@ -1,0 +1,90 @@
+{
+  "license": "CC0-1.0",
+  "stac_version": "1.0.0",
+  "links": [],
+  "spatial_extent": {
+    "xmin": -90.85,
+    "ymin": 29.03,
+    "xmax": -90.06,
+    "ymax": 29.65
+  },
+  "temporal_extent": {
+    "startdate": "2021-08-23T00:00:00.000Z",
+    "enddate": "2021-09-09T23:59:59.000Z"
+  },
+  "discovery_items": [
+    {
+      "upload": false,
+      "cogify": false,
+      "dry_run": false,
+      "filename_regex": "(.*)NDWI_Difference_(.*).tif$",
+      "use_multithreading": false,
+      "discovery": "s3",
+      "prefix": "planet-indices-v2/",
+      "bucket": "veda-data-store-staging"
+    }
+  ],
+  "sample_files": [
+    "s3://veda-data-store-staging/planet-indices-v2/NDWI_Difference_2021-08-23_2021-09-09.tif"
+  ],
+  "data_type": "cog",
+  "stac_extensions": [
+    "https://stac-extensions.github.io/render/v1.0.0/schema.json",
+    "https://stac-extensions.github.io/item-assets/v1.0.0/schema.json"
+  ],
+  "item_assets": {
+    "cog_default": {
+      "type": "image/tiff; application=geotiff; profile=cloud-optimized",
+      "roles": [
+        "data",
+        "layer"
+      ],
+      "title": "Default COG Layer",
+      "description": "Cloud optimized default layer to display on map"
+    }
+  },
+  "providers": [
+    {
+      "name": "NASA VEDA",
+      "roles": [
+        "host"
+      ],
+      "url": "https://www.earthdata.nasa.gov/dashboard/"
+    }
+  ],
+  "assets": {
+    "thumbnail": {
+      "title": "Thumbnail",
+      "type": "image/jpeg",
+      "roles": [
+        "thumbnail"
+      ],
+      "href": "https://thumbnails.openveda.cloud/louisiana-marsh.jpg",
+      "description": "Photo by [Bridget Besaw](https://www.nature.org/en-us/get-involved/how-to-help/places-we-protect/the-nature-conservancy-in-louisiana-gulf-coast-prairies-and-marshes/) (Wetland landscape across southern Louisiana.)"
+    }
+  },
+  "collection": "ida-ndwi-difference-TEST-PROMOTE-3",
+  "title": "ida-ndwi-difference-TEST-PROMOTE-3",
+  "dashboard:time_density": "day",
+  "description": "Normalized Difference Water Index Difference of before and after Hurricane Ida in Southern Louisiana.",
+  "renders": {
+    "dashboard": {
+      "resampling": "nearest",
+      "bidx": [
+        1
+      ],
+      "colormap_name": "rdbu",
+      "assets": [
+        "cog_default"
+      ],
+      "rescale": [
+        [
+          -1,
+          1
+        ]
+      ],
+      "title": "VEDA Dashboard Render Parameters"
+    }
+  },
+  "dashboard:is_periodic": true
+}
