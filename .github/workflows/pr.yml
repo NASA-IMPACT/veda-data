@@ -75,6 +75,13 @@ jobs:
           files: |
             **.json
 
+      - name: Exit if no new files
+        run: |
+          if [[ -z "${{ steps.changed-files.outputs.added_files }}" ]]; then
+            echo "No new files added. Exiting without processing any collections."
+            exit 0
+          fi
+
       - name: List all newly added files
         env:
           ADDED_FILES: ${{ steps.changed-files.outputs.added_files }}
