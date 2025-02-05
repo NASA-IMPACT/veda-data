@@ -248,11 +248,27 @@ jobs:
           path: ${{ env.PUBLISHED_COLLECTION_FILES }}
           retention-days: ${{ env.ARTIFACT_RETENTION_DAYS }}
 
-      - name: Debug - Download artifacts
-        uses: actions/download-artifact@v4
+      - name: Save Workflow Run ID
+        run: |
+          echo "RUN_ID is ${{ github.run_id }}"
+          echo "${{ github.run_id }}" > run_id.txt
+
+      - name: Upload Workflow Run ID
+        uses: actions/upload-artifact@v4
+        env:
+          ARTIFACT_RETENTION_DAYS: ${{ vars.ARTIFACT_RETENTION_DAYS }}
         with:
-            name: collections-to-promote-from-${{ github.event.pull_request.number }}
-            path: downloaded-files
+          name: run-id-${{ github.event.pull_request.number }}
+          path: run_id.txt
+
+      - name: Debug - Download artifacts
+        env:
+          GITHUB_TOKEN: ${{ github.token }}
+        run: |
+          gh run download ${{ github.run_id }} \
+            --repo ${{ github.repository }} \
+            --name collections-to-promote-from-${{ github.event.pull_request.number }} \
+            --dir ./downloaded-files
 
       - name: Debug - Print files to promote
         run: |
