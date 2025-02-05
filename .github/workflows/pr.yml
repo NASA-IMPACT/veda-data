@@ -262,6 +262,8 @@ jobs:
           path: run_id.txt
 
       - name: Debug - Download artifacts
+        env:
+          GITHUB_TOKEN: ${{ github.token }}
         run: |
           gh run download ${{ github.run_id }} \
             --repo ${{ github.repository }} \
