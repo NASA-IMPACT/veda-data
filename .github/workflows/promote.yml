@@ -17,7 +17,7 @@ on:
         type: string
 
 jobs:
-  validate-trigger-token:
+  validate-trigger-token-and-pr-number:
     runs-on: ubuntu-latest
     steps:
       - name: Verify token
@@ -28,9 +28,15 @@ jobs:
           fi
         env:
           WORKFLOW_TRIGGER_TOKEN: ${{ secrets.WORKFLOW_TRIGGER_TOKEN }}
+      - name: Verify PR Number
+        run: |
+          if [ -z "${{ github.event.inputs.pr_number }}" ]; then
+            echo "Error: PR_NUMBER input is not set. It is required for retrieving the correct artifacts. Exiting..."
+            exit 1
+          fi
 
   publish-to-prod-on-pr-merge:
-    needs: validate-trigger-token
+    needs: validate-trigger-token-and-pr-number
     runs-on: ubuntu-latest
     environment: production
     steps:
@@ -38,7 +44,7 @@ jobs:
         uses: actions/checkout@v4
 
       - name: Determine artifact name
-        run: echo "ARTIFACT_NAME=collections-to-promote-from-${{ github.event.input.pr_number }}" >> $GITHUB_ENV
+        run: echo "ARTIFACT_NAME=collections-to-promote-from-${{ github.event.inputs.pr_number }}" >> $GITHUB_ENV
 
       - name: Download artifacts
         uses: actions/download-artifact@v4
