@@ -55,7 +55,7 @@ jobs:
           gh run download ${{ github.event.inputs.run_id }} \
             --repo ${{ github.repository }} \
             --name collections-to-promote-from-${{ github.event.inputs.pr_number }}
-            --dir ./artifacts/downloaded-files
+            --dir ./downloaded-files
 
       - name: Publish to production on PR merge
         env:
