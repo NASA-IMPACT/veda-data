@@ -65,8 +65,9 @@
   },
   "collection": "ida-ndwi-difference-TEST-PROMOTE",
   "title": "NDWI Difference for Pre and Post-Hurricane Ida from PlanetScope TEST-PROMOTE",
-  "dashboard:time_density": "day",
   "description": "Normalized Difference Water Index Difference of before and after Hurricane Ida in Southern Louisiana.",
+  "dashboard:is_periodic": true,
+  "dashboard:time_density": "day",
   "renders": {
     "dashboard": {
       "resampling": "nearest",
@@ -85,6 +86,5 @@
       ],
       "title": "VEDA Dashboard Render Parameters"
     }
-  },
-  "dashboard:is_periodic": true
+  }
 }
