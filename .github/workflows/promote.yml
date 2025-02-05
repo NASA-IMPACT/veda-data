@@ -15,6 +15,10 @@ on:
         description: "PR Number to promote"
         required: true
         type: string
+      run_id:
+        description: "Workflow RUN ID to retrieve correct artifact"
+        required: true
+        type: string
 
 jobs:
   validate-trigger-token-and-pr-number:
@@ -47,10 +51,11 @@ jobs:
         run: echo "ARTIFACT_NAME=collections-to-promote-from-${{ github.event.inputs.pr_number }}" >> $GITHUB_ENV
 
       - name: Download artifacts
-        uses: actions/download-artifact@v4
-        with:
-            name: ${{ env.ARTIFACT_NAME }}
-            path: downloaded-files
+        run: |
+          gh run download ${{ github.event.inputs.run_id }} \
+            --repo ${{ github.repository }} \
+            --name collections-to-promote-from-${{ github.event.inputs.pr_number }}
+            --dir ./artifacts/downloaded-files
 
       - name: Publish to production on PR merge
         env:
