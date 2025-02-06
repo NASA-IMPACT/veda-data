@@ -7,15 +7,14 @@ Dependency: `dataset.mdx` file
 
 import yaml
 import os
-import json
 import sys
-
+import requests
 
 def create_frontmatter(input_data):
     """
     Creates json based on input dataset config
     """
-    collection_id = input_data["collection"]
+    collection_id = input_data["id"]
 
     json_data = {
         "id": collection_id,
@@ -29,6 +28,7 @@ def create_frontmatter(input_data):
         },
         "taxonomy": [
             {"name": "Source", "values": ["NASA"]},
+            {"name": "Topics", "values": ["Agriculture", "Biomass", "Landcover"]},
         ],
         "infoDescription": """::markdown
             - **Temporal Extent:** 2015 - 2100
@@ -41,21 +41,63 @@ def create_frontmatter(input_data):
         "layers": [],
     }
 
+    # TODO. Temp shortcut assumes single renders configuration with key 'dashboard' for all assets
+    source_params = {}
+    legend_type = "gradient"
+    if renders := input_data.get("renders", None):
+        if default_renders := renders.get("dashboard", None):
+            # hack remove title if present
+            if default_renders.get("title", None):
+                default_renders.pop("title")
+            # hack custom categorical colormaps don't need rescale but veda-ui may use a default if not provided 
+            if not default_renders.get("rescale", None):
+                default_renders["rescale"] = [[0, 255]]
+                legend_type = "categorical" # assumption
+
+            source_params = default_renders
+
+    # TODO this hack works around some legend needs that are not in stac metadata
+    legend_gradient = {
+        "unit": {"label": "Days"},
+        "type": "gradient",
+        "min": 0,
+        "max": 365,
+        "stops": [
+            "#E4FF7A",
+            "#FAED2D",
+            "#FFCE0A",
+            "#FFB100",
+            "#FE9900",
+            "#FC7F00",
+        ],
+    }
+
+    legend_categorical = {
+        "type": "categorical",
+        "min": 0,
+        "max": 255,
+        "stops": [
+            {"color": "#486DA2", "label": "Category 1"},
+            {"color": "#E7EFFC", "label": "Category 2"},
+            {"color": "#E1CDCE", "label": "Category 3"}
+        ],
+    }
+    legend = legend_gradient if legend_type == "gradient" else legend_categorical
+
+    # TODO We need to first preview the data in staging, the staging stac_api should be an env variable
+    staging_stac_api = "https://staging.openveda.cloud/api/stac"
+    staging_raster_api = "https://staging.openveda.cloud/api/raster"
     for asset_id, asset in input_data.get("item_assets", {}).items():
         layer = {
             "id": f"{collection_id}-{asset_id}",
             "stacCol": collection_id,
+            "stacApiEndpoint": staging_stac_api, # TODO this will need to be removed when promoting to prod
+            "tileApiEndpoint": staging_raster_api, # TODO this will need to be removed when promoting to prod
             "name": asset.get("title", "Asset Title"),
             "type": "raster",
             "description": asset.get("description", "Asset Description"),
             "zoomExtent": [0, 4],
-            "sourceParams": {
-                "assets": asset_id,
-                "resampling_method": "bilinear",
-                "colormap_name": "wistia",
-                "rescale": "0,365",
-                "maxzoom": 4,
-            },
+            "sourceParams": source_params,
             "compare": {
                 "datasetId": collection_id,
                 "layerId": asset_id,
@@ -67,20 +109,7 @@ def create_frontmatter(input_data):
                 ),
             },
             "analysis": {"exclude": False, "metrics": ["mean"]},
-            "legend": {
-                "unit": {"label": "Days"},
-                "type": "gradient",
-                "min": 0,
-                "max": 365,
-                "stops": [
-                    "#E4FF7A",
-                    "#FAED2D",
-                    "#FFCE0A",
-                    "#FFB100",
-                    "#FE9900",
-                    "#FC7F00",
-                ],
-            },
+            "legend": legend,
             "info": {
                 "source": "NASA",
                 "spatialExtent": "Global",
@@ -103,7 +132,13 @@ def safe_open_w(path):
 
 
 if __name__ == "__main__":
-    input_data = json.load(open(sys.argv[1]))
+    # input can be either collection id for stac search or json for a local file
+    collection_id = sys.argv[1]
+
+    # todo this should be in env config
+    stac_api = "https://staging.openveda.cloud/api/stac"
+    input_data = requests.get(f"{stac_api}/collections/{collection_id}").json()
+
     dataset_config = create_frontmatter(input_data)
     front_matter = f"---\n{dataset_config}---\n"
 
@@ -119,12 +154,12 @@ if __name__ == "__main__":
     new_content = front_matter + existing_content
 
     # Write the combined content back to the file
+    mdx_path = f"../ingestion-data/dataset-mdx/{collection_id.lower()}.data.mdx"
     output_filepath = os.path.join(
         curr_directory,
-        f"../ingestion-data/dataset-mdx/{input_data['collection']}.data.mdx",
+        mdx_path,
     )
     with safe_open_w(output_filepath) as ofile:
         ofile.write(new_content)
 
-    collection_id = input_data["collection"]
-    print(collection_id)
+    print(f"Generated {mdx_path}")
