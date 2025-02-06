@@ -132,7 +132,6 @@ def safe_open_w(path):
 
 
 if __name__ == "__main__":
-    # input can be either collection id for stac search or json for a local file
     collection_id = sys.argv[1]
 
     # todo this should be in env config
