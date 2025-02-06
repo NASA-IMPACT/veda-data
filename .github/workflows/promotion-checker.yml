@@ -51,9 +51,26 @@ jobs:
       - name: Checkout Repository
         uses: actions/checkout@v4
 
+      - name: Get Workflow Run ID Artifact
+        run: |
+          gh run download \
+            --repo ${{ github.repository }} \
+            --name run-id-${{ github.event.pull_request.number }} \
+            --dir ./
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Read Run ID
+        id: read-run-id
+        run: |
+          cat run_id.txt
+          RUN_ID=$(cat run_id.txt)
+          echo "RUN_ID=$RUN_ID" >> $GITHUB_ENV
+          echo $RUN_ID
+
       - name: Trigger Promotion workflow
         run: |
           gh workflow list
-          gh workflow run promote.yml --repo ${{ github.repository }} -f trigger_token=${{ secrets.WORKFLOW_TRIGGER_TOKEN }} -f pr_number=${{ github.event.pull_request.number }}
+          gh workflow run promote.yml --repo ${{ github.repository }} -f trigger_token=${{ secrets.WORKFLOW_TRIGGER_TOKEN }} -f pr_number=${{ github.event.pull_request.number }} -f run_id=$RUN_ID
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
