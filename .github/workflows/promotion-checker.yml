@@ -56,8 +56,9 @@ jobs:
       - name: Read Run ID
         id: read-run-id
         run: |
+          cat run_id.txt
           echo "RUN_ID=$(cat run_id.txt)" >> $GITHUB_ENV
-          echo ${{ env.RUN_ID }}
+          echo $RUN_ID
 
   trigger-promotion-workflow:
     runs-on: ubuntu-latest
@@ -69,6 +70,6 @@ jobs:
       - name: Trigger Promotion workflow
         run: |
           gh workflow list
-          gh workflow run promote.yml --repo ${{ github.repository }} -f trigger_token=${{ secrets.WORKFLOW_TRIGGER_TOKEN }} -f pr_number=${{ github.event.pull_request.number }} -f run_id=${{ env.RUN_ID }}
+          gh workflow run promote.yml --repo ${{ github.repository }} -f trigger_token=${{ secrets.WORKFLOW_TRIGGER_TOKEN }} -f pr_number=${{ github.event.pull_request.number }} -f run_id=$RUN_ID
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
