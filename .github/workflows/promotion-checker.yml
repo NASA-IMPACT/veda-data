@@ -48,7 +48,6 @@ jobs:
         run: |
           gh run download \
             --repo ${{ github.repository }} \
-            --workflow "pr.yml"
             --name run-id-${{ github.event.pull_request.number }} \
             --dir ./
         env:
