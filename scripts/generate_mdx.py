@@ -10,6 +10,7 @@ import os
 import sys
 import requests
 
+
 def create_frontmatter(input_data):
     """
     Creates json based on input dataset config
@@ -41,7 +42,8 @@ def create_frontmatter(input_data):
         "layers": [],
     }
 
-    # TODO. Temp shortcut assumes single renders configuration with key 'dashboard' for all assets
+    # TODO. Temp shortcut assumes single renders configuration with key 'dashboard'
+    # for all assets
     source_params = {}
     legend_type = "gradient"
     if renders := input_data.get("renders", None):
@@ -49,10 +51,12 @@ def create_frontmatter(input_data):
             # hack remove title if present
             if default_renders.get("title", None):
                 default_renders.pop("title")
-            # hack custom categorical colormaps don't need rescale but veda-ui may use a default if not provided 
+
+            # hack custom categorical colormaps don't need rescale
+            # but veda-ui may use a default if not provided
             if not default_renders.get("rescale", None):
                 default_renders["rescale"] = [[0, 255]]
-                legend_type = "categorical" # assumption
+                legend_type = "categorical"  # assumption
 
             source_params = default_renders
 
@@ -79,20 +83,21 @@ def create_frontmatter(input_data):
         "stops": [
             {"color": "#486DA2", "label": "Category 1"},
             {"color": "#E7EFFC", "label": "Category 2"},
-            {"color": "#E1CDCE", "label": "Category 3"}
+            {"color": "#E1CDCE", "label": "Category 3"},
         ],
     }
     legend = legend_gradient if legend_type == "gradient" else legend_categorical
 
-    # TODO We need to first preview the data in staging, the staging stac_api should be an env variable
+    # TODO We need to first preview the data in staging,
+    # the staging stac_api should be an env variable
     staging_stac_api = "https://staging.openveda.cloud/api/stac"
     staging_raster_api = "https://staging.openveda.cloud/api/raster"
     for asset_id, asset in input_data.get("item_assets", {}).items():
         layer = {
             "id": f"{collection_id}-{asset_id}",
             "stacCol": collection_id,
-            "stacApiEndpoint": staging_stac_api, # TODO this will need to be removed when promoting to prod
-            "tileApiEndpoint": staging_raster_api, # TODO this will need to be removed when promoting to prod
+            "stacApiEndpoint": staging_stac_api,  # TODO remove when promoting to prod
+            "tileApiEndpoint": staging_raster_api,  # TODO remove when promoting to prod
             "name": asset.get("title", "Asset Title"),
             "type": "raster",
             "description": asset.get("description", "Asset Description"),
