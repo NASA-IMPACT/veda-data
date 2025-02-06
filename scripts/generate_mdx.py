@@ -133,6 +133,8 @@ def safe_open_w(path):
 
 if __name__ == "__main__":
     collection_id = sys.argv[1]
+    if ".json" in collection_id:
+        collection_id = os.path.basename(collection_id).replace(".json", "")
 
     # todo this should be in env config
     stac_api = "https://staging.openveda.cloud/api/stac"
@@ -161,4 +163,4 @@ if __name__ == "__main__":
     with safe_open_w(output_filepath) as ofile:
         ofile.write(new_content)
 
-    print(f"Generated {mdx_path}")
+    print(collection_id)
