@@ -54,7 +54,7 @@ jobs:
         run: |
           gh run download ${{ github.event.inputs.run_id }} \
             --repo ${{ github.repository }} \
-            --name collections-to-promote-from-${{ github.event.inputs.pr_number }}
+            --name collections-to-promote-from-${{ github.event.inputs.pr_number }} \
             --dir ./downloaded-files
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
