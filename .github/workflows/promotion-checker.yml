@@ -58,6 +58,7 @@ jobs:
         run: |
           cat run_id.txt
           echo "RUN_ID=$(cat run_id.txt)" >> $GITHUB_ENV
+          RUN_ID=$(cat run_id.txt)
           echo $RUN_ID
 
   trigger-promotion-workflow:
