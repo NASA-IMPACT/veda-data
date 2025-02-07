@@ -10,8 +10,7 @@ import os
 import sys
 import requests
 
-
-def create_frontmatter(input_data):
+def generate_dataset_config_json(input_data):
     """
     Creates json based on input dataset config
     """
@@ -123,10 +122,11 @@ def create_frontmatter(input_data):
             },
         }
         json_data["layers"].append(layer)
+    return json_data
 
+def transform_json_to_yaml(json_data):
     # Convert json to yaml for frontmatter
     yaml_data = yaml.dump(json_data, sort_keys=False)
-
     return yaml_data
 
 
@@ -145,8 +145,12 @@ if __name__ == "__main__":
     stac_api = "https://staging.openveda.cloud/api/stac"
     input_data = requests.get(f"{stac_api}/collections/{collection_id}").json()
 
-    dataset_config = create_frontmatter(input_data)
-    front_matter = f"---\n{dataset_config}---\n"
+    # dataset_config = create_frontmatter(input_data)
+    dataset_config_json = generate_dataset_config_json(input_data)
+    dataset_config_yaml = transform_json_to_yaml(dataset_config_json)
+
+    # front_matter = f"---\n{dataset_config}---\n"
+    front_matter = f"---\n{dataset_config_yaml}---\n"
 
     # Path to the existing file
     curr_directory = os.path.dirname(os.path.abspath(__file__))
