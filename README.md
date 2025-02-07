@@ -10,7 +10,10 @@ The config data provided here gets processed in the [veda-data-airflow](https://
 
 ![veda-data-publication][veda-data-publication]
 
-(See `/docs/publishing-data-annotated` for the technical details of how this automated process is being developed and implemented.)
+> [!NOTE] See these links for technical details about the automated publishing methods veda-data provides:
+>
+> * [Explanation of the GitHub Actions workflows that publish and promote data](/docs/gh-actions-publish-and-promote-workflows)
+> * [Automated publish design doc](/docs/publishing-data-annotated)
 
 To add data to VEDA you will:
 
@@ -22,11 +25,11 @@ Upload files to the staging bucket `s3://veda-data-store-staging` (which you can
 
 Metadata must first be added to the Staging Catalog [staging.openveda.cloud/api/stac](https://staging.openveda.cloud/api/stac). You will need to create a dataset config file using the veda-ingest-ui and submit it to the `/workflows/dataset/publish` endpoint to generate STAC Collection metadata and generate Item records for the files you have uploaded in Step 1.
 
-- Use the veda-ingest-ui form to generate a dataset config and open a veda-data PR
+* Use the veda-ingest-ui form to generate a dataset config and open a veda-data PR
 
-- OR manually generate a dataset-config JSON and open a veda-data PR
+* OR manually generate a dataset-config JSON and open a veda-data PR
 
-- When a veda-data PR is opened, a github action will automatically (1) POST the config to airflow and stage the collection and items in the staging catalog instance and (2) open a veda-config dashboard preview for the dataset.
+* When a veda-data PR is opened, a github action will automatically (1) POST the config to airflow and stage the collection and items in the staging catalog instance and (2) open a veda-config dashboard preview for the dataset.
 
 > See detailed steps for the [dataset submission process](https://docs.openveda.cloud/instance-management/adding-content/dataset-ingestion/) in the contribuing section of [veda-docs](https://nasa-impact.github.io/veda-docs) where you can also find this full ingestion workflow example [geoglam ingest notebook](https://docs.openveda.cloud/instance-management/adding-content/dataset-ingestion/example-template/example-geoglam-ingest.html)
 
