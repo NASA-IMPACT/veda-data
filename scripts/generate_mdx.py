@@ -9,42 +9,75 @@ import yaml
 import os
 import sys
 import requests
+from jsonschema import validate
 
-def generate_dataset_config_json(input_data):
-    """
-    Creates json based on input dataset config
-    """
-    collection_id = input_data["id"]
-
-    json_data = {
-        "id": collection_id,
-        "name": input_data.get("title", "Dataset Title"),
-        "featured": False,
-        "description": input_data.get("description", "Dataset Description"),
+schema = {
+    "type": "object",
+    "properties": {
+        "id": {"type": "string"},
+        "name": {"type": "string"},
+        "featured": {"type": "boolean"},
+        "description": {"type": "string"},
         "media": {
-            "src": "https://bootstrap-cheatsheet.themeselection.com/assets/images/bs-images/img-2x1.png",
-            "alt": "Placeholder image",
-            "author": {"name": "Media author", "url": ""},
+            "type": "object",
+            "properties": {
+                "src": {"type": "string"},
+                "alt": {"type": "string"},
+                "author": {
+                    "type": "object",
+                    "properties": {
+                        "name": {"type": "string"},
+                        "url": {"type": "string"},
+                    }
+                },
+            }
         },
-        "taxonomy": [
-            {"name": "Source", "values": ["NASA"]},
-            {"name": "Topics", "values": ["Agriculture", "Biomass", "Landcover"]},
-        ],
-        "infoDescription": """::markdown
-            - **Temporal Extent:** 2015 - 2100
-            - **Temporal Resolution:** Annual
-            - **Spatial Extent:** Global
-            - **Spatial Resolution:** 0.25 degrees x 0.25 degrees
-            - **Data Units:** Days (Days per year above 90°F or 110°F)
-            - **Data Type:** Research
-        """,
-        "layers": [],
-    }
+        "taxonomy": {
+            "type": "array",
+            "items": {
+                "type": "object",
+                "properties": {
+                    "name": {"type": "string"},
+                    "values": {"type": "array", "items": {"type": "string"}},
+                }
+            }
+        }, 
+        "infoDescription" : {},
+        "layers": {"type": "array"}
+    },
+    "required": ["id", "name", "featured", "description", "media", "taxonomy", "infoDescription", "layers"],
+}
 
+base_json = {
+    "id": "",
+    "name": "",
+    "featured": False,
+    "description": "",
+    "media": {
+        "src": "https://bootstrap-cheatsheet.themeselection.com/assets/images/bs-images/img-2x1.png",
+        "alt": "Placeholder image",
+        "author": {"name": "Media author", "url": ""},
+    },
+    "taxonomy": [
+        {"name": "Source", "values": ["NASA"]},
+        {"name": "Topics", "values": ["Agriculture", "Biomass", "Landcover"]},
+    ],
+    "infoDescription": """::markdown
+        - **Temporal Extent:** 2015 - 2100
+        - **Temporal Resolution:** Annual
+        - **Spatial Extent:** Global
+        - **Spatial Resolution:** 0.25 degrees x 0.25 degrees
+        - **Data Units:** Days (Days per year above 90°F or 110°F)
+        - **Data Type:** Research
+    """,
+    "layers": [],
+}
+
+def define_source_params(input_data):
     # TODO. Temp shortcut assumes single renders configuration with key 'dashboard'
     # for all assets
     source_params = {}
-    legend_type = "gradient"
+    # legend_type = "gradient"
     if renders := input_data.get("renders", None):
         if default_renders := renders.get("dashboard", None):
             # hack remove title if present
@@ -54,44 +87,20 @@ def generate_dataset_config_json(input_data):
             # hack custom categorical colormaps don't need rescale
             # but veda-ui may use a default if not provided
             if not default_renders.get("rescale", None):
-                default_renders["rescale"] = [[0, 255]]
-                legend_type = "categorical"  # assumption
+                default_renders["rescale"] = [[0, 255]] #@QUESTION-SANDRA: Shouldn't this be flattened?
+                # legend_type = "categorical"  # assumption
 
             source_params = default_renders
+            return source_params
+        
+# TODO We need to first preview the data in staging,
+# the staging stac_api should be an env variable
+staging_stac_api = "https://staging.openveda.cloud/api/stac"
+staging_raster_api = "https://staging.openveda.cloud/api/raster"
 
-    # TODO this hack works around some legend needs that are not in stac metadata
-    legend_gradient = {
-        "unit": {"label": "Days"},
-        "type": "gradient",
-        "min": 0,
-        "max": 365,
-        "stops": [
-            "#E4FF7A",
-            "#FAED2D",
-            "#FFCE0A",
-            "#FFB100",
-            "#FE9900",
-            "#FC7F00",
-        ],
-    }
-
-    legend_categorical = {
-        "type": "categorical",
-        "min": 0,
-        "max": 255,
-        "stops": [
-            {"color": "#486DA2", "label": "Category 1"},
-            {"color": "#E7EFFC", "label": "Category 2"},
-            {"color": "#E1CDCE", "label": "Category 3"},
-        ],
-    }
-    legend = legend_gradient if legend_type == "gradient" else legend_categorical
-
-    # TODO We need to first preview the data in staging,
-    # the staging stac_api should be an env variable
-    staging_stac_api = "https://staging.openveda.cloud/api/stac"
-    staging_raster_api = "https://staging.openveda.cloud/api/raster"
-    for asset_id, asset in input_data.get("item_assets", {}).items():
+def define_layer_data(item_assets, collection_id, source_params, legend):
+    layers = []
+    for asset_id, asset in item_assets:
         layer = {
             "id": f"{collection_id}-{asset_id}",
             "stacCol": collection_id,
@@ -121,7 +130,61 @@ def generate_dataset_config_json(input_data):
                 "unit": "Days",
             },
         }
-        json_data["layers"].append(layer)
+        layers.append(layer)
+    return layers
+
+def define_legend(legend_type):
+    # TODO this hack works around some legend needs that are not in stac metadata
+    legend_gradient = {
+        "unit": {"label": "Days"},
+        "type": "gradient",
+        "min": 0,
+        "max": 365,
+        "stops": [
+            "#E4FF7A",
+            "#FAED2D",
+            "#FFCE0A",
+            "#FFB100",
+            "#FE9900",
+            "#FC7F00",
+        ],
+    }
+
+    legend_categorical = {
+        "type": "categorical",
+        "min": 0,
+        "max": 255,
+        "stops": [
+            {"color": "#486DA2", "label": "Category 1"},
+            {"color": "#E7EFFC", "label": "Category 2"},
+            {"color": "#E1CDCE", "label": "Category 3"},
+        ],
+    }
+    return legend_gradient if legend_type == "gradient" else legend_categorical
+
+def generate_dataset_config_json(input_data):
+    """
+    Creates json based on input dataset config
+    """
+    collection_id = input_data["id"]
+    legend_type = "gradient"
+    source_params = define_source_params(input_data)
+    if not source_params.get("rescale", None):
+        legend_type = "categorical"  # assumption
+    
+    legend = define_legend(legend_type)
+    item_assets = input_data.get("item_assets", {}).items()
+    layers = define_layer_data(item_assets, collection_id, source_params, legend)
+
+    json_data = base_json
+    json_data["id"] = collection_id
+    json_data["name"] = input_data.get("title", "Dataset Title")
+    json_data["description"] = input_data.get("description", "Dataset Description")
+    json_data["layers"] = layers
+
+    validation_result = validate(instance=json_data, schema=schema)
+    print(f"validation_result: ${validation_result}")
+
     return json_data
 
 def transform_json_to_yaml(json_data):
