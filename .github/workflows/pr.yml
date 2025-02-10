@@ -249,7 +249,7 @@ jobs:
         with:
           name: collections-to-promote-from-${{ github.event.pull_request.number }}
           path: |
-            $(cat collectionFilesToUpload.txt)
+            $(cat collectionFilesToUpload.txt | xargs)
           retention-days: ${{ env.ARTIFACT_RETENTION_DAYS }}
 
       - name: Save Workflow Run ID
