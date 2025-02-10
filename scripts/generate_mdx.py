@@ -9,44 +9,6 @@ import yaml
 import os
 import sys
 import requests
-from jsonschema import validate
-
-schema = {
-    "type": "object",
-    "properties": {
-        "id": {"type": "string"},
-        "name": {"type": "string"},
-        "featured": {"type": "boolean"},
-        "description": {"type": "string"},
-        "media": {
-            "type": "object",
-            "properties": {
-                "src": {"type": "string"},
-                "alt": {"type": "string"},
-                "author": {
-                    "type": "object",
-                    "properties": {
-                        "name": {"type": "string"},
-                        "url": {"type": "string"},
-                    }
-                },
-            }
-        },
-        "taxonomy": {
-            "type": "array",
-            "items": {
-                "type": "object",
-                "properties": {
-                    "name": {"type": "string"},
-                    "values": {"type": "array", "items": {"type": "string"}},
-                }
-            }
-        }, 
-        "infoDescription" : {},
-        "layers": {"type": "array"}
-    },
-    "required": ["id", "name", "featured", "description", "media", "taxonomy", "infoDescription", "layers"],
-}
 
 base_json = {
     "id": "",
@@ -87,7 +49,7 @@ def define_source_params(input_data):
             # hack custom categorical colormaps don't need rescale
             # but veda-ui may use a default if not provided
             if not default_renders.get("rescale", None):
-                default_renders["rescale"] = [[0, 255]] #@QUESTION-SANDRA: Shouldn't this be flattened?
+                default_renders["rescale"] = [[0, 255]] # @QUESTION: This isn't being parsed correctly
                 # legend_type = "categorical"  # assumption
 
             source_params = default_renders
@@ -181,9 +143,6 @@ def generate_dataset_config_json(input_data):
     json_data["name"] = input_data.get("title", "Dataset Title")
     json_data["description"] = input_data.get("description", "Dataset Description")
     json_data["layers"] = layers
-
-    validation_result = validate(instance=json_data, schema=schema)
-    print(f"validation_result: ${validation_result}")
 
     return json_data
 
