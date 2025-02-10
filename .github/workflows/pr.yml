@@ -238,10 +238,48 @@ jobs:
           echo "Final collection_ids: $collection_ids"
           echo "collection_ids=${collection_ids}" >> $GITHUB_ENV
 
+      - name: Upload published collections files as directory artifact
+        uses: actions/upload-artifact@v4
+        env:
+          PUBLISHED_COLLECTION_FILES: ${{ needs.publish-new-datasets.outputs.publishedCollections }}
+          ARTIFACT_RETENTION_DAYS: ${{ vars.ARTIFACT_RETENTION_DAYS }}
+        with:
+          name: collections-to-promote-from-${{ github.event.pull_request.number }}
+          path: ${{ env.PUBLISHED_COLLECTION_FILES }}
+          retention-days: ${{ env.ARTIFACT_RETENTION_DAYS }}
+
+      - name: Save Workflow Run ID
+        run: |
+          echo "RUN_ID is ${{ github.run_id }}"
+          echo "${{ github.run_id }}" > run_id.txt
+
+      - name: Upload Workflow Run ID
+        uses: actions/upload-artifact@v4
+        env:
+          ARTIFACT_RETENTION_DAYS: ${{ vars.ARTIFACT_RETENTION_DAYS }}
+        with:
+          name: run-id-${{ github.event.pull_request.number }}
+          path: run_id.txt
+
+      - name: Debug - Download artifacts
+        env:
+          GITHUB_TOKEN: ${{ github.token }}
+        run: |
+          gh run download ${{ github.run_id }} \
+            --repo ${{ github.repository }} \
+            --name collections-to-promote-from-${{ github.event.pull_request.number }} \
+            --dir ./downloaded-files
+
+      - name: Debug - Print files to promote
+        run: |
+          ls downloaded-files
+          for file in downloaded-files/*.json; do
+            echo "File to promote: $file"
+          done
+
       - name: Set up Variables
         run: |
           echo "VEDA_CONFIG_REPO=${{ vars.VEDA_CONFIG_REPO_ORG }}/${{ vars.VEDA_CONFIG_REPO_NAME }}" >> $GITHUB_ENV
-
 
       - name: Get Installation ID
         id: get-installation-id
@@ -402,34 +440,3 @@ jobs:
           gh api -X PATCH -H "Authorization: token $GITHUB_TOKEN" /repos/${{ github.repository }}/issues/comments/$COMMENT_ID -f body="$UPDATED_BODY"
 
           echo "Updated Comment Body: $UPDATED_BODY"
-
-  publish-to-prod-on-pr-merge:
-    # TEMPORARILY COMMENTED OUT TO TEST API REQUEST
-    if: ${{ github.event_name == 'pull_request' && github.event.action == 'closed' && github.event.pull_request.merged == true }}
-    runs-on: ubuntu-latest
-    environment: staging
-    needs: [publish-new-datasets, create-mdx-files-and-open-pr]
-    steps:
-      - name: Checkout code
-        uses: actions/checkout@v4
-
-      - name: Use output from publish-new-datasets
-        run: |
-          echo "The output from the previous step is: ${{ needs.publish-new-datasets.outputs.publishedCollections }}"
-
-      - name: Publish to production on PR merge
-        env:
-          PUBLISHED_COLLECTION_FILES: ${{ needs.publish-new-datasets.outputs.publishedCollections }}
-          SM2A_ADMIN_USERNAME: ${{ secrets.SM2A_ADMIN_USERNAME }}
-          SM2A_ADMIN_PASSWORD: ${{ secrets.SM2A_ADMIN_PASSWORD }}
-          SM2A_API_URL: ${{ vars.SM2A_API_URL }}
-          PROMOTION_DAG: ${{ vars.PROMOTION_DAG_NAME }}
-
-        run: |
-          echo $PUBLISHED_COLLECTION_FILES
-          collection_ids=""
-          pip install -r ./scripts/requirements.txt
-          for file in ${PUBLISHED_COLLECTION_FILES}; do
-            python3 ./scripts/promote_to_production.py "$file"
-            echo "Processed file: $file"
-          done

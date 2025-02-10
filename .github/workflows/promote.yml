@@ -1,0 +1,74 @@
+name: Publish collection to production
+
+permissions:
+  id-token: write
+  contents: read
+
+on:
+  workflow_dispatch:
+    inputs:
+      trigger_token:
+        description: "Security token for internal workflow calls"
+        required: true
+        type: string
+      pr_number:
+        description: "PR Number to promote"
+        required: true
+        type: string
+      run_id:
+        description: "Workflow RUN ID to retrieve correct artifact"
+        required: true
+        type: string
+
+jobs:
+  validate-trigger-token-and-pr-number:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Verify token
+        run: |
+          if [ "${{ github.event.inputs.trigger_token }}" != "${{ secrets.WORKFLOW_TRIGGER_TOKEN }}" ]; then
+            echo "Invalid trigger token. Request unauthorized. Exiting..."
+            exit 1
+          fi
+        env:
+          WORKFLOW_TRIGGER_TOKEN: ${{ secrets.WORKFLOW_TRIGGER_TOKEN }}
+      - name: Verify PR Number
+        run: |
+          if [ -z "${{ github.event.inputs.pr_number }}" ]; then
+            echo "Error: PR_NUMBER input is not set. It is required for retrieving the correct artifacts. Exiting..."
+            exit 1
+          fi
+
+  publish-to-prod-on-pr-merge:
+    needs: validate-trigger-token-and-pr-number
+    runs-on: ubuntu-latest
+    environment: production
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Determine artifact name
+        run: echo "ARTIFACT_NAME=collections-to-promote-from-${{ github.event.inputs.pr_number }}" >> $GITHUB_ENV
+
+      - name: Download artifacts
+        run: |
+          gh run download ${{ github.event.inputs.run_id }} \
+            --repo ${{ github.repository }} \
+            --name collections-to-promote-from-${{ github.event.inputs.pr_number }} \
+            --dir ./downloaded-files
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Publish to production on PR merge
+        env:
+          SM2A_ADMIN_USERNAME: ${{ secrets.SM2A_ADMIN_USERNAME }}
+          SM2A_ADMIN_PASSWORD: ${{ secrets.SM2A_ADMIN_PASSWORD }}
+          SM2A_API_URL: ${{ vars.SM2A_API_URL }}
+          PROMOTION_DAG: ${{ vars.PROMOTION_DAG_NAME }}
+
+        run: |
+          pip install -r ./scripts/requirements.txt
+          for file in downloaded-files/*.json; do
+            python3 ./scripts/promote_to_production.py "$file"
+            echo "Processed file: $file"
+          done
