@@ -238,14 +238,17 @@ jobs:
           echo "Final collection_ids: $collection_ids"
           echo "collection_ids=${collection_ids}" >> $GITHUB_ENV
 
+      - name: Format collection files list
+        run: echo "${{ needs.publish-new-datasets.outputs.publishedCollections }}" | tr ',' '\n' > collectionFilesToUpload.txt
+
       - name: Upload published collections files as directory artifact
         uses: actions/upload-artifact@v4
         env:
-          PUBLISHED_COLLECTION_FILES: ${{ needs.publish-new-datasets.outputs.publishedCollections }}
           ARTIFACT_RETENTION_DAYS: ${{ vars.ARTIFACT_RETENTION_DAYS }}
         with:
           name: collections-to-promote-from-${{ github.event.pull_request.number }}
-          path: ${{ env.PUBLISHED_COLLECTION_FILES }}
+          path: |
+            $(cat collectionFilesToUpload.txt)
           retention-days: ${{ env.ARTIFACT_RETENTION_DAYS }}
 
       - name: Save Workflow Run ID
