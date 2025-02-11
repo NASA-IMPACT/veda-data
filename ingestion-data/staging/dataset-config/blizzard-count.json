@@ -17,7 +17,7 @@
       "upload": false,
       "cogify": false,
       "dry_run": false,
-      "filename_regex": "(.*)Panhandle_Hooker_(.*).tif$",
+      "filename_regex": "(.*)StormEvents_Blizzards_(.*).tif$",
       "use_multithreading": false,
       "discovery": "s3",
       "prefix": "Blizzards/",
@@ -84,5 +84,6 @@
       "title": "VEDA Dashboard Render Parameters"
     }
   },
-  "transfer": true
+  "transfer": true,
+  "dashboard:time_density": "day"
 }
