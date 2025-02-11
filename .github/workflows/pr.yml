@@ -239,9 +239,8 @@ jobs:
 
       - name: Format collection files list
         run: |
-          echo "${{ needs.publish-new-datasets.outputs.publishedCollections }}" | tr ',' '\n' > collectionFilesToUpload.txt
-          cat collectionFilesToUpload.txt
-          echo "FILES_TO_UPLOAD=$(cat collectionFilesToUpload.txt | xargs)" >> $GITHUB_ENV
+          echo "FILES_TO_UPLOAD=$(echo "${{ needs.publish-new-datasets.outputs.publishedCollections }}" | tr ',' ' ')"" >> $GITHUB_ENV
+          echo ${{ env.FILES_TO_UPLOAD }}
 
       - name: Upload published collections files as directory artifact
         uses: actions/upload-artifact@v4
