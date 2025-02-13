@@ -69,6 +69,6 @@ jobs:
         run: |
           pip install -r ./scripts/requirements.txt
           for file in downloaded-files/*.json; do
-            python3 ./scripts/promote_to_production.py "$file" "production"
+            python3 ./scripts/promote_collection.py "$file" "production"
             echo "Processed file: $file"
           done
