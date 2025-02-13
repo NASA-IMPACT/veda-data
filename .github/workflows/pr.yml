@@ -239,7 +239,11 @@ jobs:
 
       - name: Format collection files list
         run: |
-          echo "FILES_TO_UPLOAD=$(echo "${{ needs.publish-new-datasets.outputs.publishedCollections }}" | tr ',' ' ')" >> $GITHUB_ENV
+          {
+            echo "FILES_TO_UPLOAD<<EOF"
+            echo "${{ needs.publish-new-datasets.outputs.publishedCollections }}" | tr ',' '\n'
+            echo "EOF"
+          } >> $GITHUB_ENV
           echo ${{ env.FILES_TO_UPLOAD }}
 
       - name: Upload published collections files as directory artifact
@@ -248,7 +252,8 @@ jobs:
           ARTIFACT_RETENTION_DAYS: ${{ vars.ARTIFACT_RETENTION_DAYS }}
         with:
           name: collections-to-promote-from-${{ github.event.pull_request.number }}
-          path: ${{ env.FILES_TO_UPLOAD }}
+          path: |
+            ${{ env.FILES_TO_UPLOAD }}
           retention-days: ${{ env.ARTIFACT_RETENTION_DAYS }}
 
       - name: Save Workflow Run ID
