@@ -111,7 +111,6 @@ jobs:
         env:
           ADDED_FILES: ${{ steps.changed-files.outputs.added_files }}
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          AUTH_TOKEN: ${{ steps.get-token.outputs.ACCESS_TOKEN }}
           COMMENT_ID: ${{ steps.init-comment.outputs.COMMENT_ID }}
           STAGING_SM2A_ADMIN_USERNAME: ${{ secrets.STAGING_SM2A_ADMIN_USERNAME }}
           STAGING_SM2A_ADMIN_PASSWORD: ${{ secrets.STAGING_SM2A_ADMIN_PASSWORD }}
