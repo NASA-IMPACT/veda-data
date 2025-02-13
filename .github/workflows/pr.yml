@@ -237,14 +237,19 @@ jobs:
           echo "Final collection_ids: $collection_ids"
           echo "collection_ids=${collection_ids}" >> $GITHUB_ENV
 
-      - name: Format collection files list
+      - name: Prepare temp directory for artifacts
         run: |
-          {
-            echo "FILES_TO_UPLOAD<<EOF"
-            echo "${{ needs.publish-new-datasets.outputs.publishedCollections }}" | tr ',' '\n'
-            echo "EOF"
-          } >> $GITHUB_ENV
-          echo ${{ env.FILES_TO_UPLOAD }}
+            mkdir -p /tmp/upload-artifacts
+            for file in $(echo "${{ needs.publish-new-datasets.outputs.publishedCollections }}" | tr ',' ' '); do
+              if [ -f "$file" ]; then
+                cp "$file" /tmp/upload-artifacts/
+              else
+                echo "Warning: File not found - $file"
+              fi
+            done
+
+      - name: List files in temp directory
+        run: ls -lah /tmp/upload-artifacts
 
       - name: Upload published collections files as directory artifact
         uses: actions/upload-artifact@v4
@@ -252,8 +257,7 @@ jobs:
           ARTIFACT_RETENTION_DAYS: ${{ vars.ARTIFACT_RETENTION_DAYS }}
         with:
           name: collections-to-promote-from-${{ github.event.pull_request.number }}
-          path: |
-            ${{ env.FILES_TO_UPLOAD }}
+          path: /tmp/upload-artifacts/*
           retention-days: ${{ env.ARTIFACT_RETENTION_DAYS }}
 
       - name: Save Workflow Run ID
