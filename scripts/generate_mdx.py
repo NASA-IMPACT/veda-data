@@ -35,6 +35,7 @@ base_json = {
     "layers": [],
 }
 
+
 def define_source_params(input_data):
     # TODO. Temp shortcut assumes single renders configuration with key 'dashboard'
     # for all assets
@@ -49,16 +50,20 @@ def define_source_params(input_data):
             # hack custom categorical colormaps don't need rescale
             # but veda-ui may use a default if not provided
             if not default_renders.get("rescale", None):
-                default_renders["rescale"] = [[0, 255]] # @QUESTION: This isn't being parsed correctly
+                default_renders["rescale"] = [
+                    [0, 255]
+                ]  # @QUESTION: This isn't being parsed correctly
                 # legend_type = "categorical"  # assumption
 
             source_params = default_renders
             return source_params
-        
+
+
 # TODO We need to first preview the data in staging,
 # the staging stac_api should be an env variable
 staging_stac_api = "https://staging.openveda.cloud/api/stac"
 staging_raster_api = "https://staging.openveda.cloud/api/raster"
+
 
 def define_layer_data(item_assets, collection_id, source_params, legend):
     layers = []
@@ -95,6 +100,7 @@ def define_layer_data(item_assets, collection_id, source_params, legend):
         layers.append(layer)
     return layers
 
+
 def define_legend(legend_type):
     # TODO this hack works around some legend needs that are not in stac metadata
     legend_gradient = {
@@ -124,6 +130,7 @@ def define_legend(legend_type):
     }
     return legend_gradient if legend_type == "gradient" else legend_categorical
 
+
 def generate_dataset_config_json(input_data):
     """
     Creates json based on input dataset config
@@ -133,7 +140,7 @@ def generate_dataset_config_json(input_data):
     source_params = define_source_params(input_data)
     if not source_params.get("rescale", None):
         legend_type = "categorical"  # assumption
-    
+
     legend = define_legend(legend_type)
     item_assets = input_data.get("item_assets", {}).items()
     layers = define_layer_data(item_assets, collection_id, source_params, legend)
@@ -145,6 +152,7 @@ def generate_dataset_config_json(input_data):
     json_data["layers"] = layers
 
     return json_data
+
 
 def transform_json_to_yaml(json_data):
     # Convert json to yaml for frontmatter
