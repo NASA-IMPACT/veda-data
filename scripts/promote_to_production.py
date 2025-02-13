@@ -74,6 +74,7 @@ if __name__ == "__main__":
     try:
         with open(sys.argv[1], "r") as file:
             input = json.load(file)
+            input["transfer"] = True
             discovery_items = input.get("discovery_items")
             validated_discovery_items = [
                 validate_discovery_item_config(item) for item in discovery_items
