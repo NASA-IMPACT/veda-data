@@ -110,10 +110,12 @@ jobs:
         id: publish-collections
         env:
           ADDED_FILES: ${{ steps.changed-files.outputs.added_files }}
-          WORKFLOWS_URL: ${{ vars.STAGING_WORKFLOWS_URL }}
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           AUTH_TOKEN: ${{ steps.get-token.outputs.ACCESS_TOKEN }}
           COMMENT_ID: ${{ steps.init-comment.outputs.COMMENT_ID }}
+          STAGING_SM2A_ADMIN_USERNAME: ${{ secrets.STAGING_SM2A_ADMIN_USERNAME }}
+          STAGING_SM2A_ADMIN_PASSWORD: ${{ secrets.STAGING_SM2A_ADMIN_PASSWORD }}
+          STAGING_SM2A_API_URL: ${{ vars.STAGING_SM2A_API_URL }}
         run: |
           pip install -r ./scripts/requirements.txt
 
