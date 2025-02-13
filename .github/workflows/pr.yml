@@ -116,6 +116,7 @@ jobs:
           STAGING_SM2A_ADMIN_USERNAME: ${{ secrets.STAGING_SM2A_ADMIN_USERNAME }}
           STAGING_SM2A_ADMIN_PASSWORD: ${{ secrets.STAGING_SM2A_ADMIN_PASSWORD }}
           STAGING_SM2A_API_URL: ${{ vars.STAGING_SM2A_API_URL }}
+          DATASET_DAG_NAME: ${{ vars.DATASET_DAG_NAME }}
         run: |
           pip install -r ./scripts/requirements.txt
 
