@@ -32,11 +32,17 @@ def validate_discovery_item_config(item: Dict[str, Any]) -> Dict[str, Any]:
     return item
 
 
-def promote_to_production(payload):
-    base_api_url = os.getenv("SM2A_API_URL")
-    promotion_dag = os.getenv("PROMOTION_DAG_NAME", "veda_promotion_pipeline")
-    username = os.getenv("SM2A_ADMIN_USERNAME")
-    password = os.getenv("SM2A_ADMIN_PASSWORD")
+def promote_collection(stage: str, payload):
+    if stage == "staging":
+        base_api_url = os.getenv("STAGING_SM2A_API_URL")
+        promotion_dag = os.getenv("PROMOTION_DAG_NAME", "veda_promotion_pipeline")
+        username = os.getenv("STAGING_SM2A_ADMIN_USERNAME")
+        password = os.getenv("STAGING_SM2A_ADMIN_PASSWORD")
+    else:
+        base_api_url = os.getenv("SM2A_API_URL")
+        promotion_dag = os.getenv("PROMOTION_DAG_NAME", "veda_promotion_pipeline")
+        username = os.getenv("SM2A_ADMIN_USERNAME")
+        password = os.getenv("SM2A_ADMIN_PASSWORD")
 
     api_token = b64encode(f"{username}:{password}".encode()).decode()
     print(password)
@@ -59,12 +65,12 @@ def promote_to_production(payload):
         "note": "Run from GitHub Actions veda-data",
     }
     http_conn = http.client.HTTPSConnection(base_api_url)
-    response = http_conn.request(
+    http_conn.request(
         "POST", f"/api/v1/dags/{promotion_dag}/dagRuns", json.dumps(body), headers
     )
     response = http_conn.getresponse()
     response_data = response.read()
-    print(f"Response: ${response_data}")
+    print(f"Response: ${response}")
     http_conn.close()
 
     return {"statusCode": response.status, "body": response_data.decode()}
@@ -78,9 +84,13 @@ if __name__ == "__main__":
             validated_discovery_items = [
                 validate_discovery_item_config(item) for item in discovery_items
             ]
-
+            stage = sys.argv[2]
             dag_payload = {"conf": input}
-            promote_to_production(dag_payload)
+            promote_collection(stage, dag_payload)
 
+    except IndexError:
+        print("Usage: promote_collection.py <file_name> <stage>")
+    except FileNotFoundError:
+        print(f"Error: File '{sys.argv[1]}' not found.")
     except json.JSONDecodeError:
         raise ValueError(f"Invalid JSON content in file {sys.argv[1]}")

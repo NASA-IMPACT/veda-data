@@ -116,18 +116,7 @@ jobs:
           AUTH_TOKEN: ${{ steps.get-token.outputs.ACCESS_TOKEN }}
           COMMENT_ID: ${{ steps.init-comment.outputs.COMMENT_ID }}
         run: |
-          if [ -z "$WORKFLOWS_URL" ]; then
-            echo "WORKFLOWS_URL is not set"
-            exit 1
-          fi
-
-          if [ -z "$AUTH_TOKEN" ]; then
-            echo "AUTH_TOKEN is not set"
-            exit 1
-          fi
-
-          publish_url="${WORKFLOWS_URL%/}/dataset/publish"
-          bearer_token=$AUTH_TOKEN
+          pip install -r ./scripts/requirements.txt
 
           # Track successful publications
           all_failed=true
@@ -142,16 +131,13 @@ jobs:
               collection_id=$(jq -r '.collection' "$file")
 
               echo "Publishing $collection_id"
-              response=$(curl -s -w "%{http_code}" -o response.txt -X POST "$publish_url" \
-                -H "Content-Type: application/json" \
-                -H "Authorization: Bearer $AUTH_TOKEN" \
-                -d "$dataset_config"
-              )
 
-              status_code=$(tail -n1 <<< "$response")
+              response = python3 ./scripts/promote_collection.py "$file" "staging"
+              echo "Processed file: $file"
+              status_code = response["statusCode"]
 
               # Update status message based on response code
-              if [ "$status_code" -eq 200 ] || [ "$status_code" -eq 201 ]; then
+              if [ status_code -eq 200 ] || [ status_code -eq 201 ]; then
                 echo "$collection_id successfully published ✅"
                 status_message+="- **$collection_id**: Successfully published ✅
                 "
