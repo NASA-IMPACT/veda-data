@@ -72,8 +72,7 @@ jobs:
         id: changed-files
         uses: tj-actions/changed-files@v45
         with:
-          files: |
-            **.json
+          files: ingestion-data/staging/dataset-config/**.json
 
       - name: List all newly added files
         env:
@@ -224,14 +223,27 @@ jobs:
           echo "Final collection_ids: $collection_ids"
           echo "collection_ids=${collection_ids}" >> $GITHUB_ENV
 
+      - name: Prepare temp directory for artifacts
+        run: |
+            mkdir -p /tmp/upload-artifacts
+            for file in $(echo "${{ needs.publish-new-datasets.outputs.publishedCollections }}" | tr ',' ' '); do
+              if [ -f "$file" ]; then
+                cp "$file" /tmp/upload-artifacts/
+              else
+                echo "Warning: File not found - $file"
+              fi
+            done
+
+      - name: List files in temp directory
+        run: ls -lah /tmp/upload-artifacts
+
       - name: Upload published collections files as directory artifact
         uses: actions/upload-artifact@v4
         env:
-          PUBLISHED_COLLECTION_FILES: ${{ needs.publish-new-datasets.outputs.publishedCollections }}
           ARTIFACT_RETENTION_DAYS: ${{ vars.ARTIFACT_RETENTION_DAYS }}
         with:
           name: collections-to-promote-from-${{ github.event.pull_request.number }}
-          path: ${{ env.PUBLISHED_COLLECTION_FILES }}
+          path: /tmp/upload-artifacts/*
           retention-days: ${{ env.ARTIFACT_RETENTION_DAYS }}
 
       - name: Save Workflow Run ID
