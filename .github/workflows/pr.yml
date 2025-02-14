@@ -133,22 +133,24 @@ jobs:
 
               echo "Publishing $collection_id"
 
-              python3 ./scripts/promote_collection.py "$file" "staging"
+              response=$(python3 ./scripts/promote_collection.py "$file" "staging")
+              echo "Response: $response"
               echo "Processed file: $file"
-              status_code = response["statusCode"]
+              status_code=$(echo "$response" | jq -r '.statusCode')
+              echo "Status Code: $status_code"
 
-              # Update status message based on response code
-              # if [ status_code -eq 200 ] || [ status_code -eq 201 ]; then
-              #   echo "$collection_id successfully published ✅"
-              #   status_message+="- **$collection_id**: Successfully published ✅
-              #   "
-              #   success_collections+=("$file")
-              #   all_failed=false
-              # else
-              #   echo "$collection_id failed to publish ❌"
-              #   status_message+="- **$collection_id**: Failed to publish. Error code $status_code. ❌
-              #   "
-              # fi
+              Update status message based on response code
+              if [ status_code -eq 200 ] || [ status_code -eq 201 ]; then
+                echo "$collection_id successfully published ✅"
+                status_message+="- **$collection_id**: Successfully published ✅
+                "
+                success_collections+=("$file")
+                all_failed=false
+              else
+                echo "$collection_id failed to publish ❌"
+                status_message+="- **$collection_id**: Failed to publish. Error code $status_code. ❌
+                "
+              fi
             else
               echo "File $file does not exist"
               exit 1
