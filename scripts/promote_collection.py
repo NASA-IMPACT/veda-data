@@ -103,7 +103,6 @@ def promote_to_production(payload):
     )
     response = http_conn.getresponse()
     response_data = response.read()
-    print(f"Response: ${response_data}")
     http_conn.close()
 
     return {"statusCode": response.status, "body": response_data.decode()}

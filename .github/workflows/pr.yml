@@ -134,7 +134,6 @@ jobs:
               echo "Publishing $collection_id"
 
               response=$(python3 ./scripts/promote_collection.py "$file" "staging")
-              echo "Response: $response"
               echo "Processed file: $file"
               status_code=$(echo "$response" | jq -r '.statusCode')
               echo "Status Code: $status_code"
