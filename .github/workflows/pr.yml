@@ -84,23 +84,6 @@ jobs:
           done
           echo "added_files_count: ${ADDED_FILES_COUNT}"
 
-      # Uses service client creds to get token
-      # No username/password needed
-      - name: Get auth token
-        id: get-token
-        run: |
-          echo "Vars: $vars"
-          response=$(curl -X POST \
-            ${{ vars.STAGING_COGNITO_DOMAIN }}/oauth2/token \
-            -H "Content-Type: application/x-www-form-urlencoded" \
-            -d "grant_type=client_credentials" \
-            -d "client_id=${{ vars.STAGING_CLIENT_ID }}" \
-            -d "client_secret=${{ secrets.STAGING_CLIENT_SECRET }}"
-          )
-
-          access_token=$(echo "$response" | jq -r '.access_token')
-          echo "ACCESS_TOKEN=$access_token" >> $GITHUB_OUTPUT
-
       # Makes request to /dataset/publish endpoint
       # Outputs only files that were successfully published
       # Used by other steps
@@ -110,23 +93,14 @@ jobs:
         id: publish-collections
         env:
           ADDED_FILES: ${{ steps.changed-files.outputs.added_files }}
-          WORKFLOWS_URL: ${{ vars.STAGING_WORKFLOWS_URL }}
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          AUTH_TOKEN: ${{ steps.get-token.outputs.ACCESS_TOKEN }}
           COMMENT_ID: ${{ steps.init-comment.outputs.COMMENT_ID }}
+          STAGING_SM2A_ADMIN_USERNAME: ${{ secrets.STAGING_SM2A_ADMIN_USERNAME }}
+          STAGING_SM2A_ADMIN_PASSWORD: ${{ secrets.STAGING_SM2A_ADMIN_PASSWORD }}
+          STAGING_SM2A_API_URL: ${{ vars.STAGING_SM2A_API_URL }}
+          DATASET_DAG_NAME: ${{ vars.DATASET_DAG_NAME }}
         run: |
-          if [ -z "$WORKFLOWS_URL" ]; then
-            echo "WORKFLOWS_URL is not set"
-            exit 1
-          fi
-
-          if [ -z "$AUTH_TOKEN" ]; then
-            echo "AUTH_TOKEN is not set"
-            exit 1
-          fi
-
-          publish_url="${WORKFLOWS_URL%/}/dataset/publish"
-          bearer_token=$AUTH_TOKEN
+          pip install -r ./scripts/requirements.txt
 
           # Track successful publications
           all_failed=true
@@ -141,16 +115,14 @@ jobs:
               collection_id=$(jq -r '.collection' "$file")
 
               echo "Publishing $collection_id"
-              response=$(curl -s -w "%{http_code}" -o response.txt -X POST "$publish_url" \
-                -H "Content-Type: application/json" \
-                -H "Authorization: Bearer $AUTH_TOKEN" \
-                -d "$dataset_config"
-              )
 
-              status_code=$(tail -n1 <<< "$response")
+              response=$(python3 ./scripts/promote_collection.py "$file" "staging")
+              echo "Processed file: $file"
+              status_code=$(echo "$response" | jq -r '.statusCode')
+              echo "Status Code: $status_code"
 
               # Update status message based on response code
-              if [ "$status_code" -eq 200 ] || [ "$status_code" -eq 201 ]; then
+              if [ $status_code -eq 200 ] || [ $status_code -eq 201 ]; then
                 echo "$collection_id successfully published ✅"
                 status_message+="- **$collection_id**: Successfully published ✅
                 "
