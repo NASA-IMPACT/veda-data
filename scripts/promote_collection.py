@@ -69,6 +69,7 @@ def publish_to_staging(payload):
     http_conn.close()
 
     print(json.dumps({"statusCode": response.status}))
+    print(response_data.decode())
     return {"statusCode": response.status, "body": response_data.decode()}
 
 
@@ -91,7 +92,7 @@ def promote_to_production(payload):
         "Authorization": "Basic " + api_token,
     }
 
-    payload["transfer"] = True
+    payload["conf"]["transfer"] = True
     body = {
         **payload,
         "dag_run_id": f"{promotion_dag}-{uuid.uuid4()}",
@@ -105,6 +106,8 @@ def promote_to_production(payload):
     response_data = response.read()
     http_conn.close()
 
+    print(json.dumps({"statusCode": response.status}))
+    print(response_data.decode())
     return {"statusCode": response.status, "body": response_data.decode()}
 
 
