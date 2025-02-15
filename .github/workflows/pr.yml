@@ -74,19 +74,21 @@ jobs:
         with:
           files: ingestion-data/staging/dataset-config/**.json
 
-      - name: List all newly added files and exit gracefully if none
+      - name: List all newly added files
         env:
           ADDED_FILES: ${{ steps.changed-files.outputs.added_files }}
           ADDED_FILES_COUNT: $${{ steps.changed-files.outputs.added_files_count}}
         run: |
-          if [ "$ADDED_FILES_COUNT" -eq 0 ]; then
-            echo "🕵️ No new files found. Exiting workflow."
-            exit 0
-          fi
           for file in ${ADDED_FILES}; do
             echo "$file was added"
           done
           echo "added_files_count: ${ADDED_FILES_COUNT}"
+
+      - name: Exit early if no new files
+        if: ${{ steps.changed-files.outputs.added_files_count == 0 }}
+        run: |
+          echo "🕵️ No new files found. Exiting workflow early."
+          exit 0
 
       # Makes request to /dataset/publish endpoint
       # Outputs only files that were successfully published
