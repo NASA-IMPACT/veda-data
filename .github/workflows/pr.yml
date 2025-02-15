@@ -79,7 +79,7 @@ jobs:
           ADDED_FILES: ${{ steps.changed-files.outputs.added_files }}
           ADDED_FILES_COUNT: $${{ steps.changed-files.outputs.added_files_count}}
         run: |
-          if [ $ADDED_FILES_COUNT eq 0 ]; then
+          if [ ${ADDED_FILES_COUNT} eq 0 ]; then
             echo "🕵️ No new files found. Exiting workflow."
             exit 0
           for file in ${ADDED_FILES}; do
