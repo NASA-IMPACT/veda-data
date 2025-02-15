@@ -82,6 +82,7 @@ jobs:
           if [ "$ADDED_FILES_COUNT" -eq 0 ]; then
             echo "🕵️ No new files found. Exiting workflow."
             exit 0
+          fi
           for file in ${ADDED_FILES}; do
             echo "$file was added"
           done
