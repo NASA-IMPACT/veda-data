@@ -72,7 +72,7 @@
   "datetime_range": "day",
   "renders": {
     "dashboard": {
-      "colormap_name": "turbo",
+      "colormap_name": "surface_temperature",
       "rescale": [
         [
           240,
