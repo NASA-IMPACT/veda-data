@@ -113,8 +113,7 @@ jobs:
           # Track successful publications
           all_failed=true
           declare -a success_collections=()
-          status_message='### Collection Publication Status
-          '
+          status_message="### Collection Publication Status"
 
           for file in ${ADDED_FILES}; do
             echo $file
@@ -126,20 +125,18 @@ jobs:
 
               response=$(python3 ./scripts/promote_collection.py "$file" "staging")
               echo "Processed file: $file"
-              status_code=$(echo "$response" | jq -r '.statusCode')
+              status_code=$(echo "$response" | jq -r '.statusCode' | head -n1)
               echo "Status Code: $status_code"
 
               # Update status message based on response code
-              if [ $status_code -eq 200 ] || [ $status_code -eq 201 ]; then
+              if [[ $status_code -eq 200 ]] || [[ $status_code -eq 201 ]]; then
                 echo "$collection_id successfully published ✅"
-                status_message+="- **$collection_id**: Successfully published ✅
-                "
+                status_message+="- **$collection_id**: Successfully published ✅"
                 success_collections+=("$file")
                 all_failed=false
               else
                 echo "$collection_id failed to publish ❌"
-                status_message+="- **$collection_id**: Failed to publish. Error code $status_code. ❌
-                "
+                status_message+="- **$collection_id**: Failed to publish. Error code $status_code. ❌"
               fi
             else
               echo "File $file does not exist"
@@ -409,7 +406,7 @@ jobs:
         if: success()
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          COMMENT_ID: ${{ needs.publish-new-datasets.outputs.commentId }}
+          COMMENT_ID: ${{ needs.publish-new-datasets.outputs.comment_id }}
         run: |
          PR_URL=${{ steps.create-pr.outputs.PR_URL }}
           CURRENT_BODY=$(gh api -H "Authorization: token $GITHUB_TOKEN" /repos/${{ github.repository }}/issues/comments/$COMMENT_ID --jq '.body')
@@ -422,7 +419,7 @@ jobs:
         if: failure() && steps.create-pr.outcome == 'failure'
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          COMMENT_ID: ${{ needs.publish-new-datasets.outputs.commentId }}
+          COMMENT_ID: ${{ needs.publish-new-datasets.outputs.comment_id }}
         run: |
           CURRENT_BODY=$(gh api -H "Authorization: token $GITHUB_TOKEN" /repos/${{ github.repository }}/issues/comments/$COMMENT_ID --jq '.body')
           UPDATED_BODY="$CURRENT_BODY
@@ -435,7 +432,7 @@ jobs:
         if: failure() && steps.create-pr.outcome != 'failure'
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          COMMENT_ID: ${{ needs.publish-new-datasets.outputs.commentId }}
+          COMMENT_ID: ${{ needs.publish-new-datasets.outputs.comment_id }}
         run: |
           WORKFLOW_URL="${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}"
           CURRENT_BODY=$(gh api -H "Authorization: token $GITHUB_TOKEN" /repos/${{ github.repository }}/issues/comments/$COMMENT_ID --jq '.body')
