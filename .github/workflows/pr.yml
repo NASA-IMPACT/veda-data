@@ -113,8 +113,7 @@ jobs:
           # Track successful publications
           all_failed=true
           declare -a success_collections=()
-          status_message='### Collection Publication Status
-          '
+          status_message="### Collection Publication Status"
 
           for file in ${ADDED_FILES}; do
             echo $file
