@@ -406,7 +406,7 @@ jobs:
         if: success()
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          COMMENT_ID: ${{ needs.publish-new-datasets.outputs.commentId }}
+          COMMENT_ID: ${{ needs.publish-new-datasets.outputs.comment_id }}
         run: |
          PR_URL=${{ steps.create-pr.outputs.PR_URL }}
           CURRENT_BODY=$(gh api -H "Authorization: token $GITHUB_TOKEN" /repos/${{ github.repository }}/issues/comments/$COMMENT_ID --jq '.body')
@@ -419,7 +419,7 @@ jobs:
         if: failure() && steps.create-pr.outcome == 'failure'
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          COMMENT_ID: ${{ needs.publish-new-datasets.outputs.commentId }}
+          COMMENT_ID: ${{ needs.publish-new-datasets.outputs.comment_id }}
         run: |
           CURRENT_BODY=$(gh api -H "Authorization: token $GITHUB_TOKEN" /repos/${{ github.repository }}/issues/comments/$COMMENT_ID --jq '.body')
           UPDATED_BODY="$CURRENT_BODY
@@ -432,7 +432,7 @@ jobs:
         if: failure() && steps.create-pr.outcome != 'failure'
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          COMMENT_ID: ${{ needs.publish-new-datasets.outputs.commentId }}
+          COMMENT_ID: ${{ needs.publish-new-datasets.outputs.comment_id }}
         run: |
           WORKFLOW_URL="${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}"
           CURRENT_BODY=$(gh api -H "Authorization: token $GITHUB_TOKEN" /repos/${{ github.repository }}/issues/comments/$COMMENT_ID --jq '.body')
