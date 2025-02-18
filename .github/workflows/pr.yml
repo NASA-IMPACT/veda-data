@@ -132,14 +132,12 @@ jobs:
               # Update status message based on response code
               if [ $status_code -eq 200 ] || [ $status_code -eq 201 ]; then
                 echo "$collection_id successfully published ✅"
-                status_message+="- **$collection_id**: Successfully published ✅
-                "
+                status_message+="- **$collection_id**: Successfully published ✅"
                 success_collections+=("$file")
                 all_failed=false
               else
                 echo "$collection_id failed to publish ❌"
-                status_message+="- **$collection_id**: Failed to publish. Error code $status_code. ❌
-                "
+                status_message+="- **$collection_id**: Failed to publish. Error code $status_code. ❌"
               fi
             else
               echo "File $file does not exist"
