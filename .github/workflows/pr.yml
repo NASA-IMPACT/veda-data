@@ -126,7 +126,7 @@ jobs:
 
               response=$(python3 ./scripts/promote_collection.py "$file" "staging")
               echo "Processed file: $file"
-              status_code=$(echo "$response" | jq -r '.statusCode')
+              status_code=$(echo "$response" | jq -r '.statusCode' | head -n1)
               echo "Status Code: $status_code"
 
               # Update status message based on response code
