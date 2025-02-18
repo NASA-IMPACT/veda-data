@@ -69,6 +69,14 @@ jobs:
         run: |
           pip install -r ./scripts/requirements.txt
           for file in downloaded-files/*.json; do
-            python3 ./scripts/promote_collection.py "$file" "production"
+            collection_id=$(jq -r '.collection' "$file")
+            response=$(python3 ./scripts/promote_collection.py "$file" "production")
             echo "Processed file: $file"
+            status_code=$(echo "$response" | jq -r '.statusCode')
+            echo "Status Code: $status_code"
+             if [ $status_code -eq 200 ] || [ $status_code -eq 201 ]; then
+                echo "$collection_id successfully promoted to Production ✅"
+              else
+                echo "$collection_id failed to promote to Production ❌"
+              fi
           done

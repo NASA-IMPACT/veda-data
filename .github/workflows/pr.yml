@@ -29,8 +29,9 @@ jobs:
     runs-on: ubuntu-latest
     environment: staging
     outputs:
-      publishedCollections: ${{ steps.publish-collections.outputs.success_collections }}
-      commentId: ${{ steps.init-comment.outputs.COMMENT_ID }}
+      published_collections: ${{ steps.publish-collections.outputs.success_collections }}
+      comment_id: ${{ steps.init-comment.outputs.COMMENT_ID }}
+      has_new_files_to_promote: ${{ steps.changed-files.outputs.added_files_count != 0 }}
     steps:
       - uses: actions/checkout@v4
 
@@ -84,12 +85,19 @@ jobs:
           done
           echo "added_files_count: ${ADDED_FILES_COUNT}"
 
+      - name: Exit early if no new files
+        if: ${{ steps.changed-files.outputs.added_files_count == 0 }}
+        run: |
+          echo "🕵️ No new files found. Exiting workflow early."
+          exit 0
+
       # Makes request to /dataset/publish endpoint
       # Outputs only files that were successfully published
       # Used by other steps
       # If none of the requests are successful, workflow fails
       # Updates the PR comment with status of collection publication
       - name: Publish all newly added collections to staging
+        if: ${{ steps.changed-files.outputs.added_files_count != 0 }}
         id: publish-collections
         env:
           ADDED_FILES: ${{ steps.changed-files.outputs.added_files }}
@@ -178,7 +186,23 @@ jobs:
           ** ❌ The workflow run failed. [See logs here]($WORKFLOW_URL)**"
           gh api -X PATCH -H "Authorization: token $GITHUB_TOKEN" /repos/${{ github.repository }}/issues/comments/$COMMENT_ID -f body="$UPDATED_BODY"
 
+            # If the workflow fails at any point, the PR comment will be updated
+
+      - name: Update PR comment if no new files
+        if: ${{ steps.changed-files.outputs.added_files_count == 0 }}
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          COMMENT_ID: ${{ steps.init-comment.outputs.COMMENT_ID }}
+        run: |
+          WORKFLOW_URL="${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}"
+          CURRENT_BODY=$(gh api -H "Authorization: token $GITHUB_TOKEN" /repos/${{ github.repository }}/issues/comments/$COMMENT_ID --jq '.body')
+          UPDATED_BODY="$CURRENT_BODY
+
+          🕵️ No new files found. No files will be published to staging or promoted to production."
+          gh api -X PATCH -H "Authorization: token $GITHUB_TOKEN" /repos/${{ github.repository }}/issues/comments/$COMMENT_ID -f body="$UPDATED_BODY"
+
   create-mdx-files-and-open-pr:
+    if: ${{ needs.publish-new-datasets.outputs.has_new_files_to_promote == 'true' }}
     runs-on: ubuntu-latest
     environment: staging
     needs: publish-new-datasets
@@ -188,12 +212,12 @@ jobs:
 
       - name: Use output from publish-new-datasets
         run: |
-          echo "The output from the previous step is: ${{ needs.publish-new-datasets.outputs.publishedCollections }}"
+          echo "The output from the previous step is: ${{ needs.publish-new-datasets.outputs.published_collections }}"
 
       # Creates a slim dataset mdx file for each collection based on the dataset config json
       - name: Create dataset mdx for given collections
         env:
-          PUBLISHED_COLLECTION_FILES: ${{ needs.publish-new-datasets.outputs.publishedCollections }}
+          PUBLISHED_COLLECTION_FILES: ${{ needs.publish-new-datasets.outputs.published_collections }}
         run: |
           echo $PUBLISHED_COLLECTION_FILES
           collection_ids=""
@@ -212,7 +236,7 @@ jobs:
       - name: Prepare temp directory for artifacts
         run: |
             mkdir -p /tmp/upload-artifacts
-            for file in $(echo "${{ needs.publish-new-datasets.outputs.publishedCollections }}" | tr ',' ' '); do
+            for file in $(echo "${{ needs.publish-new-datasets.outputs.published_collections }}" | tr ',' ' '); do
               if [ -f "$file" ]; then
                 cp "$file" /tmp/upload-artifacts/
               else
@@ -341,7 +365,7 @@ jobs:
       - name: Create veda-config PR with changes
         id: create-pr
         env:
-          COMMENT_ID: ${{ needs.publish-new-datasets.outputs.commentId }}
+          COMMENT_ID: ${{ needs.publish-new-datasets.outputs.comment_id }}
           PUBLISHED_COLLECTION_FILES: ${{ steps.publish-collections.outputs.success_collections }}
         run: |
           cd veda-config
