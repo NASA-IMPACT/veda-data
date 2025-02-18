@@ -130,7 +130,7 @@ jobs:
               echo "Status Code: $status_code"
 
               # Update status message based on response code
-              if [ $status_code -eq 200 ] || [ $status_code -eq 201 ]; then
+              if [[ $status_code -eq 200 ]] || [[ $status_code -eq 201 ]]; then
                 echo "$collection_id successfully published ✅"
                 status_message+="- **$collection_id**: Successfully published ✅"
                 success_collections+=("$file")
