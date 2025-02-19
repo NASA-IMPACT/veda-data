@@ -71,13 +71,14 @@
   "datetime_range": "day",
   "renders": {
     "dashboard": {
-      "colormap_name": "blues_r",
-      "rescale": [
-        [
-          0,
-          1
+      "colormap": {
+        "0": [
+            22,
+            158,
+            242,
+            255
         ]
-      ],
+      },
       "assets": [
         "cog_default"
       ],
