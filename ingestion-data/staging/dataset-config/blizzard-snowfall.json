@@ -101,12 +101,6 @@
           255
         ]
       },
-      "rescale": [
-        [
-          6,
-          24
-        ]
-      ],
       "assets": [
         "cog_default"
       ],
