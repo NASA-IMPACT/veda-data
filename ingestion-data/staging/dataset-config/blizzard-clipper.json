@@ -66,7 +66,7 @@
   "collection": "blizzard-clipper",
   "title": "AB/SK/MB Clipper Snowfall Footprint",
   "description": "Single value raster displaying the general snowfall footprint of Alberta Clipper, Saskatchewan Screamer, and Manitoba Mauler types of mid-latitude cyclones.",
-  "is_periodic": true,
+  "is_periodic": false,
   "time_density": "day",
   "datetime_range": "day",
   "renders": {
