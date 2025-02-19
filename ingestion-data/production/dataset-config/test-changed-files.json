@@ -63,8 +63,8 @@
         "description": "Photo by [Bridget Besaw](https://www.nature.org/en-us/get-involved/how-to-help/places-we-protect/the-nature-conservancy-in-louisiana-gulf-coast-prairies-and-marshes/) (Wetland landscape across southern Louisiana.)"
       }
     },
-    "collection": "ida-ndwi-difference-TEST-SM2A-PRODUCTION",
-    "title": "NDWI Difference for Pre and Post-Hurricane Ida from PlanetScope TEST-SM2A-PRODUCTION",
+    "collection": "ida-ndwi-difference-TEST-SHOULDNT-RUN",
+    "title": "NDWI Difference for Pre and Post-Hurricane Ida from PlanetScope TEST-SHOULDNT-RUN",
     "dashboard:time_density": "day",
     "description": "Normalized Difference Water Index Difference of before and after Hurricane Ida in Southern Louisiana.",
     "renders": {
