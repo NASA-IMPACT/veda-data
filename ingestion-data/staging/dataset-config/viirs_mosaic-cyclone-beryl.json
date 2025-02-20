@@ -60,13 +60,14 @@
             "assets": [
                 "cog_default"
             ],
-            "colormap_name": "bupu_r",
+            "colormap_name": "cfastie",
             "rescale": [
                 [
-                    5000,
+                    3500,
                     30000
                 ]
-            ]
+            ],
+            "nodata":-9999
         }
     },
     "spatial_extent": {
