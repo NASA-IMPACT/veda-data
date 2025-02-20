@@ -87,5 +87,6 @@
     "title": "SPORT Sea Surface Temperature (K)",
     "type": "Collection",
     "dashboard:time_density": "day",
-    "dashboard:is_periodic": true
+    "dashboard:is_periodic": true,
+    "temporal_frequency":"twenty four hours"
 }
