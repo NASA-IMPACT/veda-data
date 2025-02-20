@@ -68,8 +68,8 @@
   "collection": "blizzard-merra2-2m-temp",
   "title": "MERRA2 Reanalysis – 2 Meter Temperature (Select Events)",
   "description": "MERRA2 2-meter temperature global reanalysis for three select blizzard events.",
-  "is_periodic": false,
-  "time_density": "day",
+  "dashboard:is_periodic": false,
+  "dashboard:time_density": "day",
   "datetime_range": "day",
   "renders": {
     "dashboard": {
@@ -85,7 +85,5 @@
       ],
       "title": "VEDA Dashboard Render Parameters"
     }
-  },
-  "transfer": true,
-  "dashboard:time_density": "day"
+  }
 }
