@@ -1,0 +1,87 @@
+{
+  "license": "CC0-1.0",
+  "stac_version": "1.0.0",
+  "links": [],
+  "spatial_extent": {
+    "xmin": -110.6,
+    "ymin": 34.7,
+    "xmax": -66.7,
+    "ymax": 49.6
+  },
+  "temporal_extent": {
+    "startdate": "2021-12-31T00:00:00Z",
+    "enddate": "2021-12-31T23:59:59Z"
+  },
+  "discovery_items": [
+    {
+      "upload": false,
+      "cogify": false,
+      "dry_run": false,
+      "filename_regex": "(.*)StormEvents_Blizzards_(.*).tif$",
+      "use_multithreading": false,
+      "discovery": "s3",
+      "prefix": "Blizzards/",
+      "bucket": "veda-data-store-staging"
+    }
+  ],
+  "sample_files": [
+    "s3://veda-data-store-staging/Blizzards/StormEvents_Blizzards_cog_2021-12-31.tif"
+  ],
+  "data_type": "cog",
+  "stac_extensions": [
+    "https://stac-extensions.github.io/render/v1.0.0/schema.json",
+    "https://stac-extensions.github.io/item-assets/v1.0.0/schema.json"
+  ],
+  "item_assets": {
+    "cog_default": {
+      "type": "image/tiff; application=geotiff; profile=cloud-optimized",
+      "roles": [
+        "data",
+        "layer"
+      ],
+      "title": "Default COG Layer",
+      "description": "Cloud optimized default layer to display on map"
+    }
+  },
+  "providers": [
+    {
+      "name": "NASA VEDA",
+      "roles": [
+        "host"
+      ],
+      "url": "https://www.earthdata.nasa.gov/dashboard/"
+    }
+  ],
+  "assets": {
+    "thumbnail": {
+      "title": "Thumbnail",
+      "type": "image/png",
+      "roles": [
+        "thumbnail"
+      ],
+      "description": "Photo by Andrew Blackford (Near-blizzard conditions in Maria Stein, Ohio on December 23, 2022)",
+      "href": "https://thumbnails.openveda.cloud/blizzards-cover.png"
+    }
+  },
+  "collection": "blizzard-count",
+  "title": "Blizzard Count 1950-2021",
+  "description": "Nearest neighbor interpolation of NCEI Storm Events Database confirmed blizzard reports from 1950-2021 in the United States, clipped to the Northern Plains, Midwest, and Northeast.",
+  "dashboard:is_periodic": true,
+  "dashboard:time_density": "day",
+  "datetime_range": "day",
+  "renders": {
+    "dashboard": {
+      "colormap_name": "turbo",
+      "rescale": [
+        [
+          1,
+          50
+        ]
+      ],
+      "assets": [
+        "cog_default"
+      ],
+      "title": "VEDA Dashboard Render Parameters"
+    }
+  }
+}
