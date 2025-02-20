@@ -35,28 +35,7 @@
         }
     },
     "license": "MIT",
-    "links": [
-        {
-            "href": "https://staging.openveda.cloud/api/stac/collections/viirs_mosaic-cyclone-beryl/items",
-            "rel": "items",
-            "type": "application/geo+json"
-        },
-        {
-            "href": "https://staging.openveda.cloud/api/stac/",
-            "rel": "parent",
-            "type": "application/json"
-        },
-        {
-            "href": "https://staging.openveda.cloud/api/stac/",
-            "rel": "root",
-            "type": "application/json"
-        },
-        {
-            "href": "https://staging.openveda.cloud/api/stac/collections/viirs_mosaic-cyclone-beryl",
-            "rel": "self",
-            "type": "application/json"
-        }
-    ],
+    "links": [],
     "product_level": "L1b",
     "providers": [
         {
@@ -101,12 +80,6 @@
         "https://stac-extensions.github.io/item-assets/v1.0.0/schema.json"
     ],
     "stac_version": "1.0.0",
-    "summaries": {
-        "datetime": [
-            "2024-06-26T00:00:00Z",
-            "2024-07-11T00:00:00Z"
-        ]
-    },
     "temporal_extent": {
         "enddate": "2024-06-26T00:00:00Z",
         "startdate": "2024-07-11T00:00:00Z"
