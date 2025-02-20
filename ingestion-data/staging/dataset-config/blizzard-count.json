@@ -3,21 +3,21 @@
   "stac_version": "1.0.0",
   "links": [],
   "spatial_extent": {
-    "xmin": -107.5,
-    "ymin": 31.2,
-    "xmax": -66,
-    "ymax": 50
+    "xmin": -110.6,
+    "ymin": 34.7,
+    "xmax": -66.7,
+    "ymax": 49.6
   },
   "temporal_extent": {
-    "startdate": "1950-11-26T00:00:00Z",
-    "enddate": "2016-01-23T23:59:59Z"
+    "startdate": "2021-12-31T00:00:00Z",
+    "enddate": "2021-12-31T23:59:59Z"
   },
   "discovery_items": [
     {
       "upload": false,
       "cogify": false,
       "dry_run": false,
-      "filename_regex": "(.*)RSI_Snowfall_(.*).tif$",
+      "filename_regex": "(.*)StormEvents_Blizzards_(.*).tif$",
       "use_multithreading": false,
       "discovery": "s3",
       "prefix": "Blizzards/",
@@ -25,11 +25,7 @@
     }
   ],
   "sample_files": [
-    "s3://veda-data-store-staging/Blizzards/RSI_Snowfall_cog_1950-11-26.tif",
-    "s3://veda-data-store-staging/Blizzards/RSI_Snowfall_cog_1978-01-26.tif",
-    "s3://veda-data-store-staging/Blizzards/RSI_Snowfall_cog_1991-11-01.tif",
-    "s3://veda-data-store-staging/Blizzards/RSI_Snowfall_cog_1993-03-14.tif",
-    "s3://veda-data-store-staging/Blizzards/RSI_Snowfall_cog_2016-01-23.tif"
+    "s3://veda-data-store-staging/Blizzards/StormEvents_Blizzards_cog_2021-12-31.tif"
   ],
   "data_type": "cog",
   "stac_extensions": [
@@ -67,40 +63,21 @@
       "href": "https://thumbnails.openveda.cloud/blizzards-cover.png"
     }
   },
-  "collection": "blizzard-snowfall",
-  "title": "Regional Snowfall Index Accumulated Snowfall (Select Events)",
-  "description": "Regional Snowfall Index (RSI) accumulated snowfall reports interpolated for five select blizzard events.",
-  "dashboard:is_periodic": false,
+  "collection": "blizzard-count",
+  "title": "Blizzard Count 1950-2021",
+  "description": "Nearest neighbor interpolation of NCEI Storm Events Database confirmed blizzard reports from 1950-2021 in the United States, clipped to the Northern Plains, Midwest, and Northeast.",
+  "dashboard:is_periodic": true,
   "dashboard:time_density": "day",
   "datetime_range": "day",
   "renders": {
     "dashboard": {
-      "colormap": {
-        "6": [
-          30,
-          144,
-          201,
-          255
-        ],
-        "12": [
-          171,
-          148,
-          214,
-          255
-        ],
-        "18": [
-          90,
-          22,
-          128,
-          255
-        ],
-        "24": [
-          217,
-          67,
-          212,
-          255
+      "colormap_name": "turbo",
+      "rescale": [
+        [
+          1,
+          50
         ]
-      },
+      ],
       "assets": [
         "cog_default"
       ],

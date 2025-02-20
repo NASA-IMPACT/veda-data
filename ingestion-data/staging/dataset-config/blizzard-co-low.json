@@ -3,21 +3,21 @@
   "stac_version": "1.0.0",
   "links": [],
   "spatial_extent": {
-    "xmin": -107.5,
-    "ymin": 31.2,
-    "xmax": -66,
-    "ymax": 50
+    "xmin": -110,
+    "ymin": 38.3,
+    "xmax": -80.9,
+    "ymax": 48.9
   },
   "temporal_extent": {
-    "startdate": "1950-11-26T00:00:00Z",
-    "enddate": "2016-01-23T23:59:59Z"
+    "startdate": "1950-01-01T00:00:00Z",
+    "enddate": "1950-01-01T23:59:59Z"
   },
   "discovery_items": [
     {
       "upload": false,
       "cogify": false,
       "dry_run": false,
-      "filename_regex": "(.*)RSI_Snowfall_(.*).tif$",
+      "filename_regex": "(.*)CO_Low_(.*).tif$",
       "use_multithreading": false,
       "discovery": "s3",
       "prefix": "Blizzards/",
@@ -25,11 +25,7 @@
     }
   ],
   "sample_files": [
-    "s3://veda-data-store-staging/Blizzards/RSI_Snowfall_cog_1950-11-26.tif",
-    "s3://veda-data-store-staging/Blizzards/RSI_Snowfall_cog_1978-01-26.tif",
-    "s3://veda-data-store-staging/Blizzards/RSI_Snowfall_cog_1991-11-01.tif",
-    "s3://veda-data-store-staging/Blizzards/RSI_Snowfall_cog_1993-03-14.tif",
-    "s3://veda-data-store-staging/Blizzards/RSI_Snowfall_cog_2016-01-23.tif"
+    "s3://veda-data-store-staging/Blizzards/CO_Low_1950-01-01.tif"
   ],
   "data_type": "cog",
   "stac_extensions": [
@@ -67,38 +63,19 @@
       "href": "https://thumbnails.openveda.cloud/blizzards-cover.png"
     }
   },
-  "collection": "blizzard-snowfall",
-  "title": "Regional Snowfall Index Accumulated Snowfall (Select Events)",
-  "description": "Regional Snowfall Index (RSI) accumulated snowfall reports interpolated for five select blizzard events.",
-  "dashboard:is_periodic": false,
-  "dashboard:time_density": "day",
+  "collection": "blizzard-co-low",
+  "title": "Colorado Low Snowfall Footprint",
+  "description": "Single value raster displaying the general snowfall footprint of a Colorado Low type of mid-latitude cyclone.",
+  "time_density": "day",
   "datetime_range": "day",
   "renders": {
     "dashboard": {
       "colormap": {
-        "6": [
-          30,
-          144,
-          201,
-          255
-        ],
-        "12": [
-          171,
-          148,
-          214,
-          255
-        ],
-        "18": [
-          90,
-          22,
-          128,
-          255
-        ],
-        "24": [
-          217,
-          67,
-          212,
-          255
+        "0": [
+            22,
+            158,
+            242,
+            255
         ]
       },
       "assets": [
@@ -106,5 +83,8 @@
       ],
       "title": "VEDA Dashboard Render Parameters"
     }
-  }
+  },
+  "transfer": true,
+  "dashboard:time_density": "day",
+  "dashboard:is_periodic": false
 }
