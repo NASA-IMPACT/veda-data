@@ -32,6 +32,47 @@ def validate_discovery_item_config(item: Dict[str, Any]) -> Dict[str, Any]:
     return item
 
 
+def publish_to_staging(payload):
+    base_api_url = os.getenv("STAGING_SM2A_API_URL")
+    dataset_pipeline_dag = os.getenv("DATASET_DAG_NAME", "veda_dataset_pipeline")
+    username = os.getenv("STAGING_SM2A_ADMIN_USERNAME")
+    password = os.getenv("STAGING_SM2A_ADMIN_PASSWORD")
+
+    api_token = b64encode(f"{username}:{password}".encode()).decode()
+
+    if not base_api_url or not api_token:
+        raise ValueError(
+            "STAGING_SM2A_API_URL or STAGING_SM2A_ADMIN_USERNAME"
+            + " or STAGING_SM2A_ADMIN_PASSWORD is not"
+            + " set in the environment variables."
+        )
+
+    headers = {
+        "Content-Type": "application/json",
+        "Authorization": "Basic " + api_token,
+    }
+
+    body = {
+        **payload,
+        "dag_run_id": f"{dataset_pipeline_dag}-{uuid.uuid4()}",
+        "note": "Run from GitHub Actions veda-data",
+    }
+    http_conn = http.client.HTTPSConnection(base_api_url)
+    http_conn.request(
+        "POST",
+        f"/api/v1/dags/{dataset_pipeline_dag}/dagRuns",
+        json.dumps(body),
+        headers,
+    )
+    response = http_conn.getresponse()
+    response_data = response.read()
+    http_conn.close()
+
+    print(json.dumps({"statusCode": response.status}))
+    print(response_data.decode())
+    return {"statusCode": response.status, "body": response_data.decode()}
+
+
 def promote_to_production(payload):
     base_api_url = os.getenv("SM2A_API_URL")
     promotion_dag = os.getenv("PROMOTION_DAG_NAME", "veda_promotion_pipeline")
@@ -39,8 +80,6 @@ def promote_to_production(payload):
     password = os.getenv("SM2A_ADMIN_PASSWORD")
 
     api_token = b64encode(f"{username}:{password}".encode()).decode()
-    print(password)
-    print(api_token)
 
     if not base_api_url or not api_token:
         raise ValueError(
@@ -53,20 +92,22 @@ def promote_to_production(payload):
         "Authorization": "Basic " + api_token,
     }
 
+    payload["conf"]["transfer"] = True
     body = {
         **payload,
         "dag_run_id": f"{promotion_dag}-{uuid.uuid4()}",
         "note": "Run from GitHub Actions veda-data",
     }
     http_conn = http.client.HTTPSConnection(base_api_url)
-    response = http_conn.request(
+    http_conn.request(
         "POST", f"/api/v1/dags/{promotion_dag}/dagRuns", json.dumps(body), headers
     )
     response = http_conn.getresponse()
     response_data = response.read()
-    print(f"Response: ${response_data}")
     http_conn.close()
 
+    print(json.dumps({"statusCode": response.status}))
+    print(response_data.decode())
     return {"statusCode": response.status, "body": response_data.decode()}
 
 
@@ -74,13 +115,20 @@ if __name__ == "__main__":
     try:
         with open(sys.argv[1], "r") as file:
             input = json.load(file)
+            stage = sys.argv[2]
             discovery_items = input.get("discovery_items")
             validated_discovery_items = [
                 validate_discovery_item_config(item) for item in discovery_items
             ]
-
             dag_payload = {"conf": input}
-            promote_to_production(dag_payload)
+            if stage == "production":
+                promote_to_production(dag_payload)
+            elif stage == "staging":
+                publish_to_staging(dag_payload)
 
+    except IndexError:
+        print("Usage: promote_collection.py <file_name> <stage>")
+    except FileNotFoundError:
+        print(f"Error: File '{sys.argv[1]}' not found.")
     except json.JSONDecodeError:
         raise ValueError(f"Invalid JSON content in file {sys.argv[1]}")
