@@ -67,7 +67,7 @@
   "collection": "blizzard-era5-2m-temp",
   "title": "ERA5 Reanalysis – 2 Meter Temperature (Select Events)",
   "description": "ERA5 2-meter temperature global reanalysis for three select blizzard events.",
-  "is_periodic": false,
+  "is_periodic": true,
   "time_density": "day",
   "datetime_range": "day",
   "renders": {
