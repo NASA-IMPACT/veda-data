@@ -66,24 +66,24 @@
   "collection": "blizzard-panhandle-hooker",
   "title": "Panhandle Hooker Snowfall Footprint",
   "description": "Single value raster displaying the general snowfall footprint of a Panhandle Hooker type of mid-latitude cyclone.",
-  "is_periodic": true,
   "time_density": "day",
   "datetime_range": "day",
   "renders": {
     "dashboard": {
-      "colormap_name": "blues_r",
-      "rescale": [
-        [
-          0,
-          1
+      "colormap": {
+        "0": [
+            22,
+            158,
+            242,
+            255
         ]
-      ],
+      },
       "assets": [
         "cog_default"
       ],
       "title": "VEDA Dashboard Render Parameters"
     }
   },
-  "transfer": true,
-  "dashboard:time_density": "day"
+  "dashboard:time_density": "day",
+  "dashboard:is_periodic": false
 }
