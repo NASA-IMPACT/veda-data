@@ -1,0 +1,83 @@
+{
+    "collection": "ida-ndvi",
+    "title": "NDVI for Pre and Post-Hurricane Ida from PlanetScope",
+    "description": "Normalized Difference Vegetation Index before and after Hurricane Ida in Southern Louisiana.",
+    "license": "CC0-1.0",
+    "is_periodic": true,
+    "time_density": "day",
+    "spatial_extent": {
+      "xmin": -90.85,
+      "ymin": 29.03,
+      "xmax": -90.06,
+      "ymax": 29.65
+    },
+    "temporal_extent": {
+      "startdate": "2021-08-23T00:00:00Z",
+      "enddate": "2021-09-09T23:59:59Z"
+    },
+    "sample_files": [
+      "s3://veda-data-store-staging/planet-indices-v2/NDVI_Pre_Hurricane_cog_2021-08-23.tif",
+      "s3://veda-data-store-staging/planet-indices-v2/NDVI_Post_Hurricane_cog_2021-09-09.tif"
+    ],
+    "discovery_items": [
+      {
+        "discovery": "s3",
+        "cogify": false,
+        "upload": false,
+        "dry_run": false,
+        "prefix": "planet-indices-v2/",
+        "bucket": "veda-data-store-staging",
+        "filename_regex": "(.*)NDVI_(.*)_Hurricane_cog_(.*).tif$"
+      }
+    ],
+    "data_type": "cog",
+    "providers": [
+      {
+        "name": "NASA VEDA",
+        "roles": [
+          "host"
+        ],
+        "url": "https://www.earthdata.nasa.gov/dashboard/"
+      }
+    ],
+    "stac_version": "1.0.0",
+    "stac_extensions": [
+        "https://stac-extensions.github.io/render/v1.0.0/schema.json",
+        "https://stac-extensions.github.io/item-assets/v1.0.0/schema.json"
+    ],
+    "item_assets": {
+        "cog_default": {
+            "type": "image/tiff; application=geotiff; profile=cloud-optimized",
+            "roles": [
+                "data",
+                "layer"
+            ],
+            "title": "Default COG Layer",
+            "description": "Cloud optimized default layer to display on map"
+        }
+    },
+    "renders": {
+        "dashboard": {
+            "resampling": "nearest",
+            "bidx": [1],
+            "colormap_name": "rdylgn",
+            "nodata": -999,
+            "assets": [
+                "cog_default"
+            ],
+            "rescale": [[-1, 1]],
+            "title": "VEDA Dashboard Render Parameters"
+        }
+    },
+    "assets": {
+        "thumbnail": {
+            "href": "https://thumbnails.openveda.cloud/louisiana-marsh.jpg",
+            "type": "image/jpeg",
+            "roles": [
+            "thumbnail"
+            ],
+            "title": "Thumbnail",
+            "description": "Photo by [Bridget Besaw](https://www.nature.org/en-us/get-involved/how-to-help/places-we-protect/the-nature-conservancy-in-louisiana-gulf-coast-prairies-and-marshes/) (Wetland landscape across southern Louisiana.)"
+        }
+    }
+  }
