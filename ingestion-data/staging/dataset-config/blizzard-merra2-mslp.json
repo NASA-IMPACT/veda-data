@@ -68,8 +68,8 @@
   "collection": "blizzard-merra2-mslp",
   "title": "MERRA2 Reanalysis – Mean Sea Level Pressure (Select Events)",
   "description": "MERRA2 mean sea level pressure (MSLP) global reanalysis for three select blizzard events.",
-  "is_periodic": false,
-  "time_density": "day",
+  "dashboard:is_periodic": false,
+  "dashboard:time_density": "day",
   "datetime_range": "day",
   "renders": {
     "dashboard": {
@@ -85,6 +85,5 @@
       ],
       "title": "VEDA Dashboard Render Parameters"
     }
-  },
-  "transfer": true
+  }
 }
