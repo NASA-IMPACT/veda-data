@@ -23,7 +23,6 @@
             "prefix": "sst-cyclone-beryl/"
         }
     ],
-    "is_periodic": true,
     "item_assets": {
         "cog_default": {
             "description": "Satellite-derived sea surface temperatures (SSTs) for select cyclone events.",
@@ -88,5 +87,5 @@
     "title": "SPORT Sea Surface Temperature (K)",
     "type": "Collection",
     "dashboard:time_density": "day",
-    "dashboard:is_periodic": false
+    "dashboard:is_periodic": true
 }
