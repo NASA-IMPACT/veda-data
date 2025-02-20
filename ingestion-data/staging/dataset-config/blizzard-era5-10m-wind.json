@@ -17,7 +17,7 @@
       "upload": false,
       "cogify": false,
       "dry_run": false,
-      "filename_regex": "(.*)ERA5_10m_Wind_(.*).tif$",
+      "filename_regex": "(.*)ERA5_10m_Wind_cog_v2_(.*).tif$",
       "use_multithreading": false,
       "discovery": "s3",
       "prefix": "Blizzards/",
@@ -25,8 +25,8 @@
     }
   ],
   "sample_files": [
-    "s3://veda-data-store-staging/Blizzards/ERA5_10m_Wind_cog_1950-11-26T00:00:00Z.tif",
-    "s3://veda-data-store-staging/Blizzards/ERA5_10m_Wind_cog_1978-01-26T09:00:00Z.tif"
+    "s3://veda-data-store-staging/Blizzards/ERA5_10m_Wind_cog_v2_1950-11-26T00:00:00Z.tif",
+    "s3://veda-data-store-staging/Blizzards/ERA5_10m_Wind_cog_v2_1978-01-26T09:00:00Z.tif"
   ],
   "data_type": "cog",
   "stac_extensions": [
@@ -67,8 +67,8 @@
   "collection": "blizzard-era5-10m-wind",
   "title": "ERA5 Reanalysis – 10 Meter Wind (Select Events)",
   "description": "ERA5 10-meter wind speeds global reanalysis for three select blizzard events.",
-  "is_periodic": true,
-  "time_density": "day",
+  "dashboard:is_periodic": true,
+  "dashboard:time_density": "day",
   "datetime_range": "day",
   "renders": {
     "dashboard": {
@@ -84,7 +84,5 @@
       ],
       "title": "VEDA Dashboard Render Parameters"
     }
-  },
-  "transfer": true,
-  "dashboard:time_density": "day"
+  }
 }
