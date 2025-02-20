@@ -66,18 +66,18 @@
   "collection": "blizzard-co-low",
   "title": "Colorado Low Snowfall Footprint",
   "description": "Single value raster displaying the general snowfall footprint of a Colorado Low type of mid-latitude cyclone.",
-  "is_periodic": true,
   "time_density": "day",
   "datetime_range": "day",
   "renders": {
     "dashboard": {
-      "colormap_name": "blues_r",
-      "rescale": [
-        [
-          0,
-          1
+      "colormap": {
+        "0": [
+            22,
+            158,
+            242,
+            255
         ]
-      ],
+      },
       "assets": [
         "cog_default"
       ],
@@ -85,5 +85,6 @@
     }
   },
   "transfer": true,
-  "dashboard:time_density": "day"
+  "dashboard:time_density": "day",
+  "dashboard:is_periodic": false
 }
