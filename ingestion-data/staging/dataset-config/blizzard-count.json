@@ -66,8 +66,8 @@
   "collection": "blizzard-count",
   "title": "Blizzard Count 1950-2021",
   "description": "Nearest neighbor interpolation of NCEI Storm Events Database confirmed blizzard reports from 1950-2021 in the United States, clipped to the Northern Plains, Midwest, and Northeast.",
-  "is_periodic": true,
-  "time_density": "day",
+  "dashboard:is_periodic": true,
+  "dashboard:time_density": "day",
   "datetime_range": "day",
   "renders": {
     "dashboard": {
@@ -83,7 +83,5 @@
       ],
       "title": "VEDA Dashboard Render Parameters"
     }
-  },
-  "transfer": true,
-  "dashboard:time_density": "day"
+  }
 }
