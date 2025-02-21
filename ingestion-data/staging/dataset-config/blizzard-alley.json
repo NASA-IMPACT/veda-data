@@ -66,8 +66,8 @@
   "collection": "blizzard-alley",
   "title": "Blizzard Alley",
   "description": "Single value raster displaying the region of the USA known as Blizzard Alley, where at least 10-20 blizzards have occurred since 1950. Eastern North Dakota seen 50-100+ in the same time period.",
-  "is_periodic": true,
-  "time_density": "day",
+  "dashboard:is_periodic": false,
+  "dashboard:time_density": "day",
   "datetime_range": "day",
   "renders": {
     "dashboard": {
@@ -84,7 +84,5 @@
       ],
       "title": "VEDA Dashboard Render Parameters"
     }
-  },
-  "transfer": true,
-  "dashboard:time_density": "day"
+  }
 }

@@ -66,8 +66,8 @@
   "collection": "blizzard-millerb",
   "title": "Miller B Snowfall Footprint",
   "description": "Single value raster displaying the general snowfall footprint of a Miller B type of mid-latitude cyclone.",
-  "is_periodic": true,
-  "time_density": "day",
+  "dashboard:is_periodic": false,
+  "dashboard:time_density": "day",
   "datetime_range": "day",
   "renders": {
     "dashboard": {
@@ -84,7 +84,5 @@
       ],
       "title": "VEDA Dashboard Render Parameters"
     }
-  },
-  "transfer": true,
-  "dashboard:time_density": "day"
+  }
 }
