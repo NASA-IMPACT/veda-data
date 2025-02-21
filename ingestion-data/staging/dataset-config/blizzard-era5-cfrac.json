@@ -17,7 +17,7 @@
       "upload": false,
       "cogify": false,
       "dry_run": false,
-      "filename_regex": "(.*)ERA5_CFRAC_(.*).tif$",
+      "filename_regex": "(.*)ERA5_CFRAC_cog_v2_(.*).tif$",
       "use_multithreading": false,
       "discovery": "s3",
       "prefix": "Blizzards/",
@@ -25,8 +25,8 @@
     }
   ],
   "sample_files": [
-    "s3://veda-data-store-staging/Blizzards/ERA5_CFRAC_cog_1950-11-26T00:00:00Z.tif",
-    "s3://veda-data-store-staging/Blizzards/ERA5_CFRAC_cog_1978-01-26T09:00:00Z.tif"
+    "s3://veda-data-store-staging/Blizzards/ERA5_CFRAC_cog_v2_1950-11-26T00:00:00Z.tif",
+    "s3://veda-data-store-staging/Blizzards/ERA5_CFRAC_cog_v2_1978-01-26T09:00:00Z.tif"
   ],
   "data_type": "cog",
   "stac_extensions": [
@@ -67,8 +67,8 @@
   "collection": "blizzard-era5-cfrac",
   "title": "ERA5 Reanalysis – Cloud Fraction (Select Events)",
   "description": "ERA5 cloud fraction global reanalysis for three select blizzard events.",
-  "is_periodic": false,
-  "time_density": "day",
+  "dashboard:is_periodic": false,
+  "dashboard:time_density": "day",
   "datetime_range": "day",
   "renders": {
     "dashboard": {
@@ -84,6 +84,5 @@
       ],
       "title": "VEDA Dashboard Render Parameters"
     }
-  },
-  "transfer": true
+  }
 }
