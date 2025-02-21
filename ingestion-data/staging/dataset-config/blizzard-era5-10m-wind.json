@@ -67,7 +67,7 @@
   "collection": "blizzard-era5-10m-wind",
   "title": "ERA5 Reanalysis – 10 Meter Wind (Select Events)",
   "description": "ERA5 10-meter wind speeds global reanalysis for three select blizzard events.",
-  "dashboard:is_periodic": true,
+  "dashboard:is_periodic": false,
   "dashboard:time_density": "day",
   "datetime_range": "day",
   "renders": {
