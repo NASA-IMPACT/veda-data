@@ -1,0 +1,93 @@
+{
+    "assets": {
+    "thumbnail": {
+      "title": "Thumbnail",
+      "type": "image/png",
+      "roles": [
+        "thumbnail"
+      ],
+      "description": "Photo by [CIRA](https://satlib.cira.colostate.edu/event/hurricane-beryl/) (GOES-16 Band 2 visible satellite imagery of the eye of Hurricane Beryl at Category 5 intensity.)",
+      "href": "https://thumbnails.openveda.cloud/cyclones_beryl_background.png"
+    }
+    },
+    "collection": "viirs_mosaic-cyclone-beryl",
+    "description": "The VIIRS Brightness Temperature (Band I5, Day) layer is the brightness temperature, measured in Kelvin (K), calculated from the top-of-the-atmosphere radiances. It does not provide an accurate temperature of either clouds or the land surface, but it does show relative temperature differences which can be used to distinguish features both in clouds and over clear land. It can be used to distinguish land, sea ice, and open water over the polar regions during winter (in cloudless areas). The VIIRS Brightness Temperature layer is calculated from VIIRS Calibrated Radiances (VNP02) and is available from the joint NASA/NOAA Suomi National Polar orbiting Partnership (Suomi NPP) satellite. The sensor resolution is 375m, the imagery resolution is 250m, and the temporal resolution is daily.",
+    "discovery_items": [
+        {
+            "bucket": "veda-data-store-staging",
+            "cogify": false,
+            "discovery": "s3",
+            "dry_run": false,
+            "filename_regex": ".*.tif$",
+            "id_template": "{}",
+            "prefix": "viirs_mosaic-cyclone-beryl/"
+        }
+    ],
+    "item_assets": {
+        "cog_default": {
+            "description": "The VIIRS Brightness Temperature (Band I5, Day) layer is the brightness temperature, measured in Kelvin (K), calculated from the top-of-the-atmosphere radiances. It does not provide an accurate temperature of either clouds or the land surface, but it does show relative temperature differences which can be used to distinguish features both in clouds and over clear land. It can be used to distinguish land, sea ice, and open water over the polar regions during winter (in cloudless areas). The VIIRS Brightness Temperature layer is calculated from VIIRS Calibrated Radiances (VNP02) and is available from the joint NASA/NOAA Suomi National Polar orbiting Partnership (Suomi NPP) satellite. The sensor resolution is 375m, the imagery resolution is 250m, and the temporal resolution is daily.",
+            "roles": [
+                "data",
+                "layer"
+            ],
+            "title": "Brightness Temperature (Band I5)",
+            "type": "image/tiff; application=geotiff; profile=cloud-optimized"
+        }
+    },
+    "license": "MIT",
+    "links": [],
+    "product_level": "L1b",
+    "providers": [
+        {
+            "name": "NASA",
+            "roles": [
+                "producer",
+                "processor",
+                "licensor"
+            ],
+            "url": " doi:10.5067/VIIRS/VNP03IMG_NRT.002"
+        },
+        {
+            "name": "NASA VEDA",
+            "roles": [
+                "host"
+            ],
+            "url": "https://www.earthdata.nasa.gov/dashboard/"
+        }
+    ],
+    "renders": {
+        "dashboard": {
+            "assets": [
+                "cog_default"
+            ],
+            "colormap_name": "cfastie",
+            "rescale": [
+                [
+                    3500,
+                    30000
+                ]
+            ],
+            "nodata":-9999
+        }
+    },
+    "spatial_extent": {
+        "xmax": -13.345,
+        "xmin": -102.815,
+        "ymax": 49.643,
+        "ymin": 6.194
+    },
+    "stac_extensions": [
+        "https://stac-extensions.github.io/render/v1.0.0/schema.json",
+        "https://stac-extensions.github.io/item-assets/v1.0.0/schema.json"
+    ],
+    "stac_version": "1.0.0",
+    "temporal_extent": {
+        "enddate": "2024-06-26T00:00:00Z",
+        "startdate": "2024-07-11T00:00:00Z"
+    },
+    "temporal_frequency": "six minutes",
+    "title": "Brightness Temperature (Band I5)",
+    "type": "Collection",
+    "dashboard:time_density": "day",
+    "dashboard:is_periodic": true
+}
