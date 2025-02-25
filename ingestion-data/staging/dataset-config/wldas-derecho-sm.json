@@ -1,0 +1,88 @@
+{
+  "license": "CC0-1.0",
+  "stac_version": "1.0.0",
+  "links": [],
+  "spatial_extent": {
+    "xmin": -179,
+    "ymin": 17,
+    "xmax": 179,
+    "ymax": 71
+  },
+  "temporal_extent": {
+    "startdate": "2022-05-11T00:00:00Z",
+    "enddate": "2022-05-11T23:59:59Z"
+  },
+  "discovery_items": [
+    {
+      "upload": false,
+      "cogify": false,
+      "dry_run": false,
+      "filename_regex": "(.*)WLDAScog_SM_(.*).tif$",
+      "use_multithreading": false,
+      "discovery": "s3",
+      "prefix": "Derecho/",
+      "bucket": "veda-data-store-staging"
+    }
+  ],
+  "sample_files": [
+    "s3://veda-data-store-staging/Derecho/COG/WLDAScog_SM_2022-05-11.tif"
+  ],
+  "data_type": "cog",
+  "stac_extensions": [
+    "https://stac-extensions.github.io/render/v1.0.0/schema.json",
+    "https://stac-extensions.github.io/item-assets/v1.0.0/schema.json"
+  ],
+  "item_assets": {
+    "cog_default": {
+      "type": "image/tiff; application=geotiff; profile=cloud-optimized",
+      "roles": [
+        "data",
+        "layer"
+      ],
+      "title": "Default COG Layer",
+      "description": "Cloud optimized default layer to display on map"
+    }
+  },
+  "providers": [
+    {
+      "name": "NASA VEDA",
+      "roles": [
+        "host"
+      ],
+      "url": "https://www.earthdata.nasa.gov/dashboard/"
+    }
+  ],
+  "assets": {
+    "thumbnail": {
+      "title": "Thumbnail",
+      "type": "image/png",
+      "roles": [
+        "thumbnail"
+      ],
+      "description": "Example thumbnail for WLDAS Soil Moisture data",
+      "href": "https://thumbnails.openveda.cloud/VEDA_Derecho_Thumbnail.png"
+    }
+  },
+  "collection": "wldas-derecho-sm",
+  "title": "WLDAS Soil Moisture Content (0-10cm)",
+  "description": "WLDAS data for the Western United States on May 11th, 2022.",
+  "is_periodic": false,
+  "time_density": "day",
+  "datetime_range": "day",
+  "renders": {
+    "dashboard": {
+      "colormap_name": "RdYlGn",
+      "rescale": [
+        [
+          0,
+          1
+        ]
+      ],
+      "assets": [
+        "cog_default"
+      ],
+      "title": "VEDA Dashboard Render Parameters"
+    }
+  },
+  "transfer": true
+}
