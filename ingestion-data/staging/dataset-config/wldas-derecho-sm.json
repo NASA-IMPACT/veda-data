@@ -59,8 +59,8 @@
       "roles": [
         "thumbnail"
       ],
-      "description": "Example thumbnail for WLDAS Soil Moisture data",
-      "href": "https://thumbnails.openveda.cloud/VEDA_Derecho_Thumbnail.png"
+      "description": "Photo by Jim Reed Photography (Intense derecho thunderstorm as it sweeps across farmland on September 23, 2018)\n",
+      "href": "https://thumbnails.openveda.cloud/veda_derecho_thumbnail.png"
     }
   },
   "collection": "wldas-derecho-sm",
