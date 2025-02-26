@@ -3,10 +3,10 @@
   "stac_version": "1.0.0",
   "links": [],
   "spatial_extent": {
-    "xmin": -179,
-    "ymin": 17,
-    "xmax": 179,
-    "ymax": 71
+    "xmin": -127,
+    "ymin": 26,
+    "xmax": -89,
+    "ymax": 54
   },
   "temporal_extent": {
     "startdate": "2022-05-11T00:00:00Z",
