@@ -59,5 +59,19 @@
             "type": "image/jpeg",
             "roles": ["thumbnail"]
         }
+    },
+    "renders": {
+      "dashboard": {
+        "resampling": "nearest",
+        "bidx": [
+                1
+        ],
+        "colormap_name": "nlcd",
+        "nodata": 0,
+        "assets": [
+          "landcover"
+        ],
+        "title": "VEDA Dashboard Render Parameters"
+      }
     }
 }
