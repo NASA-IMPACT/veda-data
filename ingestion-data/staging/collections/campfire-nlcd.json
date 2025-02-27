@@ -60,7 +60,7 @@
         "colormap_name": "nlcd",
         "nodata": 0,
         "assets": [
-          "landcover"
+          "cog_default"
         ],
         "title": "VEDA Dashboard Render Parameters"
       }
