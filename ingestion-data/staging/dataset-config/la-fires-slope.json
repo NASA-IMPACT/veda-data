@@ -1,0 +1,89 @@
+{
+  "license": "CC0-1.0",
+  "stac_version": "1.0.0",
+  "links": [],
+  "spatial_extent": {
+    "xmin": -118.162058,
+    "ymin": 34.161887,
+    "xmax": -118.01304,
+    "ymax": 34.237827
+  },
+  "temporal_extent": {
+    "startdate": "2025-01-09T21:00:00Z",
+    "enddate": "2025-01-09T12:00:00Z"
+  },
+  "discovery_items": [
+    {
+      "upload": false,
+      "cogify": false,
+      "dry_run": false,
+      "filename_regex": "(.*)Slope_cog_(.*).tif$",
+      "use_multithreading": false,
+      "discovery": "s3",
+      "prefix": "La-Fires/",
+      "bucket": "veda-data-store-staging"
+    }
+  ],
+  "sample_files": [
+    "s3://veda-data-store-staging/LA-Fires/Slope_cog_2025-01-09.tif"
+  ],
+  "data_type": "cog",
+  "stac_extensions": [
+    "https://stac-extensions.github.io/render/v1.0.0/schema.json",
+    "https://stac-extensions.github.io/item-assets/v1.0.0/schema.json"
+  ],
+  "item_assets": {
+    "cog_default": {
+      "type": "image/tiff; application=geotiff; profile=cloud-optimized",
+      "roles": [
+        "data",
+        "layer"
+      ],
+      "title": "Default COG Layer",
+      "description": "Cloud optimized default layer to display on map"
+    }
+  },
+  "providers": [
+    {
+      "name": "NASA VEDA",
+      "roles": [
+        "host"
+      ],
+      "url": "https://www.earthdata.nasa.gov/dashboard/"
+    }
+  ],
+  "assets": {
+    "thumbnail": {
+      "title": "Thumbnail",
+      "type": "image/png",
+      "roles": [
+        "thumbnail"
+      ],
+      "description": "Planet Labs Commercial Satellite Imagery of the Eaton Fire (January 9, 2025).",
+      "href": "https://thumbnails.openveda.cloud/la-fires-thumbnail.png"
+    }
+  },
+  "collection": "la-fires-slope",
+  "title": "Eaton Fire (2025) Slope",
+  "description": "Computed slope from a digital elevation model (DEM) of the 2025 Eaton Fire's burn scar extent.",
+  "is_periodic": false,
+  "time_density": "day",
+  "datetime_range": "day",
+  "renders": {
+    "dashboard": {
+      "colormap_name": "afmhot_r",
+      "rescale": [
+        [
+          0,
+          90
+        ]
+      ],
+      "assets": [
+        "cog_default"
+      ],
+      "title": "VEDA Dashboard Render Parameters"
+    }
+  },
+  "transfer": true,
+  "dashboard:time_density": "day"
+}
