@@ -49,7 +49,7 @@
             "roles": [
                 "producer"
             ]
-        },
+        }
     ],
     "item_assets": {
         "cog_default": {
