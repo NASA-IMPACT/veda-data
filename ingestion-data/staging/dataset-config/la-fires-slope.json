@@ -20,7 +20,7 @@
       "filename_regex": "(.*)Slope_cog_(.*).tif$",
       "use_multithreading": false,
       "discovery": "s3",
-      "prefix": "La-Fires/",
+      "prefix": "LA-Fires/",
       "bucket": "veda-data-store-staging"
     }
   ],
