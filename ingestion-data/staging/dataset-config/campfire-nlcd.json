@@ -21,7 +21,7 @@
         {
             "prefix": "campfire-data/",
             "bucket": "veda-data-store-staging",
-            "filename_regex": "^(.*)NLCD_20\\d\\d_cog.tif$",
+            "filename_regex": "^(.*)NLCD_20.*_cog.tif$",
             "discovery": "s3",
             "upload": false,
             "cogify": false,

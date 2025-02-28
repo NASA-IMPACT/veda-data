@@ -21,7 +21,7 @@
         {
             "prefix": "houston-landcover/",
             "bucket": "veda-data-store-staging",
-            "filename_regex": "landcover_Z_\\d\\d\\d\\d_cog.tif",
+            "filename_regex": "^(.*)landcover_Z_f.*cog.tif",
             "discovery": "s3",
             "upload": false,
             "cogify": false,
