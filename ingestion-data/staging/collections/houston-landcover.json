@@ -49,7 +49,7 @@
             "bidx": [
                 1
             ],
-            "colormap_name": "nlcd" ,
+            "colormap_name": "nlcd",
             "nodata": -999,
             "rescale": [
                 [
