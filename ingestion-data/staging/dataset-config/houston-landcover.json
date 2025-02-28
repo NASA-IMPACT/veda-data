@@ -1,0 +1,98 @@
+{
+    "collection": "houston-landcover",
+    "title": "Houston Land Cover",
+    "description": "MODIS-derived land use-land cover over the Houston metro area (zoomed-in extent). Displays colors 0-255 from a lookup table for land cover type (ex: reds = urbanized).",
+    "type": "Collection",
+    "spatial_extent": {
+        "xmin": -97,
+        "ymin": 32,
+        "xmax": -96,
+        "ymax": 32
+    },
+    "temporal_extent": {
+        "startdate": "2001-01-01T00:00:00Z",
+        "enddate": "2019-01-01T00:00:00Z"
+    },
+    "license": "CC0-1.0",
+    "is_periodic": false,
+    "time_density": "year",
+    "stac_version": "1.0.0",
+    "discovery_items": [
+        {
+            "prefix": "houston-landcover/",
+            "bucket": "veda-data-store-staging",
+            "filename_regex": "landcover_Z_\\d\\d\\d\\d_cog.tif",
+            "discovery": "s3",
+            "upload": false,
+            "cogify": false,
+            "dry_run": false
+        }
+    ],
+    "providers": [
+        {
+            "name": "NASA VEDA",
+            "url": "https://www.earthdata.nasa.gov/dashboard/",
+            "roles": [
+                "host"
+            ]
+        },
+        {
+            "name": "NASA VEDA",
+            "url": "https://www.earthdata.nasa.gov/dashboard/",
+            "roles": [
+                "processor"
+            ]
+        },
+        {
+            "name": "USGS",
+            "url": "https://lpdaac.usgs.gov/product_search/",
+            "roles": [
+                "producer"
+            ]
+        }
+    ],
+    "item_assets": {
+        "cog_default": {
+            "type": "image/tiff; application=geotiff; profile=cloud-optimized",
+            "roles": [
+                "data",
+                "layer"
+            ],
+            "title": "Default COG Layer",
+            "description": "Cloud optimized default layer to display on map"
+        }
+    },
+    "assets": {
+        "thumbnail": {
+            "title": "Thumbnail",
+            "description": "Photo by [Arto Marttinen](https://unsplash.com/photos/6xh7H5tWj9c) (Sunset over Tokyo)",
+            "href": "https://thumbnails.openveda.cloud/urban-heat.jpg",
+            "type": "image/jpeg",
+            "roles": [
+                "thumbnail"
+            ]
+        }
+    },
+    "renders": {
+        "dashboard": {
+            "resampling": "bilinear",
+            "bidx": [
+                1
+            ],
+            "colormap_name": "nlcd",
+            "nodata": -999,
+            "rescale": [
+                [
+                    0,
+                    255
+                ]
+            ],
+            "assets": [
+                "cog_default"
+            ],
+            "title": "VEDA Dashboard Render Parameters"
+        }
+    },
+    "dashboard:is_periodic": false,
+    "dashboard:time_density": "year"
+}

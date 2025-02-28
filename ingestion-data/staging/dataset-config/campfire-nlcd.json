@@ -1,32 +1,41 @@
 {
-    "id": "campfire-nlcd",
-    "type": "Collection",
+    "collection": "campfire-nlcd",
     "title": "Camp Fire Domain: Land Cover",
-    "links": [],
     "description": "NLCD-derived land use-land cover for 2016 over the Camp Fire burn scar domain. Displays colors 0-255 from a lookup table for land cover type (ex: reds = urbanized).",
-    "extent": {
-        "spatial": {
-            "bbox": [
-                [
-                    -123.01078638251661,
-                    38.70177659870423,
-                    -120.1714851176425,
-                    40.83029239162325
-                ]
-            ]
-        },
-        "temporal": {
-            "interval": [
-                [
-                    "2016-01-01T00:00:00Z",
-                    "2019-12-31T00:00:00Z"
-                ]
-            ]
-        }
+    "type": "Collection",
+    "spatial_extent": {
+        "xmin": -125,
+        "ymin": 40,
+        "xmax": -122,
+        "ymax": 45
+    },
+    "temporal_extent": {
+        "startdate": "2016-01-01T00:00:00Z",
+        "enddate": "2019-12-31T00:00:00Z"
     },
     "license": "CC0-1.0",
-    "stac_extensions": [
-        "https://stac-extensions.github.io/item-assets/v1.0.0/schema.json"
+    "is_periodic": false,
+    "time_density": "year",
+    "stac_version": "1.0.0",
+    "discovery_items": [
+        {
+            "prefix": "campfire-data/",
+            "bucket": "veda-data-store-staging",
+            "filename_regex": "^(.*)NLCD_20\\d\\d_cog.tif$",
+            "discovery": "s3",
+            "upload": false,
+            "cogify": false,
+            "dry_run": false
+        }
+    ],
+    "providers": [
+        {
+            "name": "NASA VEDA",
+            "url": "https://www.earthdata.nasa.gov/dashboard/",
+            "roles": [
+                "host"
+            ]
+        }
     ],
     "item_assets": {
         "cog_default": {
@@ -39,25 +48,15 @@
             "description": "Cloud optimized default layer to display on map"
         }
     },
-    "dashboard:is_periodic": false,
-    "dashboard:time_density": "year",
-    "stac_version": "1.0.0",
-    "providers": [
-        {
-            "name": "NASA VEDA",
-            "url": "https://www.earthdata.nasa.gov/dashboard/",
-            "roles": [
-                "host"
-            ]
-        }
-    ],
     "assets": {
         "thumbnail": {
             "title": "Thumbnail",
             "description": "Photo by [Mike Newbry](https://unsplash.com/photos/DwtX9mMHBJ0) (Engulfed hillside in California, 2021)",
             "href": "https://thumbnails.openveda.cloud/camp-fire-background.jpg",
             "type": "image/jpeg",
-            "roles": ["thumbnail"]
+            "roles": [
+                "thumbnail"
+            ]
         }
     },
     "renders": {
@@ -69,9 +68,11 @@
         "colormap_name": "nlcd",
         "nodata": 0,
         "assets": [
-          "landcover"
+          "cog_default"
         ],
         "title": "VEDA Dashboard Render Parameters"
       }
-    }
+    },
+    "dashboard:is_periodic": false,
+    "dashboard:time_density": "year"
 }
