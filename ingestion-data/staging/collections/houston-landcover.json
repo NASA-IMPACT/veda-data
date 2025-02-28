@@ -85,5 +85,14 @@
                 "processor"
             ]
         }
-    ]
+    ],
+    "assets": {
+        "thumbnail": {
+            "title": "Thumbnail",
+            "description": "Photo by [Arto Marttinen](https://unsplash.com/photos/6xh7H5tWj9c) (Sunset over Tokyo)",
+            "href": "https://thumbnails.openveda.cloud/urban-heat.jpg",
+            "type": "image/jpeg",
+            "roles": ["thumbnail"]
+        }
+    }
 }
