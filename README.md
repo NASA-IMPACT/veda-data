@@ -20,11 +20,11 @@ To add data to VEDA you will:
 
 ### Step 1: Stage your files
 
-Upload files to the staging bucket `s3://veda-data-store-staging` (which you can do with a VEDA JupyterHub account--request access [here](https://docs.openveda.cloud/nasa-veda-platform/scientific-computing/#veda-sponsored-jupyterhub-service)) or a self-hosted bucket in s3 has shared read access to VEDA service. [See docs.openveda.cloud for additional details on preparing files.](https://docs.openveda.cloud/instance-management/adding-content/dataset-ingestion/file-preparation.html)
+Upload files to the staging bucket `s3://veda-data-store-staging` (which you can do with a VEDA JupyterHub account--request access [here](https://docs.openveda.cloud/user-guide/scientific-computing/getting-access.html)) or a self-hosted bucket in s3 has shared read access to VEDA service. [See docs.openveda.cloud for additional details on preparing files.](https://docs.openveda.cloud/user-guide/content-curation/dataset-ingestion/file-preparation.html)
 
 ### Step 2: Generate STAC metadata in the staging catalog
 
-Metadata must first be added to the Staging Catalog [staging.openveda.cloud/api/stac](https://staging.openveda.cloud/api/stac). You will need to create a dataset config file using the veda-ingest-ui and submit it to the `/workflows/dataset/publish` endpoint to generate STAC Collection metadata and generate Item records for the files you have uploaded in Step 1.
+Metadata must first be added to the Staging Catalog [staging.openveda.cloud/api/stac](https://staging.openveda.cloud/api/stac). You will need to create a dataset config file using the veda-ingest-ui to generate STAC Collection metadata and generate Item records for the files you have uploaded in Step 1.
 
 * Use the veda-ingest-ui form to generate a dataset config and open a veda-data PR
 
@@ -32,13 +32,13 @@ Metadata must first be added to the Staging Catalog [staging.openveda.cloud/api/
 
 * When a veda-data PR is opened, a github action will automatically (1) POST the config to airflow and stage the collection and items in the staging catalog instance and (2) open a veda-config dashboard preview for the dataset.
 
-> See detailed steps for the [dataset submission process](https://docs.openveda.cloud/instance-management/adding-content/dataset-ingestion/) in the contribuing section of [veda-docs](https://nasa-impact.github.io/veda-docs) where you can also find this full ingestion workflow example [geoglam ingest notebook](https://docs.openveda.cloud/instance-management/adding-content/dataset-ingestion/example-template/example-geoglam-ingest.html)
+> See detailed steps for the [dataset submission process](https://docs.openveda.cloud/user-guide/content-curation/dataset-ingestion/) in the Content Curation section of the User Guide in [veda-docs](https://nasa-impact.github.io/veda-docs) where you can also find this full ingestion workflow example [geoglam ingest notebook](https://docs.openveda.cloud/user-guide/content-curation/dataset-ingestion/example-template/example-geoglam-ingest.html)
 
 ### Step 3: Acceptance testing
 
 Perform acceptance testing appropriate for your data. This should include reviewing the [staging.openveda.cloud STAC browser](https://staging.openveda.cloud) and reviewing the corresponding veda-config PR dashboard preview.
 
-> See [veda-docs/instance-management/adding-content/dashboard-configuration](https://docs.openveda.cloud/instance-management/adding-content/dashboard-configuration/dataset-configuration.html) for more information about configuring a dashboard preview).
+> See the [Content Curation/Dashboard Configuration](https://docs.openveda.cloud/user-guide/content-curation/dashboard-configuration/) section of the User Guide in docs.openveda.cloud for more information about configuring a dashboard preview.
 
 ### Step 4: Promote to production
 
@@ -48,7 +48,9 @@ After acceptance testing, request approval--when your PR is merged, the dataset 
 
 ### Step 5 [Optional]: Share your data
 
-Share your data in the [VEDA Dashboard](https://www.earthdata.nasa.gov/dashboard/) by submitting a PR to [veda-config](https://github.com/NASA-IMPACT/veda-config) ([see veda-docs/contributing/dashboard-configuration](https://nasa-impact.github.io/veda-docs/contributing/dashboard-configuration/dataset-configuration.html)) and add jupyterhub hosted usage examples to [veda-docs/contributing/docs-and-notebooks](https://nasa-impact.github.io/veda-docs/contributing/docs-and-notebooks.html)
+* Share your data in the VEDA Dashboard [User Guide > Content Curation > Dashboard Configuration](https://docs.openveda.cloud/user-guide/content-curation/dashboard-configuration/)
+
+* Add jupyterhub hosted usage examples to docs.openveda.cloud [User Guide > Content Curation > Usage Example Notebook Submission](https://docs.openveda.cloud/user-guide/content-curation/docs-and-notebooks.html)
 
 ## Project ingestion data structure
 
@@ -59,7 +61,7 @@ Various ingestion workflows are supported and documented below but only the conf
 
 ### `<stage>/collections/`
 
-The `ingestion-data/collections/` directory holds json files representing the data for VEDA collection metadata (STAC). STAC Collection metadata can be generated from an id, title, description using Pystac. See this [veda-docs/contributing notebook example](https://nasa-impact.github.io/veda-docs/notebooks/veda-operations/stac-collection-creation.html) to get started.
+The `ingestion-data/collections/` directory holds json files representing the data for VEDA collection metadata (STAC). STAC Collection metadata can be generated from an id, title, description using Pystac. See [User Guide > Content Curation > Dataset Ingestion > STAC Collection Creation](https://docs.openveda.cloud/user-guide/notebooks/veda-operations/stac-collection-creation.html) to get started.
 
 Should follow the following format:
 
@@ -174,7 +176,7 @@ Should follow the following format:
 
 ### `<stage>/dataset-config/`
 
-The `ingestion-data/dataset-config/` directory holds json files that can be used with the `dataset/publish` workflows endpoint, combining both collection metadata and discovery items. For an example of this ingestion workflow, see this [geoglam ingest notebook in nasa-impact.github.io/veda-docs/contributing/dataset-ingeston](https://nasa-impact.github.io/veda-docs/contributing/dataset-ingestion/example-template/example-geoglam-ingest.html).
+The `ingestion-data/dataset-config/` directory holds json files that can be used with the `dataset/publish` workflows endpoint, combining both collection metadata and discovery items. For an example of this ingestion workflow, see this [geoglam ingest notebook in the Content Curation section of the VEDA User Guide](https://docs.openveda.cloud/user-guide/content-curation/dataset-ingestion/example-template/example-geoglam-ingest.html).
 
 <details>
   <summary><b>/dataset-config/collection_id.json</b></summary>
