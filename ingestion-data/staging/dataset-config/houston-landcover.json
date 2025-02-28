@@ -72,5 +72,27 @@
                 "thumbnail"
             ]
         }
-    }
+    },
+    "renders": {
+        "dashboard": {
+            "resampling": "bilinear",
+            "bidx": [
+                1
+            ],
+            "colormap_name": "nlcd",
+            "nodata": -999,
+            "rescale": [
+                [
+                    0,
+                    255
+                ]
+            ],
+            "assets": [
+                "cog_default"
+            ],
+            "title": "VEDA Dashboard Render Parameters"
+        }
+    },
+    "dashboard:is_periodic": false,
+    "dashboard:time_density": "year"
 }
