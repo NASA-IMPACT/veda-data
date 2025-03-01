@@ -363,13 +363,16 @@ jobs:
         id: create-pr
         env:
           COMMENT_ID: ${{ needs.publish-new-datasets.outputs.comment_id }}
-          PUBLISHED_COLLECTION_FILES: ${{ steps.publish-collections.outputs.success_collections }}
+          PUBLISHED_COLLECTION_FILES: ${{ needs.publish-new-datasets.outputs.published_collections }}
         run: |
           cd veda-config
 
           files_string=$(IFS=$'\n'; echo "${PUBLISHED_COLLECTION_FILES[*]}")
+          echo "Files string: $files_string"
+          timestamp=$(date +%Y%m%d%H%M%S)
           hash=$(echo -n "$files_string" | md5sum | cut -d ' ' -f 1)
-          NEW_BRANCH="add-dataset-$hash"
+          NEW_BRANCH="add-dataset-${timestamp}-$hash"
+          echo "Branch name created: $NEW_BRANCH"
 
           git fetch origin
           if git ls-remote --exit-code --heads origin $NEW_BRANCH; then
