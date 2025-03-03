@@ -3,10 +3,10 @@
   "stac_version": "1.0.0",
   "links": [],
   "spatial_extent": {
-    "xmin": -118.162058,
-    "ymin": 34.161887,
+    "xmin": -118.686148,
+    "ymin": 34.029934,
     "xmax": -118.01304,
-    "ymax": 34.237827
+    "ymax": 34.161887
   },
   "temporal_extent": {
     "startdate": "2025-01-09T21:00:00Z",
@@ -17,7 +17,7 @@
       "upload": false,
       "cogify": false,
       "dry_run": false,
-      "filename_regex": "(.*)Slope_cog_(.*).tif$",
+      "filename_regex": "(.*)Slope_(.*).tif$",
       "use_multithreading": false,
       "discovery": "s3",
       "prefix": "LA-Fires/",
@@ -25,6 +25,7 @@
     }
   ],
   "sample_files": [
+    "s3://veda-data-store-staging/LA-Fires/Slope_Palisades_cog_2025-01-09.tif",
     "s3://veda-data-store-staging/LA-Fires/Slope_cog_2025-01-09.tif"
   ],
   "data_type": "cog",
@@ -64,8 +65,8 @@
     }
   },
   "collection": "la-fires-slope",
-  "title": "Eaton Fire (2025) Slope",
-  "description": "Computed slope from a digital elevation model (DEM) of the 2025 Eaton Fire's burn scar extent.",
+  "title": "Eaton and Palisades Fires (2025) Slope",
+  "description": "Computed slope from a digital elevation model (DEM) of the 2025 Palisades and Eaton Fires' burn scar extent.",
   "is_periodic": false,
   "time_density": "day",
   "datetime_range": "day",
