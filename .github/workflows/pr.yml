@@ -112,7 +112,7 @@ jobs:
           # Track successful publications
           all_failed=true
           declare -a success_collections=()
-          status_message="### Collection Publication Status <br>"
+          status_message=""
 
           for file in ${ALL_CHANGED_FILES}; do
             echo $file
@@ -155,8 +155,8 @@ jobs:
           # Update PR comment
           CURRENT_BODY=$(gh api -H "Authorization: token $GITHUB_TOKEN" /repos/${{ github.repository }}/issues/comments/$COMMENT_ID --jq '.body')
           UPDATED_BODY="$CURRENT_BODY
-
-          $status_message"
+            ### Collection Publication Status
+            $status_message"
           gh api -X PATCH -H "Authorization: token $GITHUB_TOKEN" /repos/${{ github.repository }}/issues/comments/$COMMENT_ID -f body="$UPDATED_BODY"
 
       - name: Set up Python
