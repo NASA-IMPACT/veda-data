@@ -50,7 +50,7 @@ After acceptance testing, request approval--when your PR is merged, the dataset 
 
 * Share your data in the VEDA Dashboard [User Guide > Content Curation > Dashboard Configuration](https://docs.openveda.cloud/user-guide/content-curation/dashboard-configuration/)
 
-* Add jupyterhub hosted usage examples to docs.openveda.cloud [User Guide > Content Curation > Usage Example Notebook Submission](https://docs.openveda.cloud/user-guide/content-curation/docs-and-notebooks.html)
+* Add JupyterHub hosted usage examples to docs.openveda.cloud [User Guide > Content Curation > Usage Example Notebook Submission](https://docs.openveda.cloud/user-guide/content-curation/docs-and-notebooks.html)
 
 ## Project ingestion data structure
 
