@@ -176,7 +176,7 @@ Should follow the following format:
 
 ### `<stage>/dataset-config/`
 
-The `ingestion-data/dataset-config/` directory holds json files that can be used with the `dataset/publish` workflows endpoint, combining both collection metadata and discovery items. For an example of this ingestion workflow, see this [geoglam ingest notebook in the Content Curation section of the VEDA User Guide](https://docs.openveda.cloud/user-guide/content-curation/dataset-ingestion/example-template/example-geoglam-ingest.html).
+The `ingestion-data/dataset-config/` directory holds JSON files that can be used with the `dataset/publish` workflows endpoint, combining both collection metadata and discovery items. For an example of this ingestion workflow, see this [geoglam ingest notebook in the Content Curation section of the VEDA User Guide](https://docs.openveda.cloud/user-guide/content-curation/dataset-ingestion/example-template/example-geoglam-ingest.html).
 
 <details>
   <summary><b>/dataset-config/collection_id.json</b></summary>
