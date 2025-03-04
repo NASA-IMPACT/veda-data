@@ -61,7 +61,7 @@ Various ingestion workflows are supported and documented below but only the conf
 
 ### `<stage>/collections/`
 
-The `ingestion-data/collections/` directory holds json files representing the data for VEDA collection metadata (STAC). STAC Collection metadata can be generated from an id, title, description using Pystac. See [User Guide > Content Curation > Dataset Ingestion > STAC Collection Creation](https://docs.openveda.cloud/user-guide/notebooks/veda-operations/stac-collection-creation.html) to get started.
+The `ingestion-data/collections/` directory holds JSON files representing the data for VEDA collection metadata (STAC). STAC Collection metadata can be generated from an `id`, `title`,  and `description` using PySTAC. See [User Guide > Content Curation > Dataset Ingestion > STAC Collection Creation](https://docs.openveda.cloud/user-guide/notebooks/veda-operations/stac-collection-creation.html) to get started.
 
 Should follow the following format:
 
