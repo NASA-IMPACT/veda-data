@@ -24,9 +24,9 @@ Upload files to the staging bucket `s3://veda-data-store-staging` (which you can
 
 ### Step 2: Generate STAC metadata in the staging catalog
 
-Metadata must first be added to the Staging Catalog [staging.openveda.cloud/api/stac](https://staging.openveda.cloud/api/stac). You will need to create a dataset config file using the veda-ingest-ui to generate STAC Collection metadata and generate Item records for the files you have staged in Step 1.
+Metadata must first be added to the Staging Catalog [staging.openveda.cloud/api/stac](https://staging.openveda.cloud/api/stac). You will need to create a dataset config file with the [ingest.openveda.cloud](https://ingest.openveda.cloud) form to generate STAC Collection metadata and generate Item records for the files you have staged in Step 1.
 
-* Use the veda-ingest-ui form to generate a dataset config and open a veda-data PR
+* Use the [ingest.openveda.cloud](https://ingest.openveda.cloud) form to generate a dataset config and open a veda-data PR
 
 * OR manually generate a dataset-config JSON and open a veda-data PR
 
@@ -149,7 +149,7 @@ Should follow the following format:
 
 ### `<stage>/discovery-items/`
 
-The `ingestion-data/discovery-items/` directory holds json files representing the inputs for initiating the discovery, ingest and publication workflows.
+The `ingestion-data/discovery-items/` directory holds JSON files representing the inputs for initiating the discovery, ingest and publication workflows.
 Can either be a single input event or a list of input events.
 
 Should follow the following format:
@@ -244,7 +244,7 @@ Should follow the following format:
 
 ### `production/promotion-config`
 
-This directory contains the configuration needed to execute a stand-alone airflow DAG that transfers assets to production and generates production metadata. The promotion-config json uses the same schema and values from the [staging/dataset-config JSON](#stagedataset-config) with an additional `transfer` field which should be set to true when S3 objects need to be transferred from a staging location to the production data store. The veda data promotion pipeline copies data from a specified staging bucket and prefix to a permanent location in `s3://veda-data-store` using the collection_id as a prefix and publishes STAC metadata to the produciton catalog.
+This directory contains the configuration needed to execute a stand-alone airflow DAG that transfers assets to production and generates production metadata. The promotion-config JSON uses the same schema and values from the [staging/dataset-config JSON](#stagedataset-config) with an additional `transfer` field which should be set to true when S3 objects need to be transferred from a staging location to the production data store. The veda data promotion pipeline copies data from a specified staging bucket and prefix to a permanent location in `s3://veda-data-store` using the collection_id as a prefix and publishes STAC metadata to the produciton catalog.
 
 <details>
   <summary><b>production/promotion-config/collection_id.json</b></summary>
