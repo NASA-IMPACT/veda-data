@@ -1,0 +1,114 @@
+{
+  "license": "CC0-1.0",
+  "stac_version": "1.0.0",
+  "links": [],
+  "spatial_extent": {
+    "xmin": -118.94,
+    "ymin": 33.3,
+    "xmax": -117.66,
+    "ymax": 34.83
+  },
+  "temporal_extent": {
+    "startdate": "2025-01-01T00:00:00Z",
+    "enddate": "2025-01-01T23:59:59Z"
+  },
+  "discovery_items": [
+    {
+      "upload": false,
+      "cogify": false,
+      "dry_run": false,
+      "filename_regex": "(.*)SEA_(.*).tif$",
+      "use_multithreading": false,
+      "discovery": "s3",
+      "prefix": "LA-Fires/",
+      "bucket": "veda-data-store-staging"
+    }
+  ],
+  "sample_files": [
+    "s3://veda-data-store-staging/LA-Fires/LA_County_SEA_cog_2025-01-01.tif"
+  ],
+  "data_type": "cog",
+  "stac_extensions": [
+    "https://stac-extensions.github.io/render/v1.0.0/schema.json",
+    "https://stac-extensions.github.io/item-assets/v1.0.0/schema.json"
+  ],
+  "item_assets": {
+    "cog_default": {
+      "type": "image/tiff; application=geotiff; profile=cloud-optimized",
+      "roles": [
+        "data",
+        "layer"
+      ],
+      "title": "Default COG Layer",
+      "description": "Cloud optimized default layer to display on map"
+    }
+  },
+  "providers": [
+    {
+      "name": "NASA VEDA",
+      "roles": [
+        "host"
+      ],
+      "url": "https://www.earthdata.nasa.gov/dashboard/"
+    }
+  ],
+  "assets": {
+    "thumbnail": {
+      "title": "Thumbnail",
+      "type": "image/png",
+      "roles": [
+        "thumbnail"
+      ],
+      "description": "Planet Labs Commercial Satellite Imagery of the Eaton Fire (January 9, 2025).",
+      "href": "https://thumbnails.openveda.cloud/la-fires-thumbnail.png"
+    }
+  },
+  "collection": "la-fires-sea",
+  "title": "LA County Significant Ecological Areas (SEA)",
+  "description": "Significant Ecological Areas and Coastal Resource Areas in Los Angeles County, California.",
+  "is_periodic": false,
+  "time_density": "day",
+  "datetime_range": "day",
+  "renders": {
+    "dashboard": {
+      "colormap": {
+        "1": [
+          18,
+          94,
+          135,
+          255
+        ],
+        "2": [
+          12,
+          110,
+          20,
+          255
+        ],
+        "3": [
+          73,
+          230,
+          86,
+          255
+        ],
+        "4": [
+          73,
+          141,
+          230,
+          255
+        ],
+        "5": [
+          73,
+          230,
+          227,
+          255
+        ]
+      },
+      "assets": [
+        "cog_default"
+      ],
+      "title": "VEDA Dashboard Render Parameters"
+    }
+  },
+  "transfer": true,
+  "dashboard:time_density": "day"
+}
