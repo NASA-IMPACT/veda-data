@@ -24,7 +24,7 @@ Upload files to the staging bucket `s3://veda-data-store-staging` (which you can
 
 ### Step 2: Generate STAC metadata in the staging catalog
 
-Metadata must first be added to the Staging Catalog [staging.openveda.cloud/api/stac](https://staging.openveda.cloud/api/stac). You will need to create a dataset config file using the veda-ingest-ui to generate STAC Collection metadata and generate Item records for the files you have uploaded in Step 1.
+Metadata must first be added to the Staging Catalog [staging.openveda.cloud/api/stac](https://staging.openveda.cloud/api/stac). You will need to create a dataset config file using the veda-ingest-ui to generate STAC Collection metadata and generate Item records for the files you have staged in Step 1.
 
 * Use the veda-ingest-ui form to generate a dataset config and open a veda-data PR
 
