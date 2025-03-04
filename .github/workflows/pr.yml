@@ -112,7 +112,7 @@ jobs:
           # Track successful publications
           all_failed=true
           declare -a success_collections=()
-          status_message="### Collection Publication Status"
+          status_message="### Collection Publication Status <br>"
 
           for file in ${ALL_CHANGED_FILES}; do
             echo $file
@@ -130,12 +130,12 @@ jobs:
               # Update status message based on response code
               if [[ $status_code -eq 200 ]] || [[ $status_code -eq 201 ]]; then
                 echo "$collection_id successfully published ✅"
-                status_message+="- **$collection_id**: Successfully published ✅\n"
+                status_message+="- **$collection_id**: Successfully published ✅<br>"
                 success_collections+=("$file")
                 all_failed=false
               else
                 echo "$collection_id failed to publish ❌"
-                status_message+="- **$collection_id**: Failed to publish. Error code $status_code. ❌\n"
+                status_message+="- **$collection_id**: Failed to publish. Error code $status_code. ❌<br>"
               fi
             else
               echo "File $file does not exist"
