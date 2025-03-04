@@ -1,0 +1,78 @@
+{
+    "collection": "campfire-nlcd-TEST-HASH",
+    "title": "Camp Fire Domain: Land Cover TEST HASH",
+    "description": "NLCD-derived land use-land cover for 2016 over the Camp Fire burn scar domain. Displays colors 0-255 from a lookup table for land cover type (ex: reds = urbanized).",
+    "type": "Collection",
+    "spatial_extent": {
+        "xmin": -125,
+        "ymin": 40,
+        "xmax": -122,
+        "ymax": 45
+    },
+    "temporal_extent": {
+        "startdate": "2016-01-01T00:00:00Z",
+        "enddate": "2019-12-31T00:00:00Z"
+    },
+    "license": "CC0-1.0",
+    "is_periodic": false,
+    "time_density": "year",
+    "stac_version": "1.0.0",
+    "discovery_items": [
+        {
+            "prefix": "campfire-data/",
+            "bucket": "veda-data-store-staging",
+            "filename_regex": "^(.*)NLCD_20.*_cog.tif$",
+            "discovery": "s3",
+            "upload": false,
+            "cogify": false,
+            "dry_run": false
+        }
+    ],
+    "providers": [
+        {
+            "name": "NASA VEDA",
+            "url": "https://www.earthdata.nasa.gov/dashboard/",
+            "roles": [
+                "host"
+            ]
+        }
+    ],
+    "item_assets": {
+        "cog_default": {
+            "type": "image/tiff; application=geotiff; profile=cloud-optimized",
+            "roles": [
+                "data",
+                "layer"
+            ],
+            "title": "Default COG Layer",
+            "description": "Cloud optimized default layer to display on map"
+        }
+    },
+    "assets": {
+        "thumbnail": {
+            "title": "Thumbnail",
+            "description": "Photo by [Mike Newbry](https://unsplash.com/photos/DwtX9mMHBJ0) (Engulfed hillside in California, 2021)",
+            "href": "https://thumbnails.openveda.cloud/camp-fire-background.jpg",
+            "type": "image/jpeg",
+            "roles": [
+                "thumbnail"
+            ]
+        }
+    },
+    "renders": {
+      "dashboard": {
+        "resampling": "nearest",
+        "bidx": [
+                1
+        ],
+        "colormap_name": "nlcd",
+        "nodata": 0,
+        "assets": [
+          "cog_default"
+        ],
+        "title": "VEDA Dashboard Render Parameters"
+      }
+    },
+    "dashboard:is_periodic": false,
+    "dashboard:time_density": "year"
+}
