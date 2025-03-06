@@ -31,7 +31,7 @@ jobs:
     outputs:
       published_collections: ${{ steps.publish-collections.outputs.success_collections }}
       comment_id: ${{ steps.init-comment.outputs.COMMENT_ID }}
-      has_new_files_to_promote: ${{ steps.changed-files.outputs.added_files_count != 0 }}
+      has_new_files_to_promote: ${{ steps.changed-files.outputs.all_changed_files_count != 0 }}
     steps:
       - uses: actions/checkout@v4
 
@@ -66,27 +66,26 @@ jobs:
 
           echo "COMMENT_ID=$COMMENT_ID" >> $GITHUB_OUTPUT
 
-      # Find only the newly added files
-      # Only .json files
       # The files are outputted to GITHUB_OUTPUT, which can be used in subsequent steps
-      - name: Get newly added files
+      - name: Get newly added and changed files
         id: changed-files
         uses: tj-actions/changed-files@v45
         with:
           files: ingestion-data/staging/dataset-config/**.json
 
-      - name: List all newly added files
+      # ACMR - Added, Copied, Modified, Renamed
+      - name: List all newly added and changed files
         env:
-          ADDED_FILES: ${{ steps.changed-files.outputs.added_files }}
-          ADDED_FILES_COUNT: $${{ steps.changed-files.outputs.added_files_count}}
+          ALL_CHANGED_FILES: ${{ steps.changed-files.outputs.all_changed_files }}
+          ALL_CHANGED_FILES_COUNT: $${{ steps.changed-files.outputs.all_changed_files_count}}
         run: |
-          for file in ${ADDED_FILES}; do
+          for file in ${ALL_CHANGED_FILES}; do
             echo "$file was added"
           done
-          echo "added_files_count: ${ADDED_FILES_COUNT}"
+          echo "all_changed_files_count: ${ALL_CHANGED_FILES_COUNT}"
 
       - name: Exit early if no new files
-        if: ${{ steps.changed-files.outputs.added_files_count == 0 }}
+        if: ${{ steps.changed-files.outputs.all_changed_files_count == 0 }}
         run: |
           echo "🕵️ No new files found. Exiting workflow early."
           exit 0
@@ -97,10 +96,10 @@ jobs:
       # If none of the requests are successful, workflow fails
       # Updates the PR comment with status of collection publication
       - name: Publish all newly added collections to staging
-        if: ${{ steps.changed-files.outputs.added_files_count != 0 }}
+        if: ${{ steps.changed-files.outputs.all_changed_files_count != 0 }}
         id: publish-collections
         env:
-          ADDED_FILES: ${{ steps.changed-files.outputs.added_files }}
+          ALL_CHANGED_FILES: ${{ steps.changed-files.outputs.all_changed_files }}
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           COMMENT_ID: ${{ steps.init-comment.outputs.COMMENT_ID }}
           STAGING_SM2A_ADMIN_USERNAME: ${{ secrets.STAGING_SM2A_ADMIN_USERNAME }}
@@ -113,9 +112,9 @@ jobs:
           # Track successful publications
           all_failed=true
           declare -a success_collections=()
-          status_message="### Collection Publication Status"
+          status_message=""
 
-          for file in ${ADDED_FILES}; do
+          for file in ${ALL_CHANGED_FILES}; do
             echo $file
             if [ -f "$file" ]; then
               dataset_config=$(jq '.' "$file")
@@ -131,12 +130,12 @@ jobs:
               # Update status message based on response code
               if [[ $status_code -eq 200 ]] || [[ $status_code -eq 201 ]]; then
                 echo "$collection_id successfully published ✅"
-                status_message+="- **$collection_id**: Successfully published ✅"
+                status_message+="➡️ **$collection_id**: Successfully published ✅ <br>"
                 success_collections+=("$file")
                 all_failed=false
               else
                 echo "$collection_id failed to publish ❌"
-                status_message+="- **$collection_id**: Failed to publish. Error code $status_code. ❌"
+                status_message+="➡️ **$collection_id**: Failed to publish. Error code $status_code. ❌<br>"
               fi
             else
               echo "File $file does not exist"
@@ -156,7 +155,7 @@ jobs:
           # Update PR comment
           CURRENT_BODY=$(gh api -H "Authorization: token $GITHUB_TOKEN" /repos/${{ github.repository }}/issues/comments/$COMMENT_ID --jq '.body')
           UPDATED_BODY="$CURRENT_BODY
-
+          ### Collection Publication Status
           $status_message"
           gh api -X PATCH -H "Authorization: token $GITHUB_TOKEN" /repos/${{ github.repository }}/issues/comments/$COMMENT_ID -f body="$UPDATED_BODY"
 
@@ -186,7 +185,7 @@ jobs:
             # If the workflow fails at any point, the PR comment will be updated
 
       - name: Update PR comment if no new files
-        if: ${{ steps.changed-files.outputs.added_files_count == 0 }}
+        if: ${{ steps.changed-files.outputs.all_changed_files_count == 0 }}
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           COMMENT_ID: ${{ steps.init-comment.outputs.COMMENT_ID }}
