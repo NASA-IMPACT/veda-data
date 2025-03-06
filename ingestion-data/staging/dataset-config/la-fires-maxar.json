@@ -79,10 +79,18 @@
       "rescale": [
         [
           0,
-          1024
+          2000
+        ],
+        [
+          0,
+          2000
+        ],
+        [
+          0,
+          2000
         ]
       ],
-      "resampling": null,
+      "resampling": "bilinear",
       "assets": [
         "cog_default"
       ]
