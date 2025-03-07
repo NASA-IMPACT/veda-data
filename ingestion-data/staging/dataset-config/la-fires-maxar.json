@@ -70,13 +70,7 @@
   "datetime_range": "day",
   "renders": {
     "dashboard": {
-      "asset_bidx": {
-        "cog_default": [
-          8,
-          6,
-          4
-        ]
-      },
+      "asset_bidx": "cog_default|8,6,4",
       "rescale": [
         [
           0,
