@@ -66,8 +66,7 @@
   "collection": "la-fires-maxar",
   "title": "MAXAR Commercial Satellite Imagery (2025 Eaton Fire)",
   "description": "Subsurface material false color composite commercial satellite imagery from MAXAR of the Eaton Fire on January 8, 2025 north of Los Angeles, CA. This data was made available through the NASA Commercial Satellite Data Acquisition (CSDA) Program.",
-  "is_periodic": false,
-  "time_density": "day",
+  "dashboard:is_periodic": false,
   "datetime_range": "day",
   "renders": {
     "dashboard": {
