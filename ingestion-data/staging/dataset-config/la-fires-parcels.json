@@ -1,0 +1,119 @@
+{
+  "license": "CC0-1.0",
+  "stac_version": "1.0.0",
+  "links": [],
+  "spatial_extent": {
+    "xmin": -118.686148,
+    "ymin": 34.029934,
+    "xmax": -118.01304,
+    "ymax": 34.237784
+  },
+  "temporal_extent": {
+    "startdate": "2025-01-09T00:00:00Z",
+    "enddate": "2025-01-09T23:59:59Z"
+  },
+  "discovery_items": [
+    {
+      "upload": false,
+      "cogify": false,
+      "dry_run": false,
+      "filename_regex": "(.*)ASSR_(.*).tif$",
+      "use_multithreading": false,
+      "discovery": "s3",
+      "prefix": "LA-Fires/",
+      "bucket": "veda-data-store-staging"
+    }
+  ],
+  "sample_files": [
+    "s3://veda-data-store-staging/LA-Fires/ASSR_Parcel_Damage_LA_Fires_cog_2025-01-09.tif"
+  ],
+  "data_type": "cog",
+  "stac_extensions": [
+    "https://stac-extensions.github.io/render/v1.0.0/schema.json",
+    "https://stac-extensions.github.io/item-assets/v1.0.0/schema.json"
+  ],
+  "item_assets": {
+    "cog_default": {
+      "type": "image/tiff; application=geotiff; profile=cloud-optimized",
+      "roles": [
+        "data",
+        "layer"
+      ],
+      "title": "Default COG Layer",
+      "description": "Cloud optimized default layer to display on map"
+    }
+  },
+  "providers": [
+    {
+      "name": "NASA VEDA",
+      "roles": [
+        "host"
+      ],
+      "url": "https://www.earthdata.nasa.gov/dashboard/"
+    }
+  ],
+  "assets": {
+    "thumbnail": {
+      "title": "Thumbnail",
+      "type": "image/png",
+      "roles": [
+        "thumbnail"
+      ],
+      "description": "Planet Labs Commercial Satellite Imagery of the Eaton Fire (January 9, 2025).",
+      "href": "https://thumbnails.openveda.cloud/la-fires-thumbnail.png"
+    }
+  },
+  "collection": "la-fires-parcels",
+  "title": "ASSR Parcel Damage - Eaton and Palisades Fires (2025)",
+  "description": "Parcel maps within the Eaton and Palisades Fires mapping the level of destruction to buildings on those respective parcels.",
+  "dashboard:is_periodic": false,
+  "datetime_range": "day",
+  "renders": {
+    "dashboard": {
+      "colormap": {
+        "1": [
+          255,
+          255,
+          255,
+          255
+        ],
+        "2": [
+          79,
+          1,
+          6,
+          255
+        ],
+        "3": [
+          122,
+          191,
+          54,
+          255
+        ],
+        "4": [
+          214,
+          88,
+          30,
+          255
+        ],
+        "5": [
+          214,
+          190,
+          30,
+          255
+        ],
+        "6": [
+          99,
+          95,
+          65,
+          255
+        ]
+      },
+      "assets": [
+        "cog_default"
+      ],
+      "title": "VEDA Dashboard Render Parameters"
+    }
+  },
+  "transfer": true,
+  "dashboard:time_density": "day"
+}
