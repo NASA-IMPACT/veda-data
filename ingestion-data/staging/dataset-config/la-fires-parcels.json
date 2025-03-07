@@ -66,8 +66,7 @@
   "collection": "la-fires-parcels",
   "title": "ASSR Parcel Damage - Eaton and Palisades Fires (2025)",
   "description": "Parcel maps within the Eaton and Palisades Fires mapping the level of destruction to buildings on those respective parcels.",
-  "is_periodic": false,
-  "time_density": "day",
+  "dashboard:is_periodic": false,
   "datetime_range": "day",
   "renders": {
     "dashboard": {
