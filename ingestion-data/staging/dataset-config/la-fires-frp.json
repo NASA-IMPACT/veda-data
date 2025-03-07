@@ -72,8 +72,7 @@
   "collection": "la-fires-frp",
   "title": "Eaton and Palisades Fires (2025) Fire Radiative Power",
   "description": "Satellite-derived Fire Radiative Power (FRP) for the week of the peak intensities of the Eaton and Palisades Fires in Southern California (2025).",
-  "is_periodic": false,
-  "time_density": "day",
+  "dashboard:is_periodic": false,
   "datetime_range": "day",
   "renders": {
     "dashboard": {
