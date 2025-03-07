@@ -67,8 +67,7 @@
   "collection": "la-fires-slope",
   "title": "Eaton and Palisades Fires (2025) Slope",
   "description": "Computed slope from a digital elevation model (DEM) of the 2025 Palisades and Eaton Fires' burn scar extent.",
-  "is_periodic": false,
-  "time_density": "day",
+  "dashboard:is_periodic": false,
   "datetime_range": "day",
   "renders": {
     "dashboard": {
