@@ -13,8 +13,8 @@ The config data provided here gets processed in the [veda-data-airflow](https://
 > [!NOTE]
 > See these links for technical details about the automated publishing methods veda-data provides:
 >
-> * [Explanation of the GitHub Actions workflows that publish and promote data](/docs/gh-actions-publish-and-promote-workflows)
-> * [Automated publish design doc](/docs/publishing-data-annotated)
+> * [Explanation of the GitHub Actions workflows that publish and promote data](/docs/gh-actions-publish-and-promote-workflows.png)
+> * [Automated publish design doc](/docs/publishing-data-annotated.excalidraw.png)
 
 To add data to VEDA you will:
 
