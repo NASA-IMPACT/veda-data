@@ -182,11 +182,20 @@
             ]
         },
         {
-            "name": "NASA Hydroglobe",
+            "name": "NASA HydroGlobe",
             "url": "https://www.earthdata.nasa.gov/dashboard/",
             "roles": [
                 "host"
             ]
         }
-    ]
+    ],
+    "assets": {
+        "thumbnail": {
+            "title": "Thumbnail",
+            "description": "Photo by NASA LIS (TWS trend of anomalies from LIS outputs)",
+            "href": "https://thumbnails.openveda.cloud/twsanomaly-globe.png",
+            "type": "image/png",
+            "roles": ["thumbnail"]
+        }
+    }
 }
