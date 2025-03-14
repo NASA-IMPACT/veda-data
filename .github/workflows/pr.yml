@@ -197,17 +197,25 @@ jobs:
           🕵️ No new files found. No files will be published to staging or promoted to production."
           gh api -X PATCH -H "Authorization: token $GITHUB_TOKEN" /repos/${{ github.repository }}/issues/comments/$COMMENT_ID -f body="$UPDATED_BODY"
 
-  create-mdx-files-and-open-pr:
-    if: ${{ needs.publish-new-datasets.outputs.has_new_files_to_promote == 'true'}}
+  mdx-pr-flag-evaluator:
     runs-on: ubuntu-latest
     environment: staging
     needs: publish-new-datasets
+    outputs:
+      skip_mdx_pr_step: ${{ steps.skip_mdx_pr_step_setting.outputs.skip_mdx_pr_step }}
+    steps:
+      - name: Set SKIP_MDX_PR_STEP condition from secret
+        id: skip_mdx_pr_step_setting
+        run: echo "SKIP_MDX_PR_STEP=${{ secrets.SKIP_MDX_PR_STEP }}" >> $GITHUB_OUTPUT
+
+  create-mdx-files-and-open-pr:
+    if: ${{ needs.publish-new-datasets.outputs.has_new_files_to_promote == 'true' && needs.mdx-pr-flag-evaluator.outputs.skip_mdx_pr_step != 'true'}}
+    runs-on: ubuntu-latest
+    environment: staging
+    needs: ['mdx-pr-flag-evaluator', 'publish-new-datasets']
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
-
-      - name: Set SKIP_MDX_PR_STEP environment variable
-        run: echo "SKIP_MDX_PR_STEP=${{ secrets.SKIP_MDX_PR_STEP }}" >> $GITHUB_ENV
 
       - name: Use output from publish-new-datasets
         run: |
@@ -217,7 +225,6 @@ jobs:
       - name: Create dataset mdx for given collections
         env:
           PUBLISHED_COLLECTION_FILES: ${{ needs.publish-new-datasets.outputs.published_collections }}
-        if: ${{ env.SKIP_MDX_PR_STEP != 'true' }}
         run: |
           echo $PUBLISHED_COLLECTION_FILES
           collection_ids=""
