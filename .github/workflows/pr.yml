@@ -13,7 +13,7 @@ on:
     branches: ['main']
     paths:
       # Run the workflow only if files inside this path are updated
-      - ingestion-data/staging/dataset-config/*
+      - ingestion-data/staging/dataset-config/*.json
 
   push:
     branches:
