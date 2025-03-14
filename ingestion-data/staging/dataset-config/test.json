@@ -72,7 +72,5 @@
         ],
         "title": "VEDA Dashboard Render Parameters"
       }
-    },
-    "dashboard:is_periodic": false,
-    "dashboard:time_density": "year"
+    }
 }
