@@ -1,6 +1,6 @@
 {
-    "collection": "campfire-nlcd-TEST-ADDED",
-    "title": "Camp Fire Domain: Land Cover TEST ADDED",
+    "collection": "campfire-nlcd-TEST-FLAG-0",
+    "title": "Camp Fire Domain: Land Cover TEST FLAG-0",
     "description": "NLCD-derived land use-land cover for 2016 over the Camp Fire burn scar domain. Displays colors 0-255 from a lookup table for land cover type (ex: reds = urbanized).",
     "type": "Collection",
     "spatial_extent": {
@@ -14,6 +14,8 @@
         "enddate": "2019-12-31T00:00:00Z"
     },
     "license": "CC0-1.0",
+    "is_periodic": false,
+    "time_density": "year",
     "stac_version": "1.0.0",
     "discovery_items": [
         {
@@ -70,7 +72,5 @@
         ],
         "title": "VEDA Dashboard Render Parameters"
       }
-    },
-    "dashboard:is_periodic": false,
-    "dashboard:time_density": "year"
+    }
 }
