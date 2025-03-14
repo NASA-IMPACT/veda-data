@@ -198,7 +198,7 @@ jobs:
           gh api -X PATCH -H "Authorization: token $GITHUB_TOKEN" /repos/${{ github.repository }}/issues/comments/$COMMENT_ID -f body="$UPDATED_BODY"
 
   create-mdx-files-and-open-pr:
-    if: ${{ needs.publish-new-datasets.outputs.has_new_files_to_promote == 'true' }}
+    if: ${{ needs.publish-new-datasets.outputs.has_new_files_to_promote == 'true' && secrets.SKIP_MDX_PR_STEP != 'true'}}
     runs-on: ubuntu-latest
     environment: staging
     needs: publish-new-datasets
