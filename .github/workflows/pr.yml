@@ -204,11 +204,16 @@ jobs:
     outputs:
       skip_mdx_pr_step: ${{ steps.skip_mdx_pr_step_setting.outputs.skip_mdx_pr_step }}
     steps:
-      - name: Set SKIP_MDX_PR_STEP condition from secret
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Set SKIP_MDX_PR_STEP condition
         id: skip_mdx_pr_step_setting
+        env:
+          SKIP_MDX_PR_STEP: ${{ vars.SKIP_MDX_PR_STEP }}
         run: |
-          echo "SKIP_MDX_PR_STEP is set to ${{ secrets.SKIP_MDX_PR_STEP }}"
-          echo "SKIP_MDX_PR_STEP=${{ secrets.SKIP_MDX_PR_STEP }}" >> $GITHUB_OUTPUT
+          echo "SKIP_MDX_PR_STEP is set to {{ env.SKIP_MDX_PR_STEP }}"
+          echo "SKIP_MDX_PR_STEP=${{ env.SKIP_MDX_PR_STEP }}" >> $GITHUB_OUTPUT
 
   create-mdx-files-and-open-pr:
     if: ${{ needs.publish-new-datasets.outputs.has_new_files_to_promote == 'true' && needs.mdx-pr-flag-evaluator.outputs.skip_mdx_pr_step != 'true'}}
