@@ -45,7 +45,7 @@ jobs:
     environment: production
     steps:
       - name: Checkout code
-        uses: actions/checkout@v4
+        uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2
 
       - name: Determine artifact name
         run: echo "ARTIFACT_NAME=collections-to-promote-from-${{ github.event.inputs.pr_number }}" >> $GITHUB_ENV
