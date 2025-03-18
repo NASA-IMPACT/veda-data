@@ -13,7 +13,7 @@ on:
     branches: ['main']
     paths:
       # Run the workflow only if files inside this path are updated
-      - ingestion-data/staging/dataset-config/*
+      - ingestion-data/staging/dataset-config/*.json
 
   push:
     branches:
@@ -197,11 +197,29 @@ jobs:
           🕵️ No new files found. No files will be published to staging or promoted to production."
           gh api -X PATCH -H "Authorization: token $GITHUB_TOKEN" /repos/${{ github.repository }}/issues/comments/$COMMENT_ID -f body="$UPDATED_BODY"
 
-  create-mdx-files-and-open-pr:
-    if: ${{ needs.publish-new-datasets.outputs.has_new_files_to_promote == 'true' }}
+  mdx-pr-flag-evaluator:
     runs-on: ubuntu-latest
     environment: staging
     needs: publish-new-datasets
+    outputs:
+      skip_mdx_pr_step: ${{ steps.skip_mdx_pr_step_setting.outputs.skip_mdx_pr_step }}
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Set SKIP_MDX_PR_STEP condition
+        id: skip_mdx_pr_step_setting
+        env:
+          SKIP_MDX_PR_STEP: ${{ vars.SKIP_MDX_PR_STEP }}
+        run: |
+          echo "SKIP_MDX_PR_STEP is set to {{ env.SKIP_MDX_PR_STEP }}"
+          echo "SKIP_MDX_PR_STEP=${{ env.SKIP_MDX_PR_STEP }}" >> $GITHUB_OUTPUT
+
+  create-mdx-files-and-open-pr:
+    if: ${{ needs.publish-new-datasets.outputs.has_new_files_to_promote == 'true' && needs.mdx-pr-flag-evaluator.outputs.skip_mdx_pr_step != 'true'}}
+    runs-on: ubuntu-latest
+    environment: staging
+    needs: ['mdx-pr-flag-evaluator', 'publish-new-datasets']
     steps:
       - name: Checkout code
         uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2
