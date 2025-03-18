@@ -43,6 +43,21 @@
       "description": "Cloud optimized default layer to display on map"
     }
   },
+  "renders": {
+    "dashboard": {
+      "colormap_name": "BuPu",
+      "rescale": [
+        [
+          0,
+          1
+        ]
+      ],
+      "assets": [
+        "cog_default"
+      ],
+      "title": "VEDA Dashboard Render Parameters"
+    }
+  },
   "providers": [
     {
       "name": "NASA VEDA",
@@ -66,19 +81,5 @@
   "collection": "windgusts-derecho",
   "title": "NCEI Wind Gusts for 05/12/2022",
   "description": "NCEI Storm Events Database wind gusts exceeding 70mph for the derecho of May 12th, 2022",
-  "renders": {
-    "dashboard": {
-      "colormap_name": "BuPu",
-      "rescale": [
-        [
-          0,
-          1
-        ]
-      ],
-      "assets": [
-        "cog_default"
-      ],
-      "title": "VEDA Dashboard Render Parameters"
-    }
-  }
+  "dashboard:is_periodic": true
 }
