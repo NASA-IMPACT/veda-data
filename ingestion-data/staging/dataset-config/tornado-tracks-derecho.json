@@ -45,7 +45,7 @@
   },
   "renders": {
     "dashboard": {
-      "colormap_name": "GnYlRd",
+      "colormap_name": "rdylgn_r",
       "rescale": [
         [
           0,
