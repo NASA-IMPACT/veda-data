@@ -43,6 +43,21 @@
       "description": "Cloud optimized default layer to display on map"
     }
   },
+  "renders": {
+    "dashboard": {
+      "colormap_name": "RdYlGn",
+      "rescale": [
+        [
+          0,
+          1
+        ]
+      ],
+      "assets": [
+        "cog_default"
+      ],
+      "title": "VEDA Dashboard Render Parameters"
+    }
+  },
   "providers": [
     {
       "name": "NASA VEDA",
@@ -69,20 +84,6 @@
   "is_periodic": false,
   "time_density": "day",
   "datetime_range": "day",
-  "renders": {
-    "dashboard": {
-      "colormap_name": "RdYlGn",
-      "rescale": [
-        [
-          0,
-          1
-        ]
-      ],
-      "assets": [
-        "cog_default"
-      ],
-      "title": "VEDA Dashboard Render Parameters"
-    }
-  },
-  "transfer": true
+  "transfer": true,
+  "dashboard:is_periodic": true
 }
