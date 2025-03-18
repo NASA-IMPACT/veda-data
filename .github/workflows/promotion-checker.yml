@@ -4,6 +4,8 @@ on:
   pull_request:
     types:
       - closed
+    paths:
+      - ingestion-data/staging/dataset-config/*.json
 
 permissions:
     actions: write
