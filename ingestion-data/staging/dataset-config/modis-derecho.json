@@ -45,17 +45,20 @@
   },
   "renders": {
     "dashboard": {
-      "colormap_name": "YlOrBr",
+      "bidx": [
+        1
+      ],
       "rescale": [
         [
           0,
-          1
+          1000
         ]
       ],
+      "colormap_name": "turbo",
+      "resampling": "bilinear",
       "assets": [
         "cog_default"
-      ],
-      "title": "VEDA Dashboard Render Parameters"
+      ]
     }
   },
   "providers": [
