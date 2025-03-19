@@ -17,7 +17,7 @@
       "upload": false,
       "cogify": false,
       "dry_run": false,
-      "filename_regex": "(.*)MODIS_AOD_(.*).tif$",
+      "filename_regex": "(.*)derecho_MODIS_AOD_(.*).tif$",
       "use_multithreading": false,
       "discovery": "s3",
       "prefix": "Derecho/",
@@ -25,7 +25,7 @@
     }
   ],
   "sample_files": [
-    "s3://veda-data-store-staging/Derecho/COG/MODIS_AOD_2022-05-12.tif"
+    "s3://veda-data-store-staging/Derecho/COG/derecho_MODIS_AOD_2022-05-12.tif"
   ],
   "data_type": "cog",
   "stac_extensions": [
