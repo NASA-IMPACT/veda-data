@@ -85,8 +85,8 @@
     }
   },
   "collection": "la-fires-gedi",
-  "title": "Eaton and Palisades Fires (2025) Above Groud Biomass",
-  "description": "Satellite-derived above-ground biomass (extracted from GEDI data) over the burn scar extents of the Eaton and Palisades Fires in Southern California (2025).",
+  "title": "Eaton and Palisades Fires (2025) Above Ground Biomass Density",
+  "description": "Satellite-derived above-ground biomass density (extracted from GEDI data) over the burn scar extents of the Eaton and Palisades Fires in Southern California (2025).",
   "is_periodic": false,
   "time_density": "day",
   "datetime_range": "day",
