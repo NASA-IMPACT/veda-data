@@ -46,12 +46,17 @@
   },
   "renders": {
     "dashboard": {
+      "bidx": [
+        1
+      ],
       "rescale": [
         [
           0,
-          526
+          250
         ]
       ],
+      "colormap_name": "ylgn",
+      "resampling": null,
       "nodata": "-9999",
       "assets": [
         "cog_default"
