@@ -85,5 +85,6 @@
   "time_density": "day",
   "datetime_range": "day",
   "transfer": true,
-  "dashboard:is_periodic": true
+  "dashboard:is_periodic": false,
+  "dashboard:time_density": "day"
 }
