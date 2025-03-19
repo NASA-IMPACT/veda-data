@@ -45,17 +45,20 @@
   },
   "renders": {
     "dashboard": {
-      "colormap_name": "BuPu",
+      "bidx": [
+        1
+      ],
       "rescale": [
         [
-          0,
-          1
+          75,
+          100
         ]
       ],
+      "colormap_name": "BuPu",
+      "resampling": null,
       "assets": [
         "cog_default"
-      ],
-      "title": "VEDA Dashboard Render Parameters"
+      ]
     }
   },
   "providers": [
