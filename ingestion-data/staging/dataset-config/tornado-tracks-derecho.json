@@ -45,11 +45,11 @@
   },
   "renders": {
     "dashboard": {
-      "colormap_name": "rdylgn_r",
+      "colormap_name": "tornado_ef_scale",
       "rescale": [
         [
           0,
-          1
+          6
         ]
       ],
       "assets": [
