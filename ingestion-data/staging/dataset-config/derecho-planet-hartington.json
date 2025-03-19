@@ -45,16 +45,16 @@
   },
   "renders": {
     "dashboard": {
-      "rescale": [
-        [
-          0,
-          1
-        ]
+      "bidx": [
+        1,
+        2,
+        3
       ],
+      "rescale": [],
+      "resampling": null,
       "assets": [
         "cog_default"
-      ],
-      "title": "VEDA Dashboard Render Parameters"
+      ]
     }
   },
   "providers": [
