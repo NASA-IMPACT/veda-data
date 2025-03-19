@@ -1,0 +1,84 @@
+{
+  "license": "CC0-1.0",
+  "stac_version": "1.0.0",
+  "links": [],
+  "spatial_extent": {
+    "xmin": -97,
+    "ymin": 42,
+    "xmax": -95,
+    "ymax": 43
+  },
+  "temporal_extent": {
+    "startdate": "2022-05-13T00:00:00.000Z",
+    "enddate": "2022-05-13T23:59:59.000Z"
+  },
+  "discovery_items": [
+    {
+      "upload": false,
+      "cogify": false,
+      "dry_run": false,
+      "filename_regex": "(.*)derecho_planet_hartington_(.*).tif$",
+      "use_multithreading": false,
+      "discovery": "s3",
+      "prefix": "Derecho/",
+      "bucket": "veda-data-store-staging"
+    }
+  ],
+  "sample_files": [
+    "s3://veda-data-store-staging/Derecho/COG/derecho_planet_hartington_2022-05-13.tif"
+  ],
+  "data_type": "cog",
+  "stac_extensions": [
+    "https://stac-extensions.github.io/render/v1.0.0/schema.json",
+    "https://stac-extensions.github.io/item-assets/v1.0.0/schema.json"
+  ],
+  "item_assets": {
+    "cog_default": {
+      "type": "image/tiff; application=geotiff; profile=cloud-optimized",
+      "roles": [
+        "data",
+        "layer"
+      ],
+      "title": "Default COG Layer",
+      "description": "Cloud optimized default layer to display on map"
+    }
+  },
+  "renders": {
+    "dashboard": {
+      "rescale": [
+        [
+          0,
+          1
+        ]
+      ],
+      "assets": [
+        "cog_default"
+      ],
+      "title": "VEDA Dashboard Render Parameters"
+    }
+  },
+  "providers": [
+    {
+      "name": "NASA VEDA",
+      "roles": [
+        "host"
+      ],
+      "url": "https://www.earthdata.nasa.gov/dashboard/"
+    }
+  ],
+  "assets": {
+    "thumbnail": {
+      "title": "Thumbnail",
+      "type": "image/png",
+      "roles": [
+        "thumbnail"
+      ],
+      "href": "https://thumbnails.openveda.cloud/veda_derecho_thumbnail.png",
+      "description": "Photo by Jim Reed Photography (Intense derecho thunderstorm as it sweeps across farmland on September 23, 2018)"
+    }
+  },
+  "collection": "derecho-planet-hartington",
+  "description": "Commercial SmallSat PlanetScope Satellite Visible Imagery of select locations that experienced derecho damage on May 12th, 2022 in the United States. The location in this collection is Hartington, Nebraska.",
+  "title": "Planet TrueColor Satellite Imagery (Hartington NE Derecho Damage)",
+  "dashboard:time_density": "day"
+}
