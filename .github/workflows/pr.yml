@@ -197,6 +197,52 @@ jobs:
           🕵️ No new files found. No files will be published to staging or promoted to production."
           gh api -X PATCH -H "Authorization: token $GITHUB_TOKEN" /repos/${{ github.repository }}/issues/comments/$COMMENT_ID -f body="$UPDATED_BODY"
 
+      - name: Prepare temp directory for artifacts
+        run: |
+            mkdir -p /tmp/upload-artifacts
+            for file in $(echo "${{ steps.publish-collections.outputs.success_collections }}" | tr ',' ' '); do
+              if [ -f "$file" ]; then
+                cp "$file" /tmp/upload-artifacts/
+              else
+                echo "Warning: File not found - $file"
+              fi
+            done
+
+      - name: List files in temp directory
+        run: ls -lah /tmp/upload-artifacts
+
+      - name: Upload published collections files as directory artifact
+        uses: actions/upload-artifact@4cec3d8aa04e39d1a68397de0c4cd6fb9dce8ec1 # v4.6.1
+        env:
+          ARTIFACT_RETENTION_DAYS: ${{ vars.ARTIFACT_RETENTION_DAYS }}
+        with:
+          name: collections-to-promote-from-${{ github.event.pull_request.number }}
+          path: /tmp/upload-artifacts/*
+          retention-days: ${{ env.ARTIFACT_RETENTION_DAYS }}
+
+      - name: Save Workflow Run ID
+        run: |
+          echo "RUN_ID is ${{ github.run_id }}"
+          echo "${{ github.run_id }}" > run_id.txt
+
+      - name: Upload Workflow Run ID
+        uses: actions/upload-artifact@4cec3d8aa04e39d1a68397de0c4cd6fb9dce8ec1 # v4.6.1
+        env:
+          ARTIFACT_RETENTION_DAYS: ${{ vars.ARTIFACT_RETENTION_DAYS }}
+        with:
+          name: run-id-${{ github.event.pull_request.number }}
+          path: run_id.txt
+
+      - name: Debug - Download artifacts
+        env:
+          GITHUB_TOKEN: ${{ github.token }}
+        run: |
+          gh run download ${{ github.run_id }} \
+            --repo ${{ github.repository }} \
+            --name collections-to-promote-from-${{ github.event.pull_request.number }} \
+            --dir ./downloaded-files
+
+
   mdx-pr-flag-evaluator:
     runs-on: ubuntu-latest
     environment: staging
@@ -247,50 +293,8 @@ jobs:
           echo "Final collection_ids: $collection_ids"
           echo "collection_ids=${collection_ids}" >> $GITHUB_ENV
 
-      - name: Prepare temp directory for artifacts
-        run: |
-            mkdir -p /tmp/upload-artifacts
-            for file in $(echo "${{ needs.publish-new-datasets.outputs.published_collections }}" | tr ',' ' '); do
-              if [ -f "$file" ]; then
-                cp "$file" /tmp/upload-artifacts/
-              else
-                echo "Warning: File not found - $file"
-              fi
-            done
 
-      - name: List files in temp directory
-        run: ls -lah /tmp/upload-artifacts
 
-      - name: Upload published collections files as directory artifact
-        uses: actions/upload-artifact@4cec3d8aa04e39d1a68397de0c4cd6fb9dce8ec1 # v4.6.1
-        env:
-          ARTIFACT_RETENTION_DAYS: ${{ vars.ARTIFACT_RETENTION_DAYS }}
-        with:
-          name: collections-to-promote-from-${{ github.event.pull_request.number }}
-          path: /tmp/upload-artifacts/*
-          retention-days: ${{ env.ARTIFACT_RETENTION_DAYS }}
-
-      - name: Save Workflow Run ID
-        run: |
-          echo "RUN_ID is ${{ github.run_id }}"
-          echo "${{ github.run_id }}" > run_id.txt
-
-      - name: Upload Workflow Run ID
-        uses: actions/upload-artifact@4cec3d8aa04e39d1a68397de0c4cd6fb9dce8ec1 # v4.6.1
-        env:
-          ARTIFACT_RETENTION_DAYS: ${{ vars.ARTIFACT_RETENTION_DAYS }}
-        with:
-          name: run-id-${{ github.event.pull_request.number }}
-          path: run_id.txt
-
-      - name: Debug - Download artifacts
-        env:
-          GITHUB_TOKEN: ${{ github.token }}
-        run: |
-          gh run download ${{ github.run_id }} \
-            --repo ${{ github.repository }} \
-            --name collections-to-promote-from-${{ github.event.pull_request.number }} \
-            --dir ./downloaded-files
 
       - name: Debug - Print files to promote
         run: |
