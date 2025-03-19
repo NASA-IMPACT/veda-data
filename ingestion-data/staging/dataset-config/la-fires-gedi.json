@@ -17,7 +17,7 @@
       "upload": false,
       "cogify": false,
       "dry_run": false,
-      "filename_regex": "(.*)AGBD_NDVI_Overlay_(.*).tif$",
+      "filename_regex": "(.*)AGBD_NDVI_Overlay_(.*)_v2.tif$",
       "use_multithreading": false,
       "discovery": "s3",
       "prefix": "LA-Fires/",
@@ -25,8 +25,8 @@
     }
   ],
   "sample_files": [
-    "s3://veda-data-store-staging/LA-Fires/AGBD_NDVI_Overlay_Palisades_2025-01-07.tif",
-    "s3://veda-data-store-staging/LA-Fires/AGBD_NDVI_Overlay_eaton_2025-01-07.tif"
+    "s3://veda-data-store-staging/LA-Fires/AGBD_NDVI_Overlay_Palisades_2025-01-07_v2.tif",
+    "s3://veda-data-store-staging/LA-Fires/AGBD_NDVI_Overlay_eaton_2025-01-07_v2.tif"
   ],
   "data_type": "cog",
   "stac_extensions": [
@@ -46,18 +46,12 @@
   },
   "renders": {
     "dashboard": {
-      "bidx": [
-        1,
-        2,
-        3
-      ],
       "rescale": [
         [
           0,
-          250
+          526
         ]
-      ],
-      "resampling": null,
+      ]
       "nodata": "-9999",
       "assets": [
         "cog_default"
