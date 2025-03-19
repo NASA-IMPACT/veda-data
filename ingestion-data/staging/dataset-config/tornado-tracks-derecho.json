@@ -46,16 +46,11 @@
   "renders": {
     "dashboard": {
       "colormap_name": "tornado_ef_scale",
-      "rescale": [
-        [
-          0,
-          6
-        ]
-      ],
+      "resampling": null,
+      "nodata": "-999",
       "assets": [
         "cog_default"
-      ],
-      "title": "VEDA Dashboard Render Parameters"
+      ]
     }
   },
   "providers": [
