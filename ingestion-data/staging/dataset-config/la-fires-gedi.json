@@ -56,7 +56,6 @@
         ]
       ],
       "colormap_name": "ylgn",
-      "resampling": null,
       "nodata": "-9999",
       "assets": [
         "cog_default"
