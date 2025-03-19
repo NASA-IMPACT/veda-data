@@ -54,7 +54,7 @@
           100
         ]
       ],
-      "colormap_name": "BuPu",
+      "colormap_name": "bupu",
       "resampling": null,
       "assets": [
         "cog_default"
