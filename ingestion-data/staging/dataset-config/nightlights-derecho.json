@@ -25,7 +25,7 @@
     }
   ],
   "sample_files": [
-    "s3://veda-data-store-staging/Derecho/COG/Nightlightscog_2022-05-16_2022-05-10.tif"
+    "s3://veda-data-store-staging/Derecho/COG/Nightlightscog_2022-05-10.tif"
   ],
   "data_type": "cog",
   "stac_extensions": [
@@ -81,5 +81,6 @@
   "collection": "nightlights-derecho",
   "title": "VIIRS Night Lights Derecho",
   "description": "Difference in nightlights for the North Plains from 5/10/2022 and 5/16/2022 to demonstrate power outages from the derecho",
-  "dashboard:is_periodic": true
+  "dashboard:is_periodic": false,
+  "dashboard:time_density": "day"
 }
