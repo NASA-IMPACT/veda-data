@@ -54,7 +54,7 @@
           1000
         ]
       ],
-      "colormap_name": "turbo",
+      "colormap_name": "YlOrBr",
       "resampling": "bilinear",
       "assets": [
         "cog_default"
