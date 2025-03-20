@@ -17,10 +17,10 @@
       "upload": false,
       "cogify": false,
       "dry_run": false,
-      "filename_regex": "(.*)Tornadotrackscog_(.*).tif$",
+      "filename_regex": "(.*)Tornadotrackscog_2022-05-12.tif$",
       "use_multithreading": false,
       "discovery": "s3",
-      "prefix": "Derecho/",
+      "prefix": "Derecho/COG/",
       "bucket": "veda-data-store-staging"
     }
   ],
