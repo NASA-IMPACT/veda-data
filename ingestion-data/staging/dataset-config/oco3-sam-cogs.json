@@ -23,7 +23,8 @@
             "bucket": "veda-data-store-staging",
             "filename_regex": "^(.*).tif$",
             "discovery": "s3",
-            "datetime_range": "day"
+            "datetime_range": "day",
+            "chunk_size": 1
         }
     ]
 }
