@@ -20,7 +20,7 @@
       "filename_regex": "(.*)Nightlightscog_(.*).tif$",
       "use_multithreading": false,
       "discovery": "s3",
-      "prefix": "Derecho/",
+      "prefix": "Derecho/COG/",
       "bucket": "veda-data-store-staging"
     }
   ],
