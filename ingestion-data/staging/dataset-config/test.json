@@ -1,6 +1,6 @@
 {
-    "collection": "campfire-nlcd-TEST-FLAG",
-    "title": "Camp Fire Domain: Land Cover TEST FLAG",
+    "collection": "campfire-nlcd-TEST-ARTIFACT",
+    "title": "Camp Fire Domain: Land Cover TEST ARTIFACT",
     "description": "NLCD-derived land use-land cover for 2016 over the Camp Fire burn scar domain. Displays colors 0-255 from a lookup table for land cover type (ex: reds = urbanized).",
     "type": "Collection",
     "spatial_extent": {
