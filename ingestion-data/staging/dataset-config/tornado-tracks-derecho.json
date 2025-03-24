@@ -45,6 +45,15 @@
   },
   "renders": {
     "dashboard": {
+      "bidx": [
+        1
+      ],
+      "rescale": [
+        [
+          0,
+          255
+        ]
+      ],
       "colormap_name": "tornado_ef_scale",
       "resampling": null,
       "nodata": "-999",
@@ -74,7 +83,7 @@
     }
   },
   "collection": "tornado-tracks-derecho",
-  "title": "NWS Tornado Tracks for May 12th 2022",
+  "title": "NWS Tornado Tracks (May 12, 2022)",
   "dashboard:is_periodic": false,
   "description": "Official NWS surveyed tornado tracks from May 12th 2022. Only the centerline of the tornado paths, classified by maximum EF rating.",
   "dashboard:time_density": "day"
