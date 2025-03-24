@@ -54,8 +54,8 @@
           0.4
         ]
       ],
-      "colormap_name": "RdYlGn",
-      "resampling": null,
+      "colormap_name": "rdylgn",
+      "resampling": "Nearest",
       "assets": [
         "cog_default"
       ]
