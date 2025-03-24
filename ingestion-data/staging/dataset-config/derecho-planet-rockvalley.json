@@ -50,8 +50,7 @@
         2,
         3
       ],
-      "rescale": [],
-      "resampling": null,
+      "resampling": "nearest",
       "assets": [
         "cog_default"
       ]
