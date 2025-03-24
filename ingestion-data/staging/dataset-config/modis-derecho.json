@@ -55,7 +55,7 @@
         ]
       ],
       "colormap_name": "ylorbr",
-      "resampling": "bilinear",
+      "resampling": "nearest",
       "assets": [
         "cog_default"
       ]
