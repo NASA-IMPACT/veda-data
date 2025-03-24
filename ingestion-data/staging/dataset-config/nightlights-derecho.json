@@ -54,7 +54,8 @@
           255
         ]
       ],
-      "colormap_name": "rwb",
+      "colormap_name": "bwr",
+      "resampling": null,
       "assets": [
         "cog_default"
       ]
