@@ -1,0 +1,83 @@
+{
+  "license": "CC0-1.0",
+  "stac_version": "1.0.0",
+  "links": [],
+  "spatial_extent": {
+    "xmin": -97.5,
+    "ymin": 42.3,
+    "xmax": -96.5,
+    "ymax": 42.7
+  },
+  "temporal_extent": {
+    "startdate": "2022-05-13T00:00:00.000Z",
+    "enddate": "2022-05-13T23:59:59.000Z"
+  },
+  "discovery_items": [
+    {
+      "upload": false,
+      "cogify": false,
+      "dry_run": false,
+      "filename_regex": "(.*)derecho_planet_rockvalley_(.*).tif$",
+      "use_multithreading": false,
+      "discovery": "s3",
+      "prefix": "Derecho/",
+      "bucket": "veda-data-store-staging"
+    }
+  ],
+  "sample_files": [
+    "s3://veda-data-store-staging/Derecho/COG/derecho_planet_rockvalley_2022-05-13.tif"
+  ],
+  "data_type": "cog",
+  "stac_extensions": [
+    "https://stac-extensions.github.io/render/v1.0.0/schema.json",
+    "https://stac-extensions.github.io/item-assets/v1.0.0/schema.json"
+  ],
+  "item_assets": {
+    "cog_default": {
+      "type": "image/tiff; application=geotiff; profile=cloud-optimized",
+      "roles": [
+        "data",
+        "layer"
+      ],
+      "title": "Default COG Layer",
+      "description": "Cloud optimized default layer to display on map"
+    }
+  },
+  "renders": {
+    "dashboard": {
+      "bidx": [
+        1,
+        2,
+        3
+      ],
+      "resampling": "nearest",
+      "assets": [
+        "cog_default"
+      ]
+    }
+  },
+  "providers": [
+    {
+      "name": "NASA VEDA",
+      "roles": [
+        "host"
+      ],
+      "url": "https://www.earthdata.nasa.gov/dashboard/"
+    }
+  ],
+  "assets": {
+    "thumbnail": {
+      "title": "Thumbnail",
+      "type": "image/png",
+      "roles": [
+        "thumbnail"
+      ],
+      "href": "https://thumbnails.openveda.cloud/veda_derecho_thumbnail.png",
+      "description": "Photo by Jim Reed Photography (Intense derecho thunderstorm as it sweeps across farmland on September 23, 2018)"
+    }
+  },
+  "collection": "derecho-planet-rockvalley",
+  "title": "Planet TrueColor Satellite Imagery (Rock Valley IA Derecho Damage)",
+  "dashboard:time_density": "day",
+  "description": "Commercial SmallSat PlanetScope Satellite Visible Imagery of select locations that experienced derecho damage on May 12th, 2022 in the United States. The location in this collection is Rock Valley, Iowa."
+}
