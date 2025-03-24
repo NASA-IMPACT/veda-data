@@ -55,7 +55,6 @@
         ]
       ],
       "colormap_name": "tornado_ef_scale",
-      "resampling": null,
       "nodata": "-999",
       "assets": [
         "cog_default"
