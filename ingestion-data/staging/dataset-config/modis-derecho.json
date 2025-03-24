@@ -51,11 +51,10 @@
       "rescale": [
         [
           0,
-          1000
+          0.2
         ]
       ],
       "colormap_name": "ylorbr",
-      "resampling": "nearest",
       "assets": [
         "cog_default"
       ]
