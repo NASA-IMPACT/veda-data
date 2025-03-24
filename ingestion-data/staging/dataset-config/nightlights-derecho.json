@@ -55,7 +55,7 @@
         ]
       ],
       "colormap_name": "bwr",
-      "resampling": null,
+      "resampling": "Nearest",
       "assets": [
         "cog_default"
       ]
