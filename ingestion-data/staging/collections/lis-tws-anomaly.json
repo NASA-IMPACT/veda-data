@@ -69,6 +69,13 @@
             "roles": [
                 "host"
             ]
+        },
+        {
+            "name": "NASA HydroGlobe",
+            "url": "https://ldas.gsfc.nasa.gov/hydroglobe",
+            "roles": [
+                "host"
+            ]
         }
     ]
 }
