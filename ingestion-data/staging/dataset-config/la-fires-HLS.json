@@ -9,8 +9,8 @@
     "ymax": 34
   },
   "temporal_extent": {
-    "startdate": "2025-06-01T00:00:00.000Z",
-    "enddate": "2025-14-01T23:59:59.000Z"
+    "startdate": "2025-01-06T00:00:00.000Z",
+    "enddate": "2025-01-14T23:59:59.000Z"
   },
   "discovery_items": [
     {
