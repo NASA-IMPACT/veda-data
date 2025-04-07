@@ -1,0 +1,90 @@
+{
+  "license": "CC0-1.0",
+  "stac_version": "1.0.0",
+  "links": [],
+  "spatial_extent": {
+    "xmin": -119,
+    "ymin": 33,
+    "xmax": -118,
+    "ymax": 34
+  },
+  "temporal_extent": {
+    "startdate": "2025-01-06T00:00:00.000Z",
+    "enddate": "2025-01-14T23:59:59.000Z"
+  },
+  "discovery_items": [
+    {
+      "upload": false,
+      "cogify": false,
+      "dry_run": false,
+      "filename_regex": "(.*)HLS_LA_Fires_(.*).tif$",
+      "use_multithreading": false,
+      "bucket": "veda-data-store-staging",
+      "prefix": "LA-Fires/",
+      "discovery": "s3"
+    }
+  ],
+  "sample_files": [
+    "s3://veda-data-store-staging/LA-Fires/HLS_LA_Fires_2025-01-06.tif",
+    "s3://veda-data-store-staging/LA-Fires/HLS_LA_Fires_2025-01-14.tif"
+  ],
+  "data_type": "cog",
+  "stac_extensions": [
+    "https://stac-extensions.github.io/render/v1.0.0/schema.json",
+    "https://stac-extensions.github.io/item-assets/v1.0.0/schema.json"
+  ],
+  "item_assets": {
+    "cog_default": {
+      "type": "image/tiff; application=geotiff; profile=cloud-optimized",
+      "roles": [
+        "data",
+        "layer"
+      ],
+      "title": "Default COG Layer",
+      "description": "Cloud optimized default layer to display on map"
+    }
+  },
+  "renders": {
+    "dashboard": {
+      "bidx": [
+        1,
+        2,
+        3
+      ],
+      "rescale": [
+        [
+          0,
+          4000
+        ]
+      ],
+      "assets": [
+        "cog_default"
+      ]
+    }
+  },
+  "providers": [
+    {
+      "name": "NASA VEDA",
+      "roles": [
+        "host"
+      ],
+      "url": "https://www.earthdata.nasa.gov/dashboard/"
+    }
+  ],
+  "assets": {
+    "thumbnail": {
+      "title": "Thumbnail",
+      "type": "image/png",
+      "roles": [
+        "thumbnail"
+      ],
+      "href": "https://thumbnails.openveda.cloud/la-fires-thumbnail.png",
+      "description": "Planet Labs Commercial Satellite Imagery of the Eaton Fire (January 9, 2025)."
+    }
+  },
+  "collection": "la-fires-HLS",
+  "title": "HLS False Color Imagery (2025 LA fires)",
+  "dashboard:is_periodic": false,
+  "dashboard:time_density": "Day",
+  "description": "HLS Satellite imagery for LA Fires"
+}
