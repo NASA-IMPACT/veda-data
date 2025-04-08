@@ -85,6 +85,6 @@
   "collection": "la-fires-HLS",
   "title": "HLS False Color Imagery (2025 LA fires)",
   "dashboard:is_periodic": false,
-  "dashboard:time_density": "Day",
+  "dashboard:time_density": "day",
   "description": "HLS Satellite imagery for LA Fires"
 }
