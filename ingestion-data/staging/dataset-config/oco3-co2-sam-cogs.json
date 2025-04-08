@@ -1,5 +1,5 @@
 {
-    "collection": "oco3-co2-sam-l3-cogs",
+    "collection": "oco3-co2-sam-cogs",
     "title": "Orbiting Carbon Observatory 3 (OCO-3) Snapshot Area Mapping (SAM) Cloud-Optimized GeoTIFFs (COGs)",
     "description": "NASA-JPL's OCO-3 is an instrument onboard the International Space Station that measures carbon dioxide in the Earth's atmosphere.",
     "type": "cog",
@@ -16,7 +16,7 @@
     "stac_version": "1.0.0",
     "discovery_items": [
         {
-            "prefix": "oco3-co2-sam-l3-cogs/",
+            "prefix": "oco3-co2-sam-cogs_v2025.02.26/",
             "bucket": "veda-data-store-staging",
             "filename_regex": "^(.*).tif$",
             "discovery": "s3",
