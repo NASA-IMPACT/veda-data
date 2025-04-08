@@ -16,7 +16,7 @@
     "stac_version": "1.0.0",
     "discovery_items": [
         {
-            "prefix": "oco2-co2-target-cogs/",
+            "prefix": "oco2-co2-target-cogs_v2025.02.26/",
             "bucket": "veda-data-store-staging",
             "filename_regex": "^(.*).tif$",
             "discovery": "s3",
