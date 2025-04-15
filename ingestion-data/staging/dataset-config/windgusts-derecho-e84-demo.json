@@ -82,7 +82,7 @@
     }
   },
   "collection": "windgusts-derecho-e84-demo",
-  "title": "NCEI Wind Gusts for 05/12/2022",
+  "title": "NCEI Wind Gusts for 05/12/2022  demo",
   "description": "NCEI Storm Events Database wind gusts exceeding 70mph for the derecho of May 12th, 2022",
   "dashboard:is_periodic": false,
   "dashboard:time_density": "day"
