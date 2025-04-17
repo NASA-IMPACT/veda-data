@@ -16,7 +16,7 @@
     "stac_version": "1.0.0",
     "discovery_items": [
         {
-            "prefix": "oco3-sif-sam-cogs_v2025.02.26/",
+            "prefix": "oco3-sif-sam-cogs_v2025.04.16/",
             "bucket": "veda-data-store-staging",
             "filename_regex": "^(.*).tif$",
             "discovery": "s3",
