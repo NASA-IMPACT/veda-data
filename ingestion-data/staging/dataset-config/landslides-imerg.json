@@ -85,8 +85,8 @@
   "collection": "landslides-imerg",
   "title": "IMERG Total Precipitation - Hurricane Helene",
   "description": "Total accumulated precipitation from IMERG Final over September 23-30, 2024 to cover precipitation related to Hurricane Helene in the Southeast US.",
-  "is_periodic": false,
-  "time_density": "day",
+  "dashboard:is_periodic": false,
+  "dashboard:time_density": "day",
   "datetime_range": "day",
   "transfer": true
 }
