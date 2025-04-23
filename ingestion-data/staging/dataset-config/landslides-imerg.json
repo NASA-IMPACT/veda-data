@@ -45,17 +45,19 @@
   },
   "renders": {
     "dashboard": {
-      "colormap_name": "YlGnBu",
+      "bidx": [
+        1
+      ],
       "rescale": [
         [
           0,
           18
         ]
       ],
+      "colormap_name": "nipy_spectral",
       "assets": [
         "cog_default"
-      ],
-      "title": "VEDA Dashboard Render Parameters"
+      ]
     }
   },
   "providers": [
