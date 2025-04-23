@@ -55,6 +55,8 @@
         ]
       ],
       "colormap_name": "nipy_spectral",
+      "resampling": "bilinear",
+      "nodata": "-999",
       "assets": [
         "cog_default"
       ]
