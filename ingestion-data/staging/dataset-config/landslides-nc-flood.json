@@ -1,0 +1,92 @@
+{
+  "license": "CC0-1.0",
+  "stac_version": "1.0.0",
+  "links": [],
+  "spatial_extent": {
+    "xmin": -83.6,
+    "ymin": 35.1,
+    "xmax": -81,
+    "ymax": 36.58
+  },
+  "temporal_extent": {
+    "startdate": "2024-09-29T00:00:00Z",
+    "enddate": "2024-09-29T23:59:59Z"
+  },
+  "discovery_items": [
+    {
+      "upload": false,
+      "cogify": false,
+      "dry_run": false,
+      "filename_regex": "(.*)NC_Flood_Extent_(.*).tif$",
+      "use_multithreading": false,
+      "discovery": "s3",
+      "prefix": "landslides/",
+      "bucket": "veda-data-store-staging"
+    }
+  ],
+  "sample_files": [
+    "s3://veda-data-store-staging/landslides/NC_Flood_Extent_2024-09-29.tif"
+  ],
+  "data_type": "cog",
+  "stac_extensions": [
+    "https://stac-extensions.github.io/render/v1.0.0/schema.json",
+    "https://stac-extensions.github.io/item-assets/v1.0.0/schema.json"
+  ],
+  "item_assets": {
+    "cog_default": {
+      "type": "image/tiff; application=geotiff; profile=cloud-optimized",
+      "roles": [
+        "data",
+        "layer"
+      ],
+      "title": "Default COG Layer",
+      "description": "Cloud optimized default layer to display on map"
+    }
+  },
+  "renders": {
+    "dashboard": {
+      "bidx": [
+        1
+      ],
+      "rescale": [
+        [
+          1000,
+          9999
+        ]
+      ],
+      "colormap_name": "blues",
+      "resampling": "bilinear",
+      "nodata": "-999",
+      "assets": [
+        "cog_default"
+      ]
+    }
+  },
+  "providers": [
+    {
+      "name": "NASA VEDA",
+      "roles": [
+        "host"
+      ],
+      "url": "https://www.earthdata.nasa.gov/dashboard/"
+    }
+  ],
+  "assets": {
+    "thumbnail": {
+      "title": "Thumbnail",
+      "type": "image/png",
+      "roles": [
+        "thumbnail"
+      ],
+      "description": "Landslide blocks I-40 in North Carolina post-Helene.",
+      "href": "https://thumbnails.openveda.cloud/landslides-background.png"
+    }
+  },
+  "collection": "landslides-nc-flood",
+  "title": "NC DHHS Flood Extent - Hurricane Helene",
+  "description": "Flood extents as determined from Sentinel, NOAA, and USGS datasets and produced by the North Carolina Department of Health and Human Services (NC DHHS). The majority of this raster has flood levels that exceed 100 year FEMA flood extent recurrence levels.",
+  "is_periodic": false,
+  "time_density": "day",
+  "datetime_range": "day",
+  "transfer": true
+}
