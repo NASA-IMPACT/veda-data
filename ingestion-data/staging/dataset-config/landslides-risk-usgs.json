@@ -1,0 +1,92 @@
+{
+  "license": "CC0-1.0",
+  "stac_version": "1.0.0",
+  "links": [],
+  "spatial_extent": {
+    "xmin": -88.94,
+    "ymin": 27.09,
+    "xmax": -69.61,
+    "ymax": 42.53
+  },
+  "temporal_extent": {
+    "startdate": "2024-09-29T00:00:00Z",
+    "enddate": "2024-09-29T23:59:59Z"
+  },
+  "discovery_items": [
+    {
+      "upload": false,
+      "cogify": false,
+      "dry_run": false,
+      "filename_regex": "(.*)USGS_Landslide_Risk_(.*).tif$",
+      "use_multithreading": false,
+      "discovery": "s3",
+      "prefix": "landslides/",
+      "bucket": "veda-data-store-staging"
+    }
+  ],
+  "sample_files": [
+    "s3://veda-data-store-staging/landslides/USGS_Landslide_Risk_2024-09-29.tif"
+  ],
+  "data_type": "cog",
+  "stac_extensions": [
+    "https://stac-extensions.github.io/render/v1.0.0/schema.json",
+    "https://stac-extensions.github.io/item-assets/v1.0.0/schema.json"
+  ],
+  "item_assets": {
+    "cog_default": {
+      "type": "image/tiff; application=geotiff; profile=cloud-optimized",
+      "roles": [
+        "data",
+        "layer"
+      ],
+      "title": "Default COG Layer",
+      "description": "Cloud optimized default layer to display on map"
+    }
+  },
+  "renders": {
+    "dashboard": {
+      "bidx": [
+        1
+      ],
+      "rescale": [
+        [
+          0.01,
+          1
+        ]
+      ],
+      "colormap_name": "gist_stern",
+      "resampling": "bilinear",
+      "nodata": "0",
+      "assets": [
+        "cog_default"
+      ]
+    }
+  },
+  "providers": [
+    {
+      "name": "NASA VEDA",
+      "roles": [
+        "host"
+      ],
+      "url": "https://www.earthdata.nasa.gov/dashboard/"
+    }
+  ],
+  "assets": {
+    "thumbnail": {
+      "title": "Thumbnail",
+      "type": "image/png",
+      "roles": [
+        "thumbnail"
+      ],
+      "description": "Landslide blocks I-40 in North Carolina post-Helene.",
+      "href": "https://thumbnails.openveda.cloud/landslides-background.png"
+    }
+  },
+  "collection": "landslides-risk-usgs",
+  "title": "USGS Landslide Hazard Estimate Model - Hurricane Helene",
+  "description": " The two modeling approaches used were adapted from existing models and were run in early October 2024 using initial precipitation estimates to produce rapid event-specific landslide hazard estimate maps. These preliminary maps were initially released provisionally to meet the need for timely best science during the emergency response (version 1.0). The outputs were used to provide early situational awareness of what areas may have been more severely impacted by landslides and debris flows. These results were also used in planning reconnaissance.",
+  "is_periodic": false,
+  "time_density": "day",
+  "datetime_range": "day",
+  "transfer": true
+}
