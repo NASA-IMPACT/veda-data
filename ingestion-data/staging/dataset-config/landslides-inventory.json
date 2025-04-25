@@ -45,12 +45,6 @@
   },
   "renders": {
     "dashboard": {
-      "rescale": [
-        [
-          1,
-          7
-        ]
-      ],
       "colormap": {
         "1": [
           75,
