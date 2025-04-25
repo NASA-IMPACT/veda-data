@@ -45,9 +45,6 @@
   },
   "renders": {
     "dashboard": {
-      "bidx": [
-        1
-      ],
       "rescale": [
         [
           1,
@@ -98,7 +95,6 @@
           255
         ]
       },
-      "resampling": "bilinear",
       "nodata": "-999",
       "assets": [
         "cog_default"
