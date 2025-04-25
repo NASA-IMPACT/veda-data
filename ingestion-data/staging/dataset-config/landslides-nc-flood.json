@@ -17,7 +17,7 @@
       "upload": false,
       "cogify": false,
       "dry_run": false,
-      "filename_regex": "(.*)NC_Flood_Extent_(.*).tif$",
+      "filename_regex": "(.*)NC_Flood_Extent(.*).tif$",
       "use_multithreading": false,
       "discovery": "s3",
       "prefix": "landslides/",
@@ -50,8 +50,8 @@
       ],
       "rescale": [
         [
-          1000,
-          9999
+          0,
+          5
         ]
       ],
       "colormap_name": "blues",
