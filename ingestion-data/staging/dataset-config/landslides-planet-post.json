@@ -17,7 +17,7 @@
       "upload": false,
       "cogify": false,
       "dry_run": false,
-      "filename_regex": "(.*)Planet_(.*)_10(.*).tif$",
+      "filename_regex": "(.*)Planet_(.*)-10-(.*).tif$",
       "use_multithreading": false,
       "discovery": "s3",
       "prefix": "landslides/",
