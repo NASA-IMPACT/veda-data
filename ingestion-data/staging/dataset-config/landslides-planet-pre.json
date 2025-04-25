@@ -84,8 +84,8 @@
     }
   },
   "collection": "landslides-planet-pre",
-  "title": "PlanetScope Satellite Imagery (NC/TN Hurricane Helene - Pre)",
-  "description": "TrueColor RGB commercial satellite imagery from Planet Labs of damage in North Carolina and Tennessee from before Hurricane Helene's impacts. This data was made available through the NASA Commercial Satellite Data Acquisition (CSDA) Program.",
+  "title": "PlanetScope Satellite Imagery (NC Hurricane Helene - Pre)",
+  "description": "TrueColor RGB commercial satellite imagery from Planet Labs of portions of North Carolina from before Hurricane Helene's impacts. This data was made available through the NASA Commercial Satellite Data Acquisition (CSDA) Program.",
   "is_periodic": false,
   "time_density": "day",
   "datetime_range": "day",
