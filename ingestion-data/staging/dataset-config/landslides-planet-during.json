@@ -1,0 +1,91 @@
+{
+  "license": "CC0-1.0",
+  "stac_version": "1.0.0",
+  "links": [],
+  "spatial_extent": {
+    "xmin": -83.15,
+    "ymin": 35.29,
+    "xmax": -81.95,
+    "ymax": 36.35
+  },
+  "temporal_extent": {
+    "startdate": "2024-09-28T00:00:00Z",
+    "enddate": "2024-09-28T23:59:59Z"
+  },
+  "discovery_items": [
+    {
+      "upload": false,
+      "cogify": false,
+      "dry_run": false,
+      "filename_regex": "(.*)Planet_(.*)-09-28-(.*).tif$",
+      "use_multithreading": false,
+      "discovery": "s3",
+      "prefix": "landslides/",
+      "bucket": "veda-data-store-staging"
+    }
+  ],
+  "sample_files": [
+    "s3://veda-data-store-staging/landslides/Planet_Asheville_2024-09-28.tif"
+  ],
+  "data_type": "cog",
+  "stac_extensions": [
+    "https://stac-extensions.github.io/render/v1.0.0/schema.json",
+    "https://stac-extensions.github.io/item-assets/v1.0.0/schema.json"
+  ],
+  "item_assets": {
+    "cog_default": {
+      "type": "image/tiff; application=geotiff; profile=cloud-optimized",
+      "roles": [
+        "data",
+        "layer"
+      ],
+      "title": "Default COG Layer",
+      "description": "Cloud optimized default layer to display on map"
+    }
+  },
+  "renders": {
+    "dashboard": {
+      "bidx": [
+        1,
+        2,
+        3
+      ],
+      "rescale": [
+        [
+          0,
+          255
+        ]
+      ],
+      "assets": [
+        "cog_default"
+      ]
+    }
+  },
+  "providers": [
+    {
+      "name": "NASA VEDA",
+      "roles": [
+        "host"
+      ],
+      "url": "https://www.earthdata.nasa.gov/dashboard/"
+    }
+  ],
+  "assets": {
+    "thumbnail": {
+      "title": "Thumbnail",
+      "type": "image/png",
+      "roles": [
+        "thumbnail"
+      ],
+      "description": "Landslide blocks I-40 in North Carolina post-Helene.",
+      "href": "https://thumbnails.openveda.cloud/landslides-background.png"
+    }
+  },
+  "collection": "landslides-planet-during",
+  "title": "PlanetScope Satellite Imagery (Asheville NC - Hurricane Helene - During)",
+  "description": "TrueColor RGB commercial satellite imagery from Planet Labs of Asheville, North Carolina during massive flodding caused by Hurricane Helene. This data was made available through the NASA Commercial Satellite Data Acquisition (CSDA) Program.",
+  "is_periodic": false,
+  "time_density": "day",
+  "datetime_range": "day",
+  "transfer": true
+}
