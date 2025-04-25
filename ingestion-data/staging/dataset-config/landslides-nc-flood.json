@@ -50,13 +50,13 @@
       ],
       "rescale": [
         [
-          0,
+          0.1,
           5
         ]
       ],
-      "colormap_name": "blues",
+      "colormap_name": "blues_r",
       "resampling": "bilinear",
-      "nodata": "-999",
+      "nodata": "0",
       "assets": [
         "cog_default"
       ]
