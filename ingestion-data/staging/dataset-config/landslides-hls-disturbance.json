@@ -1,0 +1,92 @@
+{
+  "license": "CC0-1.0",
+  "stac_version": "1.0.0",
+  "links": [],
+  "spatial_extent": {
+    "xmin": -83.26,
+    "ymin": 35.13,
+    "xmax": -80.89,
+    "ymax": 37.07
+  },
+  "temporal_extent": {
+    "startdate": "2024-10-02T00:00:00Z",
+    "enddate": "2024-10-02T23:59:59Z"
+  },
+  "discovery_items": [
+    {
+      "upload": false,
+      "cogify": false,
+      "dry_run": false,
+      "filename_regex": "(.*)HLS_Disturbance_Max_(.*).tif$",
+      "use_multithreading": false,
+      "discovery": "s3",
+      "prefix": "landslides/",
+      "bucket": "veda-data-store-staging"
+    }
+  ],
+  "sample_files": [
+    "s3://veda-data-store-staging/landslides/HLS_Disturbance_Max_2024-10-02.tif"
+  ],
+  "data_type": "cog",
+  "stac_extensions": [
+    "https://stac-extensions.github.io/render/v1.0.0/schema.json",
+    "https://stac-extensions.github.io/item-assets/v1.0.0/schema.json"
+  ],
+  "item_assets": {
+    "cog_default": {
+      "type": "image/tiff; application=geotiff; profile=cloud-optimized",
+      "roles": [
+        "data",
+        "layer"
+      ],
+      "title": "Default COG Layer",
+      "description": "Cloud optimized default layer to display on map"
+    }
+  },
+  "renders": {
+    "dashboard": {
+      "bidx": [
+        1
+      ],
+      "rescale": [
+        [
+          1,
+          100
+        ]
+      ],
+      "colormap_name": "ylorbr",
+      "resampling": "bilinear",
+      "nodata": "0",
+      "assets": [
+        "cog_default"
+      ]
+    }
+  },
+  "providers": [
+    {
+      "name": "NASA VEDA",
+      "roles": [
+        "host"
+      ],
+      "url": "https://www.earthdata.nasa.gov/dashboard/"
+    }
+  ],
+  "assets": {
+    "thumbnail": {
+      "title": "Thumbnail",
+      "type": "image/png",
+      "roles": [
+        "thumbnail"
+      ],
+      "description": "Landslide blocks I-40 in North Carolina post-Helene.",
+      "href": "https://thumbnails.openveda.cloud/landslides-background.png"
+    }
+  },
+  "collection": "landslides-hls-disturbance",
+  "title": "HLS Disturbance Product - Hurricane Helene",
+  "description": "Difference between historical and current year observed vegetation cover at the date of maximum decrease (vegetation loss of 0-100%). This layer can be used to threshold vegetation disturbance per a given sensitivity (e.g. disturbance of â‰¥20% vegetation cover loss). The sum of the historical percent vegetation and the anomaly value will be the vegetation cover estimate for the current year.",
+  "dashboard:is_periodic": false,
+  "dashboard:time_density": "day",
+  "datetime_range": "day",
+  "transfer": true
+}
