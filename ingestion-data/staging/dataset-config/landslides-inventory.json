@@ -118,8 +118,8 @@
   "collection": "landslides-inventory",
   "title": "USGS Landslides Inventory - Hurricane Helene",
   "description": "Locations of confirmed landslides per the USGS that occurred as a result of Hurricane Helene.",
-  "is_periodic": false,
-  "time_density": "day",
+  "dashboard:is_periodic": false,
+  "dashboard:time_density": "day",
   "datetime_range": "day",
   "transfer": true
 }
