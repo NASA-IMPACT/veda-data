@@ -1,0 +1,125 @@
+{
+  "license": "CC0-1.0",
+  "stac_version": "1.0.0",
+  "links": [],
+  "spatial_extent": {
+    "xmin": -84.44,
+    "ymin": 34.37,
+    "xmax": -80.9,
+    "ymax": 36.87
+  },
+  "temporal_extent": {
+    "startdate": "2024-09-29T00:00:00Z",
+    "enddate": "2024-09-29T23:59:59Z"
+  },
+  "discovery_items": [
+    {
+      "upload": false,
+      "cogify": false,
+      "dry_run": false,
+      "filename_regex": "(.*)Landslides_Inventory_(.*).tif$",
+      "use_multithreading": false,
+      "discovery": "s3",
+      "prefix": "landslides/",
+      "bucket": "veda-data-store-staging"
+    }
+  ],
+  "sample_files": [
+    "s3://veda-data-store-staging/landslides/Landslides_Inventory_2024-09-29.tif"
+  ],
+  "data_type": "cog",
+  "stac_extensions": [
+    "https://stac-extensions.github.io/render/v1.0.0/schema.json",
+    "https://stac-extensions.github.io/item-assets/v1.0.0/schema.json"
+  ],
+  "item_assets": {
+    "cog_default": {
+      "type": "image/tiff; application=geotiff; profile=cloud-optimized",
+      "roles": [
+        "data",
+        "layer"
+      ],
+      "title": "Default COG Layer",
+      "description": "Cloud optimized default layer to display on map"
+    }
+  },
+  "renders": {
+    "dashboard": {
+      "colormap": {
+        "1": [
+          75,
+          128,
+          140,
+          255
+        ],
+        "2": [
+          206,
+          210,
+          211,
+          255
+        ],
+        "3": [
+          206,
+          210,
+          211,
+          255
+        ],
+        "4": [
+          202,
+          34,
+          84,
+          255
+        ],
+        "5": [
+          0,
+          173,
+          255,
+          255
+        ],
+        "6": [
+          206,
+          210,
+          211,
+          255
+        ],
+        "7": [
+          195,
+          139,
+          105,
+          255
+        ]
+      },
+      "nodata": "-999",
+      "assets": [
+        "cog_default"
+      ]
+    }
+  },
+  "providers": [
+    {
+      "name": "NASA VEDA",
+      "roles": [
+        "host"
+      ],
+      "url": "https://www.earthdata.nasa.gov/dashboard/"
+    }
+  ],
+  "assets": {
+    "thumbnail": {
+      "title": "Thumbnail",
+      "type": "image/png",
+      "roles": [
+        "thumbnail"
+      ],
+      "description": "Landslide blocks I-40 in North Carolina post-Helene.",
+      "href": "https://thumbnails.openveda.cloud/landslides-background.png"
+    }
+  },
+  "collection": "landslides-inventory",
+  "title": "USGS Landslides Inventory - Hurricane Helene",
+  "description": "Locations of confirmed landslides per the USGS that occurred as a result of Hurricane Helene.",
+  "dashboard:is_periodic": false,
+  "dashboard:time_density": "day",
+  "datetime_range": "day",
+  "transfer": true
+}
