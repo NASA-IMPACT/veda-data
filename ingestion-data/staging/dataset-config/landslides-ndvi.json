@@ -85,8 +85,8 @@
   "collection": "landslides-ndvi",
   "title": "S2 NDVI Difference - Hurricane Helene",
   "description": "Normalized Difference Vegetation Index (NDVI) differences post minus pre-Helene in the Southern Appalachia region. This index was computed from Sentinel 2 data at 10m spatial resolution.",
-  "is_periodic": false,
-  "time_density": "day",
+  "dashboard:is_periodic": false,
+  "dashboard:time_density": "day",
   "datetime_range": "day",
   "transfer": true
 }
