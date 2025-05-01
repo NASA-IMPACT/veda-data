@@ -1,0 +1,97 @@
+{
+  "license": "CC0-1.0",
+  "stac_version": "1.0.0",
+  "links": [],
+  "spatial_extent": {
+    "xmin": -83.15,
+    "ymin": 35.29,
+    "xmax": -81.95,
+    "ymax": 36.35
+  },
+  "temporal_extent": {
+    "startdate": "2024-10-05T00:00:00Z",
+    "enddate": "2024-10-08T23:59:59Z"
+  },
+  "discovery_items": [
+    {
+      "upload": false,
+      "cogify": false,
+      "dry_run": false,
+      "filename_regex": "(.*)Planet_(.*)-10-(.*).tif$",
+      "use_multithreading": false,
+      "discovery": "s3",
+      "prefix": "landslides/",
+      "bucket": "veda-data-store-staging"
+    }
+  ],
+  "sample_files": [
+    "s3://veda-data-store-staging/landslides/Planet_Asheville_2024-10-05.tif",
+    "s3://veda-data-store-staging/landslides/Planet_ErwinTN1_2024-10-08.tif",
+    "s3://veda-data-store-staging/landslides/Planet_ErwinTN2_2024-10-08.tif",
+    "s3://veda-data-store-staging/landslides/Planet_GarrenCreekNC_2024-10-05.tif",
+    "s3://veda-data-store-staging/landslides/Planet_I40_2024-10-05.tif",
+    "s3://veda-data-store-staging/landslides/Planet_LakeLureNC_2024-10-05.tif",
+    "s3://veda-data-store-staging/landslides/Planet_MarshallNC_2024-10-05.tif"
+  ],
+  "data_type": "cog",
+  "stac_extensions": [
+    "https://stac-extensions.github.io/render/v1.0.0/schema.json",
+    "https://stac-extensions.github.io/item-assets/v1.0.0/schema.json"
+  ],
+  "item_assets": {
+    "cog_default": {
+      "type": "image/tiff; application=geotiff; profile=cloud-optimized",
+      "roles": [
+        "data",
+        "layer"
+      ],
+      "title": "Default COG Layer",
+      "description": "Cloud optimized default layer to display on map"
+    }
+  },
+  "renders": {
+    "dashboard": {
+      "bidx": [
+        1,
+        2,
+        3
+      ],
+      "rescale": [
+        [
+          0,
+          255
+        ]
+      ],
+      "assets": [
+        "cog_default"
+      ]
+    }
+  },
+  "providers": [
+    {
+      "name": "NASA VEDA",
+      "roles": [
+        "host"
+      ],
+      "url": "https://www.earthdata.nasa.gov/dashboard/"
+    }
+  ],
+  "assets": {
+    "thumbnail": {
+      "title": "Thumbnail",
+      "type": "image/png",
+      "roles": [
+        "thumbnail"
+      ],
+      "description": "Landslide blocks I-40 in North Carolina post-Helene.",
+      "href": "https://thumbnails.openveda.cloud/landslides-background.png"
+    }
+  },
+  "collection": "landslides-planet-post",
+  "title": "PlanetScope Satellite Imagery (NC/TN Hurricane Helene - Post)",
+  "description": "TrueColor RGB commercial satellite imagery from Planet Labs of damage in North Carolina and Tennessee from Hurricane Helene's impacts. This data was made available through the NASA Commercial Satellite Data Acquisition (CSDA) Program.",
+  "dashboard:is_periodic": false,
+  "dashboard:time_density": "day",
+  "datetime_range": "day",
+  "transfer": true
+}
