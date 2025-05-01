@@ -85,8 +85,8 @@
   "collection": "landslides-nc-flood",
   "title": "NC DHHS Flood Extent - Hurricane Helene",
   "description": "Flood extents as determined from Sentinel, NOAA, and USGS datasets and produced by the North Carolina Department of Health and Human Services (NC DHHS). The majority of this raster has flood levels that exceed 100 year FEMA flood extent recurrence levels.",
-  "is_periodic": false,
-  "time_density": "day",
+  "dashboard:is_periodic": false,
+  "dashboard:time_density": "day",
   "datetime_range": "day",
   "transfer": true
 }
