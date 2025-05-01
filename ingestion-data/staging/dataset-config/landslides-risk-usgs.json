@@ -85,8 +85,8 @@
   "collection": "landslides-risk-usgs",
   "title": "USGS Landslide Hazard Estimate Model - Hurricane Helene",
   "description": " The two modeling approaches used were adapted from existing models and were run in early October 2024 using initial precipitation estimates to produce rapid event-specific landslide hazard estimate maps. These preliminary maps were initially released provisionally to meet the need for timely best science during the emergency response (version 1.0). The outputs were used to provide early situational awareness of what areas may have been more severely impacted by landslides and debris flows. These results were also used in planning reconnaissance.",
-  "is_periodic": false,
-  "time_density": "day",
+  "dashboard:is_periodic": false,
+  "dashboard:time_density": "day",
   "datetime_range": "day",
   "transfer": true
 }
