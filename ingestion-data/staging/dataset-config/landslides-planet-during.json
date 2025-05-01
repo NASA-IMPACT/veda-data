@@ -84,8 +84,8 @@
   "collection": "landslides-planet-during",
   "title": "PlanetScope Satellite Imagery (Asheville NC - Hurricane Helene - During)",
   "description": "TrueColor RGB commercial satellite imagery from Planet Labs of Asheville, North Carolina during massive flodding caused by Hurricane Helene. This data was made available through the NASA Commercial Satellite Data Acquisition (CSDA) Program.",
-  "is_periodic": false,
-  "time_density": "day",
+  "dashboard:is_periodic": false,
+  "dashboard:time_density": "day",
   "datetime_range": "day",
   "transfer": true
 }
