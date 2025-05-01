@@ -90,8 +90,8 @@
   "collection": "landslides-planet-post",
   "title": "PlanetScope Satellite Imagery (NC/TN Hurricane Helene - Post)",
   "description": "TrueColor RGB commercial satellite imagery from Planet Labs of damage in North Carolina and Tennessee from Hurricane Helene's impacts. This data was made available through the NASA Commercial Satellite Data Acquisition (CSDA) Program.",
-  "is_periodic": false,
-  "time_density": "day",
+  "dashboard:is_periodic": false,
+  "dashboard:time_density": "day",
   "datetime_range": "day",
   "transfer": true
 }
