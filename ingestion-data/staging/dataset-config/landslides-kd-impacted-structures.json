@@ -85,8 +85,8 @@
   "collection": "landslides-kd-impacted-structures",
   "title": "Impactful Landslides Kernel Density - Hurricane Helene",
   "description": "Kernel density analysis of confirmed landslides that per the USGS directly impacted structures, roads, or rivers and occurred as a result of Hurricane Helene.",
-  "is_periodic": false,
-  "time_density": "day",
+  "dashboard:is_periodic": false,
+  "dashboard:time_density": "day",
   "datetime_range": "day",
   "transfer": true
 }
