@@ -18,7 +18,7 @@
         {
             "prefix": "oco2-co2-target-cogs_v2025.04.16/",
             "bucket": "veda-data-store-staging",
-            "filename_regex": "^.+(2021|2022|2023|2024|2025).+\\.tif$",
+            "filename_regex": "^(.*).tif$",
             "discovery": "s3",
             "datetime_range": "day"
         }
