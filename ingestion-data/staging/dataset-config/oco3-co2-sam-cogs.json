@@ -18,10 +18,9 @@
         {
             "prefix": "oco3-co2-sam-cogs_v2025.04.16/",
             "bucket": "veda-data-store-staging",
-            "filename_regex": "^(.*).tif$",
+            "filename_regex": "^.+(2019).+\\.tif$",
             "discovery": "s3",
-            "datetime_range": "day",
-            "chunk_size": 1
+            "datetime_range": "day"
         }
     ]
 }
