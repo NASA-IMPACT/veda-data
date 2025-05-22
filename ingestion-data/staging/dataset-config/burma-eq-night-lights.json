@@ -86,8 +86,8 @@
   "collection": "burma-eq-night-lights",
   "title": "Black Marble Night Lights - 2025 Burma Earthquake",
   "description": "NASA's Black Marble Night Lights dataset for before and after the 2025 Burma earthquake shows massive power outages in the Mandalay area.",
-  "is_periodic": false,
-  "time_density": "day",
+  "dashboard:is_periodic": false,
+  "dashboard:time_density": "day",
   "datetime_range": "day",
   "transfer": true
 }
