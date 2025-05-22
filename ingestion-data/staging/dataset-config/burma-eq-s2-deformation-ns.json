@@ -85,8 +85,8 @@
   "collection": "burma-eq-s2-deformation-ns",
   "title": "S2 North-South Deformation - 2025 Burma Earthquake",
   "description": "NASA/JPL/Caltech/ARIA product - modified Copernicus Sentinel-2 Multispectral Imager (MSI) north-south ground displacement from February 28 to April 1, 2025.",
-  "is_periodic": false,
-  "time_density": "day",
+  "dashboard:is_periodic": false,
+  "dashboard:time_density": "day",
   "datetime_range": "day",
   "transfer": true
 }
