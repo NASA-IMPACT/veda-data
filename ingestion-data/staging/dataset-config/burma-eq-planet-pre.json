@@ -85,8 +85,8 @@
   "collection": "burma-eq-planet-pre",
   "title": "PlanetScope Satellite Imagery (2025 Burma Earthquake - Pre)",
   "description": "TrueColor RGB commercial satellite imagery from Planet Labs of the Mandalay, Burma area from before the 2025 earthquake. This data was made available through the NASA Commercial Satellite Data Acquisition (CSDA) Program.",
-  "is_periodic": false,
-  "time_density": "day",
+  "dashboard:is_periodic": false,
+  "dashboard:time_density": "day",
   "datetime_range": "day",
   "transfer": true
 }
