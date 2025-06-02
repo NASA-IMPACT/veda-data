@@ -1,6 +1,10 @@
 {
+  "collection": "ercot-houston-nightlights-freeze",
+  "title": "Black Marble Night Lights (Houston, TX 2021 Deep Freeze)",
+  "description": "Black Marble Night Lights for Houston, Texas during the Deep Freeze Event for both February 10, 2021 (before) and February 16, 2021 (after) that affected ERCOT's power grid.",
   "license": "CC0-1.0",
   "stac_version": "1.0.0",
+  "dashboard:time_density": "day",
   "links": [],
   "spatial_extent": {
     "xmin": -95.9,
@@ -14,14 +18,14 @@
   },
   "discovery_items": [
     {
-      "upload": false,
-      "cogify": false,
-      "dry_run": false,
-      "filename_regex": "(.*)HD_BM_NL_Houston-2021-(.*).tif$",
-      "use_multithreading": false,
       "discovery": "s3",
       "prefix": "ercot/",
-      "bucket": "veda-data-store-staging"
+      "bucket": "veda-data-store-staging",
+      "filename_regex": "(.*)HD_BM_NL_Houston-2021-(.*).tif$",
+      "use_multithreading": false,
+      "upload": false,
+      "cogify": false,
+      "dry_run": false
     }
   ],
   "sample_files": [
@@ -49,7 +53,7 @@
       "bidx": [
         1
       ],
-      "rescale": [],
+      "colormap_name": "inferno",
       "assets": [
         "cog_default"
       ]
@@ -67,16 +71,12 @@
   "assets": {
     "thumbnail": {
       "title": "Thumbnail",
+      "description": "Power transmission towers standing against a colorful Texas sunset by Yelantsevv",
+      "href": "s3://veda-thumbnails/ERCOT-Thumbnail.jpg",
       "type": "image/jpg",
       "roles": [
         "thumbnail"
-      ],
-      "href": "s3://veda-thumbnails/ERCOT-Thumbnail.jpg",
-      "description": "Power transmission towers standing against a colorful Texas sunset by Yelantsevv"
+      ]
     }
-  },
-  "collection": "ercot-houston-nightlights-freeze",
-  "title": "Black Marble Night Lights (Houston, TX 2021 Deep Freeze)",
-  "description": "Black Marble Night Lights for Houston, Texas during the Deep Freeze Event for both February 10, 2021 (before) and February 16, 2021 (after) that affected ERCOT's power grid.",
-  "dashboard:time_density": "day"
+  }
 }
