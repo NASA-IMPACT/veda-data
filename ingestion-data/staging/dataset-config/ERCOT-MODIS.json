@@ -51,11 +51,11 @@
       ],
       "rescale": [
         [
-          55,
-          136
+          -30,
+          110
         ]
       ],
-      "colormap_name": "turbo",
+      "colormap_name": "surface_temperature",
       "nodata": "999",
       "assets": [
         "cog_default"
