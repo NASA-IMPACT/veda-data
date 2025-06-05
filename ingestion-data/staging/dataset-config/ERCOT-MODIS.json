@@ -1,0 +1,85 @@
+{
+  "collection": "ERCOT-MODIS",
+  "title": "MODIS LST for Texas on June 23, 2023",
+  "description": "MODIS Land-Surface Temperatures over the state of Texas on June 23, 2023 during the 2023 Heatwave",
+  "license": "CC0-1.0",
+  "stac_version": "1.0.0",
+  "dashboard:time_density": "day",
+  "links": [],
+  "spatial_extent": {
+    "xmin": -106.65,
+    "ymin": 25.84,
+    "xmax": -93.51,
+    "ymax": 36.5
+  },
+  "temporal_extent": {
+    "startdate": "2023-06-23T00:00:00.000Z",
+    "enddate": "2023-06-23T23:59:59.000Z"
+  },
+  "discovery_items": [
+    {
+      "discovery": "s3",
+      "prefix": "ercot/COG/",
+      "bucket": "veda-data-store-staging",
+      "filename_regex": "(.*)ERCOT_MODIS_COG_(.*).tif$",
+      "use_multithreading": false
+    }
+  ],
+  "sample_files": [
+    "s3://veda-data-store-staging/ercot/COG/ERCOT_MODIS_COG_2023-06-23.tif"
+  ],
+  "data_type": "cog",
+  "stac_extensions": [
+    "https://stac-extensions.github.io/render/v1.0.0/schema.json",
+    "https://stac-extensions.github.io/item-assets/v1.0.0/schema.json"
+  ],
+  "item_assets": {
+    "cog_default": {
+      "type": "image/tiff; application=geotiff; profile=cloud-optimized",
+      "roles": [
+        "data",
+        "layer"
+      ],
+      "title": "Default COG Layer",
+      "description": "Cloud optimized default layer to display on map"
+    }
+  },
+  "renders": {
+    "dashboard": {
+      "bidx": [
+        1
+      ],
+      "rescale": [
+        [
+          -30,
+          110
+        ]
+      ],
+      "colormap_name": "surface_temperature",
+      "nodata": "999",
+      "assets": [
+        "cog_default"
+      ]
+    }
+  },
+  "providers": [
+    {
+      "name": "NASA VEDA",
+      "roles": [
+        "host"
+      ],
+      "url": "https://www.earthdata.nasa.gov/dashboard/"
+    }
+  ],
+  "assets": {
+    "thumbnail": {
+      "title": "Thumbnail",
+      "description": "Power transmission towers standing against a colorful Texas sunset by Yelantsevv",
+      "href": "s3://veda-thumbnails/ERCOT-Thumbnail.jpg.jpg",
+      "type": "image/jpg",
+      "roles": [
+        "thumbnail"
+      ]
+    }
+  }
+}
