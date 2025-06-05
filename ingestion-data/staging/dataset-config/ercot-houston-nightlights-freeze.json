@@ -1,0 +1,82 @@
+{
+  "collection": "ercot-houston-nightlights-freeze",
+  "title": "Black Marble Night Lights (Houston, TX 2021 Deep Freeze)",
+  "description": "Black Marble Night Lights for Houston, Texas during the Deep Freeze Event for both February 10, 2021 (before) and February 16, 2021 (after) that affected ERCOT's power grid.",
+  "license": "CC0-1.0",
+  "stac_version": "1.0.0",
+  "dashboard:time_density": "day",
+  "links": [],
+  "spatial_extent": {
+    "xmin": -95.9,
+    "ymin": 29.5,
+    "xmax": -94.9,
+    "ymax": 30.25
+  },
+  "temporal_extent": {
+    "startdate": "2021-02-10T00:00:00.000Z",
+    "enddate": "2021-02-16T23:59:59.000Z"
+  },
+  "discovery_items": [
+    {
+      "discovery": "s3",
+      "prefix": "ercot/",
+      "bucket": "veda-data-store-staging",
+      "filename_regex": "(.*)HD_BM_NL_Houston-2021-(.*).tif$",
+      "use_multithreading": false,
+      "upload": false,
+      "cogify": false,
+      "dry_run": false
+    }
+  ],
+  "sample_files": [
+    "s3://veda-data-store-staging/ercot/HD_BM_NL_Houston-2021-02-10.tif",
+    "s3://veda-data-store-staging/ercot/HD_BM_NL_Houston-2021-02-16.tif"
+  ],
+  "data_type": "cog",
+  "stac_extensions": [
+    "https://stac-extensions.github.io/render/v1.0.0/schema.json",
+    "https://stac-extensions.github.io/item-assets/v1.0.0/schema.json"
+  ],
+  "item_assets": {
+    "cog_default": {
+      "type": "image/tiff; application=geotiff; profile=cloud-optimized",
+      "roles": [
+        "data",
+        "layer"
+      ],
+      "title": "Default COG Layer",
+      "description": "Cloud optimized default layer to display on map"
+    }
+  },
+  "renders": {
+    "dashboard": {
+      "bidx": [
+        1
+      ],
+      "colormap_name": "inferno",
+      "assets": [
+        "cog_default"
+      ]
+    }
+  },
+  "providers": [
+    {
+      "name": "NASA VEDA",
+      "roles": [
+        "host"
+      ],
+      "url": "https://www.earthdata.nasa.gov/dashboard/"
+    }
+  ],
+  "assets": {
+    "thumbnail": {
+      "title": "Thumbnail",
+      "description": "Power transmission towers standing against a colorful Texas sunset by Yelantsevv",
+      "href": "s3://veda-thumbnails/ERCOT-Thumbnail.jpg",
+      "type": "image/jpg",
+      "roles": [
+        "thumbnail"
+      ]
+    }
+  }
+}
