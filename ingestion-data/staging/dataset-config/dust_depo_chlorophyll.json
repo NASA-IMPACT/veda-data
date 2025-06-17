@@ -1,0 +1,87 @@
+{
+  "collection": "dust_depo_chlorophyll",
+  "title": "PACE - North Atlantic Chlorophyll-a for 2024-2025",
+  "description": "PACE/OCI Chlorophyll-a for the North Atlantic region for three select dust events between 2024 and 2025",
+  "license": "CC0-1.0",
+  "stac_version": "1.0.0",
+  "dashboard:is_periodic": false,
+  "dashboard:time_density": "day",
+  "links": [],
+  "spatial_extent": {
+    "xmin": -75,
+    "ymin": 0,
+    "xmax": -8,
+    "ymax": 28
+  },
+  "temporal_extent": {
+    "startdate": "2024-05-23T00:00:00.000Z",
+    "enddate": "2025-05-07T23:59:59.000Z"
+  },
+  "discovery_items": [
+    {
+      "discovery": "s3",
+      "prefix": "Dust_Depot/COG/",
+      "bucket": "veda-data-store-staging",
+      "filename_regex": "(.*)Dust_PACE_chlorophyll_COG_(.*).tif$",
+      "use_multithreading": false
+    }
+  ],
+  "sample_files": [
+    "s3://veda-data-store-staging/Dust_Depot/COG/Dust_PACE_chlorophyll_COG_2024-05-23.tif",
+    "s3://veda-data-store-staging/Dust_Depot/COG/Dust_PACE_chlorophyll_COG_2024-05-31.tif",
+    "s3://veda-data-store-staging/Dust_Depot/COG/Dust_PACE_chlorophyll_COG_2024-08-01.tif",
+    "s3://veda-data-store-staging/Dust_Depot/COG/Dust_PACE_chlorophyll_COG_2024-07-17.tif",
+    "s3://veda-data-store-staging/Dust_Depot/COG/Dust_PACE_chlorophyll_COG_2025-04-13.tif",
+    "s3://veda-data-store-staging/Dust_Depot/COG/Dust_PACE_chlorophyll_COG_2025-05-07.tif"
+  ],
+  "data_type": "cog",
+  "stac_extensions": [
+    "https://stac-extensions.github.io/render/v1.0.0/schema.json",
+    "https://stac-extensions.github.io/item-assets/v1.0.0/schema.json"
+  ],
+  "item_assets": {
+    "cog_default": {
+      "type": "image/tiff; application=geotiff; profile=cloud-optimized",
+      "roles": [
+        "data",
+        "layer"
+      ],
+      "title": "Default COG Layer",
+      "description": "Cloud optimized default layer to display on map"
+    }
+  },
+  "renders": {
+    "dashboard": {
+      "bidx": [
+        1,
+        2,
+        3
+      ],
+      "rescale": [],
+      "nodata": "0",
+      "assets": [
+        "cog_default"
+      ]
+    }
+  },
+  "providers": [
+    {
+      "name": "NASA VEDA",
+      "roles": [
+        "host"
+      ],
+      "url": "https://www.earthdata.nasa.gov/dashboard/"
+    }
+  ],
+  "assets": {
+    "thumbnail": {
+      "title": "Thumbnail",
+      "description": "Phytoplankton in the North Atlantic Ocean as viewed by NASA's MODIS sensor",
+      "href": "s3://veda-thumbnails/dust-deposition-background.jpg",
+      "type": "image/jpg",
+      "roles": [
+        "thumbnail"
+      ]
+    }
+  }
+}
