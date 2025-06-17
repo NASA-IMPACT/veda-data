@@ -72,7 +72,7 @@
     "thumbnail": {
       "title": "Thumbnail",
       "description": "Power transmission towers standing against a colorful Texas sunset by Yelantsevv",
-      "href": "s3://veda-thumbnails/ERCOT-Thumbnail.jpg",
+      "href": "https://thumbnails.openveda.cloud/ERCOT-Thumbnail.jpg",
       "type": "image/jpg",
       "roles": [
         "thumbnail"
