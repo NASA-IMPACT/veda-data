@@ -77,7 +77,7 @@
     "thumbnail": {
       "title": "Thumbnail",
       "description": "Phytoplankton in the North Atlantic Ocean as viewed by NASA's MODIS sensor",
-      "href": "s3://veda-thumbnails/dust-deposition-background.jpg",
+      "href": "https://thumbnails.openveda.cloud/dust-deposition-background.jpg",
       "type": "image/jpg",
       "roles": [
         "thumbnail"
