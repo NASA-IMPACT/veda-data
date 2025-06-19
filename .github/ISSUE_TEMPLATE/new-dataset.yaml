@@ -63,9 +63,23 @@ body:
     validations:
       required: true
   - type: input
+    id: format
+    attributes:
+      label: Data Format
+      description: What format is the data in? (NetCDF-4, HDF5, Cloud-Optimized GeoTIFF, etc)
+    validations:
+      required: true
+  - type: input
+    id: format
+    attributes:
+      label: CMR
+      description: Is the dataset catalogued in NASA's Common Metadata Repository? If so please provide the collection concept id.
+    validations:
+      required: true
+  - type: input
     id: collection
     attributes:
-      label: Collection Creation Notebook
+      label: STAC Collection Creation Notebook
       description: |
         Link to the notebook where you are creating a valid STAC collection following the example in
         [VEDA docs on Collection Creation](https://nasa-impact.github.io/veda-docs/notebooks/veda-operations/stac-collection-creation.html).
@@ -76,7 +90,7 @@ body:
   - type: input
     id: item
     attributes:
-      label: Item Creation Notebook
+      label: STAC Item Creation Notebook
       description: |
         Link to the notebook where you are creating a valid STAC item following the
         [VEDA docs on Item Creation](https://nasa-impact.github.io/veda-docs/notebooks/veda-operations/stac-item-creation.html).
@@ -87,7 +101,7 @@ body:
   - type: checkboxes
     id: checklist
     attributes:
-      label: Checklist
+      label: Checklist for COGs
       description: Use the following checklist to ensure your data is valid.
       options:
         - label: "Files are valid COGs. Use [`rio cogeo validate`](https://cogeotiff.github.io/rio-cogeo/Is_it_a_COG/#3-cog-validation)"
