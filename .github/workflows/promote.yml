@@ -74,22 +74,22 @@ jobs:
             if jq -e '.collection' "$file" > /dev/null; then
               script_to_run="./scripts/promote_dataset.py"
               collection_id=$(jq -r '.collection' "$file")
-              entity_type="Dataset"
+              config_type="Dataset"
             else
               script_to_run="./scripts/promote_collection.py"
               collection_id=$(jq -r '.id' "$file")
-              entity_type="Collection"
+              config_type="Collection"
             fi
 
-            echo "Promoting $entity_type ($collection_id) to production"
+            echo "Promoting $config_type ($collection_id) to production"
             response=$(python3 "$script_to_run" "$file" "production")
 
             echo "Processed file: $file"
             status_code=$(echo "$response" | jq -r '.statusCode')
             echo "Status Code: $status_code"
              if [ "$status_code" -eq 200 ] || [ "$status_code" -eq 201 ]; then
-                echo "$collection_id ($entity_type) successfully promoted to Production ✅"
+                echo "$collection_id ($config_type) successfully promoted to Production ✅"
               else
-                echo "$collection_id ($entity_type) failed to promote to Production ❌"
+                echo "$collection_id ($config_type) failed to promote to Production ❌"
               fi
           done
