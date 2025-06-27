@@ -13,7 +13,8 @@ on:
     branches: ['main']
     paths:
       # Run the workflow only if files inside this path are updated
-      - ingestion-data/staging/dataset-config/*.json
+      - 'ingestion-data/staging/dataset-config/**.json'
+      - 'ingestion-data/staging/collections/**.json'
 
   push:
     branches:
@@ -71,7 +72,9 @@ jobs:
         id: changed-files
         uses: tj-actions/changed-files@2f7c5bfce28377bc069a65ba478de0a74aa0ca32 # v46.0.1
         with:
-          files: ingestion-data/staging/dataset-config/**.json
+          files: |
+            ingestion-data/staging/dataset-config/**.json
+            ingestion-data/staging/collections/**.json
 
       # ACMR - Added, Copied, Modified, Renamed
       - name: List all newly added and changed files
@@ -117,12 +120,24 @@ jobs:
           for file in ${ALL_CHANGED_FILES}; do
             echo $file
             if [ -f "$file" ]; then
-              dataset_config=$(jq '.' "$file")
-              collection_id=$(jq -r '.collection' "$file")
+              if [[ "$file" == ingestion-data/staging/dataset-config/* ]]; then
+                script_to_run="./scripts/promote_dataset.py"
+                # Datasets are required to have a `collection` field in their config
+                collection_id=$(jq -r '.collection' "$file")
+                entity_type="Dataset"
+              elif [[ "$file" == ingestion-data/staging/collections/* ]]; then
+                script_to_run="./scripts/promote_collection.py"
+                # Collections are required to have an `id` field
+                collection_id=$(jq -r '.id' "$file")
+                entity_type="Collection"
+              else
+                echo "File $file is not in a recognized directory for ingestion (dataset-config or collections). Skipping."
+                continue
+              fi
 
-              echo "Publishing $collection_id"
+              echo "Publishing $entity_type: $collection_id"
 
-              response=$(python3 ./scripts/promote_collection.py "$file" "staging")
+              response=$(python3 "$script_to_run" "$file" "staging")
               echo "Processed file: $file"
               status_code=$(echo "$response" | jq -r '.statusCode' | head -n1)
               echo "Status Code: $status_code"
@@ -130,12 +145,12 @@ jobs:
               # Update status message based on response code
               if [[ $status_code -eq 200 ]] || [[ $status_code -eq 201 ]]; then
                 echo "$collection_id successfully published ✅"
-                status_message+="➡️ **$collection_id**: Successfully published ✅ <br>"
+                status_message+="➡️ **$collection_id** ($entity_type): Successfully published ✅ <br>"
                 success_collections+=("$file")
                 all_failed=false
               else
                 echo "$collection_id failed to publish ❌"
-                status_message+="➡️ **$collection_id**: Failed to publish. Error code $status_code. ❌<br>"
+                status_message+="➡️ **$collection_id** ($entity_type): Failed to publish. Error code $status_code. ❌<br>"
               fi
             else
               echo "File $file does not exist"
