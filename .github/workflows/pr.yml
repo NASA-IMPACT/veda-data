@@ -120,12 +120,12 @@ jobs:
           for file in ${ALL_CHANGED_FILES}; do
             echo $file
             if [ -f "$file" ]; then
-              if [[ "$file" == ingestion-data/staging/dataset-config/* ]]; then
+              if [[ "$file" == *"ingestion-data/staging/dataset-config/"* ]]; then
                 script_to_run="./scripts/promote_dataset.py"
                 # Datasets are required to have a `collection` field in their config
                 collection_id=$(jq -r '.collection' "$file")
                 config_type="Dataset"
-              elif [[ "$file" == ingestion-data/staging/collections/* ]]; then
+              elif [[ "$file" == *"ingestion-data/staging/collections/"* ]]; then
                 script_to_run="./scripts/promote_collection.py"
                 # Collections are required to have an `id` field
                 collection_id=$(jq -r '.id' "$file")
