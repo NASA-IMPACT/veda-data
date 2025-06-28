@@ -1,0 +1,26 @@
+{
+    "collection": "oco2-co2-target-cogs",
+    "title": "Orbiting Carbon Observatory 2 (OCO-2) Target Mode Cloud-Optimized GeoTIFFs (COGs)",
+    "description": "NASA-JPL's OCO-2 (Orbiting Carbon Observatory 2) is an Earth satellite mission to study the sources and sinks of carbon dioxide globally. The satellite retrieves column-averaged CO2 dry air mole fraction (XCO2) by measuring the spectra of reflected sunlight from the Earth's surface. OCO-2 operates in one of three modes: nadir, glint, and target. The focus of this product is on target mode. Target mode makes observations focused on a single location on the surface as the satellite passes by, allowing for more highly detailed sampling of areas of particular interest.",
+    "type": "cog",
+    "spatial_extent": {
+        "xmin": -180,
+        "ymin": -90,
+        "xmax": 180,
+        "ymax": 90
+    },
+    "temporal_extent": {},
+    "license": "MIT",
+    "is_periodic": true,
+    "time_density": "day",
+    "stac_version": "1.0.0",
+    "discovery_items": [
+        {
+            "prefix": "oco2-co2-target-cogs_v2025.04.16/",
+            "bucket": "veda-data-store-staging",
+            "filename_regex": "^(.*).tif$",
+            "discovery": "s3",
+            "datetime_range": "day"
+        }
+    ]
+}
