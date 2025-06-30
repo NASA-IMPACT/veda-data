@@ -1,0 +1,200 @@
+{
+  "type": "Collection",
+  "id": "TROPESS_reanalysis_mon_O3_pressure_levels-test",
+  "title": "TEST TROPESS Chemical Reanalysis O3 Monthly 3-dimensional Product V1 (TRPSCRO3M3D)",
+  "stac_version": "1.0.0",
+  "description": "The TROPESS Chemical Reanalysis O3 Monthly 3D Product (TRPSCRO3M3D) provides global ozone mixing ratios from 2005–2021 at 27 pressure levels between 1000 and 60 hPa with 1.125° x 1.125° resolution. Data is monthly and provided in netCDF4 format.",
+  "keywords": [],
+  "license": "CC0-1.0",
+  "extent": {
+    "spatial": {
+      "bbox": [
+        [
+          -180,
+          -90,
+          180,
+          90
+        ]
+      ]
+    },
+    "temporal": {
+      "interval": [
+        [
+          "2005-01-01T00:00:00+00:00",
+          "2021-12-31T00:00:00+00:00"
+        ]
+      ]
+    }
+  },
+  "links": [
+    {
+      "href": "https://staging.openveda.cloud/api/stac/collections/TROPESS_reanalysis_mon_O3_pressure_levels/items",
+      "rel": "items",
+      "type": "application/geo+json"
+    },
+    {
+      "href": "https://staging.openveda.cloud/api/stac/",
+      "rel": "parent",
+      "type": "application/json"
+    },
+    {
+      "href": "https://staging.openveda.cloud/api/stac/",
+      "rel": "root",
+      "type": "application/json"
+    },
+    {
+      "href": "https://staging.openveda.cloud/api/stac/collections/TROPESS_reanalysis_mon_O3_pressure_levels",
+      "rel": "self",
+      "type": "application/json"
+    },
+    {
+      "href": "https://staging.openveda.cloud/api/stac/collections/TROPESS_reanalysis_mon_O3_pressure_levels/queryables",
+      "rel": "http://www.opengis.net/def/rel/ogc/1.0/queryables",
+      "type": "application/schema+json",
+      "title": "Queryables"
+    }
+  ],
+  "providers": [
+    {
+      "name": "NASA/GSFC/SED/ESD/GCDC/GESDISC",
+      "description": "Goddard Earth Sciences Data and Information Services Center (formerly Goddard DAAC), Global Change Data Center, Earth Sciences Division, Science and Exploration Directorate, Goddard Space Flight Center, NASA",
+      "roles": [],
+      "url": "https://disc.gsfc.nasa.gov/"
+    }
+  ],
+  "renders": {
+    "o3": {
+      "title": "Ozone concentration (ppb)",
+      "backend": "xarray",
+      "rescale": [
+        [
+          0,
+          5000
+        ]
+      ],
+      "resampling": "average",
+      "colormap_name": "reds"
+    }
+  },
+  "item_assets": {
+    "data": {
+      "type": "application/netcdf",
+      "roles": [
+        "data"
+      ],
+      "title": "O3 Monthly NetCDF Data",
+      "description": "NetCDF file containing Monthly O3 data"
+    }
+  },
+  "cube:variables": {
+    "o3": {
+      "max": 5000,
+      "min": 0,
+      "type": "data",
+      "units": "ppb",
+      "dimensions": [
+        "time",
+        "lev",
+        "lat",
+        "lon"
+      ],
+      "description": "Monthly mean ozone mixing ratio at multiple pressure levels."
+    },
+    "lat_bnds": {
+      "type": "data",
+      "dimensions": [
+        "lat",
+        "nv"
+      ],
+      "description": "Latitude bounds for each grid cell."
+    },
+    "lon_bnds": {
+      "type": "data",
+      "dimensions": [
+        "lon",
+        "nv"
+      ],
+      "description": "Longitude bounds for each grid cell."
+    },
+    "time_bnds": {
+      "type": "data",
+      "dimensions": [
+        "time",
+        "nv"
+      ],
+      "description": "Time bounds for each time step."
+    }
+  },
+  "cube:dimensions": {
+    "lat": {
+      "axis": "y",
+      "type": "spatial",
+      "extent": [
+        -90,
+        90
+      ],
+      "description": "Latitude",
+      "reference_system": 4326
+    },
+    "lev": {
+      "axis": "z",
+      "type": "vertical",
+      "extent": [
+        1000,
+        995,
+        980,
+        950,
+        900,
+        850,
+        800,
+        750,
+        700,
+        650,
+        600,
+        550,
+        500,
+        450,
+        400,
+        350,
+        300,
+        250,
+        200,
+        175,
+        150,
+        125,
+        100,
+        90,
+        80,
+        70,
+        60
+      ],
+      "description": "Pressure levels in hPa: [1000, 995, 980, 950, 900, 850, 800, 750, 700, 650, 600, 550, 500, 450, 400, 350, 300, 250, 200, 175, 150, 125, 100, 90, 80, 70, 60]"
+    },
+    "lon": {
+      "axis": "x",
+      "type": "spatial",
+      "extent": [
+        -180,
+        180
+      ],
+      "description": "Longitude",
+      "reference_system": 4326
+    },
+    "time": {
+      "step": "P1M",
+      "type": "temporal",
+      "extent": [
+        "2005-01-01T00:00:00Z",
+        "2021-12-01T00:00:00Z"
+      ],
+      "description": "Monthly time steps"
+    }
+  },
+  "stac_extensions": [
+    "https://stac-extensions.github.io/datacube/v2.2.0/schema.json"
+  ],
+  "collection_concept_id": "C2837626477-GES_DISC",
+  "dashboard:is_periodic": true,
+  "dashboard:time_density": "month",
+  "summaries": {}
+}
