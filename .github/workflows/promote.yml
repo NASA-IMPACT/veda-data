@@ -69,14 +69,27 @@ jobs:
         run: |
           pip install -r ./scripts/requirements.txt
           for file in downloaded-files/*.json; do
-            collection_id=$(jq -r '.collection' "$file")
-            response=$(python3 ./scripts/promote_collection.py "$file" "production")
+            echo "Processing $file"
+            # Check if collection key exists to determine if it's a dataset or collection
+            if jq -e '.collection' "$file" > /dev/null; then
+              script_to_run="./scripts/promote_dataset.py"
+              collection_id=$(jq -r '.collection' "$file")
+              config_type="Dataset"
+            else
+              script_to_run="./scripts/promote_collection.py"
+              collection_id=$(jq -r '.id' "$file")
+              config_type="Collection"
+            fi
+
+            echo "Promoting $config_type ($collection_id) to production"
+            response=$(python3 "$script_to_run" "$file" "production")
+
             echo "Processed file: $file"
             status_code=$(echo "$response" | jq -r '.statusCode')
             echo "Status Code: $status_code"
-             if [ $status_code -eq 200 ] || [ $status_code -eq 201 ]; then
-                echo "$collection_id successfully promoted to Production ✅"
+             if [ "$status_code" -eq 200 ] || [ "$status_code" -eq 201 ]; then
+                echo "$collection_id ($config_type) successfully promoted to Production ✅"
               else
-                echo "$collection_id failed to promote to Production ❌"
+                echo "$collection_id ($config_type) failed to promote to Production ❌"
               fi
           done
