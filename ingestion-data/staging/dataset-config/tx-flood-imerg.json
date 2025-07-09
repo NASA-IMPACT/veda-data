@@ -1,0 +1,91 @@
+{
+  "collection": "tx-flood-imerg",
+  "title": "IMERG Total Precipitation - 2025 Texas Flood",
+  "description": "Total accumulated precipitation from IMERG Final over July 1-7, 2025 to cover precipitation related to the remnants of Tropical Storm Barry in Texas.",
+  "license": "CC0-1.0",
+  "stac_version": "1.0.0",
+  "dashboard:time_density": "day",
+  "links": [],
+  "spatial_extent": {
+    "xmin": -106.65,
+    "ymin": 25.84,
+    "xmax": -93.51,
+    "ymax": 36.5
+  },
+  "temporal_extent": {
+    "startdate": "2025-07-07T00:00:00Z",
+    "enddate": "2025-07-07T23:59:59Z"
+  },
+  "discovery_items": [
+    {
+      "discovery": "s3",
+      "prefix": "tx-flood/",
+      "bucket": "veda-data-store-staging",
+      "filename_regex": "(.*)TX_IMERG_(.*).tif$",
+      "use_multithreading": false,
+      "upload": false,
+      "cogify": false,
+      "dry_run": false
+    }
+  ],
+  "sample_files": [
+    "s3://veda-data-store-staging/tx-flood/TX_IMERG_2025-07-07.tif"
+  ],
+  "data_type": "cog",
+  "stac_extensions": [
+    "https://stac-extensions.github.io/render/v1.0.0/schema.json",
+    "https://stac-extensions.github.io/item-assets/v1.0.0/schema.json"
+  ],
+  "item_assets": {
+    "cog_default": {
+      "type": "image/tiff; application=geotiff; profile=cloud-optimized",
+      "roles": [
+        "data",
+        "layer"
+      ],
+      "title": "Default COG Layer",
+      "description": "Cloud optimized default layer to display on map"
+    }
+  },
+  "renders": {
+    "dashboard": {
+      "bidx": [
+        1
+      ],
+      "rescale": [
+        [
+          0,
+          12
+        ]
+      ],
+      "colormap_name": "nipy_spectral",
+      "assets": [
+        "cog_default"
+      ]
+    }
+  },
+  "providers": [
+    {
+      "name": "NASA VEDA",
+      "roles": [
+        "host"
+      ],
+      "url": "https://www.earthdata.nasa.gov/dashboard/"
+    }
+  ],
+  "assets": {
+    "thumbnail": {
+      "title": "Thumbnail",
+      "description": "A search and rescue volunteer holds a T-shirt and backpack with the words Camp Mystic on them.",
+      "href": "https://thumbnails.openveda.cloud/texas-flood-background.jpg",
+      "type": "image/png",
+      "roles": [
+        "thumbnail"
+      ]
+    }
+  },
+  "is_periodic": false,
+  "time_density": "day",
+  "datetime_range": "day",
+  "transfer": true
+}
