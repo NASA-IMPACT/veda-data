@@ -85,7 +85,7 @@
       ]
     }
   },
-  "is_periodic": false,
+  "dashboard:is_periodic": false,
   "time_density": "day",
   "datetime_range": "day",
   "transfer": true
