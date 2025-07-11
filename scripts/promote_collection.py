@@ -33,8 +33,10 @@ def trigger_collection_dag(payload: Dict[str, Any], stage: str):
 
     if not all([base_api_url, username, password]):
         raise ValueError(
-            f"Missing one or more environment variables: stage undefined={stage==None}, "
-            f"username undefined={username_env==None}, password undefined={password_env==None}"
+            f"Missing one or more environment variables: "
+            f"stage is None={stage is None}, "
+            f"username is None={username_env is None}, "
+            f"password is None={password_env is None}"
         )
 
     api_token = b64encode(f"{username}:{password}".encode()).decode()
