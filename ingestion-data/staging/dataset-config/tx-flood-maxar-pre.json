@@ -50,14 +50,14 @@
   "renders": {
     "dashboard": {
       "bidx": [
-        4,
-        3,
+        5,
+        2,
         1
       ],
       "rescale": [
         [
           0,
-          750
+          500
         ]
       ],
       "assets": [
