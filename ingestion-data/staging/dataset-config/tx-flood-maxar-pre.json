@@ -21,7 +21,7 @@
       "discovery": "s3",
       "prefix": "tx-flood/",
       "bucket": "veda-data-store-staging",
-      "filename_regex": "(.*)TX_flood_MAXAR4-2025-03(.*).tif$",
+      "filename_regex": "(.*)TX_flood_MAXAR4_2025-03(.*).tif$",
       "use_multithreading": false,
       "upload": false,
       "cogify": false,
