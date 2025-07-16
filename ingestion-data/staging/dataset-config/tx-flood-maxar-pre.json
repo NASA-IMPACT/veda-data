@@ -7,10 +7,10 @@
   "dashboard:time_density": "day",
   "links": [],
   "spatial_extent": {
-    "xmin": -99.45,
-    "ymin": 29.86,
-    "xmax": -99,
-    "ymax": 30.16
+    "xmin": -99.479402,
+    "ymin": 29.876679,
+    "xmax": -99.306497,
+    "ymax": 30.01107
   },
   "temporal_extent": {
     "startdate": "2025-03-12T00:00:00Z",
@@ -21,7 +21,7 @@
       "discovery": "s3",
       "prefix": "tx-flood/",
       "bucket": "veda-data-store-staging",
-      "filename_regex": "(.*)TX_flood_MAXAR4_2025-03(.*).tif$",
+      "filename_regex": "(.*)TX_flood_MAXAR4_2025-03-(.*).tif$",
       "use_multithreading": false,
       "upload": false,
       "cogify": false,
