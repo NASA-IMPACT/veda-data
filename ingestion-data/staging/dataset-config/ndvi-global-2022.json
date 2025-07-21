@@ -20,7 +20,7 @@
   "discovery_items": [
     {
       "discovery": "s3",
-      "prefix": "cattle-heat-story/ndvi/ndvi/",
+      "prefix": "cattle-heat-story/ndvi/",
       "bucket": "veda-data-store-staging",
       "filename_regex": "(.*)ndvi_(.*)\\.tif$",
       "use_multithreading": false,
@@ -78,8 +78,8 @@
   "assets": {
     "thumbnail": {
       "title": "Thumbnail",
-      "description": "NDVI.",
-      "href": "https://veda-thumbnails.s3.us-west-2.amazonaws.com/ndvi.png",
+      "description": "NDVI",
+      "href": "https://veda-thumbnails.s3.us-west-2.amazonaws.com/smap-soil-moisture-2to1-compressed.png",
       "type": "image/jpeg",
       "roles": [
         "thumbnail"
