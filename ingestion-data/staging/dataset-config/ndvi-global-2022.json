@@ -30,7 +30,7 @@
     }
   ],
   "sample_files": [
-    "s3://veda-data-store-staging/cattle-heat-story/ndvi/nvdi/ndvi_20220108_cog.tif"
+    "s3://veda-data-store-staging/cattle-heat-story/ndvi/ndvi/ndvi_20220108_cog.tif"
   ],
   "data_type": "cog",
   "stac_extensions": [
@@ -78,7 +78,7 @@
   "assets": {
     "thumbnail": {
       "title": "Thumbnail",
-      "description": "Normalized difference vegetation index.",
+      "description": "NDVI.",
       "href": "https://veda-thumbnails.s3.us-west-2.amazonaws.com/ndvi.png",
       "type": "image/jpeg",
       "roles": [
