@@ -1,0 +1,221 @@
+{
+  "collection": "usda_cattle_AFOs_2017-v1",
+  "title": "USDA Cattle AFOs and Total Heads 2017",
+  "description": "USDA cattle animal feeding operations (AFOs) data by size category and total head count for 2017",
+  "license": "CC0-1.0",
+  "stac_version": "1.0.0",
+  "dashboard:is_periodic": false,
+  "dashboard:time_density": "year",
+  "links": [],
+  "spatial_extent": {
+    "xmin": -179.15,
+    "ymin": 18.92,
+    "xmax": -66.95,
+    "ymax": 71.35
+  },
+  "temporal_extent": {
+    "startdate": "2017-01-01T00:00:00Z",
+    "enddate": "2017-12-31T23:59:59Z"
+  },
+  "discovery_items": [
+    {
+      "discovery": "s3",
+      "prefix": "cattle-heat-story/pasture-grassland-CONUS/",
+      "bucket": "veda-data-store-staging",
+      "filename_regex": "(.*)usda_cattle_(.*)\\.tif$",
+      "id_regex": ".*_(.*).tif$",
+      "id_template": "usda_cattle_AFOs_2017-v1-{}",
+      "use_multithreading": false,
+      "cogify": false,
+      "dry_run": false,
+      "upload": false,
+      "assets": {
+        "large_AFOs": {
+          "description": "Large cattle animal feeding operations",
+          "regex": ".*usda_cattle_large_AFOs_.*.tif$",
+          "title": "Large Cattle AFOs"
+        },
+        "medium_AFOs": {
+          "description": "Medium cattle animal feeding operations",
+          "regex": ".*usda_cattle_medium_AFOs_.*.tif$",
+          "title": "Medium Cattle AFOs"
+        },
+        "small_AFOs": {
+          "description": "Small cattle animal feeding operations",
+          "regex": ".*usda_cattle_small_AFOs_.*.tif$",
+          "title": "Small Cattle AFOs"
+        },
+        "total_heads": {
+          "description": "Total cattle head count",
+          "regex": ".*usda_cattle_total_heads_.*.tif$",
+          "title": "Total Cattle Heads"
+        }
+      }
+    }
+  ],
+  "sample_files": [
+    "s3://veda-data-store-staging/cattle-heat-story/pasture-grassland-CONUS/usda_cattle_large_AFOs_2017_cog.tif",
+    "s3://veda-data-store-staging/cattle-heat-story/pasture-grassland-CONUS/usda_cattle_medium_AFOs_2017_cog.tif",
+    "s3://veda-data-store-staging/cattle-heat-story/pasture-grassland-CONUS/usda_cattle_small_AFOs_2017_cog.tif",
+    "s3://veda-data-store-staging/cattle-heat-story/pasture-grassland-CONUS/usda_cattle_total_heads_2017_cog.tif"
+  ],
+  "data_type": "cog",
+  "stac_extensions": [
+    "https://stac-extensions.github.io/render/v1.0.0/schema.json",
+    "https://stac-extensions.github.io/item-assets/v1.0.0/schema.json"
+  ],
+  "item_assets": {
+    "cog_default": {
+      "type": "image/tiff; application=geotiff; profile=cloud-optimized",
+      "roles": [
+        "data",
+        "layer"
+      ],
+      "title": "Default COG Layer",
+      "description": "Cloud optimized default layer to display on map"
+    },
+    "large_AFOs": {
+      "type": "image/tiff; application=geotiff; profile=cloud-optimized",
+      "roles": [
+        "data",
+        "layer"
+      ],
+      "title": "Large Cattle AFOs",
+      "description": "Large cattle animal feeding operations"
+    },
+    "medium_AFOs": {
+      "type": "image/tiff; application=geotiff; profile=cloud-optimized",
+      "roles": [
+        "data",
+        "layer"
+      ],
+      "title": "Medium Cattle AFOs",
+      "description": "Medium cattle animal feeding operations"
+    },
+    "small_AFOs": {
+      "type": "image/tiff; application=geotiff; profile=cloud-optimized",
+      "roles": [
+        "data",
+        "layer"
+      ],
+      "title": "Small Cattle AFOs",
+      "description": "Small cattle animal feeding operations"
+    },
+    "total_heads": {
+      "type": "image/tiff; application=geotiff; profile=cloud-optimized",
+      "roles": [
+        "data",
+        "layer"
+      ],
+      "title": "Total Cattle Heads",
+      "description": "Total cattle head count"
+    }
+  },
+  "renders": {
+    "dashboard": {
+      "assets": [
+        "total_heads"
+      ],
+      "bidx": [
+        1
+      ],
+      "colormap_name": "viridis",
+      "resampling": "nearest",
+      "rescale": [
+        [
+          0,
+          1057272
+        ]
+      ],
+      "title": "VEDA Dashboard Render Parameters"
+    },
+    "large_AFOs": {
+      "assets": [
+        "large_AFOs"
+      ],
+      "bidx": [
+        1
+      ],
+      "colormap_name": "viridis",
+      "resampling": "nearest",
+      "rescale": [
+        [
+          0,
+          304
+        ]
+      ],
+      "title": "Large AFOs Render Parameters"
+    },
+    "medium_AFOs": {
+      "assets": [
+        "medium_AFOs"
+      ],
+      "bidx": [
+        1
+      ],
+      "colormap_name": "viridis",
+      "resampling": "nearest",
+      "rescale": [
+        [
+          0,
+          1508
+        ]
+      ],
+      "title": "Medium AFOs Render Parameters"
+    },
+    "small_AFOs": {
+      "assets": [
+        "small_AFOs"
+      ],
+      "bidx": [
+        1
+      ],
+      "colormap_name": "viridis",
+      "resampling": "nearest",
+      "rescale": [
+        [
+          0,
+          2312
+        ]
+      ],
+      "title": "Small AFOs Render Parameters"
+    },
+    "total_heads": {
+      "assets": [
+        "total_heads"
+      ],
+      "bidx": [
+        1
+      ],
+      "colormap_name": "viridis",
+      "resampling": "nearest",
+      "rescale": [
+        [
+          0,
+          1057272
+        ]
+      ],
+      "title": "Total Heads Render Parameters"
+    }
+  },
+  "providers": [
+    {
+      "name": "NASA VEDA",
+      "roles": [
+        "host"
+      ],
+      "url": "https://www.earthdata.nasa.gov/dashboard/"
+    }
+  ],
+  "assets": {
+    "thumbnail": {
+      "title": "Thumbnail",
+      "description": "Cattle grazing in an open field.",
+      "href": "https://veda-thumbnails.s3.us-west-2.amazonaws.com/cattle_cover_2000x1000.png",
+      "type": "image/jpeg",
+      "roles": [
+        "thumbnail"
+      ]
+    }
+  }
+}
