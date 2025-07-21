@@ -26,9 +26,7 @@
       "id_regex": ".*_(.*).tif$",
       "id_template": "county_grasslands_pasture_2019-v1-{}",
       "use_multithreading": false,
-      "cogify": false,
-      "dry_run": false,
-      "upload": false,
+      "collection": "county_grasslands_pasture_2019-v1",
       "assets": {
         "grasslands": {
           "description": "County-level grasslands data",
@@ -54,13 +52,7 @@
   ],
   "item_assets": {
     "cog_default": {
-      "type": "image/tiff; application=geotiff; profile=cloud-optimized",
-      "roles": [
-        "data",
-        "layer"
-      ],
-      "title": "Default COG Layer",
-      "description": "Cloud optimized default layer to display on map"
+      "roles": []
     },
     "grasslands": {
       "type": "image/tiff; application=geotiff; profile=cloud-optimized",
@@ -146,7 +138,7 @@
   "assets": {
     "thumbnail": {
       "title": "Thumbnail",
-      "description": "Cattle grazing in an open field.",
+      "description": "Cows grazing in an open field.",
       "href": "https://veda-thumbnails.s3.us-west-2.amazonaws.com/cattle_cover_2000x1000.png",
       "type": "image/jpeg",
       "roles": [
