@@ -66,7 +66,7 @@
   ],
   "stac_version": "1.0.0",
   "temporal_frequency": "twenty four hours",
-  "tilematrixset": "GoogleMapsCompatible_Level8",
+  "tilematrixset": "GoogleMapsCompatible_Level9",
   "time_density": "day",
   "time_interval": "P1D",
   "title": "16-Day MODIS Terra Normalized Difference Vegetation Index (NDVI) - L3 NRT",
