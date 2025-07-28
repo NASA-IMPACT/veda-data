@@ -1,7 +1,8 @@
 # This GitHub Actions workflow automates the process of
 # publishing dataset collections to a staging environment
 # It is triggered by a pull request to the main branch
-# that modifies any files within the ingestion-data/dataset-config/ directory
+# that modifies any JSON files within the specified
+# ingestion-data/staging/ subdirectories
 # The workflow includes steps to
 #   - publish the datasets,
 #   - constantly updates the status of the workflow in the PR comment
@@ -70,11 +71,16 @@ jobs:
       # The files are outputted to GITHUB_OUTPUT, which can be used in subsequent steps
       - name: Get newly added and changed files
         id: changed-files
-        uses: tj-actions/changed-files@2f7c5bfce28377bc069a65ba478de0a74aa0ca32 # v46.0.1
-        with:
-          files: |
-            ingestion-data/staging/dataset-config/**.json
-            ingestion-data/staging/collections/**.json
+        run: |
+          ACMR_FILES=$(git diff --name-only --diff-filter=ACMR $GITHUB_BASE_REF...$GITHUB_HEAD_REF)
+
+          mapfile -t "PUBLISH_FILES" < <(echo "$ACMR_FILES" | grep \
+            -e "^ingestion-data/staging/dataset-config/.*\.json$" \
+            -e "^ingestion-data/staging/collections/.*\.json$"
+          )
+
+          echo "all_changed_files=${PUBLISH_FILES[*]}" >> $GITHUB_OUTPUT
+          echo "all_changed_files_count=${#PUBLISH_FILES[@]}" >> $GITHUB_OUTPUT
 
       # ACMR - Added, Copied, Modified, Renamed
       - name: List all newly added and changed files
