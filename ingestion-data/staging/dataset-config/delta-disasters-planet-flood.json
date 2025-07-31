@@ -84,7 +84,7 @@
     "thumbnail": {
       "title": "Thumbnail",
       "description": "HLS-derived NDWI from May 26, 2019 with the 2023 Rolling Fork tornado track overlaid.",
-      "href": "https://thumbnails.openveda.cloud/delta-disasters-background.jpg",
+      "href": "https://veda-thumbnails.s3.us-west-2.amazonaws.com/delta-disasters-background.jpg",
       "type": "image/png",
       "roles": [
         "thumbnail"
