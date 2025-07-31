@@ -36,6 +36,8 @@ jobs:
       has_new_files_to_promote: ${{ steps.changed-files.outputs.all_changed_files_count != 0 }}
     steps:
       - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2
+        with:
+          fetch-depth: 0
 
       # Initializes the PR comment
       # Edits existing or creates new comment
@@ -72,7 +74,7 @@ jobs:
       - name: Get newly added and changed files
         id: changed-files
         run: |
-          ACMR_FILES=$(git diff --name-only --diff-filter=ACMR $GITHUB_BASE_REF...$GITHUB_HEAD_REF)
+          ACMR_FILES=$(git diff --name-only --diff-filter=ACMR origin/$GITHUB_BASE_REF...HEAD)
 
           mapfile -t "PUBLISH_FILES" < <(echo "$ACMR_FILES" | grep \
             -e "^ingestion-data/staging/dataset-config/.*\.json$" \
