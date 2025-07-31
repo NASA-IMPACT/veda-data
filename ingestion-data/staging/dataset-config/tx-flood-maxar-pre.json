@@ -1,0 +1,92 @@
+{
+  "collection": "tx-flood-maxar-pre",
+  "title": "MAXAR Commercial Satellite Imagery (2025 Texas Flood - Pre)",
+  "description": "TrueColor commercial satellite imagery from MAXAR taken on March 12, 2025 of the Guadalupe River in central Texas prior to a devastating flash flood on July 4, 2025. This data was made available through the NASA Commercial Satellite Data Acquisition (CSDA) Program.",
+  "license": "CC0-1.0",
+  "stac_version": "1.0.0",
+  "dashboard:time_density": "day",
+  "links": [],
+  "spatial_extent": {
+    "xmin": -99.479402,
+    "ymin": 29.876679,
+    "xmax": -99.306497,
+    "ymax": 30.01107
+  },
+  "temporal_extent": {
+    "startdate": "2025-03-12T00:00:00Z",
+    "enddate": "2025-03-12T23:59:59Z"
+  },
+  "discovery_items": [
+    {
+      "discovery": "s3",
+      "prefix": "tx-flood/",
+      "bucket": "veda-data-store-staging",
+      "filename_regex": "(.*)TX_flood_MAXAR4_2025-03-(.*).tif$",
+      "use_multithreading": false,
+      "upload": false,
+      "cogify": false,
+      "dry_run": false
+    }
+  ],
+  "sample_files": [
+    "s3://veda-data-store-staging/tx-flood/TX_flood_MAXAR4_2025-03-12.tif"
+  ],
+  "data_type": "cog",
+  "stac_extensions": [
+    "https://stac-extensions.github.io/render/v1.0.0/schema.json",
+    "https://stac-extensions.github.io/item-assets/v1.0.0/schema.json"
+  ],
+  "item_assets": {
+    "cog_default": {
+      "type": "image/tiff; application=geotiff; profile=cloud-optimized",
+      "roles": [
+        "data",
+        "layer"
+      ],
+      "title": "Default COG Layer",
+      "description": "Cloud optimized default layer to display on map"
+    }
+  },
+  "renders": {
+    "dashboard": {
+      "bidx": [
+        5,
+        2,
+        1
+      ],
+      "rescale": [
+        [
+          0,
+          500
+        ]
+      ],
+      "assets": [
+        "cog_default"
+      ]
+    }
+  },
+  "providers": [
+    {
+      "name": "NASA VEDA",
+      "roles": [
+        "host"
+      ],
+      "url": "https://www.earthdata.nasa.gov/dashboard/"
+    }
+  ],
+  "assets": {
+    "thumbnail": {
+      "title": "Thumbnail",
+      "description": "A search and rescue volunteer holds a T-shirt and backpack with the words Camp Mystic on them.",
+      "href": "https://thumbnails.openveda.cloud/texas-flood-background.jpg",
+      "type": "image/png",
+      "roles": [
+        "thumbnail"
+      ]
+    }
+  },
+  "dashboard:is_periodic": false,
+  "dashboard:time_density": "day",
+  "datetime_range": "day",
+  "transfer": true
+}
