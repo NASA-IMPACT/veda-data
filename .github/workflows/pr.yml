@@ -11,7 +11,7 @@ name: Publish collection to staging
 
 on:
   pull_request:
-    branches: ['main']
+    # branches: ['main']
     paths:
       # Run the workflow only if files inside this path are updated
       - 'ingestion-data/staging/dataset-config/**.json'
