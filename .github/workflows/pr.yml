@@ -77,8 +77,8 @@ jobs:
           ACMR_FILES=$(git diff --name-only --diff-filter=ACMR origin/$GITHUB_BASE_REF...HEAD)
 
           mapfile -t "PUBLISH_FILES" < <(echo "$ACMR_FILES" | grep \
-            -e "^ingestion-data/staging/dataset-config/.*\.json$" \
-            -e "^ingestion-data/staging/collections/.*\.json$"
+            -e "\bingestion-data/staging/dataset-config/.*\.json\b" \
+            -e "\bingestion-data/staging/collections/.*\.json\b"
           )
 
           echo "all_changed_files=${PUBLISH_FILES[*]}" >> $GITHUB_OUTPUT
