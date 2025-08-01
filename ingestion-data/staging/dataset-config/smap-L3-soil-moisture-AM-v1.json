@@ -1,6 +1,6 @@
 {
   "collection": "smap-L3-soil-moisture-AM-v1",
-  "title": "SMAP Soil Moisture L3 AM swaths",
+  "title": "SMAP Soil Moisture L3 AM Swaths",
   "description": "This Level-3 (L3) soil moisture product provides a daily composite of global land surface conditions retrieved by the Soil Moisture Active Passive (SMAP) L-Band radiometer. The daily data here were collected from the descending (local solar time of 6 am) and ascending (local solar time of 6 pm) passes.",
   "license": "CC0-1.0",
   "stac_version": "1.0.0",
@@ -79,7 +79,7 @@
     "thumbnail": {
       "title": "Thumbnail",
       "description": "soil moisture anomaly.",
-      "href": "https://veda-thumbnails.s3.us-west-2.amazonaws.com/smap-soil-moisture-2to1-compressed.png",
+      "href": "https://thumbnails.openveda.cloud/smap-soil-moisture-2to1-compressed.png",
       "type": "image/jpeg",
       "roles": [
         "thumbnail"
