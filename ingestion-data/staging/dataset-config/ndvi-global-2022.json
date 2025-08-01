@@ -30,7 +30,7 @@
     }
   ],
   "sample_files": [
-    "s3://veda-data-store-staging/cattle-heat-story/ndvi/ndvi/ndvi_20220108_cog.tif"
+    "s3://veda-data-store-staging/cattle-heat-story/ndvi/ndvi_20220108_cog.tif"
   ],
   "data_type": "cog",
   "stac_extensions": [
@@ -79,7 +79,7 @@
     "thumbnail": {
       "title": "Thumbnail",
       "description": "NDVI",
-      "href": "https://veda-thumbnails.s3.us-west-2.amazonaws.com/smap-soil-moisture-2to1-compressed.png",
+      "href": "https://thumbnails.openveda.cloud/smap-soil-moisture-2to1-compressed.png",
       "type": "image/jpeg",
       "roles": [
         "thumbnail"
