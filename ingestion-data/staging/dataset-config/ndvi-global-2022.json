@@ -1,0 +1,89 @@
+{
+  "collection": "ndvi-global-2022",
+  "title": "Bi-Monthly NDVI GIMMS-3G+",
+  "description": "This dataset holds the Global Inventory Modeling and Mapping Studies-3rd Generation V1.2 (GIMMS-3G+) data for the Normalized Difference Vegetation Index (NDVI). NDVI was based on corrected and calibrated measurements from Advanced Very High Resolution Radiometer (AVHRR) data with a spatial resolution of 0.0833 degree and global coverage for 1982 to 2022. Maximum NDVI values are reported within twice monthly compositing periods (two values per month). The dataset was assembled from different AVHRR sensors and accounts for various deleterious effects, such as calibration loss, orbital drift, and volcanic eruptions. The data are provided in NetCDF format.",
+  "license": "CC0-1.0",
+  "stac_version": "1.0.0",
+  "dashboard:is_periodic": false,
+  "dashboard:time_density": "day",
+  "links": [],
+  "spatial_extent": {
+    "xmin": -180,
+    "ymin": 85,
+    "xmax": 188,
+    "ymax": -85
+  },
+  "temporal_extent": {
+    "startdate": "2022-01-08T00:00:00Z",
+    "enddate": "2022-06-23T23:59:59Z"
+  },
+  "discovery_items": [
+    {
+      "discovery": "s3",
+      "prefix": "cattle-heat-story/ndvi/",
+      "bucket": "veda-data-store-staging",
+      "filename_regex": "(.*)ndvi_(.*)\\.tif$",
+      "use_multithreading": false,
+      "cogify": false,
+      "dry_run": false,
+      "upload": false
+    }
+  ],
+  "sample_files": [
+    "s3://veda-data-store-staging/cattle-heat-story/ndvi/ndvi_20220108_cog.tif"
+  ],
+  "data_type": "cog",
+  "stac_extensions": [
+    "https://stac-extensions.github.io/render/v1.0.0/schema.json",
+    "https://stac-extensions.github.io/item-assets/v1.0.0/schema.json"
+  ],
+  "item_assets": {
+    "cog_default": {
+      "type": "image/tiff; application=geotiff; profile=cloud-optimized",
+      "roles": [
+        "data",
+        "layer"
+      ],
+      "title": "Default COG Layer",
+      "description": "Cloud optimized default layer to display on map"
+    }
+  },
+  "renders": {
+    "dashboard": {
+      "assets": [
+        "cog_default"
+      ],
+      "bidx": [
+        1
+      ],
+      "resampling": "nearest",
+      "rescale": [
+        [
+          -0.3,
+          0.9
+        ]
+      ],
+      "title": "VEDA Dashboard Render Parameters"
+    }
+  },
+  "providers": [
+    {
+      "name": "NASA VEDA",
+      "roles": [
+        "host"
+      ],
+      "url": "https://www.earthdata.nasa.gov/dashboard/"
+    }
+  ],
+  "assets": {
+    "thumbnail": {
+      "title": "Thumbnail",
+      "description": "NDVI",
+      "href": "https://thumbnails.openveda.cloud/smap-soil-moisture-2to1-compressed.png",
+      "type": "image/jpeg",
+      "roles": [
+        "thumbnail"
+      ]
+    }
+  }
+}
