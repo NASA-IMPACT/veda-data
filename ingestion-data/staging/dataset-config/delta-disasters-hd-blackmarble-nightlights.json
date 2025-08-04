@@ -80,13 +80,13 @@
     "thumbnail": {
       "title": "Thumbnail",
       "description": "HD Black Marble Nightlights output in Houston, TX",
-      "href": "s3://veda-thumbnails/hdblackmarble.jpg",
+      "href": "https://thumbnails.openveda.cloud/hdblackmarble.jpg",
       "type": "image/jpg",
       "roles": [
         "thumbnail"
       ]
     }
   },
-  "is_periodic": false,
+  "dashboard:is_periodic": false,
   "time_density": "day"
 }
