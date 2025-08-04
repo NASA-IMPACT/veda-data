@@ -1,0 +1,149 @@
+{
+  "collection": "county_grasslands_pasture_2019-v1",
+  "title": "County Grasslands and Pasture 2019",
+  "description": "County-level grasslands and pasture data for 2019",
+  "license": "CC0-1.0",
+  "stac_version": "1.0.0",
+  "dashboard:is_periodic": false,
+  "dashboard:time_density": "year",
+  "links": [],
+  "spatial_extent": {
+    "xmin": -171.09,
+    "ymin": -14.55,
+    "xmax": 145.83,
+    "ymax": 71.35
+  },
+  "temporal_extent": {
+    "startdate": "2019-01-01T00:00:00Z",
+    "enddate": "2019-12-31T23:59:59Z"
+  },
+  "discovery_items": [
+    {
+      "discovery": "s3",
+      "prefix": "cattle-heat-story/pasture-grassland-CONUS/",
+      "bucket": "veda-data-store-staging",
+      "filename_regex": "(.*)county_(.*)\\.tif$",
+      "id_regex": ".*_(.*).tif$",
+      "id_template": "county_grasslands_pasture_2019-v1-{}",
+      "use_multithreading": false,
+      "collection": "county_grasslands_pasture_2019-v1",
+      "assets": {
+        "grasslands": {
+          "description": "County-level grasslands data",
+          "regex": ".*county_grasslands_2019_pastu.*\\.tif$",
+          "title": "County Grasslands"
+        },
+        "pasture": {
+          "description": "County-level pasture data",
+          "regex": ".*county_pasture_2019_pastu.*\\.tif$",
+          "title": "County Pasture"
+        }
+      }
+    }
+  ],
+  "sample_files": [
+    "s3://veda-data-store-staging/cattle-heat-story/pasture-grassland-CONUS/county_grasslands_2019_pastu_cog.tif",
+    "s3://veda-data-store-staging/cattle-heat-story/pasture-grassland-CONUS/county_pasture_2019_pastu_cog.tif"
+  ],
+  "data_type": "cog",
+  "stac_extensions": [
+    "https://stac-extensions.github.io/render/v1.0.0/schema.json",
+    "https://stac-extensions.github.io/item-assets/v1.0.0/schema.json"
+  ],
+  "item_assets": {
+    "cog_default": {
+      "roles": []
+    },
+    "grasslands": {
+      "type": "image/tiff; application=geotiff; profile=cloud-optimized",
+      "roles": [
+        "data",
+        "layer"
+      ],
+      "title": "County Grasslands",
+      "description": "County-level grasslands data"
+    },
+    "pasture": {
+      "type": "image/tiff; application=geotiff; profile=cloud-optimized",
+      "roles": [
+        "data",
+        "layer"
+      ],
+      "title": "County Pasture",
+      "description": "County-level pasture data"
+    }
+  },
+  "renders": {
+    "dashboard": {
+      "assets": [
+        "pasture"
+      ],
+      "bidx": [
+        1
+      ],
+      "colormap_name": "viridis",
+      "resampling": "nearest",
+      "rescale": [
+        [
+          0,
+          66.06770324707031
+        ]
+      ],
+      "title": "VEDA Dashboard Render Parameters"
+    },
+    "grasslands": {
+      "assets": [
+        "grasslands"
+      ],
+      "bidx": [
+        1
+      ],
+      "colormap_name": "viridis",
+      "resampling": "nearest",
+      "rescale": [
+        [
+          0,
+          87.22669982910156
+        ]
+      ],
+      "title": "Grasslands Render Parameters"
+    },
+    "pasture": {
+      "assets": [
+        "pasture"
+      ],
+      "bidx": [
+        1
+      ],
+      "colormap_name": "viridis",
+      "resampling": "nearest",
+      "rescale": [
+        [
+          0,
+          66.06770324707031
+        ]
+      ],
+      "title": "Pasture Render Parameters"
+    }
+  },
+  "providers": [
+    {
+      "name": "NASA VEDA",
+      "roles": [
+        "host"
+      ],
+      "url": "https://www.earthdata.nasa.gov/dashboard/"
+    }
+  ],
+  "assets": {
+    "thumbnail": {
+      "title": "Thumbnail",
+      "description": "Cows grazing in an open field.",
+      "href": "https://thumbnails.openveda.cloud/cattle_cover_2000x1000.png",
+      "type": "image/jpeg",
+      "roles": [
+        "thumbnail"
+      ]
+    }
+  }
+}
