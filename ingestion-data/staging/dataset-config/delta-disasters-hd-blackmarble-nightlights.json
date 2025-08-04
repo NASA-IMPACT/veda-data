@@ -1,0 +1,92 @@
+{
+  "collection": "delta-disasters-hd-blackmarble-nightlights",
+  "title": "High Definition Black Marble Nightlights (2023 Rolling Fork Tornado)",
+  "description": "The High Definition Nightlights dataset is a derived product for measuring light emissions for a given location. Darker colors indicate lower light emissions while lighter colors indicate high light emissions.",
+  "license": "MIT",
+  "stac_version": "1.0.0",
+  "dashboard:time_density": "day",
+  "links": [],
+  "spatial_extent": {
+    "xmin": -90.96,
+    "ymin": 32.83,
+    "xmax": -90.79,
+    "ymax": 32.967
+  },
+  "temporal_extent": {
+    "startdate": "2023-03-15T00:00:00Z",
+    "enddate": "2023-03-25T00:00:00Z"
+  },
+  "discovery_items": [
+    {
+      "discovery": "s3",
+      "prefix": "delta-disasters/",
+      "bucket": "veda-data-store-staging",
+      "filename_regex": "(.*)HD_Blackmarble_Nightlights(.*).tif$",
+      "use_multithreading": false,
+      "upload": false,
+      "cogify": false,
+      "dry_run": false
+    }
+  ],
+  "sample_files": [
+    "s3://veda-data-store-staging/delta-disasters/HD_Blackmarble_Nightlights_2023-03-15.tif",
+    "s3://veda-data-store-staging/delta-disasters/HD_Blackmarble_Nightlights_2023-03-25.tif"
+  ],
+  "data_type": "cog",
+  "stac_extensions": [
+    "https://stac-extensions.github.io/render/v1.0.0/schema.json",
+    "https://stac-extensions.github.io/item-assets/v1.0.0/schema.json"
+  ],
+  "item_assets": {
+    "cog_default": {
+      "type": "image/tiff; application=geotiff; profile=cloud-optimized",
+      "roles": [
+        "data",
+        "layer"
+      ],
+      "title": "Default COG Layer",
+      "description": "Cloud optimized default layer to display on map"
+    }
+  },
+  "renders": {
+    "dashboard": {
+      "bidx": [
+        1,
+        2,
+        3
+      ],
+      "rescale": [
+        [
+          0,
+          255
+        ]
+      ],
+      "assets": [
+        "cog_default"
+      ],
+      "title": "VEDA Dashboard Render Parameters"
+    }
+  },
+  "providers": [
+    {
+      "name": "NASA VEDA",
+      "roles": [
+        "host"
+      ],
+      "url": "https://www.earthdata.nasa.gov/dashboard/"
+    }
+  ],
+  "assets": {
+    "thumbnail": {
+      "title": "Thumbnail",
+      "description": "HD Black Marble Nightlights output in Houston, TX",
+      "href": "https://thumbnails.openveda.cloud/hdblackmarble.jpg",
+      "type": "image/jpg",
+      "roles": [
+        "thumbnail"
+      ]
+    }
+  },
+  "dashboard:is_periodic": false,
+  "time_density": "day"
+}
