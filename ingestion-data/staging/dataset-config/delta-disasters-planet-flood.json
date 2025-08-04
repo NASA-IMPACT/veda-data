@@ -1,0 +1,98 @@
+{
+  "collection": "delta-disasters-planet-flood",
+  "title": "PlanetScope Satellite Imagery (2019 Yazoo Backwater Flood)",
+  "description": "False Color Composite (FCC) commercial satellite imagery from Planet Labs of the Mississippi Delta area from the peak of the 2019 backwater flooding. This data was made available through the NASA Commercial Satellite Data Acquisition (CSDA) Program.",
+  "license": "CC0-1.0",
+  "stac_version": "1.0.0",
+  "dashboard:time_density": "day",
+  "links": [],
+  "spatial_extent": {
+    "xmin": -91.13,
+    "ymin": 33.05,
+    "xmax": -90.55,
+    "ymax": 32.72
+  },
+  "temporal_extent": {
+    "startdate": "2019-05-23T00:00:00Z",
+    "enddate": "2019-05-23T23:59:59Z"
+  },
+  "discovery_items": [
+    {
+      "discovery": "s3",
+      "prefix": "delta-disasters/",
+      "bucket": "veda-data-store-staging",
+      "filename_regex": "(.*)MS_Delta_Flood(.*).tif$",
+      "use_multithreading": false,
+      "upload": false,
+      "cogify": false,
+      "dry_run": false
+    }
+  ],
+  "sample_files": [
+    "s3://veda-data-store-staging/delta-disasters/MS_Delta_Flood1_2019-05-23.tif",
+    "s3://veda-data-store-staging/delta-disasters/MS_Delta_Flood2_2019-05-23.tif",
+    "s3://veda-data-store-staging/delta-disasters/MS_Delta_Flood3_2019-05-23.tif",
+    "s3://veda-data-store-staging/delta-disasters/MS_Delta_Flood4_2019-05-23.tif",
+    "s3://veda-data-store-staging/delta-disasters/MS_Delta_Flood5_2019-05-23.tif"
+  ],
+  "data_type": "cog",
+  "stac_extensions": [
+    "https://stac-extensions.github.io/render/v1.0.0/schema.json",
+    "https://stac-extensions.github.io/item-assets/v1.0.0/schema.json"
+  ],
+  "item_assets": {
+    "cog_default": {
+      "type": "image/tiff; application=geotiff; profile=cloud-optimized",
+      "roles": [
+        "data",
+        "layer"
+      ],
+      "title": "Default COG Layer",
+      "description": "Cloud optimized default layer to display on map"
+    }
+  },
+  "renders": {
+    "dashboard": {
+      "bidx": [
+        4,
+        2,
+        1
+      ],
+      "rescale": [
+        [
+          100,
+          4500
+        ]
+      ],
+      "resampling": "nearest",
+      "nodata": "0",
+      "assets": [
+        "cog_default"
+      ]
+    }
+  },
+  "providers": [
+    {
+      "name": "NASA VEDA",
+      "roles": [
+        "host"
+      ],
+      "url": "https://www.earthdata.nasa.gov/dashboard/"
+    }
+  ],
+  "assets": {
+    "thumbnail": {
+      "title": "Thumbnail",
+      "description": "HLS-derived NDWI from May 26, 2019 with the 2023 Rolling Fork tornado track overlaid.",
+      "href": "https://thumbnails.openveda.cloud/delta-disasters-background.jpg",
+      "type": "image/png",
+      "roles": [
+        "thumbnail"
+      ]
+    }
+  },
+  "dashboard:is_periodic": false,
+  "time_density": "day",
+  "datetime_range": "day",
+  "transfer": true
+}
