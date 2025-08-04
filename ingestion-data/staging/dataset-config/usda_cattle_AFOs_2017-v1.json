@@ -212,7 +212,7 @@
       "title": "Thumbnail",
       "description": "Cattle grazing in an open field.",
       "href": "https://thumbnails.openveda.cloud/cattle_cover_2000x1000.png",
-      "type": "image/jpeg",
+      "type": "image/png",
       "roles": [
         "thumbnail"
       ]
