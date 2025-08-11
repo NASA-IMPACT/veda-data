@@ -70,7 +70,7 @@
     "thumbnail": {
       "title": "Thumbnail",
       "description": "Aerial View of Scope of 2011 Tuscaloosa Tornado Damage Path from the National Weather Service Damage Assessment Team in Birmingham",
-      "href": "https://veda-thumbnails.s3.us-west-2.amazonaws.com/tornado_2011_Background.jpg",
+      "href": "https://thumbnails.openveda.cloud/tornado_2011_Background.jpg",
       "type": "image/jpg",
       "roles": [
         "thumbnail"
