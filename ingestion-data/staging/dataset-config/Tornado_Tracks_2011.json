@@ -49,10 +49,7 @@
       "bidx": [
         1
       ],
-      "rescale": [
-        0,
-        255
-      ],
+      "rescale": [],
       "colormap_name": "tornado_ef_scale",
       "nodata": "0",
       "assets": [
