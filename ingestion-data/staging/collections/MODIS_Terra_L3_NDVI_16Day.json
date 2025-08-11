@@ -79,5 +79,5 @@
   "time_interval": "P1D",
   "title": "16-Day MODIS Terra Normalized Difference Vegetation Index (NDVI) - L3 NRT",
   "type": "Collection",
-  "units": "unitless",
+  "units": "unitless"
 }
