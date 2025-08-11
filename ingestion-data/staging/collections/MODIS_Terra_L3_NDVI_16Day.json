@@ -4,7 +4,6 @@
   "dashboard:is_periodic": true,
   "dashboard:time_density": "day",
   "dashboard:time_interval": "P1D",
-  "data_type": "cog",
   "description": "The Vegetation Index (L3, 16-Day) layer is created from the Terra Moderate Resolution Imaging Spectroradiometer (MODIS) Vegetation Indices (MOD13Q1) data which are generated every 16 days at 250 meter (m) spatial resolution as a Level 3 product. The MOD13Q1 product provides the Normalized Difference Vegetation Index (NDVI) which is referred to as the continuity index to the existing National Oceanic and Atmospheric Administration-Advanced Very High Resolution Radiometer (NOAA-AVHRR) derived NDVI. The algorithm chooses the best available pixel value from all the acquisitions from the 16-day period. The criteria used is low clouds, low view angle, and the highest NDVI value. The MODIS Normalized Difference Vegetation Index (NDVI) complements NOAA's Advanced Very High Resolution Radiometer (AVHRR) NDVI products and provides continuity for time series historical applications. The MODIS NDVI product is computed from surface reflectances corrected for molecular scattering, ozone absorption, and aerosols. References: MOD13Q1 doi:10.5067/MODIS/MOD13Q1.061",
   "extent": {
     "spatial": {
@@ -24,18 +23,6 @@
           "2025-06-30T00:00:00Z"
         ]
       ]
-    }
-  },
-  "is_periodic": true,
-  "item_assets": {
-    "cog_default": {
-      "description": "Vegetation Index (L3, 16-Day)",
-      "roles": [
-        "data",
-        "layer"
-      ],
-      "title": "MODIS Terra NDVI",
-      "type": "image/tiff; application=geotiff; profile=cloud-optimized"
     }
   },
   "license": "CC0-1.0",
@@ -58,7 +45,32 @@
     }
   ],
   "product_level": "L3",
-  "providers": [],
+{
+  "providers": [
+    {
+      "name": "NASA Global Imagery Browse Services (GIBS)",
+      "roles": [
+        "host"
+      ],
+      "url": "https://nasa-gibs.github.io/gibs-api-docs/gis-usage/"
+    },
+    {
+      "name": "NASA Land Processes Distributed Active Archive Center (LP DAAC)",
+      "roles": [
+        "producer",
+        "processor"
+      ],
+      "url": "https://www.earthdata.nasa.gov/centers/lp-daac"
+    },
+    {
+      "name": "NASA's Earth Science Data and Information System (ESDIS)",
+      "roles": [
+        "licensor"
+      ],
+      "url": "https://www.earthdata.nasa.gov/about/esdis"
+    }
+  ]
+}
   "renders": {},
   "stac_extensions": [
     "https://stac-extensions.github.io/render/v1.0.0/schema.json",
@@ -72,6 +84,4 @@
   "title": "16-Day MODIS Terra Normalized Difference Vegetation Index (NDVI) - L3 NRT",
   "type": "Collection",
   "units": "unitless",
-  "keywords": [],
-  "summaries": {}
 }
