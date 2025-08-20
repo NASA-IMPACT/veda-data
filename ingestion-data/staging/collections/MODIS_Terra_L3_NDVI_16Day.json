@@ -35,10 +35,10 @@
         "https://gibs-a.earthdata.nasa.gov/wmts/epsg3857/best/wmts.cgi",
         "https://gibs-b.earthdata.nasa.gov/wmts/epsg3857/best/wmts.cgi"
       ],
-      "wmts:dimensions": [
-        "default"
-      ],
-      "wmts:layers": [
+      "wmts:dimensions": {
+	        "STYLE": "default"
+	      },
+      "wmts:layer": [
         "MODIS_Terra_L3_NDVI_16Day"
       ]
     }
