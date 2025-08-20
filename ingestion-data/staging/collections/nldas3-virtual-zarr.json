@@ -1,0 +1,54 @@
+{
+  "stac_version": "1.0.0",
+  "stac_extensions": [
+    "https://stac-extensions.github.io/zarr/v1.0.0/schema.json"
+  ],
+  "type": "Collection",
+  "id": "collection",
+  "title": "NLDAS-3",
+  "description": "NLDAS-3 provides a fine-scale (1 km) meteorological forcing (precipitation) in both retrospective and near real-time over North and Central America, including Alaska, Hawaii, and Puerto Rico, by leveraging high-quality gauge, satellite, and model datasets through advanced data assimilation methods. Read more: https://ldas.gsfc.nasa.gov/nldas/v3",
+  "license": "Apache-2.0",
+  "extent": {
+    "spatial": {
+      "bbox": [
+        [
+            -41.2,
+            -82.6,
+            9.8,
+            -59
+        ]
+      ]
+    },
+    "temporal": {
+      "interval": [
+        [
+          "2001-01-01T00:00:00Z",
+          "2023-12-31T00:00:00Z"
+        ]
+      ]
+    }
+  },
+  "assets": {
+    "example": {
+      "href": "s3://nasa-waterinsight/virtual-zarr-store/NLDAS-3-icechunk/",
+      "type": "application/vnd.zarr",
+      "zarr:consolidated": true
+    }
+  },
+  "summaries": {
+    "datetime": {
+      "minimum": "2001-01-01T00:00:00Z",
+      "maximum": "2023-12-31T13:44:56Z"
+    }
+  },
+  "links": [
+    {
+      "href": "https://example.com/examples/collection.json",
+      "rel": "self"
+    },
+    {
+      "href": "https://example.com/examples/item.json",
+      "rel": "item"
+    }
+  ]
+}
