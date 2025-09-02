@@ -1,0 +1,80 @@
+{
+  "collection": "Tornado_Tracks_2011",
+  "title": "NWS Tornado Tracks for April 27th, 2011",
+  "description": "Official NWS surveyed tornado tracks from April 27th, 2011. Only the centerline of the tornado paths, classified by maximum EF rating.",
+  "license": "CC0-1.0",
+  "stac_version": "1.0.0",
+  "dashboard:time_density": "day",
+  "links": [],
+  "spatial_extent": {
+    "xmin": -88.099365,
+    "ymin": 33.105347,
+    "xmax": -86.259155,
+    "ymax": 35.021
+  },
+  "temporal_extent": {
+    "startdate": "2011-04-27T00:00:00.000Z",
+    "enddate": "2011-04-27T23:59:59.000Z"
+  },
+  "discovery_items": [
+    {
+      "discovery": "s3",
+      "prefix": "Tornadoes2011/COG",
+      "bucket": "veda-data-store-staging",
+      "filename_regex": "(.*)Tornado_Tracks_COG_(.*).tif$",
+      "use_multithreading": false
+    }
+  ],
+  "sample_files": [
+    "s3://veda-data-store-staging/Tornadoes2011/COG/Tornado_Tracks_COG_2011-04-27.tif"
+  ],
+  "data_type": "cog",
+  "stac_extensions": [
+    "https://stac-extensions.github.io/render/v1.0.0/schema.json",
+    "https://stac-extensions.github.io/item-assets/v1.0.0/schema.json"
+  ],
+  "item_assets": {
+    "cog_default": {
+      "type": "image/tiff; application=geotiff; profile=cloud-optimized",
+      "roles": [
+        "data",
+        "layer"
+      ],
+      "title": "Default COG Layer",
+      "description": "Cloud optimized default layer to display on map"
+    }
+  },
+  "renders": {
+    "dashboard": {
+      "bidx": [
+        1
+      ],
+      "rescale": [],
+      "colormap_name": "tornado_ef_scale",
+      "nodata": "0",
+      "assets": [
+        "cog_default"
+      ]
+    }
+  },
+  "providers": [
+    {
+      "name": "NASA VEDA",
+      "roles": [
+        "host"
+      ],
+      "url": "https://www.earthdata.nasa.gov/dashboard/"
+    }
+  ],
+  "assets": {
+    "thumbnail": {
+      "title": "Thumbnail",
+      "description": "Aerial View of Scope of 2011 Tuscaloosa Tornado Damage Path from the National Weather Service Damage Assessment Team in Birmingham",
+      "href": "https://thumbnails.openveda.cloud/tornado_2011_Background.jpg",
+      "type": "image/jpg",
+      "roles": [
+        "thumbnail"
+      ]
+    }
+  }
+}
