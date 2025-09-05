@@ -1,0 +1,12 @@
+{
+    "bucket": "veda-data-store-staging",
+    "discovery": "s3",
+    "collection": "eis-fedsoutput-snapshot",
+    "filename_regex": "^(.*)snapshot_perimeter_nrt_(conus|borealna|russiaeast).gpkg$",
+    "prefix": "EIS/FEDSoutput/Snapshot/",
+    "vector": true,
+    "id_template": "{}",
+    "schedule": "*/15 * * * *",
+    "dag": "veda_ingest_vector",
+    "invalidate_cloudfront": true
+  }
