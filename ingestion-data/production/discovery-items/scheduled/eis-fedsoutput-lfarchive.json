@@ -1,0 +1,12 @@
+{
+    "bucket": "veda-data-store-staging",
+    "discovery": "s3",
+    "collection": "eis-fedsoutput-lfarchive",
+    "filename_regex": "^(.*)lf_(perimeter|fireline|newfirepix)_nrt_(conus|borealna|russiaeast).gpkg$",
+    "prefix": "EIS/FEDSoutput/LFArchive/",
+    "vector": true,
+    "id_template": "{}",
+    "schedule": "*/15 * * * *",
+    "dag": "veda_ingest_vector",
+    "invalidate_cloudfront": true
+  }
