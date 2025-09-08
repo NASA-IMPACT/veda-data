@@ -6,6 +6,7 @@ on:
       - closed
     paths:
       - ingestion-data/staging/dataset-config/*.json
+      - ingestion-data/staging/collections/*.json
 
 permissions:
     actions: write
