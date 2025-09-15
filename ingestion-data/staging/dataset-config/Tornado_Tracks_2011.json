@@ -76,5 +76,6 @@
         "thumbnail"
       ]
     }
-  }
+  },
+  "tenant": []
 }
