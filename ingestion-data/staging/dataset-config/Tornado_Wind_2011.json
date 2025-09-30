@@ -52,10 +52,11 @@
       ],
     "rescale": [
       [
-        0,
+        60,
         75
       ]
     ],
+      "nodata": "0",
       "colormap_name": "bupu",
       "assets": [
         "cog_default"
