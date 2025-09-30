@@ -5,6 +5,7 @@
   "license": "CC0-1.0",
   "stac_version": "1.0.0",
   "dashboard:time_density": "day",
+  "dashboard:is_periodic": false,
   "links": [],
   "spatial_extent": {
     "xmin": -88.099365,
@@ -13,8 +14,8 @@
     "ymax": 35.021
   },
   "temporal_extent": {
-    "startdate": "2011-04-27T00:00:00.000Z",
-    "enddate": "2011-04-27T23:59:59.000Z"
+    "startdate": "2011-04-27T00:00:00Z",
+    "enddate": "2011-04-27T23:59:59Z"
   },
   "discovery_items": [
     {
@@ -49,7 +50,12 @@
       "bidx": [
         1
       ],
-      "rescale": [],
+    "rescale": [
+      [
+        0,
+        75
+      ]
+    ],
       "colormap_name": "bupu",
       "nodata": "-999",
       "assets": [
@@ -76,6 +82,5 @@
         "thumbnail"
       ]
     }
-  },
-  "tenant": []
+  }
 }
