@@ -40,11 +40,14 @@ def publish_to_staging(payload):
     client_id = "airflow-webserver-fab"
     client_secret = os.getenv("KEYCLOAK_STAGING_SM2A_FAB_CLIENT_SECRET")
 
-    response = requests.post(token_url, data={
-        "client_id": client_id,
-        "client_secret": client_secret,
-        "grant_type": "client_credentials",
-    })
+    response = requests.post(
+        token_url,
+        data={
+            "client_id": client_id,
+            "client_secret": client_secret,
+            "grant_type": "client_credentials",
+        },
+    )
     access_token = response.json()["access_token"]
 
     if not base_api_url or not access_token:
@@ -87,11 +90,14 @@ def promote_to_production(payload):
     client_id = "airflow-webserver-fab"
     client_secret = os.getenv("KEYCLOAK_PROD_SM2A_FAB_CLIENT_SECRET")
 
-    response = requests.post(token_url, data={
-        "client_id": client_id,
-        "client_secret": client_secret,
-        "grant_type": "client_credentials",
-    })
+    response = requests.post(
+        token_url,
+        data={
+            "client_id": client_id,
+            "client_secret": client_secret,
+            "grant_type": "client_credentials",
+        },
+    )
     access_token = response.json()["access_token"]
 
     if not base_api_url or not access_token:

@@ -7,6 +7,7 @@ import os
 import uuid
 import requests
 
+
 def trigger_collection_dag(payload: Dict[str, Any], stage: str):
     """
     Triggers the veda_collection_pipeline DAG in either staging or production SM2A.
@@ -30,11 +31,14 @@ def trigger_collection_dag(payload: Dict[str, Any], stage: str):
 
     base_api_url = os.getenv(api_url_env)
 
-    response = requests.post(token_url, data={
-        "client_id": client_id,
-        "client_secret": client_secret,
-        "grant_type": "client_credentials",
-    })
+    response = requests.post(
+        token_url,
+        data={
+            "client_id": client_id,
+            "client_secret": client_secret,
+            "grant_type": "client_credentials",
+        },
+    )
     access_token = response.json()["access_token"]
 
     if not all([base_api_url, access_token]):
