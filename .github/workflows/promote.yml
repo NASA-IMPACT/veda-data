@@ -61,10 +61,10 @@ jobs:
 
       - name: Publish to production on PR merge
         env:
-          SM2A_ADMIN_USERNAME: ${{ secrets.SM2A_ADMIN_USERNAME }}
-          SM2A_ADMIN_PASSWORD: ${{ secrets.SM2A_ADMIN_PASSWORD }}
           SM2A_API_URL: ${{ vars.SM2A_API_URL }}
           PROMOTION_DAG: ${{ vars.PROMOTION_DAG_NAME }}
+          KEYCLOAK_PROD_URL: ${{ vars.KEYCLOAK_PROD_URL }}
+          KEYCLOAK_PROD_SM2A_FAB_CLIENT_SECRET: ${{ secrets.KEYCLOAK_PROD_SM2A_FAB_CLIENT_SECRET }}
 
         run: |
           pip install -r ./scripts/requirements.txt
