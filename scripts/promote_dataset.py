@@ -5,7 +5,7 @@ import json
 import sys
 import os
 import uuid
-from base64 import b64encode
+import requests
 
 
 class MissingFieldError(Exception):
@@ -35,21 +35,30 @@ def validate_discovery_item_config(item: Dict[str, Any]) -> Dict[str, Any]:
 def publish_to_staging(payload):
     base_api_url = os.getenv("STAGING_SM2A_API_URL")
     dataset_pipeline_dag = os.getenv("DATASET_DAG_NAME", "veda_dataset_pipeline")
-    username = os.getenv("STAGING_SM2A_ADMIN_USERNAME")
-    password = os.getenv("STAGING_SM2A_ADMIN_PASSWORD")
 
-    api_token = b64encode(f"{username}:{password}".encode()).decode()
+    token_url = f"https://{os.getenv('KEYCLOAK_STAGING_URL')}/realms/veda/protocol/openid-connect/token"
+    client_id = "airflow-webserver-fab"
+    client_secret = os.getenv("KEYCLOAK_STAGING_SM2A_FAB_CLIENT_SECRET")
 
-    if not base_api_url or not api_token:
+    response = requests.post(
+        token_url,
+        data={
+            "client_id": client_id,
+            "client_secret": client_secret,
+            "grant_type": "client_credentials",
+        },
+    )
+    access_token = response.json()["access_token"]
+
+    if not base_api_url or not access_token:
         raise ValueError(
-            "STAGING_SM2A_API_URL or STAGING_SM2A_ADMIN_USERNAME"
-            + " or STAGING_SM2A_ADMIN_PASSWORD is not"
+            "STAGING_SM2A_API_URL or KEYCLOAK_STAGING_SM2A_FAB_CLIENT_SECRET is not"
             + " set in the environment variables."
         )
 
     headers = {
         "Content-Type": "application/json",
-        "Authorization": "Basic " + api_token,
+        "Authorization": "Bearer " + access_token,
     }
 
     body = {
@@ -76,20 +85,30 @@ def publish_to_staging(payload):
 def promote_to_production(payload):
     base_api_url = os.getenv("SM2A_API_URL")
     promotion_dag = os.getenv("PROMOTION_DAG_NAME", "veda_promotion_pipeline")
-    username = os.getenv("SM2A_ADMIN_USERNAME")
-    password = os.getenv("SM2A_ADMIN_PASSWORD")
 
-    api_token = b64encode(f"{username}:{password}".encode()).decode()
+    token_url = f"https://{os.getenv('KEYCLOAK_PROD_URL')}/realms/veda/protocol/openid-connect/token"
+    client_id = "airflow-webserver-fab"
+    client_secret = os.getenv("KEYCLOAK_PROD_SM2A_FAB_CLIENT_SECRET")
 
-    if not base_api_url or not api_token:
+    response = requests.post(
+        token_url,
+        data={
+            "client_id": client_id,
+            "client_secret": client_secret,
+            "grant_type": "client_credentials",
+        },
+    )
+    access_token = response.json()["access_token"]
+
+    if not base_api_url or not access_token:
         raise ValueError(
-            "SM2A_API_URL or SM2A_ADMIN_USERNAME or SM2A_ADMIN_PASSWORD is not"
+            "SM2A_API_URL or KEYCLOAK_PRODUCTION_SM2A_FAB_CLIENT_SECRET is not"
             + " set in the environment variables."
         )
 
     headers = {
         "Content-Type": "application/json",
-        "Authorization": "Basic " + api_token,
+        "Authorization": "Bearer " + access_token,
     }
 
     payload["conf"]["transfer"] = True
