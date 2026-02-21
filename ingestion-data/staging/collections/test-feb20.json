@@ -1,0 +1,34 @@
+{
+  "type": "Collection",
+  "stac_version": "1.0.0",
+  "extent": {
+    "spatial": {
+      "bbox": [
+        [
+          1,
+          1,
+          1,
+          1
+        ]
+      ]
+    },
+    "temporal": {
+      "interval": [
+        [
+          "2026-02-01 07:00:00+00:00",
+          "2026-02-28 07:00:00+00:00"
+        ]
+      ]
+    }
+  },
+  "links": [
+    {
+      "href": "test",
+      "rel": "test"
+    }
+  ],
+  "id": "test-feb20",
+  "license": "free",
+  "description": "test",
+  "summaries": {}
+}
