@@ -5,7 +5,7 @@ import json
 import sys
 import os
 import uuid
-import requests
+from base64 import b64encode
 
 
 def trigger_collection_dag(payload: Dict[str, Any], stage: str):
@@ -16,41 +16,34 @@ def trigger_collection_dag(payload: Dict[str, Any], stage: str):
 
     if stage == "staging":
         api_url_env = "STAGING_SM2A_API_URL"
-        token_url = f"https://{os.getenv('KEYCLOAK_STAGING_URL')}/realms/veda/protocol/openid-connect/token"
-        client_id = "airflow-webserver-fab"
-        client_secret = os.getenv("KEYCLOAK_STAGING_SM2A_FAB_CLIENT_SECRET")
+        username_env = "STAGING_SM2A_ADMIN_USERNAME"
+        password_env = "STAGING_SM2A_ADMIN_PASSWORD"
     elif stage == "production":
         api_url_env = "SM2A_API_URL"
-        token_url = f"https://{os.getenv('KEYCLOAK_PROD_URL')}/realms/veda/protocol/openid-connect/token"
-        client_id = "airflow-webserver-fab"
-        client_secret = os.getenv("KEYCLOAK_PROD_SM2A_FAB_CLIENT_SECRET")
+        username_env = "SM2A_ADMIN_USERNAME"
+        password_env = "SM2A_ADMIN_PASSWORD"
     else:
         raise ValueError(
             f"Invalid stage provided: {stage}. Must be 'staging' or 'production'."
         )
 
     base_api_url = os.getenv(api_url_env)
+    username = os.getenv(username_env)
+    password = os.getenv(password_env)
 
-    response = requests.post(
-        token_url,
-        data={
-            "client_id": client_id,
-            "client_secret": client_secret,
-            "grant_type": "client_credentials",
-        },
-    )
-    access_token = response.json()["access_token"]
-
-    if not all([base_api_url, access_token]):
+    if not all([base_api_url, username, password]):
         raise ValueError(
             f"Missing one or more environment variables: "
             f"stage is None={stage is None}, "
-            f"access_token is None={access_token is None}"
+            f"username is None={username_env is None}, "
+            f"password is None={password_env is None}"
         )
+
+    api_token = b64encode(f"{username}:{password}".encode()).decode()
 
     headers = {
         "Content-Type": "application/json",
-        "Authorization": "Bearer " + access_token,
+        "Authorization": "Basic " + api_token,
     }
 
     body = {
