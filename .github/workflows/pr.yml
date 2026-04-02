@@ -272,7 +272,7 @@ jobs:
       skip_mdx_pr_step: ${{ steps.skip_mdx_pr_step_setting.outputs.skip_mdx_pr_step }}
     steps:
       - name: Checkout code
-        uses: actions/checkout@v4
+        uses: actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5 # v4
 
       - name: Set SKIP_MDX_PR_STEP condition
         id: skip_mdx_pr_step_setting
