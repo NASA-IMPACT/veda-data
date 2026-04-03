@@ -37,8 +37,10 @@ jobs:
 
       - name: Check if pr.yml succeeded
         id: check_pr_workflow
+        env:
+          HEAD_REF: ${{ github.event.pull_request.head.ref }}
         run: |
-          WORKFLOW_STATUS=$(gh run list --repo ${{ github.repository }} --branch ${{ github.event.pull_request.head.ref }} --workflow "pr.yml" --json status --jq '.[0].status // "not found"')
+          WORKFLOW_STATUS=$(gh run list --repo ${{ github.repository }} --branch "$HEAD_REF" --workflow "pr.yml" --json status --jq '.[0].status // "not found"')
           echo "Previous workflow (pr.yml) status: $WORKFLOW_STATUS"
           if [ "$WORKFLOW_STATUS" != "completed" ]; then
             echo "Previous workflow (pr.yml) did not complete successfully. Exiting..."
