@@ -1,0 +1,86 @@
+{
+  "collection": "z-Tornado_Hail_2011-test-veda-data-keycloak-auth-2",
+  "title": "test-veda-data-keycloak-auth-2",
+  "description": "Z Test NCEI Storm Events Database hail reports exceeding 1 inch for the Super Outbreak on April 27th, 2011",
+  "license": "CC0-1.0",
+  "stac_version": "1.0.0",
+  "dashboard:is_periodic": false,
+  "dashboard:time_density": "day",
+  "links": [],
+  "spatial_extent": {
+    "xmin": -88.099365,
+    "ymin": 33.105347,
+    "xmax": -86.259155,
+    "ymax": 35.021
+  },
+  "temporal_extent": {
+    "startdate": "2011-04-27T00:00:00Z",
+    "enddate": "2011-04-27T23:59:59Z"
+  },
+  "discovery_items": [
+    {
+      "discovery": "s3",
+      "prefix": "Tornadoes2011/COG",
+      "bucket": "veda-data-store-staging",
+      "filename_regex": "(.*)Hail_Reports_COG_(.*).tif$",
+      "use_multithreading": false
+    }
+  ],
+  "sample_files": [
+    "s3://veda-data-store-staging/Tornadoes2011/COG/Hail_Reports_COG_2011-04-27.tif"
+  ],
+  "data_type": "cog",
+  "stac_extensions": [
+    "https://stac-extensions.github.io/render/v1.0.0/schema.json",
+    "https://stac-extensions.github.io/item-assets/v1.0.0/schema.json"
+  ],
+  "item_assets": {
+    "cog_default": {
+      "type": "image/tiff; application=geotiff; profile=cloud-optimized",
+      "roles": [
+        "data",
+        "layer"
+      ],
+      "title": "Default COG Layer",
+      "description": "Cloud optimized default layer to display on map"
+    }
+  },
+  "renders": {
+    "dashboard": {
+      "assets": [
+        "cog_default"
+      ],
+      "bidx": [
+        1
+      ],
+      "colormap_name": "greens",
+      "nodata": "-999",
+      "rescale": [
+        [
+          1,
+          2.75
+        ]
+      ]
+    }
+  },
+  "providers": [
+    {
+      "name": "NASA VEDA",
+      "roles": [
+        "host"
+      ],
+      "url": "https://www.earthdata.nasa.gov/dashboard/"
+    }
+  ],
+  "assets": {
+    "thumbnail": {
+      "title": "Thumbnail",
+      "description": "Aerial View of Scope of 2011 Tuscaloosa Tornado Damage Path from the National Weather Service Damage Assessment Team in Birmingham",
+      "href": "https://thumbnails.openveda.cloud/tornado_2011_Background.jpg",
+      "type": "image/jpg",
+      "roles": [
+        "thumbnail"
+      ]
+    }
+  }
+}
