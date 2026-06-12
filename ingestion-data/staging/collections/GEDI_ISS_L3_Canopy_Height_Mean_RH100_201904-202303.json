@@ -27,14 +27,11 @@
   "license": "CC0-1.0",
   "links": [
     {
-      "href": "https://gibs.earthdata.nasa.gov/wmts/epsg3857/best/wmts.cgi",
+      "href": "https://gibs{s}.earthdata.nasa.gov/wmts/epsg3857/best/wmts.cgi",
       "rel": "wmts",
       "type": "image/png",
       "title": "Visualized through a WMTS",
-      "href:servers": [
-        "https://gibs-a.earthdata.nasa.gov/wmts/epsg3857/best/wmts.cgi",
-        "https://gibs-b.earthdata.nasa.gov/wmts/epsg3857/best/wmts.cgi"
-      ],
+      "href:servers": [ "-a", "-b"],
       "wmts:dimensions": {
         "STYLE": "default"
       },
@@ -69,7 +66,6 @@
     }
   ],
   "stac_extensions": [
-    "https://stac-extensions.github.io/render/v1.0.0/schema.json",
     "https://stac-extensions.github.io/web-map-links/v1.2.0/schema.json"
   ],
   "stac_version": "1.0.0",
