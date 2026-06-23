@@ -28,7 +28,7 @@ distlib==0.3.7
     # via virtualenv
 executing==2.0.0
     # via stack-data
-filelock==3.12.4
+filelock==3.20.3
     # via virtualenv
 identify==2.5.30
     # via pre-commit
