@@ -28,7 +28,7 @@ distlib==0.3.7
     # via virtualenv
 executing==2.0.0
     # via stack-data
-filelock==3.12.4
+filelock==3.29.4
     # via virtualenv
 identify==2.5.30
     # via pre-commit
@@ -111,7 +111,7 @@ traitlets==5.11.2
     # via
     #   ipython
     #   matplotlib-inline
-virtualenv==20.26.6
+virtualenv==20.36.1
     # via pre-commit
 wcwidth==0.2.8
     # via prompt-toolkit
