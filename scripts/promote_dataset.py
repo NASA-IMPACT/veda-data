@@ -1,18 +1,18 @@
-from typing import Dict, Any
-
 import http.client
 import json
-import sys
 import os
+import sys
 import uuid
 from base64 import b64encode
+from pathlib import Path
+from typing import Any
 
 
 class MissingFieldError(Exception):
     pass
 
 
-def validate_discovery_item_config(item: Dict[str, Any]) -> Dict[str, Any]:
+def validate_discovery_item_config(item: dict[str, Any]) -> dict[str, Any]:
     if "bucket" not in item:
         raise MissingFieldError(
             "Missing required field 'bucket' in discovery item: {item}"
@@ -43,13 +43,13 @@ def publish_to_staging(payload):
     if not base_api_url or not api_token:
         raise ValueError(
             "STAGING_SM2A_API_URL or STAGING_SM2A_ADMIN_USERNAME"
-            + " or STAGING_SM2A_ADMIN_PASSWORD is not"
-            + " set in the environment variables."
+            " or STAGING_SM2A_ADMIN_PASSWORD is not"
+            " set in the environment variables."
         )
 
     headers = {
         "Content-Type": "application/json",
-        "Authorization": "Basic " + api_token,
+        "Authorization": f"Basic {api_token}",
     }
 
     body = {
@@ -83,13 +83,13 @@ def promote_to_production(payload):
 
     if not base_api_url or not api_token:
         raise ValueError(
-            "SM2A_API_URL or SM2A_ADMIN_USERNAME or SM2A_ADMIN_PASSWORD is not"
-            + " set in the environment variables."
+            "SM2A_API_URL or SM2A_ADMIN_USERNAME or SM2A_ADMIN_PASSWORD"
+            " is not set in the environment variables."
         )
 
     headers = {
         "Content-Type": "application/json",
-        "Authorization": "Basic " + api_token,
+        "Authorization": f"Basic {api_token}",
     }
 
     payload["conf"]["transfer"] = True
@@ -113,22 +113,22 @@ def promote_to_production(payload):
 
 if __name__ == "__main__":
     try:
-        with open(sys.argv[1], "r") as file:
-            input = json.load(file)
+        with Path(sys.argv[1]).open() as file:
+            _input = json.load(file)
             stage = sys.argv[2]
-            discovery_items = input.get("discovery_items")
+            discovery_items = _input.get("discovery_items")
             validated_discovery_items = [
                 validate_discovery_item_config(item) for item in discovery_items
             ]
-            dag_payload = {"conf": input}
+            dag_payload = {"conf": _input}
             if stage == "production":
                 promote_to_production(dag_payload)
             elif stage == "staging":
                 publish_to_staging(dag_payload)
 
     except IndexError:
-        print("Usage: promote_collection.py <file_name> <stage>")
+        print("Usage: promote_dataset.py <file_name> <stage>")
     except FileNotFoundError:
         print(f"Error: File '{sys.argv[1]}' not found.")
-    except json.JSONDecodeError:
-        raise ValueError(f"Invalid JSON content in file {sys.argv[1]}")
+    except json.JSONDecodeError as e:
+        raise ValueError(f"Invalid JSON content in file {sys.argv[1]}") from e
