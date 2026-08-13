@@ -75,7 +75,7 @@ jobs:
           AIRFLOW_JWT_SUB: ${{ secrets.AIRFLOW_JWT_SUB }}
 
         run: |
-          uv sync --group scripts
+          uv sync --locked --group scripts
           for file in downloaded-files/*.json; do
             echo "Processing $file"
             # Check if collection key exists to determine if it's a dataset or collection

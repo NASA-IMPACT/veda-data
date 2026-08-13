@@ -119,7 +119,7 @@ jobs:
           AIRFLOW_JWT_SECRET: ${{ secrets.AIRFLOW_JWT_SECRET }}
           AIRFLOW_JWT_SUB: ${{ secrets.AIRFLOW_JWT_SUB }}
         run: |
-          uv sync --group scripts
+          uv sync --locked--group scripts
 
           # Track successful publications
           all_failed=true
@@ -301,7 +301,7 @@ jobs:
         run: |
           echo $PUBLISHED_COLLECTION_FILES
           collection_ids=""
-          uv sync --group scripts
+          uv sync --locked --group scripts
           for file in ${PUBLISHED_COLLECTION_FILES}; do
             collection_id=$(python3 ./scripts/generate_mdx.py "$file")
             collection_id=$(echo "$collection_id" | sed 's/^["\s]*//;s/["\s]*$//')

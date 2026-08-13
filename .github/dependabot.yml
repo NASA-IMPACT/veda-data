@@ -38,4 +38,4 @@ updates:
         patterns:
         - "*"
     commit-message:
-      prefix: "ci(deps):"
+      prefix: "chore(deps):"
