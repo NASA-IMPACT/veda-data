@@ -14,9 +14,9 @@ jobs:
       matrix:
         include:
           - name: test
-            run: uv run --group dev pytest
+            run: uv run --locked --group dev pytest
           - name: lint
-            run: uv run --group dev pre-commit run --all-files
+            run: uv run --locked --group dev pre-commit run --all-files
     steps:
       - name: Checkout code
         uses: actions/checkout@9c091bb21b7c1c1d1991bb908d89e4e9dddfe3e0 # v7.0.0

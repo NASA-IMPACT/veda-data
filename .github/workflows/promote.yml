@@ -72,7 +72,7 @@ jobs:
           PROMOTION_DAG: ${{ vars.PROMOTION_DAG_NAME }}
 
         run: |
-          uv sync --group scripts
+          uv sync --locked --group scripts
           for file in downloaded-files/*.json; do
             echo "Processing $file"
             # Check if collection key exists to determine if it's a dataset or collection
