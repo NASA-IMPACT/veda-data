@@ -119,7 +119,7 @@ if __name__ == "__main__":
 
     # Write the combined content back to the file
     output_filepath = (
-        Path(curr_directory)
+        curr_directory
         / f"../ingestion-data/dataset-mdx/{input_data['collection']}.data.mdx"
     )
     with safe_open_w(str(output_filepath)) as ofile:
