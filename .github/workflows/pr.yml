@@ -119,7 +119,7 @@ jobs:
           AIRFLOW_JWT_SECRET: ${{ secrets.AIRFLOW_JWT_SECRET }}
           AIRFLOW_JWT_SUB: ${{ secrets.AIRFLOW_JWT_SUB }}
         run: |
-          uv sync --locked--group scripts
+          uv sync --locked --group scripts
 
           # Track successful publications
           all_failed=true
