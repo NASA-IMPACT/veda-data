@@ -116,7 +116,7 @@ jobs:
           STAGING_SM2A_API_URL: ${{ vars.STAGING_SM2A_API_URL }}
           DATASET_DAG_NAME: ${{ vars.DATASET_DAG_NAME }}
         run: |
-          uv sync --locked--group scripts
+          uv sync --locked --group scripts
 
           # Track successful publications
           all_failed=true
