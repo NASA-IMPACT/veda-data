@@ -1,0 +1,41 @@
+version: 2
+updates:
+  - package-ecosystem: uv
+    directory: /
+    cooldown:
+      default-days: 7
+      semver-major-days: 30
+    schedule:
+      interval: weekly
+    groups:
+      python-dependencies:
+        patterns:
+        - "*"
+    commit-message:
+      prefix: "chore(deps):"
+
+  - package-ecosystem: github-actions
+    directory: /
+    cooldown:
+      default-days: 7
+    schedule:
+      interval: weekly
+    groups:
+      github-actions:
+        patterns:
+        - "*"
+    commit-message:
+      prefix: "ci(deps):"
+
+  - package-ecosystem: pre-commit
+    directory: /
+    cooldown:
+      default-days: 7
+    schedule:
+      interval: weekly
+    groups:
+      pre-commit:
+        patterns:
+        - "*"
+    commit-message:
+      prefix: "chore(deps):"

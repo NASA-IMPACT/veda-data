@@ -1,14 +1,14 @@
-from typing import Dict, Any
-
 import http.client
 import json
-import sys
 import os
+import sys
 import uuid
 from base64 import b64encode
+from pathlib import Path
+from typing import Any
 
 
-def trigger_collection_dag(payload: Dict[str, Any], stage: str):
+def trigger_collection_dag(payload: dict[str, Any], stage: str):
     """
     Triggers the veda_collection_pipeline DAG in either staging or production SM2A.
     """
@@ -43,7 +43,7 @@ def trigger_collection_dag(payload: Dict[str, Any], stage: str):
 
     headers = {
         "Content-Type": "application/json",
-        "Authorization": "Basic " + api_token,
+        "Authorization": f"Basic {api_token}",
     }
 
     body = {
@@ -66,7 +66,7 @@ def trigger_collection_dag(payload: Dict[str, Any], stage: str):
 
 if __name__ == "__main__":
     try:
-        with open(sys.argv[1], "r") as file:
+        with Path(sys.argv[1]).open() as file:
             input_data = json.load(file)
             stage = sys.argv[2]
             dag_payload = {"conf": input_data}
@@ -76,5 +76,5 @@ if __name__ == "__main__":
         print("Usage: promote_collection.py <file_name> <stage>")
     except FileNotFoundError:
         print(f"Error: File '{sys.argv[1]}' not found.")
-    except json.JSONDecodeError:
-        raise ValueError(f"Invalid JSON content in file {sys.argv[1]}")
+    except json.JSONDecodeError as e:
+        raise ValueError(f"Invalid JSON content in file {sys.argv[1]}") from e

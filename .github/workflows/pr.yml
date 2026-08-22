@@ -35,7 +35,7 @@ jobs:
       comment_id: ${{ steps.init-comment.outputs.COMMENT_ID }}
       has_new_files_to_promote: ${{ steps.changed-files.outputs.all_changed_files_count != 0 }}
     steps:
-      - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2
+      - uses: actions/checkout@9c091bb21b7c1c1d1991bb908d89e4e9dddfe3e0 # v7.0.0
         with:
           fetch-depth: 0
 
@@ -116,7 +116,7 @@ jobs:
           STAGING_SM2A_API_URL: ${{ vars.STAGING_SM2A_API_URL }}
           DATASET_DAG_NAME: ${{ vars.DATASET_DAG_NAME }}
         run: |
-          pip install -r ./scripts/requirements.txt
+          uv sync --locked --group scripts
 
           # Track successful publications
           all_failed=true
@@ -180,14 +180,10 @@ jobs:
           $status_message"
           gh api -X PATCH -H "Authorization: token $GITHUB_TOKEN" /repos/${{ github.repository }}/issues/comments/$COMMENT_ID -f body="$UPDATED_BODY"
 
-      - name: Set up Python
-        uses: actions/setup-python@42375524e23c412d93fb67b49958b491fce71c38 # v5.4.0
+      - name: Install uv
+        uses: astral-sh/setup-uv@c771a70e6277c0a99b617c7a806ffedaca235ff9 # v9.0.0
         with:
-          python-version: '3.9'
-      - uses: actions/cache@d4323d4df104b026a6aa633fdb11d772146be0bf # v4.2.2
-        with:
-          path: ${{ env.pythonLocation }}
-          key: ${{ env.pythonLocation }}-pip-${{ hashFiles('requirements.txt') }}
+          enable-cache: true
 
       # If the workflow fails at any point, the PR comment will be updated
       - name: Update PR comment on overall workflow failure
@@ -233,7 +229,7 @@ jobs:
         run: ls -lah /tmp/upload-artifacts
 
       - name: Upload published collections files as directory artifact
-        uses: actions/upload-artifact@4cec3d8aa04e39d1a68397de0c4cd6fb9dce8ec1 # v4.6.1
+        uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a # v7.0.1
         env:
           ARTIFACT_RETENTION_DAYS: ${{ vars.ARTIFACT_RETENTION_DAYS }}
         with:
@@ -247,7 +243,7 @@ jobs:
           echo "${{ github.run_id }}" > run_id.txt
 
       - name: Upload Workflow Run ID
-        uses: actions/upload-artifact@4cec3d8aa04e39d1a68397de0c4cd6fb9dce8ec1 # v4.6.1
+        uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a # v7.0.1
         env:
           ARTIFACT_RETENTION_DAYS: ${{ vars.ARTIFACT_RETENTION_DAYS }}
         with:
@@ -272,7 +268,7 @@ jobs:
       skip_mdx_pr_step: ${{ steps.skip_mdx_pr_step_setting.outputs.skip_mdx_pr_step }}
     steps:
       - name: Checkout code
-        uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2
+        uses: actions/checkout@9c091bb21b7c1c1d1991bb908d89e4e9dddfe3e0 # v7.0.0
 
       - name: Set SKIP_MDX_PR_STEP condition
         id: skip_mdx_pr_step_setting
@@ -289,7 +285,7 @@ jobs:
     needs: ['mdx-pr-flag-evaluator', 'publish-new-datasets']
     steps:
       - name: Checkout code
-        uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2
+        uses: actions/checkout@9c091bb21b7c1c1d1991bb908d89e4e9dddfe3e0 # v7.0.0
 
       - name: Use output from publish-new-datasets
         run: |
@@ -302,7 +298,7 @@ jobs:
         run: |
           echo $PUBLISHED_COLLECTION_FILES
           collection_ids=""
-          pip install -r ./scripts/requirements.txt
+          uv sync --locked --group scripts
           for file in ${PUBLISHED_COLLECTION_FILES}; do
             collection_id=$(python3 ./scripts/generate_mdx.py "$file")
             collection_id=$(echo "$collection_id" | sed 's/^["\s]*//;s/["\s]*$//')
