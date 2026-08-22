@@ -10,7 +10,7 @@ dependencies = []
 dev = [
   "pre-commit==4.6.1",
   "pystac[validation]==1.8.4",
-  "pytest==7.4.2",
+  "pytest==9.0.3",
 ]
 scripts = [
   "pyyaml==6.0.1",
