@@ -15,11 +15,6 @@ class AirflowAPIError(Exception):
     pass
 
 
-def _get_api_version() -> str:
-    """Get the Airflow API version from env var"""
-    return os.getenv("AIRFLOW_API_VERSION", "3")
-
-
 def _build_request_body_v2(
     conf: Dict[str, Any], dag_id: str, note: str = ""
 ) -> Dict[str, Any]:
@@ -34,7 +29,7 @@ def _build_request_body_v2(
 def _build_request_body_v3(
     conf: Dict[str, Any], dag_id: str, note: str = ""
 ) -> Dict[str, Any]:
-    """Build the request body for Airflow 3 API v3"""
+    """Build the request body for Airflow 3 API v2"""
     return {
         "conf": conf,
         "dag_run_id": f"{dag_id}-{uuid.uuid4()}",
@@ -48,14 +43,16 @@ def trigger_dag_run(
     conf: Dict[str, Any],
     username: str,
     password: str,
+    api_version: str = None,
 ) -> Dict[str, Any]:
     """
-    Trigger a DAG run
+    Trigger a DAG run with version-aware API handling
 
     Raises: AirflowAPIError if it fails
     """
 
-    api_version = _get_api_version()
+    if api_version is None:
+        api_version = os.getenv("AIRFLOW_API_VERSION", "3")
 
     if api_version == "2":
         request_body = _build_request_body_v2(conf, dag_id)
@@ -80,7 +77,7 @@ def trigger_dag_run(
         if response.status >= 400:
             raise AirflowAPIError(
                 f"Airflow API v{api_version} returns "
-                "{response.status}: {response_data.decode()}"
+                f"{response.status}: {response_data.decode()}"
             )
 
         return {
