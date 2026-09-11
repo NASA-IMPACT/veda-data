@@ -1,5 +1,5 @@
 """
-Supports Airflow 3 and 4 (API v1 / v2)
+Supports Airflow 2 and 3 (API v1 / v2)
 """
 
 import os
