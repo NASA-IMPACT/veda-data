@@ -1,11 +1,10 @@
 from typing import Dict, Any
 
-import http.client
 import json
 import sys
 import os
-import uuid
-from base64 import b64encode
+
+from scripts.airflow_api import AirflowAPIError, trigger_dag_run
 
 
 def trigger_collection_dag(payload: Dict[str, Any], stage: str):
@@ -18,10 +17,12 @@ def trigger_collection_dag(payload: Dict[str, Any], stage: str):
         api_url_env = "STAGING_SM2A_API_URL"
         username_env = "STAGING_SM2A_ADMIN_USERNAME"
         password_env = "STAGING_SM2A_ADMIN_PASSWORD"
+        api_version_env = "STAGING_AIRFLOW_API_VERSION"
     elif stage == "production":
         api_url_env = "SM2A_API_URL"
         username_env = "SM2A_ADMIN_USERNAME"
         password_env = "SM2A_ADMIN_PASSWORD"
+        api_version_env = "PRODUCTION_AIRFLOW_API_VERSION"
     else:
         raise ValueError(
             f"Invalid stage provided: {stage}. Must be 'staging' or 'production'."
@@ -30,6 +31,7 @@ def trigger_collection_dag(payload: Dict[str, Any], stage: str):
     base_api_url = os.getenv(api_url_env)
     username = os.getenv(username_env)
     password = os.getenv(password_env)
+    api_version = os.getenv(api_version_env, "3")  # default to Airflow version 3?
 
     if not all([base_api_url, username, password]):
         raise ValueError(
@@ -39,29 +41,25 @@ def trigger_collection_dag(payload: Dict[str, Any], stage: str):
             f"password is None={password_env is None}"
         )
 
-    api_token = b64encode(f"{username}:{password}".encode()).decode()
+    assert base_api_url is not None
+    assert username is not None
+    assert password is not None
 
-    headers = {
-        "Content-Type": "application/json",
-        "Authorization": "Basic " + api_token,
-    }
-
-    body = {
-        **payload,
-        "dag_run_id": f"{dag_name}-{uuid.uuid4()}",
-        "note": "Run from GitHub Actions veda-data",
-    }
-    http_conn = http.client.HTTPSConnection(base_api_url)
-    http_conn.request(
-        "POST", f"/api/v1/dags/{dag_name}/dagRuns", json.dumps(body), headers
-    )
-    response = http_conn.getresponse()
-    response_data = response.read()
-    http_conn.close()
-
-    print(json.dumps({"statusCode": response.status}))
-    print(response_data.decode())
-    return {"statusCode": response.status, "body": response_data.decode()}
+    try:
+        result = trigger_dag_run(
+            base_api_url=base_api_url,
+            dag_id=dag_name,
+            conf=payload.get("conf", {}),
+            username=username,
+            password=password,
+            api_version=api_version,
+        )
+        print(json.dumps({"statusCode": result["statusCode"]}))
+        print(result["body"])
+        return result
+    except AirflowAPIError as e:
+        print(json.dumps({"statusCode": 500, "error": str(e)}))
+        raise
 
 
 if __name__ == "__main__":
