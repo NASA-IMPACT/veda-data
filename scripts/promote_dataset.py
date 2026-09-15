@@ -11,6 +11,20 @@ class MissingFieldError(Exception):
     pass
 
 
+def _extract_http_status_code(error_message: str) -> int:
+    """Extract the HTTP status code from the AirflowAPIError
+    message and return 500 otherwise
+    """
+    try:
+        parts = error_message.split(" returns ")
+        if len(parts) > 1:
+            status_str = parts[1].split(":")[0]
+            return int(status_str)
+    except (ValueError, IndexError):
+        pass
+    return 500
+
+
 def validate_discovery_item_config(item: Dict[str, Any]) -> Dict[str, Any]:
     required_fields = ["bucket", "discovery", "filename_regex", "prefix"]
     for field in required_fields:
@@ -34,9 +48,9 @@ def publish_to_staging(payload):
             "STAGING_SM2A_ADMIN_USERNAME, STAGING_SM2A_ADMIN_PASSWORD"
         )
 
-    assert base_api_url is not None
-    assert username is not None
-    assert password is not None
+    # assert base_api_url is not None
+    # assert username is not None
+    # assert password is not None
 
     try:
         result = trigger_dag_run(
@@ -51,8 +65,8 @@ def publish_to_staging(payload):
         print(result["body"])
         return result
     except AirflowAPIError as e:
-        print(json.dumps({"statusCode": 500, "error": str(e)}))
-        raise
+        status_code = _extract_http_status_code(str(e))
+        print(json.dumps({"statusCode": status_code, "error": str(e)}))
 
 
 def promote_to_production(payload):
@@ -67,9 +81,9 @@ def promote_to_production(payload):
             "Missing required env vars SM2A_API_URL, "
             "SM2A_ADMIN_USERNAME, SM2A_ADMIN_PASSWORD"
         )
-    assert base_api_url is not None
-    assert username is not None
-    assert password is not None
+    # assert base_api_url is not None
+    # assert username is not None
+    # assert password is not None
 
     payload["conf"].setdefault("transfer", False)
 
@@ -86,8 +100,8 @@ def promote_to_production(payload):
         print(result["body"])
         return result
     except AirflowAPIError as e:
-        print(json.dumps({"statusCode": 500, "error": str(e)}))
-        raise
+        status_code = _extract_http_status_code(str(e))
+        print(json.dumps({"statusCode": status_code, "error": str(e)}))
 
 
 if __name__ == "__main__":
@@ -112,7 +126,16 @@ if __name__ == "__main__":
 
     except IndexError:
         print("Usage: promote_collection.py <file_name> <stage>")
+        sys.exit(1)
     except FileNotFoundError:
         print(f"Error: File '{sys.argv[1]}' not found.")
+        sys.exit(1)
     except json.JSONDecodeError:
-        raise ValueError(f"Invalid JSON content in file {sys.argv[1]}")
+        print(f"Invalid JSON content in file {sys.argv[1]}")
+        sys.exit(1)
+    except ValueError as e:
+        print(f"Error: {e}")
+        sys.exit(1)
+    except MissingFieldError as e:
+        print(f"Error: {e}")
+        sys.exit(1)

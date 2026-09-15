@@ -15,26 +15,21 @@ class AirflowAPIError(Exception):
     pass
 
 
-def _build_request_body_v2(
-    conf: Dict[str, Any], dag_id: str, note: str = ""
+def _build_request_body(
+    conf: Dict[str, Any],
+    dag_id: str,
+    note: str = "",
+    logical_date=None,
 ) -> Dict[str, Any]:
-    """Build the request body for Airflow 2 API v1"""
-    return {
+    """Build the request body for the DagRun"""
+    body = {
         "conf": conf,
         "dag_run_id": f"{dag_id}-{uuid.uuid4()}",
         "note": note or "Run from GitHub Actions veda-data workflow",
     }
-
-
-def _build_request_body_v3(
-    conf: Dict[str, Any], dag_id: str, note: str = ""
-) -> Dict[str, Any]:
-    """Build the request body for Airflow 3 API v2"""
-    return {
-        "conf": conf,
-        "dag_run_id": f"{dag_id}-{uuid.uuid4()}",
-        "note": note or "Run from GitHub Actions veda-data workflow",
-    }
+    if logical_date:
+        body["logical_date"] = logical_date
+    return body
 
 
 def trigger_dag_run(
@@ -54,13 +49,8 @@ def trigger_dag_run(
     if api_version is None:
         api_version = os.getenv("AIRFLOW_API_VERSION", "3")
 
-    if api_version == "2":
-        request_body = _build_request_body_v2(conf, dag_id)
-        api_path = f"/api/v1/dags/{dag_id}/dagRuns"
-    else:
-        request_body = _build_request_body_v3(conf, dag_id)
-        api_path = f"/api/v2/dags/{dag_id}/dagRuns"
-
+    api_path = f"/api/v{'1' if api_version == '2' else '2'}/dags/{dag_id}/dagRuns"
+    request_body = _build_request_body(conf, dag_id)
     api_token = b64encode(f"{username}:{password}".encode()).decode()
     headers = {
         "Content-Type": "application/json",
@@ -85,5 +75,7 @@ def trigger_dag_run(
             "body": response_data.decode(),
         }
 
-    except http.client.HTTPException as e:
-        raise AirflowAPIError(f"HTTP error: {str(e)}")
+    except AirflowAPIError:
+        raise
+    except Exception as e:
+        raise AirflowAPIError(f"Failed to trigger the DAG run: {str(e)}")
