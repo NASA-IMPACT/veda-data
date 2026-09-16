@@ -25,18 +25,18 @@ jobs:
 
       - name: Test promotion script (Airflow 3)
         env:
-            STAGING_SM2A_API_URL: ${{ vars.AIRFLOW3_SM2A_API_URL }}
-            STAGING_SM2A_ADMIN_USERNAME: ${{ secrets.AIRFLOW3_SM2A_ADMIN_USERNAME}}
-            STAGING_SM2A_ADMIN_PASSWORD: ${{ secrets.AIRFLOW3_SM2A_ADMIN_PASSWORD}}
+            STAGING_SM2A_API_URL: ${{ vars.TESTING_AIRFLOW3_SM2A_API_URL }}
+            STAGING_SM2A_ADMIN_USERNAME: ${{ secrets.TESTING_AIRFLOW3_SM2A_ADMIN_USERNAME}}
+            STAGING_SM2A_ADMIN_PASSWORD: ${{ secrets.TESTING_AIRFLOW3_SM2A_ADMIN_PASSWORD}}
             STAGING_AIRFLOW_API_VERSION: "3"
         run: |
           python3 scripts/promote_collection.py tests/test_collection.json staging
 
       - name: Test promotion script (Airflow 2)
         env:
-            STAGING_SM2A_API_URL: ${{ vars.AIRFLOW2_SM2A_API_URL }}
-            STAGING_SM2A_ADMIN_USERNAME: ${{ secrets.AIRFLOW2_SM2A_ADMIN_USERNAME}}
-            STAGING_SM2A_ADMIN_PASSWORD: ${{ secrets.AIRFLOW2_SM2A_ADMIN_PASSWORD}}
+            STAGING_SM2A_API_URL: ${{ vars.TESTING_AIRFLOW2_SM2A_API_URL }}
+            STAGING_SM2A_ADMIN_USERNAME: ${{ secrets.TESTING_AIRFLOW2_SM2A_ADMIN_USERNAME}}
+            STAGING_SM2A_ADMIN_PASSWORD: ${{ secrets.TESTING_AIRFLOW2_SM2A_ADMIN_PASSWORD}}
             STAGING_AIRFLOW_API_VERSION: "2"
         run: |
           python3 scripts/promote_collection.py tests/test_collection_tenant.json staging
