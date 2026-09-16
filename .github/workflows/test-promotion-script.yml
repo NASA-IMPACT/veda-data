@@ -44,7 +44,9 @@ jobs:
               if [[ $status_code -eq 200 ]] || [[ $status_code -eq 201 ]]; then
                 echo "Airflow 3 test passed"
               else
+                error_msg=$(echo "$response" | jq -r '.error')
                 echo "$collection_id failed to publish ❌"
+                echo "Error: $error_msg"
                 exit 1
               fi
 
