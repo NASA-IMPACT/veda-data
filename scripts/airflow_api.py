@@ -32,6 +32,21 @@ def _build_request_body(
     return body
 
 
+def _get_oauth2_token(base_api_url: str, username: str, password: str) -> str:
+    """Get OAuth2 access token from Airflow API"""
+    http_conn = http.client.HTTPSConnection(base_api_url)
+    login_data = json.dumps({"username": username, "password": password})
+    headers = {"Content-Type": "application/json"}
+    http_conn.request("POST", "/api/v2/auth/login", login_data, headers)
+    response = http_conn.getresponse()
+    response_data = json.loads(response.read().decode())
+    http_conn.close()
+
+    if response.status != 200:
+        raise AirflowAPIError(f"Login failed: {response_data}")
+    return response_data["access_token"]
+
+
 def trigger_dag_run(
     base_api_url: str,
     dag_id: str,
@@ -51,11 +66,19 @@ def trigger_dag_run(
 
     api_path = f"/api/v{'1' if api_version == '2' else '2'}/dags/{dag_id}/dagRuns"
     request_body = _build_request_body(conf, dag_id)
-    api_token = b64encode(f"{username}:{password}".encode()).decode()
-    headers = {
-        "Content-Type": "application/json",
-        "Authorization": "Basic " + api_token,
-    }
+
+    if api_version == "2":
+        api_token = b64encode(f"{username}:{password}".encode()).decode()
+        headers = {
+            "Content-Type": "application/json",
+            "Authorization": "Basic " + api_token,
+        }
+    else:
+        access_token = _get_oauth2_token(base_api_url, username, password)
+        headers = {
+            "Content-Type": "application/json",
+            "Authorization": f"Bearer {access_token}",
+        }
 
     try:
         http_conn = http.client.HTTPSConnection(base_api_url)
