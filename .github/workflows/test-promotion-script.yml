@@ -1,0 +1,42 @@
+name: Test promotion script
+
+on:
+  push:
+    branches: ['feat/airflow3-flag']
+    paths:
+      # Run the workflow only if files inside this path are updated
+      - 'scripts/**'
+      - 'tests/**'
+      - '.github/workflows/test-promotion-script.yml'
+
+jobs:
+  test-promotion-script:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2
+
+      - name: Set up Python
+        uses: actions/setup-python@42375524e23c412d93fb67b49958b491fce71c38 # v5.4.0
+        with:
+          python-version: '3.9'
+
+      - name: Install dependencies
+        run: pip install -r ./scripts/requirements.txt
+
+      - name: Test promotion script (Airflow 3)
+        env:
+            STAGING_SM2A_API_URL: ${{ vars.AIRFLOW3_SM2A_API_URL }}
+            STAGING_SM2A_ADMIN_USERNAME: ${{ secrets.AIRFLOW3_SM2A_ADMIN_USERNAME}}
+            STAGING_SM2A_ADMIN_PASSWORD: ${{ secrets.AIRFLOW3_SM2A_ADMIN_PASSWORD}}
+            STAGING_AIRFLOW_API_VERSION: "3"
+        run: |
+          python3 scripts/promote_collection.py tests/test_collection.json staging
+
+      - name: Test promotion script (Airflow 2)
+        env:
+            STAGING_SM2A_API_URL: ${{ vars.AIRFLOW2_SM2A_API_URL }}
+            STAGING_SM2A_ADMIN_USERNAME: ${{ secrets.AIRFLOW2_SM2A_ADMIN_USERNAME}}
+            STAGING_SM2A_ADMIN_PASSWORD: ${{ secrets.AIRFLOW2_SM2A_ADMIN_PASSWORD}}
+            STAGING_AIRFLOW_API_VERSION: "2"
+        run: |
+          python3 scripts/promote_collection.py tests/test_collection_tenant.json staging
