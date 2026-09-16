@@ -33,7 +33,7 @@ def _build_request_body(
     return body
 
 
-def _get_oauth2_token(username: str, password: str) -> str:
+def _get_oauth2_token() -> str:
     """Get OAuth2 access token from Airflow API"""
     keycloak_url = os.getenv("KEYCLOAK_URL")
     keycloak_realm = os.getenv("KEYCLOAK_REALM")
@@ -55,11 +55,9 @@ def _get_oauth2_token(username: str, password: str) -> str:
 
     data = urllib.parse.urlencode(
         {
-            "grant_type": "password",
+            "grant_type": "client_credentials",
             "client_id": client_id,
             "client_secret": client_secret,
-            "username": username,
-            "password": password,
         }
     )
     headers = {"Content-Type": "application/x-www-form-urlencoded"}
@@ -107,7 +105,7 @@ def trigger_dag_run(
             "Authorization": "Basic " + api_token,
         }
     else:
-        access_token = _get_oauth2_token(username, password)
+        access_token = _get_oauth2_token()
         headers = {
             "Content-Type": "application/json",
             "Authorization": f"Bearer {access_token}",
