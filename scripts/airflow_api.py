@@ -71,7 +71,10 @@ def _get_oauth2_token() -> str:
 
         if response.status != 200:
             raise AirflowAPIError(f"Login failed: {response_data}")
-        return response_data["access_token"]
+
+        token = response_data["access_token"]
+        print(f"Token beginning is : {token[:50]}")
+        return token
     except AirflowAPIError:
         raise
     except Exception as e:
@@ -107,7 +110,7 @@ def trigger_dag_run(
     else:
         access_token = _get_oauth2_token()
         headers = {
-            "Content-Type": "application/x-www-form-urlencoded",
+            "Content-Type": "application/json",
             "Authorization": f"Bearer {access_token}",
         }
 
