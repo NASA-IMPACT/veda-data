@@ -107,7 +107,7 @@ def trigger_dag_run(
     else:
         access_token = _get_oauth2_token()
         headers = {
-            "Content-Type": "application/json",
+            "Content-Type": "application/x-www-form-urlencoded",
             "Authorization": f"Bearer {access_token}",
         }
 
