@@ -6,6 +6,7 @@ import os
 import uuid
 import json
 import http.client
+import urllib.parse
 
 from typing import Dict, Any
 from base64 import b64encode
@@ -32,19 +33,51 @@ def _build_request_body(
     return body
 
 
-def _get_oauth2_token(base_api_url: str, username: str, password: str) -> str:
+def _get_oauth2_token(username: str, password: str) -> str:
     """Get OAuth2 access token from Airflow API"""
-    http_conn = http.client.HTTPSConnection(base_api_url)
-    login_data = json.dumps({"username": username, "password": password})
-    headers = {"Content-Type": "application/json"}
-    http_conn.request("POST", "/api/v2/auth/login", login_data, headers)
-    response = http_conn.getresponse()
-    response_data = json.loads(response.read().decode())
-    http_conn.close()
+    keycloak_url = os.getenv("KEYCLOAK_URL")
+    keycloak_realm = os.getenv("KEYCLOAK_REALM")
+    client_id = os.getenv("KEYCLOAK_CLIENT_ID")
+    client_secret = os.getenv("KEYCLOAK_CLIENT_SECRET")
 
-    if response.status != 200:
-        raise AirflowAPIError(f"Login failed: {response_data}")
-    return response_data["access_token"]
+    if not all([keycloak_url, keycloak_realm, client_id, client_secret]):
+        raise AirflowAPIError("Missing Keycloak environment variables")
+
+    token_endpoint = (
+        f"{keycloak_url}/auth/realms/{keycloak_realm}/protocol/openid-connect/token"
+    )
+
+    parsed_url = urllib.parse.urlparse(token_endpoint)
+    host = parsed_url.hostname
+    path = (
+        f"{parsed_url.path}?{parsed_url.query}" if parsed_url.query else parsed_url.path
+    )
+
+    data = urllib.parse.urlencode(
+        {
+            "grant_type": "password",
+            "client_id": client_id,
+            "client_secret": client_secret,
+            "username": username,
+            "password": password,
+        }
+    )
+    headers = {"Content-Type": "application/x-www-form-url-encoded"}
+
+    try:
+        http_conn = http.client.HTTPSConnection(host)
+        http_conn.request("POST", path, data, headers)
+        response = http_conn.getresponse()
+        response_data = json.loads(response.read().decode())
+        http_conn.close()
+
+        if response.status != 200:
+            raise AirflowAPIError(f"Login failed: {response_data}")
+        return response_data["access_token"]
+    except AirflowAPIError:
+        raise
+    except Exception as e:
+        raise AirflowAPIError(f"Failed to get Keycloak token: {str(e)}")
 
 
 def trigger_dag_run(
@@ -74,7 +107,7 @@ def trigger_dag_run(
             "Authorization": "Basic " + api_token,
         }
     else:
-        access_token = _get_oauth2_token(base_api_url, username, password)
+        access_token = _get_oauth2_token(username, password)
         headers = {
             "Content-Type": "application/json",
             "Authorization": f"Bearer {access_token}",

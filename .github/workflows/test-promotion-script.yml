@@ -30,6 +30,10 @@ jobs:
             STAGING_SM2A_ADMIN_USERNAME: ${{ secrets.TESTING_AIRFLOW3_SM2A_ADMIN_USERNAME}}
             STAGING_SM2A_ADMIN_PASSWORD: ${{ secrets.TESTING_AIRFLOW3_SM2A_ADMIN_PASSWORD}}
             STAGING_AIRFLOW_API_VERSION: "3"
+            KEYCLOAK_URL: ${{ vars.KEYCLOAK_URL }}
+            KEYCLOAK_REALM: ${{ vars.KECYLOAK_REALM }}
+            KEYCLOAK_CLIENT_ID: ${{ secrets.KEYCLOAK_CLIENT_ID }}
+            KEYCLOAK_CLIENT_SECRET: ${{ secrets.KEYCLOAK_CLIENT_SECRET }}
             PYTHONPATH: .
         run: |
           python3 scripts/promote_collection.py tests/test_collection.json staging
