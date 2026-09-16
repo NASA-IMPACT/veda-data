@@ -44,7 +44,7 @@ def _get_oauth2_token(username: str, password: str) -> str:
         raise AirflowAPIError("Missing Keycloak environment variables")
 
     token_endpoint = (
-        f"{keycloak_url}/auth/realms/{keycloak_realm}/protocol/openid-connect/token"
+        f"{keycloak_url}/realms/{keycloak_realm}/protocol/openid-connect/token"
     )
 
     parsed_url = urllib.parse.urlparse(token_endpoint)
