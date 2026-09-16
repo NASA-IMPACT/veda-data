@@ -31,12 +31,22 @@ jobs:
             STAGING_SM2A_ADMIN_PASSWORD: ${{ secrets.TESTING_AIRFLOW3_SM2A_ADMIN_PASSWORD}}
             STAGING_AIRFLOW_API_VERSION: "3"
             KEYCLOAK_URL: ${{ vars.KEYCLOAK_URL }}
-            KEYCLOAK_REALM: ${{ vars.KECYLOAK_REALM }}
+            KEYCLOAK_REALM: ${{ vars.KEYCLOAK_REALM }}
             KEYCLOAK_CLIENT_ID: ${{ secrets.KEYCLOAK_CLIENT_ID }}
             KEYCLOAK_CLIENT_SECRET: ${{ secrets.KEYCLOAK_CLIENT_SECRET }}
             PYTHONPATH: .
         run: |
-          python3 scripts/promote_collection.py tests/test_collection.json staging
+          response=$(python3 scripts/promote_collection.py tests/test_collection.json staging)
+          status_code=$(echo "$response" | jq -r '.statusCode' | head -n1)
+              echo "Status Code: $status_code"
+
+              # Update status message based on response code
+              if [[ $status_code -eq 200 ]] || [[ $status_code -eq 201 ]]; then
+                echo "Airflow 3 test passed"
+              else
+                echo "$collection_id failed to publish ❌"
+                exit 1
+              fi
 
       - name: Test promotion script (Airflow 2)
         env:
@@ -47,3 +57,14 @@ jobs:
             PYTHONPATH: .
         run: |
           python3 scripts/promote_collection.py tests/test_collection_tenant.json staging
+          response=$(python3 scripts/promote_collection.py tests/test_collection_tenant.json staging)
+          status_code=$(echo "$response" | jq -r '.statusCode' | head -n1)
+              echo "Status Code: $status_code"
+
+              # Update status message based on response code
+              if [[ $status_code -eq 200 ]] || [[ $status_code -eq 201 ]]; then
+                echo "Airflow 2 test passed"
+              else
+                echo "$collection_id failed to publish ❌"
+                exit 1
+              fi

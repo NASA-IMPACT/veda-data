@@ -62,7 +62,7 @@ def _get_oauth2_token(username: str, password: str) -> str:
             "password": password,
         }
     )
-    headers = {"Content-Type": "application/x-www-form-url-encoded"}
+    headers = {"Content-Type": "application/x-www-form-urlencoded"}
 
     try:
         http_conn = http.client.HTTPSConnection(host)
