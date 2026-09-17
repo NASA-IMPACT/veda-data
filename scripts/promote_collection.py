@@ -63,8 +63,7 @@ def trigger_collection_dag(payload: Dict[str, Any], stage: str):
             password=password,
             api_version=api_version,
         )
-        print(json.dumps({"statusCode": result["statusCode"]}))
-        print(result["body"])
+        print(json.dumps({"statusCode": result["statusCode"], "body":result["body"]}))
         return result
     except AirflowAPIError as e:
         status_code = _extract_http_status_code(str(e))
