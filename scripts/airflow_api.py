@@ -46,6 +46,7 @@ def _get_oauth2_token() -> str:
     token_endpoint = (
         f"{keycloak_url}/realms/{keycloak_realm}/protocol/openid-connect/token"
     )
+    print(f"Token endpoint is is : {token_endpoint}")
 
     parsed_url = urllib.parse.urlparse(token_endpoint)
     host = parsed_url.hostname
