@@ -6,7 +6,6 @@ import os
 import uuid
 import json
 import http.client
-import urllib.parse
 
 from typing import Dict, Any
 from base64 import b64encode
@@ -33,51 +32,18 @@ def _build_request_body(
     return body
 
 
-def _get_oauth2_token() -> str:
-    """Get OAuth2 access token from Airflow API"""
-    keycloak_url = os.getenv("KEYCLOAK_URL")
-    keycloak_realm = os.getenv("KEYCLOAK_REALM")
-    client_id = os.getenv("KEYCLOAK_CLIENT_ID")
-    client_secret = os.getenv("KEYCLOAK_CLIENT_SECRET")
+def _generate_jwt_token(secret: str, expiration_time: int = 3600) -> str:
+    """Generate a HS512 JWT Token for Airflow API authentication"""
+    import jwt
+    import time
 
-    if not all([keycloak_url, keycloak_realm, client_id, client_secret]):
-        raise AirflowAPIError("Missing Keycloak environment variables")
-
-    token_endpoint = (
-        f"{keycloak_url}/realms/{keycloak_realm}/protocol/openid-connect/token"
-    )
-
-    parsed_url = urllib.parse.urlparse(token_endpoint)
-    host = parsed_url.hostname
-    path = (
-        f"{parsed_url.path}?{parsed_url.query}" if parsed_url.query else parsed_url.path
-    )
-
-    data = urllib.parse.urlencode(
-        {
-            "grant_type": "client_credentials",
-            "client_id": client_id,
-            "client_secret": client_secret,
-        }
-    )
-    headers = {"Content-Type": "application/x-www-form-urlencoded"}
-
-    try:
-        http_conn = http.client.HTTPSConnection(host)
-        http_conn.request("POST", path, data, headers)
-        response = http_conn.getresponse()
-        response_data = json.loads(response.read().decode())
-        http_conn.close()
-
-        if response.status != 200:
-            raise AirflowAPIError(f"Login failed: {response_data}")
-
-        token = response_data["access_token"]
-        return token
-    except AirflowAPIError:
-        raise
-    except Exception as e:
-        raise AirflowAPIError(f"Failed to get Keycloak token: {str(e)}")
+    payload = {
+        "iss": "airflow",
+        "sub": "veda-data-client",
+        "iat": int(time.time()),
+        "exp": int(time.time()) + expiration_time,
+    }
+    return jwt.encode(payload, secret, algorithm="HS512")
 
 
 def trigger_dag_run(
@@ -107,7 +73,10 @@ def trigger_dag_run(
             "Authorization": "Basic " + api_token,
         }
     else:
-        access_token = _get_oauth2_token()
+        jwt_secret = os.getenv("AIRFLOW_JWT_SECRET")
+        if not jwt_secret:
+            raise AirflowAPIError("AIRFLOW_JWT_SECRET environment variable not set")
+        access_token = _generate_jwt_token(jwt_secret)
         headers = {
             "Content-Type": "application/json",
             "Authorization": f"Bearer {access_token}",
