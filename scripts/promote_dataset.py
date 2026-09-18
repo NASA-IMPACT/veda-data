@@ -48,10 +48,6 @@ def publish_to_staging(payload):
             "STAGING_SM2A_ADMIN_USERNAME, STAGING_SM2A_ADMIN_PASSWORD"
         )
 
-    # assert base_api_url is not None
-    # assert username is not None
-    # assert password is not None
-
     try:
         result = trigger_dag_run(
             base_api_url=base_api_url,
@@ -81,9 +77,6 @@ def promote_to_production(payload):
             "Missing required env vars SM2A_API_URL, "
             "SM2A_ADMIN_USERNAME, SM2A_ADMIN_PASSWORD"
         )
-    # assert base_api_url is not None
-    # assert username is not None
-    # assert password is not None
 
     payload["conf"].setdefault("transfer", False)
 

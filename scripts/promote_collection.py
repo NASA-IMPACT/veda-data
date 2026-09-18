@@ -50,10 +50,6 @@ def trigger_collection_dag(payload: Dict[str, Any], stage: str):
     if not all([base_api_url, username, password]):
         raise ValueError(f"Missing required environment variables for stage '{stage}' ")
 
-    # assert base_api_url is not None
-    # assert username is not None
-    # assert password is not None
-
     try:
         result = trigger_dag_run(
             base_api_url=base_api_url,
