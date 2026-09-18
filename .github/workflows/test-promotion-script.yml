@@ -31,6 +31,7 @@ jobs:
             STAGING_SM2A_ADMIN_PASSWORD: ${{ secrets.TESTING_AIRFLOW3_SM2A_ADMIN_PASSWORD}}
             STAGING_AIRFLOW_API_VERSION: "3"
             AIRFLOW_JWT_SECRET: ${{ secrets.AIRFLOW_JWT_SECRET }}
+            AIRFLOW_JWT_SUB: ${{ secrets.AIRFLOW_JWT_SUB }}
             PYTHONPATH: .
         run: |
           response=$(python3 scripts/promote_collection.py tests/test_collection.json staging)

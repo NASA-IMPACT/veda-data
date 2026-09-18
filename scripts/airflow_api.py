@@ -32,15 +32,15 @@ def _build_request_body(
     return body
 
 
-def _generate_jwt_token(secret: str, expiration_time: int = 3600) -> str:
+def _generate_jwt_token(secret: str, sub: str, expiration_time: int = 3600) -> str:
     """Generate a HS512 JWT Token for Airflow API authentication"""
     import jwt
     import time
 
     payload = {
         "iss": "airflow",
-        "sub": "veda-data-client",
-        "aud": "urn:airflow.apache.org:task",
+        "sub": sub,
+        "aud": "apache-airflow",
         "nbf": int(time.time()),
         "iat": int(time.time()),
         "exp": int(time.time()) + expiration_time,
@@ -78,6 +78,9 @@ def trigger_dag_run(
         jwt_secret = os.getenv("AIRFLOW_JWT_SECRET")
         if not jwt_secret:
             raise AirflowAPIError("AIRFLOW_JWT_SECRET environment variable not set")
+        jwt_sub = os.getenv("AIRFLOW_JWT_SUB")
+        if not jwt_sub:
+            raise AirflowAPIError("AIRFLOW_JWT_SUB environment variable not set")
         access_token = _generate_jwt_token(jwt_secret)
         headers = {
             "Content-Type": "application/json",
