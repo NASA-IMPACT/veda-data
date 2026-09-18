@@ -16,10 +16,7 @@ class AirflowAPIError(Exception):
 
 
 def _build_request_body(
-    conf: Dict[str, Any],
-    dag_id: str,
-    note: str = "",
-    logical_date=None,
+    conf: Dict[str, Any], dag_id: str, note: str = "", api_version: str = "3"
 ) -> Dict[str, Any]:
     """Build the request body for the DagRun"""
     body = {
@@ -27,8 +24,8 @@ def _build_request_body(
         "dag_run_id": f"{dag_id}-{uuid.uuid4()}",
         "note": note or "Run from GitHub Actions veda-data workflow",
     }
-    if logical_date:
-        body["logical_date"] = logical_date
+    if api_version != "2":
+        body["logical_date"] = None
     return body
 
 
@@ -66,7 +63,7 @@ def trigger_dag_run(
         api_version = os.getenv("AIRFLOW_API_VERSION", "3")
 
     api_path = f"/api/v{'1' if api_version == '2' else '2'}/dags/{dag_id}/dagRuns"
-    request_body = _build_request_body(conf, dag_id)
+    request_body = _build_request_body(conf, dag_id, api_version)
 
     if api_version == "2":
         api_token = b64encode(f"{username}:{password}".encode()).decode()
