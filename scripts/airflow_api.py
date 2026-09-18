@@ -81,7 +81,7 @@ def trigger_dag_run(
         jwt_sub = os.getenv("AIRFLOW_JWT_SUB")
         if not jwt_sub:
             raise AirflowAPIError("AIRFLOW_JWT_SUB environment variable not set")
-        access_token = _generate_jwt_token(jwt_secret)
+        access_token = _generate_jwt_token(jwt_secret, jwt_sub)
         headers = {
             "Content-Type": "application/json",
             "Authorization": f"Bearer {access_token}",
