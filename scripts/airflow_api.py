@@ -19,10 +19,20 @@ def _build_request_body(
     conf: Dict[str, Any], dag_id: str, note: str = "", api_version: str = "3"
 ) -> Dict[str, Any]:
     """Build the request body for the DagRun"""
+    run_id = os.getenv("GITHUB_RUN_ID")
+    if run_id:
+        run_url = (
+            f"{os.getenv('GITHUB_SERVER_URL')}/{os.getenv('GITHUB_REPOSITORY')}"
+            f"/actions/runs/{run_id}"
+        )
+        default_note = f"Run from GitHub Actions: {run_url}"
+    else:
+        default_note = "Run from GitHub Actions veda-data workflow"
+
     body = {
         "conf": conf,
         "dag_run_id": f"{dag_id}-{uuid.uuid4()}",
-        "note": note or "Run from GitHub Actions veda-data workflow",
+        "note": note or default_note,
     }
     if api_version != "2":
         body["logical_date"] = None
@@ -63,7 +73,7 @@ def trigger_dag_run(
         api_version = os.getenv("AIRFLOW_API_VERSION", "3")
 
     api_path = f"/api/v{'1' if api_version == '2' else '2'}/dags/{dag_id}/dagRuns"
-    request_body = _build_request_body(conf, dag_id, api_version)
+    request_body = _build_request_body(conf, dag_id, api_version=api_version)
 
     if api_version == "2":
         api_token = b64encode(f"{username}:{password}".encode()).decode()
