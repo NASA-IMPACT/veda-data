@@ -40,7 +40,7 @@ def _generate_jwt_token(secret: str, expiration_time: int = 3600) -> str:
     payload = {
         "iss": "airflow",
         "sub": "veda-data-client",
-        "aud": "apache-airflow",
+        "aud": "urn:airflow.apache.org:task",
         "nbf": int(time.time()),
         "iat": int(time.time()),
         "exp": int(time.time()) + expiration_time,
