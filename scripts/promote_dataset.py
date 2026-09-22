@@ -4,25 +4,11 @@ import json
 import sys
 import os
 
-from scripts.airflow_api import AirflowAPIError, trigger_dag_run
+from airflow_api import AirflowAPIError, trigger_dag_run
 
 
 class MissingFieldError(Exception):
     pass
-
-
-def _extract_http_status_code(error_message: str) -> int:
-    """Extract the HTTP status code from the AirflowAPIError
-    message and return 500 otherwise
-    """
-    try:
-        parts = error_message.split(" returns ")
-        if len(parts) > 1:
-            status_str = parts[1].split(":")[0]
-            return int(status_str)
-    except (ValueError, IndexError):
-        pass
-    return 500
 
 
 def validate_discovery_item_config(item: Dict[str, Any]) -> Dict[str, Any]:
@@ -40,7 +26,7 @@ def publish_to_staging(payload):
     dataset_pipeline_dag = os.getenv("DATASET_DAG_NAME", "veda_dataset_pipeline")
     username = os.getenv("STAGING_SM2A_ADMIN_USERNAME")
     password = os.getenv("STAGING_SM2A_ADMIN_PASSWORD")
-    api_version_env = os.getenv("STAGING_AIRFLOW_API_VERSION", "3")
+    api_version_env = os.getenv("STAGING_AIRFLOW_API_VERSION") or "2"
 
     if not all([base_api_url, username, password]):
         raise ValueError(
@@ -58,11 +44,9 @@ def publish_to_staging(payload):
             api_version=api_version_env,
         )
         print(json.dumps({"statusCode": result["statusCode"]}))
-        print(result["body"])
         return result
     except AirflowAPIError as e:
-        status_code = _extract_http_status_code(str(e))
-        print(json.dumps({"statusCode": status_code, "error": str(e)}))
+        print(json.dumps({"statusCode": e.status_code or 500, "error": str(e)}))
 
 
 def promote_to_production(payload):
@@ -70,7 +54,7 @@ def promote_to_production(payload):
     promotion_dag = os.getenv("PROMOTION_DAG_NAME", "veda_promotion_pipeline")
     username = os.getenv("SM2A_ADMIN_USERNAME")
     password = os.getenv("SM2A_ADMIN_PASSWORD")
-    api_version_env = os.getenv("PRODUCTION_AIRFLOW_API_VERSION", "3")
+    api_version_env = os.getenv("PRODUCTION_AIRFLOW_API_VERSION") or "2"
 
     if not all([base_api_url, username, password]):
         raise ValueError(
@@ -90,11 +74,9 @@ def promote_to_production(payload):
             api_version=api_version_env,
         )
         print(json.dumps({"statusCode": result["statusCode"]}))
-        print(result["body"])
         return result
     except AirflowAPIError as e:
-        status_code = _extract_http_status_code(str(e))
-        print(json.dumps({"statusCode": status_code, "error": str(e)}))
+        print(json.dumps({"statusCode": e.status_code or 500, "error": str(e)}))
 
 
 if __name__ == "__main__":

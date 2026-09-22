@@ -12,11 +12,15 @@ from base64 import b64encode
 
 
 class AirflowAPIError(Exception):
+    def __init__(self, msg, status_code=None):
+        super().__init__(msg)
+        self.status_code = status_code
+
     pass
 
 
 def _build_request_body(
-    conf: Dict[str, Any], dag_id: str, note: str = "", api_version: str = "3"
+    conf: Dict[str, Any], dag_id: str, note: str = "", api_version: str = "2"
 ) -> Dict[str, Any]:
     """Build the request body for the DagRun"""
     run_id = os.getenv("GITHUB_RUN_ID")
@@ -70,7 +74,7 @@ def trigger_dag_run(
     """
 
     if api_version is None:
-        api_version = os.getenv("AIRFLOW_API_VERSION", "3")
+        api_version = os.getenv("AIRFLOW_API_VERSION") or "2"
 
     api_path = f"/api/v{'1' if api_version == '2' else '2'}/dags/{dag_id}/dagRuns"
     request_body = _build_request_body(conf, dag_id, api_version=api_version)
@@ -104,7 +108,8 @@ def trigger_dag_run(
         if response.status >= 400:
             raise AirflowAPIError(
                 f"Airflow API v{api_version} returns "
-                f"{response.status}: {response_data.decode()}"
+                f"{response.status}: {response_data.decode()}",
+                status_code=response.status,
             )
 
         return {

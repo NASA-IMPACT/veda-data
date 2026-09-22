@@ -4,21 +4,7 @@ import json
 import sys
 import os
 
-from scripts.airflow_api import AirflowAPIError, trigger_dag_run
-
-
-def _extract_http_status_code(error_message: str) -> int:
-    """Extract the HTTP status code from the AirflowAPIError
-    message and return 500 otherwise
-    """
-    try:
-        parts = error_message.split(" returns ")
-        if len(parts) > 1:
-            status_str = parts[1].split(":")[0]
-            return int(status_str)
-    except (ValueError, IndexError):
-        pass
-    return 500
+from airflow_api import AirflowAPIError, trigger_dag_run
 
 
 def trigger_collection_dag(payload: Dict[str, Any], stage: str):
@@ -45,7 +31,7 @@ def trigger_collection_dag(payload: Dict[str, Any], stage: str):
     base_api_url = os.getenv(api_url_env)
     username = os.getenv(username_env)
     password = os.getenv(password_env)
-    api_version = os.getenv(api_version_env, "3")  # default to Airflow version 3?
+    api_version = os.getenv(api_version_env) or "2"
 
     if not all([base_api_url, username, password]):
         raise ValueError(f"Missing required environment variables for stage '{stage}' ")
@@ -62,8 +48,7 @@ def trigger_collection_dag(payload: Dict[str, Any], stage: str):
         print(json.dumps({"statusCode": result["statusCode"], "body": result["body"]}))
         return result
     except AirflowAPIError as e:
-        status_code = _extract_http_status_code(str(e))
-        print(json.dumps({"statusCode": status_code, "error": str(e)}))
+        print(json.dumps({"statusCode": e.status_code or 500, "error": str(e)}))
 
 
 if __name__ == "__main__":
