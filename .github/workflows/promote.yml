@@ -64,7 +64,7 @@ jobs:
           SM2A_ADMIN_USERNAME: ${{ secrets.SM2A_ADMIN_USERNAME }}
           SM2A_ADMIN_PASSWORD: ${{ secrets.SM2A_ADMIN_PASSWORD }}
           SM2A_API_URL: ${{ vars.SM2A_API_URL }}
-          PROMOTION_DAG: ${{ vars.PROMOTION_DAG_NAME }}
+          PROMOTION_DAG_NAME: ${{ vars.PROMOTION_DAG_NAME }}
 
         run: |
           pip install -r ./scripts/requirements.txt
@@ -91,5 +91,7 @@ jobs:
                 echo "$collection_id ($config_type) successfully promoted to Production ✅"
               else
                 echo "$collection_id ($config_type) failed to promote to Production ❌"
+                failed=1
               fi
           done
+          [ "${failed:-0}" -eq 0 ] || exit 1
