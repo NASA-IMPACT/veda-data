@@ -42,6 +42,9 @@ Perform acceptance testing appropriate for your data. This should include review
 
 ### Step 4: Promote to production
 
+> **Note on the terminology** -
+> Our `promote_dataset.py` and `promote_collection.py` scripts are used at two different points in this workflow: Publishing a new dataset/collection to staging (step 2) and promoting it from staging to production (step 4). The script and env var name use the term "promote" generically for both steps. Passing `staging` as the stage argument publishes to the staging catalog, and `production` promotes a collection *from* `staging` to `production`.
+
 After acceptance testing, request approval--when your PR is merged, the dataset config JSON will be used to generate records in the production VEDA catalog!
 
 > You can manually run the dataset promotion pipeline instead of using an ingestion tool or the automated github actions in this repo. The promotion configuration can be created from a copy of the staging dataset config with an additional field `transfer` which should be true if s3 objects need to be transferred to the produciton data store. Please open a PR to add the promotion configuration to [`ingestion-data/production/promotion-config`](#productionpromotion-config).
