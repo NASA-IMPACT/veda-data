@@ -100,7 +100,7 @@ if __name__ == "__main__":
                 publish_to_staging(dag_payload)
 
     except IndexError:
-        print("Usage: promote_collection.py <file_name> <stage>")
+        print("Usage: promote_dataset.py <file_name> <stage>")
         sys.exit(1)
     except FileNotFoundError:
         print(f"Error: File '{sys.argv[1]}' not found.")

@@ -65,6 +65,9 @@ jobs:
           SM2A_ADMIN_PASSWORD: ${{ secrets.SM2A_ADMIN_PASSWORD }}
           SM2A_API_URL: ${{ vars.SM2A_API_URL }}
           PROMOTION_DAG_NAME: ${{ vars.PROMOTION_DAG_NAME }}
+          PRODUCTION_AIRFLOW_API_VERSION: ${{ vars.PRODUCTION_AIRFLOW_API_VERSION }}
+          AIRFLOW_JWT_SECRET: ${{ secrets.AIRFLOW_JWT_SECRET }}
+          AIRFLOW_JWT_SUB: ${{ secrets.AIRFLOW_JWT_SUB }}
 
         run: |
           pip install -r ./scripts/requirements.txt
