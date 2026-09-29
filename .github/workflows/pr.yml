@@ -115,6 +115,9 @@ jobs:
           STAGING_SM2A_ADMIN_PASSWORD: ${{ secrets.STAGING_SM2A_ADMIN_PASSWORD }}
           STAGING_SM2A_API_URL: ${{ vars.STAGING_SM2A_API_URL }}
           DATASET_DAG_NAME: ${{ vars.DATASET_DAG_NAME }}
+          STAGING_AIRFLOW_API_VERSION: ${{ vars.STAGING_AIRFLOW_API_VERSION }}
+          AIRFLOW_JWT_SECRET: ${{ secrets.AIRFLOW_JWT_SECRET }}
+          AIRFLOW_JWT_SUB: ${{ secrets.AIRFLOW_JWT_SUB }}
         run: |
           pip install -r ./scripts/requirements.txt
 
