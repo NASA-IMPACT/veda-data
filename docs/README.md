@@ -1,11 +1,11 @@
-# README
+# Environment Variables
 
 The workflows read config from two GitHub Environments (under Settings -> Environments): `staging` and `production`. A job only sees the secrets and vars of the environment it declares. The same secret name, therefore, can hold a different value in each stage.
 
 ## Which workflow uses which environment
 
-- `staging` is used by [pr.yml](../.github/workflows/pr.yml). It runs when a PR is opened or updated and publishes to staging Airflow.
-- `production` is used by [promote.yml](../.github/workflows/promote.yml) which [promotion-checker.yml](../.github/workflows/promotion-checker.yml) triggers after the PR is approved. It publishes to production Airflow.
+- [pr.yml](../.github/workflows/pr.yml) uses the `staging` environment. It runs when a PR is opened or updated and publishes to staging Airflow.
+- [promote.yml](../.github/workflows/promote.yml) uses the `production` environment, which [promotion-checker.yml](../.github/workflows/promotion-checker.yml) triggers after the PR is approved. It publishes to production Airflow.
 
 For the GitHub `staging` environment, the following config should be set:
 
