@@ -1,4 +1,4 @@
-exclude: ^.*\.ipynb$
+exclude: ^transformation-scripts/.*$
 
 repos:
   - repo: https://github.com/pre-commit/pre-commit-hooks
