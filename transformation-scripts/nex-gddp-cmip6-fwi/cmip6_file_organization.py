@@ -1,4 +1,5 @@
-from pathlib import Path
+from os.path import basename
+from typing import Optional
 from urllib.parse import urlparse
 
 
@@ -7,7 +8,7 @@ def generate_yearly_fwi_metrics_key(
     dst_version: str,
     ensemble: str = "mme",
     pub_type: str = "netcdf",
-    metric: str | None = None,
+    metric: Optional[str] = None,
     verbose: bool = False,
 ):
     """_summary_
@@ -22,7 +23,7 @@ def generate_yearly_fwi_metrics_key(
     cadence = "yearly"
 
     parsed = urlparse(src_url, allow_fragments=False)
-    nc_base = Path(parsed.path).name
+    nc_base = basename(parsed.path)
 
     # Assume pattern ensemble-stat_experiment_fwi_metrics_yearly_yyyy
     # MME50_ssp245_fwi_metrics_yearly_2100
