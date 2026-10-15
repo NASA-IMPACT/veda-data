@@ -3,16 +3,37 @@ repos:
     rev: v6.0.0
     hooks:
       - id: check-yaml
+        exclude: ^.*\.ipynb$
       - id: trailing-whitespace
-        exclude: ^ingestion-data/.*$
+        exclude: ^(ingestion-data/.*|.*\.ipynb)$
 
   - repo: https://github.com/astral-sh/ruff-pre-commit
     rev: v0.16.1
     hooks:
       - id: ruff-check
         args: [--fix]
+        exclude: ^.*\.ipynb$
       - id: ruff-format
-        types_or: [python, pyi, jupyter, pyproject]
+        types_or: [python, pyi, pyproject]
+        exclude: ^.*\.ipynb$
+
+  - repo: https://github.com/DavidAnson/markdownlint-cli2
+    rev: v0.23.2
+    hooks:
+      - id: markdownlint-cli2
+        args:
+        - "--fix"
+        - "--config"
+        - "pyproject.toml"
+        - "--configPointer"
+        - "/tool/markdownlint-cli2"
+        exclude: ^.*\.ipynb$
+
+  - repo: https://github.com/astral-sh/uv-pre-commit
+    rev: 0.12.5
+    hooks:
+      - id: uv-lock
+        exclude: ^.*\.ipynb$
 
   - repo: https://github.com/DavidAnson/markdownlint-cli2
     rev: v0.23.2
