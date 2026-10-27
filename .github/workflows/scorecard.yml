@@ -7,13 +7,15 @@ on:
   schedule:
     - cron: "30 16 * * 1" # Monday 10:30/11:30 CT
 
-permissions: read-all # Default all to readonly
+permissions:
+  contents: read
 
 jobs:
   analysis:
     name: Scorecard analysis
     runs-on: ubuntu-latest
     permissions:
+      contents: read
       security-events: write # Allow upload to Security dashboard
       id-token: write # Access GitHub's OIDC token to verify authenticity of result for publish
 
