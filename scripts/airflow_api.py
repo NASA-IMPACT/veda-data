@@ -2,13 +2,12 @@
 Supports Airflow 2 and 3 (API v1 / v2)
 """
 
+import http.client
+import json
 import os
 import uuid
-import json
-import http.client
-
-from typing import Dict, Any
 from base64 import b64encode
+from typing import Any
 
 
 class AirflowAPIError(Exception):
@@ -20,8 +19,8 @@ class AirflowAPIError(Exception):
 
 
 def _build_request_body(
-    conf: Dict[str, Any], dag_id: str, note: str = "", api_version: str = "2"
-) -> Dict[str, Any]:
+    conf: dict[str, Any], dag_id: str, note: str = "", api_version: str = "2"
+) -> dict[str, Any]:
     """Build the request body for the DagRun"""
     run_id = os.getenv("GITHUB_RUN_ID")
     if run_id:
@@ -45,8 +44,9 @@ def _build_request_body(
 
 def _generate_jwt_token(secret: str, sub: str, expiration_time: int = 3600) -> str:
     """Generate a HS512 JWT Token for Airflow API authentication"""
-    import jwt
     import time
+
+    import jwt
 
     payload = {
         "iss": "airflow",
@@ -62,11 +62,11 @@ def _generate_jwt_token(secret: str, sub: str, expiration_time: int = 3600) -> s
 def trigger_dag_run(
     base_api_url: str,
     dag_id: str,
-    conf: Dict[str, Any],
+    conf: dict[str, Any],
     username: str,
     password: str,
     api_version: str = None,
-) -> Dict[str, Any]:
+) -> dict[str, Any]:
     """
     Trigger a DAG run with version-aware API handling
 
@@ -120,4 +120,4 @@ def trigger_dag_run(
     except AirflowAPIError:
         raise
     except Exception as e:
-        raise AirflowAPIError(f"Failed to trigger the DAG run: {str(e)}")
+        raise AirflowAPIError(f"Failed to trigger the DAG run: {str(e)}") from e

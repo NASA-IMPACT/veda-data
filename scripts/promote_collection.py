@@ -1,13 +1,13 @@
-from typing import Dict, Any
-
 import json
-import sys
 import os
+import sys
+from pathlib import Path
+from typing import Any
 
 from airflow_api import AirflowAPIError, trigger_dag_run
 
 
-def trigger_collection_dag(payload: Dict[str, Any], stage: str):
+def trigger_collection_dag(payload: dict[str, Any], stage: str):
     """
     Triggers the veda_collection_pipeline DAG in either staging or production SM2A.
     """
@@ -53,7 +53,7 @@ def trigger_collection_dag(payload: Dict[str, Any], stage: str):
 
 if __name__ == "__main__":
     try:
-        with open(sys.argv[1], "r") as file:
+        with Path(sys.argv[1]).open("r") as file:
             input_data = json.load(file)
             stage = sys.argv[2]
             dag_payload = {"conf": input_data}
