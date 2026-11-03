@@ -1,6 +1,6 @@
 version: 2
 updates:
-  - package-ecosystem: pip
+  - package-ecosystem: uv
     directory: /
     cooldown:
       default-days: 7
@@ -8,7 +8,7 @@ updates:
     schedule:
       interval: monthly
     groups:
-      all:
+      python-dependencies:
         patterns:
         - "*"
     commit-message:
@@ -21,8 +21,21 @@ updates:
     schedule:
       interval: monthly
     groups:
-      all:
+      github-actions:
         patterns:
         - "*"
     commit-message:
       prefix: "ci(deps):"
+
+  - package-ecosystem: pre-commit
+    directory: /
+    cooldown:
+      default-days: 7
+    schedule:
+      interval: monthly
+    groups:
+      pre-commit:
+        patterns:
+        - "*"
+    commit-message:
+      prefix: "chore(deps):"
