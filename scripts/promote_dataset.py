@@ -1,8 +1,8 @@
-from typing import Dict, Any
-
 import json
-import sys
 import os
+import sys
+from pathlib import Path
+from typing import Any
 
 from airflow_api import AirflowAPIError, trigger_dag_run
 
@@ -11,7 +11,7 @@ class MissingFieldError(Exception):
     pass
 
 
-def validate_discovery_item_config(item: Dict[str, Any]) -> Dict[str, Any]:
+def validate_discovery_item_config(item: dict[str, Any]) -> dict[str, Any]:
     required_fields = ["bucket", "discovery", "filename_regex", "prefix"]
     for field in required_fields:
         if field not in item:
@@ -81,7 +81,7 @@ def promote_to_production(payload):
 
 if __name__ == "__main__":
     try:
-        with open(sys.argv[1], "r") as file:
+        with Path(sys.argv[1]).open("r") as file:
             _input = json.load(file)
             stage = sys.argv[2]
             discovery_items = _input.get("discovery_items")
