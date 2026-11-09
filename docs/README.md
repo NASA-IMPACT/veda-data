@@ -23,6 +23,13 @@ For the GitHub `production` environment, the following config should be set:
 
 > Note: `*_AIRFLOW_API_VERSION` is the Airflow major version (can be either 2 or 3) which defaults to 2 if unset. The JWT secrets **are only needed for Airflow 3**.
 
+### Airflow 3 JWT secrets
+
+For instances on Airflow 3, add these two secrets to **both** the `staging` and `production` GitHub Environments (`Settings` -> `Environments` -> select the environment -> `Environment secrets` -> `Add secret`). Use each instance's own values, and set `STAGING_AIRFLOW_API_VERSION` / `PRODUCTION_AIRFLOW_API_VERSION` to `3`.
+
+- `AIRFLOW_JWT_SECRET`: must match the api-server's `[api_auth] jwt_secret` for that instance.
+- `AIRFLOW_JWT_SUB`: the numeric id of an active user in Airflow's user table (**not** the Keycloak user ID), e.g. a `...service-account...fab` user. Requests are authorized with that user's roles. This can be found in the ECS Console for the SM2A Worker. After connecting to the instance, you should be able to run: `su airflow -s /bin/bash -c "airflow users list"`
+
 ### Repo-level secrets
 
 Set repo level secrets under `Settings` -> `Secrets and variables` -> `Actions`.
@@ -38,5 +45,5 @@ Set repo level secrets under `Settings` -> `Secrets and variables` -> `Actions`.
 | -- | -- | -- | -- | -- |
 | STAGING_AIRFLOW_API_VERSION | Staging GitHub Env | Staging Publish/Promotion | 2 | The Airflow Version for the Staging Environment.  For Airflow 2 = API v1 + Basic auth, Airflow 3 = API v2 + JWT |
 | PRODUCTION_AIRFLOW_API_VERSION | Production GitHub Env | Production Promotion | 2 | Same as above |
-| AIRFLOW_JWT_SECRET | Both (optional) | Any Publish/Promotion step that uses Airflow 3 | none | Conditionally required when the resolved API version is 3. Must match the secret that the Airflow 3 deployment signs with. Can be found in Secrets Manager |
-| AIRFLOW_JWT_SUB | Both (optional) | Airflow 3 only | none | Conditionally required when the resolved API version is 3. The subject claim for the token (the Integer ID from Airflow's user table) |
+| AIRFLOW_JWT_SECRET | Both GitHub envs (optional) | Any Publish/Promotion step that uses Airflow 3 | none | Conditionally required when the resolved API version is 3. Must match the api-server's `[api_auth] jwt_secret` for that instance. Can be found in Secrets Manager |
+| AIRFLOW_JWT_SUB | Both GitHub envs (optional) | Airflow 3 only | none | Conditionally required when the resolved API version is 3. The numeric id of an active user in Airflow's user table (not the Keycloak user ID); the request is authorized with that user's roles |
