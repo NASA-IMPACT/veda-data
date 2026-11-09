@@ -1,0 +1,124 @@
+{
+  "collection": "b-demo-gpm-imerg-daily",
+  "title": "B DEMO GPM IMERG Precipitation",
+  "description": "Daily total precipitation (mm) from NASA's Integrated Multi-satellitE Retrievals for GPM (IMERG) Version 07, accumulated from the half-hourly Level 3 product using Giovanni. IMERG combines precipitation estimates from the GPM constellation's passive microwave sensors, the GPM Core Observatory's dual-frequency radar, and geostationary infrared observations into a 0.1 x 0.1 degree gridded field. Early-run (3IMERGHHE) files are available about 4 hours after observation and use forward morphing only; Late-run (3IMERGHHL) files arrive about 14 hours after observation, add backward morphing and a climatological gauge adjustment, and are the higher-quality near-real-time product. Data: Huffman et al. (2024), GPM IMERG Early/Late Precipitation L3 Half Hourly 0.1 degree x 0.1 degree V07, NASA GES DISC, DOI 10.5067/GPM/IMERG/3B-HH-E/07 and 10.5067/GPM/IMERG/3B-HH-L/07.",
+  "license": "CC0-1.0",
+  "stac_version": "1.0.0",
+  "dashboard:is_periodic": false,
+  "dashboard:time_density": "day",
+  "dashboard:time_interval": "P1D",
+  "links": [],
+  "spatial_extent": {
+    "xmin": -180,
+    "ymin": -90,
+    "xmax": 180,
+    "ymax": 90
+  },
+  "temporal_extent": {
+    "startdate": "2020-01-01T00:00:00Z",
+    "enddate": null
+  },
+  "discovery_items": [
+    {
+      "discovery": "s3",
+      "prefix": "ProgramData/GPM/IMERG/",
+      "bucket": "nasa-disasters-staging",
+      "filename_regex": ".*gpm_3IMERGHH[EL]_07_precipitation_\\d{4}-\\d{2}-\\d{2}_day\\.tif$",
+      "datetime_range": "day",
+      "id_regex": ".*(\\d{4}-\\d{2}-\\d{2})_day\\.tif$",
+      "id_template": "gpm-imerg-daily-{}",
+      "use_multithreading": false,
+      "assets": {
+        "precipitation": {
+          "title": "GPM IMERG Precipitation",
+          "description": "Daily total precipitation in millimetres, accumulated from half-hourly IMERG V07 estimates.",
+          "regex": ".*gpm_3IMERGHH[EL]_07_precipitation_\\d{4}-\\d{2}-\\d{2}_day\\.tif$"
+        }
+      },
+      "collection": "gpm-imerg-daily"
+    }
+  ],
+  "sample_files": [
+    "s3://nasa-disasters-staging/ProgramData/GPM/IMERG/gpm_3IMERGHHE_07_precipitation_2026-04-13_day.tif"
+  ],
+  "data_type": "cog",
+  "stac_extensions": [
+    "https://stac-extensions.github.io/render/v1.0.0/schema.json",
+    "https://stac-extensions.github.io/item-assets/v1.0.0/schema.json"
+  ],
+  "renders": {
+    "dashboard": {
+      "assets": [
+        "precipitation"
+      ],
+      "bidx": [
+        1
+      ],
+      "colormap_name": "ylgnbu",
+      "rescale": [
+        [
+          0,
+          200
+        ]
+      ]
+    },
+    "precipitation": {
+      "assets": [
+        "precipitation"
+      ],
+      "bidx": [
+        1
+      ],
+      "colormap_name": "ylgnbu",
+      "rescale": [
+        [
+          0,
+          200
+        ]
+      ]
+    }
+  },
+  "providers": [
+    {
+      "name": "NASA Goddard Earth Sciences Data and Information Services Center (GES DISC)",
+      "roles": [
+        "producer"
+      ],
+      "url": "https://disc.gsfc.nasa.gov/"
+    },
+    {
+      "name": "NASA Giovanni",
+      "roles": [
+        "processor"
+      ],
+      "url": "https://giovanni.gsfc.nasa.gov/giovanni/"
+    },
+    {
+      "name": "NASA Disasters Program",
+      "roles": [
+        "host"
+      ],
+      "url": "https://disasters.openveda.cloud"
+    }
+  ],
+  "item_assets": {
+    "cog_default": {
+      "type": "image/tiff; application=geotiff; profile=cloud-optimized",
+      "roles": [
+        "data",
+        "layer"
+      ],
+      "title": "Default COG Layer",
+      "description": "Cloud optimized default layer to display on map"
+    },
+    "precipitation": {
+      "type": "image/tiff; application=geotiff; profile=cloud-optimized",
+      "roles": [
+        "data",
+        "layer"
+      ],
+      "title": "GPM IMERG Precipitation",
+      "description": "Daily total precipitation in millimetres, accumulated from half-hourly IMERG V07 estimates."
+    }
+  }
+}
