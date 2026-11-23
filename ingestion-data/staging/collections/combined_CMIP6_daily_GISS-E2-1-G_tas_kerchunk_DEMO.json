@@ -38,7 +38,7 @@
     "stac_extensions": [
         "https://stac-extensions.github.io/datacube/v2.0.0/schema.json"
     ],
-    "data_type": "zarr",
+    "data_type": "other",
     "collection": "combined_CMIP6_daily_GISS-E2-1-G_tas_kerchunk_DEMO",
     "cube:variables": {
         "tas": {
