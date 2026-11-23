@@ -1,0 +1,46 @@
+{
+  "type": "Collection",
+  "stac_version": "1.0.0",
+  "extent": {
+    "spatial": {
+      "bbox": [
+        [
+          -109,
+          29,
+          -93,
+          40
+        ]
+      ]
+    },
+    "temporal": {
+      "interval": [
+        [
+          "2007-08-01 06:00:00+00:00",
+          "2007-08-02 06:00:00+00:00"
+        ],
+        [
+          "2011-08-01 06:00:00+00:00",
+          "2011-08-02 06:00:00+00:00"
+        ]
+      ]
+    }
+  },
+  "links": [],
+  "eic:tenant": "Public",
+  "id": "nldas2-tx-soilm-100cm-percentile",
+  "title": "NLDAS-2 Historical Soil Moisture Percentile (0-100cm)",
+  "license": "nldas2-soilm-100cm-percentile",
+  "providers": [
+    {
+      "name": "NASA Water Insight"
+    }
+  ],
+  "summaries": {
+    "nldas2-soilm-100cm-percentile": {
+      "minimum": 0,
+      "maximum": 100
+    }
+  },
+  "description": "Percentile of 1m soil moisture in Texas with respect to 30 year climatology",
+  "keywords": []
+}
