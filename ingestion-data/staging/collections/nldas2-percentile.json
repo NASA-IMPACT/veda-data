@@ -1,0 +1,81 @@
+{
+  "type": "Collection",
+  "stac_version": "1.0.0",
+  "eic-tenant": "water-insight",
+  "extent": {
+    "spatial": {
+      "bbox": [
+        [
+          -109,
+          29,
+          -93,
+          40
+        ]
+      ]
+    },
+    "temporal": {
+      "interval": [
+        [
+          "2007-08-01T05:00:00+00:00",
+          "2011-08-02T04:59:59+00:00"
+        ]
+      ]
+    }
+  },
+  "links": [],
+  "id": "nldas2-percentile",
+  "title": "NLDAS-2 Percentiles",
+  "license": "CC0-1.0",
+  "description": "NLDAS-2 variable percentiles with respect to a 30-year historical climatology",
+  "providers": [
+    {
+      "name": "NASA Water Insight",
+      "roles": [
+        "producer",
+        "licensor",
+        "processor"
+      ],
+      "url": "https://ldas.gsfc.nasa.gov/nldas"
+    },
+    {
+      "name": "NASA VEDA",
+      "roles": [
+        "host"
+      ],
+      "url": "https://www.earthdata.nasa.gov/dashboard/"
+    }
+  ],
+  "assets": {
+    "nldas2-percentile-soilm-100cm": {
+      "href": "nldas2-percentile-soilm-100cm",
+      "title": "NLDAS-2 0-100cm soil moisture percentile",
+      "description": "",
+      "type": "image/tiff; application=geotiff",
+      "roles": [
+        "data",
+        "layer"
+      ]
+    }
+  },
+  "renders": {
+    "dashboard": {
+      "bidx": [
+        1
+      ],
+      "assets": [
+        "nldas2-percentile-soilm-100cm"
+      ],
+      "rescale": [
+        [
+          0,
+          100
+        ]
+      ],
+      "colormap_name": "spectral"
+    }
+  },
+  "dashboard:is_periodic": true,
+  "dashboard:time_density": "day",
+  "dashboard:time_interval": "P1D",
+  "summaries": {}
+}
