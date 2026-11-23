@@ -1,6 +1,7 @@
 {
   "type": "Collection",
   "stac_version": "1.0.0",
+  "eic-tenant": "water-insight",
   "extent": {
     "spatial": {
       "bbox": [
@@ -15,14 +16,13 @@
     "temporal": {
       "interval": [
         [
-          "2007-08-01 05:00:00+00:00",
-          "2011-08-02 04:59:59+00:00"
+          "2007-08-01T05:00:00+00:00",
+          "2011-08-02T04:59:59+00:00"
         ]
       ]
     }
   },
   "links": [],
-  "eic:tenant": "Public",
   "id": "nldas2-percentile",
   "title": "NLDAS-2 Percentiles",
   "license": "CC0-1.0",
